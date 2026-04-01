@@ -1,0 +1,601 @@
+---
+// index.astro — V5 Homepage with hero, pipeline tracker, featured chapters, about, and newsletter
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ChapterCard from '../components/ChapterCard.astro';
+import { CHAPTERS } from '../data/chapters';
+
+const status = {
+  final: CHAPTERS.filter(ch => ch.status === 'final').length,
+  revised: CHAPTERS.filter(ch => ch.status === 'revised').length,
+  'fact-checked': CHAPTERS.filter(ch => ch.status === 'fact-checked').length,
+  draft: CHAPTERS.filter(ch => ch.status === 'draft').length,
+  stub: CHAPTERS.filter(ch => ch.status === 'stub').length
+};
+
+// Get featured chapters: final or revised chapters, or first few high-priority drafts
+const featuredChapters = CHAPTERS.filter(ch => 
+  ch.status === 'final' || ch.status === 'revised'
+).slice(0, 3);
+---
+
+<BaseLayout
+  title="Encyclopedia of Emery County"
+  description="The definitive reference work on Emery County, Utah — its land, people, history, institutions, and culture from deep geological time to the present day."
+>
+  {/* ========== HERO SECTION ========== */}
+  <section class="hero">
+    <div class="hero__container">
+      <h1 class="hero__title">Encyclopedia of Emery County</h1>
+      <p class="hero__subtitle">
+        The definitive reference work on Emery County, Utah — its land, people, history, institutions, and culture from deep geological time to the present day.
+      </p>
+      <div class="hero__cta">
+        <a href="/chapters" class="hero__btn hero__btn--primary">Explore Chapters</a>
+        <a href="#about" class="hero__btn hero__btn--secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== PROJECT PIPELINE TRACKER ========== */}
+  <section class="pipeline">
+    <div class="pipeline__container">
+      <h2 class="pipeline__title">Project Pipeline</h2>
+      <p class="pipeline__subtitle">43 chapters across 6 thematic parts</p>
+
+      <div class="pipeline__grid">
+        <div class="pipeline__item">
+          <div class="pipeline__count pipeline__count--final">{status.final}</div>
+          <p class="pipeline__label">Final</p>
+        </div>
+        <div class="pipeline__item">
+          <div class="pipeline__count pipeline__count--revised">{status.revised}</div>
+          <p class="pipeline__label">Revised</p>
+        </div>
+        <div class="pipeline__item">
+          <div class="pipeline__count pipeline__count--factchecked">{status['fact-checked']}</div>
+          <p class="pipeline__label">Fact-Checked</p>
+        </div>
+        <div class="pipeline__item">
+          <div class="pipeline__count pipeline__count--draft">{status.draft}</div>
+          <p class="pipeline__label">Draft</p>
+        </div>
+        <div class="pipeline__item">
+          <div class="pipeline__count pipeline__count--stub">{status.stub}</div>
+          <p class="pipeline__label">Stub</p>
+        </div>
+      </div>
+
+      <div class="pipeline__progress">
+        <div class="pipeline__progress-bar">
+          <div
+            class="pipeline__progress-fill"
+            style={`width: ${((status.final + status.revised + status['fact-checked']) / 43) * 100}%`}
+          ></div>
+        </div>
+        <p class="pipeline__progress-text">
+          {status.final + status.revised + status['fact-checked']} of 43 chapters completed
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== FEATURED CHAPTERS ========== */}
+  {featuredChapters.length > 0 && (
+    <section class="featured">
+      <div class="featured__container">
+        <h2 class="featured__title">Latest Chapters</h2>
+        <p class="featured__subtitle">Discover what's ready to read</p>
+
+        <div class="featured__grid">
+          {featuredChapters.map((chapter) => (
+            <ChapterCard
+              chapter={chapter.number}
+              title={chapter.title}
+              part={chapter.part}
+              status={chapter.status}
+              description={chapter.description}
+              wordCount={chapter.wordCount}
+            />
+          ))}
+        </div>
+
+        <div class="featured__cta">
+          <a href="/chapters" class="featured__link">View All Chapters →</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* ========== ABOUT SECTION ========== */}
+  <section class="about" id="about">
+    <div class="about__container">
+      <div class="about__content">
+        <h2 class="about__title">About This Project</h2>
+        <p>
+          The Encyclopedia of Emery County is a comprehensive, rigorously sourced reference work dedicated to preserving and celebrating the story of Emery County, Utah. Written for residents, descendants of pioneer families, genealogical researchers, academic historians, and visitors to the region, it spans six thematic parts covering everything from billion-year-old geology to modern culture and field-guide exploration.
+        </p>
+        <p>
+          Each of the 43 chapters is carefully researched using primary sources, contemporary documents, oral histories, and scholarly literature. The work combines academic rigor with genuine accessibility — written at a level a motivated high-school student can follow, yet with depth that satisfies serious researchers.
+        </p>
+        <p>
+          This is both a print-first manuscript project and a living digital resource. As chapters are completed, they appear here first — with a print edition to follow once the work is complete.
+        </p>
+
+        <div class="about__highlights">
+          <div class="about__highlight">
+            <h3 class="about__highlight-title">6 Thematic Parts</h3>
+            <p>From Foundations through Field Guide</p>
+          </div>
+          <div class="about__highlight">
+            <h3 class="about__highlight-title">43 Chapters</h3>
+            <p>Deep coverage from geology to culture</p>
+          </div>
+          <div class="about__highlight">
+            <h3 class="about__highlight-title">Primary Research</h3>
+            <p>Sourced from archival, government, and field records</p>
+          </div>
+        </div>
+
+        <a href="/about" class="about__link">Full About Page →</a>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== NEWSLETTER SECTION ========== */}
+  <section class="newsletter">
+    <div class="newsletter__container">
+      <h2 class="newsletter__title">Stay in the Field</h2>
+      <p class="newsletter__subtitle">
+        Chapter previews, behind-the-research stories, and Emery County discoveries — delivered to your inbox.
+      </p>
+
+      <form class="newsletter__form" onsubmit="event.preventDefault();">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="newsletter__input"
+          required
+          aria-label="Email address"
+        />
+        <button type="submit" class="newsletter__btn">Subscribe</button>
+      </form>
+
+      <p class="newsletter__note">
+        No spam. Unsubscribe anytime. Privacy respected.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+    --sage-green: #6B9B6F;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    background: linear-gradient(135deg, var(--coal-seam) 0%, rgba(26, 26, 46, 0.95) 100%);
+    color: var(--sky-wash);
+    padding: 6rem 2rem;
+  }
+
+  .hero__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero__title {
+    margin: 0 0 1.5rem 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  .hero__subtitle {
+    margin: 0 0 2rem 0;
+    font-size: 1.25rem;
+    color: rgba(247, 243, 237, 0.85);
+    font-family: var(--font-body);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero__btn {
+    padding: 0.875rem 2rem;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .hero__btn--primary {
+    background: var(--mesa-red);
+    color: white;
+  }
+
+  .hero__btn--primary:hover {
+    background: #b74a44;
+    transform: translateY(-2px);
+  }
+
+  .hero__btn--secondary {
+    background: transparent;
+    color: var(--sky-wash);
+    border: 2px solid var(--sandstone);
+  }
+
+  .hero__btn--secondary:hover {
+    background: rgba(212, 165, 116, 0.1);
+  }
+
+  /* ========== PIPELINE TRACKER ========== */
+  .pipeline {
+    background: var(--sky-wash);
+    padding: 3rem 2rem;
+  }
+
+  .pipeline__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pipeline__title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .pipeline__subtitle {
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    color: rgba(26, 26, 46, 0.7);
+    font-family: var(--font-body);
+  }
+
+  .pipeline__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .pipeline__item {
+    text-align: center;
+  }
+
+  .pipeline__count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-body);
+  }
+
+  .pipeline__count--final {
+    color: var(--sage-green);
+  }
+
+  .pipeline__count--revised {
+    color: var(--sky-blue);
+  }
+
+  .pipeline__count--factchecked {
+    color: var(--forest-green);
+  }
+
+  .pipeline__count--draft {
+    color: var(--sandstone);
+  }
+
+  .pipeline__count--stub {
+    color: rgba(26, 26, 46, 0.4);
+  }
+
+  .pipeline__label {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(26, 26, 46, 0.7);
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+
+  .pipeline__progress {
+    border-top: 1px solid rgba(26, 26, 46, 0.1);
+    padding-top: 2rem;
+  }
+
+  .pipeline__progress-bar {
+    height: 8px;
+    background: rgba(26, 26, 46, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  .pipeline__progress-fill {
+    height: 100%;
+    background: var(--sage-green);
+    transition: width 0.3s ease;
+  }
+
+  .pipeline__progress-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(26, 26, 46, 0.7);
+    font-family: var(--font-body);
+    text-align: center;
+  }
+
+  /* ========== FEATURED CHAPTERS ========== */
+  .featured {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .featured__title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .featured__subtitle {
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    color: rgba(26, 26, 46, 0.7);
+    font-family: var(--font-body);
+  }
+
+  .featured__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .featured__cta {
+    text-align: center;
+  }
+
+  .featured__link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: var(--mesa-red);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+  }
+
+  .featured__link:hover {
+    color: var(--coal-seam);
+    transform: translateX(4px);
+  }
+
+  /* ========== ABOUT SECTION ========== */
+  .about {
+    background: var(--coal-seam);
+    color: var(--sky-wash);
+    padding: 4rem 2rem;
+  }
+
+  .about__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about__title {
+    margin: 0 0 1.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+  }
+
+  .about__container p {
+    font-family: var(--font-body);
+    line-height: 1.8;
+    color: rgba(247, 243, 237, 0.9);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .about__highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+  }
+
+  .about__highlight {
+    text-align: center;
+  }
+
+  .about__highlight-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--sandstone);
+  }
+
+  .about__highlight p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(247, 243, 237, 0.75);
+  }
+
+  .about__link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--sandstone);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+  }
+
+  .about__link:hover {
+    color: var(--sky-wash);
+    transform: translateX(4px);
+  }
+
+  /* ========== NEWSLETTER SECTION ========== */
+  .newsletter {
+    background: var(--sky-wash);
+    padding: 3rem 2rem;
+  }
+
+  .newsletter__container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .newsletter__title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .newsletter__subtitle {
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    color: rgba(26, 26, 46, 0.7);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  .newsletter__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter__input {
+    padding: 0.875rem 1rem;
+    background: white;
+    border: 2px solid rgba(26, 26, 46, 0.15);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .newsletter__input::placeholder {
+    color: rgba(26, 26, 46, 0.5);
+  }
+
+  .newsletter__input:focus {
+    outline: none;
+    border-color: var(--mesa-red);
+    background: white;
+  }
+
+  .newsletter__btn {
+    padding: 0.875rem 1.5rem;
+    background: var(--mesa-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .newsletter__btn:hover {
+    background: #b74a44;
+    transform: translateY(-2px);
+  }
+
+  .newsletter__note {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(26, 26, 46, 0.6);
+    font-family: var(--font-body);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1.5rem;
+    }
+
+    .hero__title {
+      font-size: 2rem;
+    }
+
+    .hero__subtitle {
+      font-size: 1rem;
+    }
+
+    .hero__cta {
+      flex-direction: column;
+    }
+
+    .hero__btn {
+      width: 100%;
+    }
+
+    .pipeline__grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .about {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .about__title {
+      font-size: 1.5rem;
+    }
+
+    .featured__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero__title {
+      font-size: 1.75rem;
+    }
+
+    .pipeline__count {
+      font-size: 2rem;
+    }
+  }
+</style>

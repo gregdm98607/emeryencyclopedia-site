@@ -1,0 +1,444 @@
+---
+// Footer.astro — V9 Rich three-column footer with chapter index and newsletter
+
+const currentYear = new Date().getFullYear();
+
+const parts = [
+  {
+    name: 'Part I: Foundations',
+    color: '#D4A574',
+    chapters: [
+      { num: 1, title: 'Geography & Physiography', available: true },
+      { num: 2, title: 'Deep-Time Geology', available: false },
+      { num: 3, title: 'Hydrology & Springs', available: false },
+      { num: 4, title: 'Climate & Weather', available: false },
+      { num: 5, title: 'Flora Zones', available: false },
+      { num: 6, title: 'Fauna', available: false },
+      { num: 7, title: 'Night Skies & Astronomy', available: false }
+    ]
+  },
+  {
+    name: 'Part II: Peoples',
+    color: '#C85A54',
+    chapters: [
+      { num: 8, title: 'Ancestral & Fremont Peoples', available: false },
+      { num: 9, title: 'Ute Territory & Culture', available: false },
+      { num: 10, title: 'Paiute & Shoshone Presence', available: false },
+      { num: 11, title: 'Navajo & Puebloan Connections', available: false },
+      { num: 12, title: 'Trade Routes & Exchange', available: false },
+      { num: 13, title: 'Contact & Collision', available: false }
+    ]
+  },
+  {
+    name: 'Part III: Settlement',
+    color: '#1A1A2E',
+    chapters: [
+      { num: 16, title: 'Mormon Colonization', available: false },
+      { num: 17, title: 'Coal, Copper & Uranium', available: false },
+      { num: 18, title: 'Communities & Towns', available: false },
+      { num: 19, title: 'Agriculture & Land Use', available: false },
+      { num: 20, title: 'Transportation & Infrastructure', available: false }
+    ]
+  },
+  {
+    name: 'Part IV: Culture & Identity',
+    color: '#4A6741',
+    chapters: [
+      { num: 24, title: 'Arts & Music', available: false },
+      { num: 25, title: 'Food & Foodways', available: false },
+      { num: 26, title: 'Oral Histories & Stories', available: false },
+      { num: 27, title: 'Celebrations & Traditions', available: false },
+      { num: 28, title: 'Notable People & Leaders', available: false }
+    ]
+  },
+  {
+    name: 'Part V: Field Guide',
+    color: '#5B8AC5',
+    chapters: [
+      { num: 36, title: 'Scenic Drives', available: false },
+      { num: 37, title: 'Hiking & Trails', available: false },
+      { num: 38, title: 'Photography Spots', available: false },
+      { num: 39, title: 'Hot Springs & Waterfalls', available: false },
+      { num: 40, title: 'Wildlife Viewing', available: false }
+    ]
+  },
+  {
+    name: 'Part VI: Resources',
+    color: '#8B6F47',
+    chapters: [
+      { num: 41, title: 'Practical Information', available: false },
+      { num: 42, title: 'Glossary', available: false },
+      { num: 43, title: 'Systematic Index', available: false }
+    ]
+  }
+];
+---
+
+<footer class="footer">
+  <div class="footer__container">
+    {/* Column 1: Chapter Quick-Index */}
+    <div class="footer__column footer__column--chapters">
+      <h2 class="footer__column-title">Explore Chapters</h2>
+
+      <div class="footer__accordion-list">
+        {parts.map((part) => (
+          <details class="footer__details">
+            <summary
+              class="footer__summary"
+              style={`--part-color: ${part.color}`}
+            >
+              {part.name}
+            </summary>
+            <ul class="footer__chapter-list">
+              {part.chapters.map((chapter) => (
+                <li class="footer__chapter-item">
+                  {chapter.available ? (
+                    <a
+                      href={`/chapters/${chapter.num}`}
+                      class="footer__chapter-link"
+                    >
+                      Ch. {chapter.num}: {chapter.title}
+                    </a>
+                  ) : (
+                    <span class="footer__chapter-coming">
+                      Ch. {chapter.num}: {chapter.title}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    {/* Column 2: Newsletter Signup */}
+    <div class="footer__column footer__column--newsletter">
+      <h2 class="footer__column-title">Stay in the field.</h2>
+      <p class="footer__newsletter-desc">
+        Chapter previews, behind-the-research stories, and Emery County discoveries — delivered to your inbox.
+      </p>
+
+      <form class="footer__newsletter-form" onsubmit="event.preventDefault();">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="footer__newsletter-input"
+          required
+          aria-label="Email address"
+        />
+        <button type="submit" class="footer__newsletter-btn">
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    {/* Column 3: About & Links */}
+    <div class="footer__column footer__column--about">
+      <h2 class="footer__column-title">About</h2>
+      <p class="footer__about-desc">
+        A comprehensive encyclopedia of Emery County, Utah — its land, people, history, and culture.
+      </p>
+
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="/about" class="footer__link">About</a>
+        <a href="/chapters" class="footer__link">Table of Contents</a>
+        <a href="/resources" class="footer__link">Resources</a>
+        <a href="#contact" class="footer__link">Contact</a>
+      </nav>
+
+      <p class="footer__credit">
+        A project by Greg Maxfield
+      </p>
+    </div>
+  </div>
+
+  {/* Bottom Bar */}
+  <div class="footer__bottom">
+    <div class="footer__bottom-container">
+      <p class="footer__tagline">
+        Built with field notes, archival dust, and Astro.
+      </p>
+      <div class="footer__bottom-links">
+        <a href="#rss" class="footer__bottom-link">RSS</a>
+        <a href="/sitemap.xml" class="footer__bottom-link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+
+  {/* Copyright */}
+  <div class="footer__copyright">
+    <p>&copy; {currentYear} Encyclopedia of Emery County. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+  }
+
+  .footer {
+    background: var(--coal-seam);
+    color: var(--sky-wash);
+    padding: 4rem 2rem;
+  }
+
+  .footer__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Column Structure */
+  .footer__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer__column-title {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--sky-wash);
+  }
+
+  /* Column 1: Chapter Quick-Index */
+  .footer__accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer__details {
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .footer__summary {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    user-select: none;
+    background: rgba(212, 165, 116, 0.08);
+    border-left: 3px solid var(--part-color);
+    transition: background 0.2s ease;
+  }
+
+  .footer__summary:hover {
+    background: rgba(212, 165, 116, 0.15);
+  }
+
+  .footer__details[open] .footer__summary {
+    background: rgba(212, 165, 116, 0.12);
+  }
+
+  .footer__chapter-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 0.85rem;
+  }
+
+  .footer__chapter-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer__chapter-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer__chapter-link {
+    color: var(--sky-wash);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer__chapter-link:hover {
+    color: var(--sandstone);
+  }
+
+  .footer__chapter-coming {
+    color: rgba(247, 243, 237, 0.5);
+  }
+
+  /* Column 2: Newsletter */
+  .footer__newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__newsletter-input {
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 4px;
+    color: var(--sky-wash);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .footer__newsletter-input::placeholder {
+    color: rgba(247, 243, 237, 0.6);
+  }
+
+  .footer__newsletter-input:focus {
+    outline: none;
+    border-color: var(--sandstone);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .footer__newsletter-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--mesa-red);
+    color: var(--sky-wash);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .footer__newsletter-btn:hover {
+    background: #b74a44;
+    transform: translateY(-2px);
+  }
+
+  .footer__newsletter-btn:active {
+    transform: translateY(0);
+  }
+
+  .footer__newsletter-desc {
+    margin: 0 0 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(247, 243, 237, 0.9);
+  }
+
+  /* Column 3: About & Links */
+  .footer__about-desc {
+    margin: 0 0 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(247, 243, 237, 0.9);
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__link {
+    color: var(--sky-wash);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer__link:hover {
+    color: var(--sandstone);
+  }
+
+  .footer__credit {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(247, 243, 237, 0.7);
+  }
+
+  /* Bottom Bar */
+  .footer__bottom {
+    border-top: 1px solid var(--sandstone);
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer__bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer__tagline {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(247, 243, 237, 0.8);
+  }
+
+  .footer__bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer__bottom-link {
+    color: var(--sky-wash);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer__bottom-link:hover {
+    color: var(--sandstone);
+  }
+
+  /* Copyright */
+  .footer__copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 165, 116, 0.1);
+    font-size: 0.85rem;
+    color: rgba(247, 243, 237, 0.6);
+  }
+
+  .footer__copyright p {
+    margin: 0;
+  }
+
+  /* Mobile: Stack columns */
+  @media (max-width: 1023px) {
+    .footer__container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer__bottom-container {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .footer__bottom-links {
+      justify-content: center;
+    }
+  }
+
+  /* Tablet: 2-column layout */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .footer__container {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer__column--chapters {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

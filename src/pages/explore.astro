@@ -1,0 +1,461 @@
+---
+// explore.astro — W2 Explorable Topographic Map
+// Interactive MapLibre GL JS map of Emery County with landmark pins and toggleable layers
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Explore Emery County"
+  description="Explore Emery County interactively with our topographic map featuring landmarks, communities, geology, water features, and historic sites."
+>
+  <div class="explore-container">
+    <!-- Map container -->
+    <div id="map" class="explore-map"></div>
+
+    <!-- Controls panel -->
+    <div class="explore-controls">
+      <div class="controls-header">
+        <h2 class="controls-title">Map Layers</h2>
+        <button id="controls-toggle" class="controls-toggle" aria-label="Toggle controls" style="display: none;">
+          ☰
+        </button>
+      </div>
+
+      <div class="controls-content">
+        <!-- Layer checkboxes -->
+        <div class="layer-toggles">
+          <label class="layer-toggle">
+            <input type="checkbox" class="layer-checkbox" data-layer="community" checked />
+            <span class="layer-dot community"></span>
+            <span class="layer-label">Communities</span>
+          </label>
+
+          <label class="layer-toggle">
+            <input type="checkbox" class="layer-checkbox" data-layer="geology" checked />
+            <span class="layer-dot geology"></span>
+            <span class="layer-label">Geology</span>
+          </label>
+
+          <label class="layer-toggle">
+            <input type="checkbox" class="layer-checkbox" data-layer="water" checked />
+            <span class="layer-dot water"></span>
+            <span class="layer-label">Water Features</span>
+          </label>
+
+          <label class="layer-toggle">
+            <input type="checkbox" class="layer-checkbox" data-layer="historic" checked />
+            <span class="layer-dot historic"></span>
+            <span class="layer-label">Historic Sites</span>
+          </label>
+        </div>
+
+        <!-- Plan Your Visit button -->
+        <button class="plan-visit-btn" disabled title="Coming in the Field Guide">
+          Plan a Route
+        </button>
+      </div>
+    </div>
+
+    <!-- Noscript fallback -->
+    <noscript>
+      <div class="noscript-message">
+        <p>This interactive map requires JavaScript. Please enable JavaScript in your browser to explore Emery County's landmarks and landscapes.</p>
+      </div>
+    </noscript>
+  </div>
+</BaseLayout>
+
+<!-- MapLibre GL JS resources -->
+<link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
+
+<script>
+  // Landmark data for Emery County
+  const landmarks = [
+    // Communities
+    { name: "Castle Dale", lat: 39.2114, lng: -111.0188, type: "community", chapters: [21, 23, 25], description: "County seat of Emery County" },
+    { name: "Ferron", lat: 39.0933, lng: -111.1330, type: "community", chapters: [21, 19], description: "Agricultural community in the heart of Castle Valley" },
+    { name: "Huntington", lat: 39.3264, lng: -111.0164, type: "community", chapters: [21, 17], description: "Mining heritage community at the mouth of Huntington Canyon" },
+    { name: "Orangeville", lat: 39.2272, lng: -111.0527, type: "community", chapters: [21], description: "Small community south of Castle Dale" },
+    { name: "Green River", lat: 38.9955, lng: -110.1627, type: "community", chapters: [21, 18], description: "Gateway to the San Rafael Swell and river recreation" },
+    { name: "Cleveland", lat: 39.3510, lng: -110.8549, type: "community", chapters: [21], description: "Northern Emery County community" },
+    { name: "Elmo", lat: 39.3902, lng: -110.8227, type: "community", chapters: [21], description: "Small community in northern Emery County" },
+    { name: "Emery", lat: 38.9219, lng: -111.2486, type: "community", chapters: [21], description: "Historic community near the southern end of Castle Valley" },
+
+    // Geology
+    { name: "San Rafael Swell", lat: 38.88, lng: -110.68, type: "geology", chapters: [1, 2, 31], description: "Massive dome-shaped uplift exposing ancient rock formations" },
+    { name: "Goblin Valley State Park", lat: 38.5687, lng: -110.4048, type: "geology", chapters: [2, 31], description: "Surreal landscape of mushroom-shaped hoodoos eroded from Entrada Sandstone" },
+    { name: "Book Cliffs", lat: 39.58, lng: -110.50, type: "geology", chapters: [1, 2], description: "2,000-foot escarpment stretching across northern Emery County" },
+    { name: "Wedge Overlook", lat: 39.12, lng: -110.64, type: "geology", chapters: [1, 33], description: "Dramatic viewpoint overlooking the Little Grand Canyon" },
+
+    // Water
+    { name: "Ferron Creek", lat: 39.08, lng: -111.10, type: "water", chapters: [3, 20], description: "Major waterway sustaining Ferron and surrounding farms" },
+    { name: "Cottonwood Creek", lat: 39.20, lng: -111.05, type: "water", chapters: [3, 20], description: "Creek running through Castle Dale and Orangeville" },
+    { name: "Huntington Creek", lat: 39.35, lng: -111.05, type: "water", chapters: [3, 20], description: "Water source for Huntington and northern communities" },
+    { name: "Joe's Valley Reservoir", lat: 39.30, lng: -111.25, type: "water", chapters: [3, 34], description: "Popular recreation reservoir on the Wasatch Plateau" },
+
+    // Historic
+    { name: "Sego Ghost Town", lat: 39.04, lng: -109.80, type: "historic", chapters: [17, 21], description: "Abandoned coal mining town near the Colorado border" },
+    { name: "Temple Mountain", lat: 38.67, lng: -110.67, type: "historic", chapters: [17], description: "Historic uranium mining district in the San Rafael Swell" },
+  ];
+
+  // Color mapping for landmark types
+  const typeColors = {
+    community: "#5B7B6A", // sage/forest green
+    geology: "#C2956B",   // sandstone
+    water: "#2C5F7C",     // sky blue
+    historic: "#A0522D"   // mesa red
+  };
+
+  // Initialize map when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create map
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            attribution: '© OpenStreetMap contributors'
+            // Note: Can upgrade to terrain tiles (e.g., https://tile.jawg.io/terrain/{z}/{x}/{y}.png) later
+          }
+        },
+        layers: [
+          {
+            id: 'osm-layer',
+            type: 'raster',
+            source: 'osm',
+            minzoom: 0,
+            maxzoom: 19
+          }
+        ]
+      },
+      center: [-110.70, 38.95],
+      zoom: 9,
+      pitch: 0,
+      bearing: 0
+    });
+
+    // Add controls
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+    map.addControl(new maplibregl.ScaleControl(), 'bottom-left');
+
+    // Store markers by type for toggling
+    const markersByType = {
+      community: [],
+      geology: [],
+      water: [],
+      historic: []
+    };
+
+    // Add landmark markers
+    landmarks.forEach(landmark => {
+      // Create marker element
+      const markerEl = document.createElement('div');
+      markerEl.className = 'landmark-marker';
+      markerEl.style.width = '12px';
+      markerEl.style.height = '12px';
+      markerEl.style.borderRadius = '50%';
+      markerEl.style.backgroundColor = typeColors[landmark.type];
+      markerEl.style.cursor = 'pointer';
+      markerEl.style.border = '2px solid white';
+      markerEl.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
+
+      // Create popup content
+      const popupContent = document.createElement('div');
+      popupContent.className = 'landmark-popup';
+      popupContent.innerHTML = `
+        <div style="font-weight: 700; font-size: 1.1em; margin-bottom: 0.5rem;">${landmark.name}</div>
+        <div style="font-size: 0.9em; color: #555; margin-bottom: 0.75rem;">${landmark.description}</div>
+        <div style="font-size: 0.85em; color: #666;">
+          <strong>Related chapters:</strong>
+          <div style="margin-top: 0.25rem;">
+            ${landmark.chapters.map(ch => `<a href="/chapters#ch${ch}" style="display: inline-block; margin-right: 0.5rem; color: #2C5F7C; text-decoration: none; border-bottom: 1px solid #2C5F7C;">Ch${ch}</a>`).join('')}
+          </div>
+        </div>
+      `;
+
+      const popup = new maplibregl.Popup({ offset: 25 }).setDOMContent(popupContent);
+
+      // Create marker and add to map
+      const marker = new maplibregl.Marker({ element: markerEl })
+        .setLngLat([landmark.lng, landmark.lat])
+        .setPopup(popup)
+        .addTo(map);
+
+      // Store marker reference
+      markersByType[landmark.type].push(marker);
+    });
+
+    // Layer toggle functionality
+    const layerCheckboxes = document.querySelectorAll('.layer-checkbox');
+    layerCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const layer = this.dataset.layer;
+        const markers = markersByType[layer];
+        const visible = this.checked;
+
+        markers.forEach(marker => {
+          marker.getElement().style.display = visible ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Mobile controls toggle
+    const controlsToggle = document.getElementById('controls-toggle');
+    const controlsContent = document.querySelector('.controls-content');
+    const controlsPanel = document.querySelector('.explore-controls');
+
+    // Show toggle button on small screens
+    function updateControlsView() {
+      if (window.innerWidth < 768) {
+        controlsToggle.style.display = 'block';
+        controlsPanel.classList.add('mobile');
+      } else {
+        controlsToggle.style.display = 'none';
+        controlsPanel.classList.remove('mobile');
+        controlsContent.style.display = 'block';
+      }
+    }
+
+    updateControlsView();
+    window.addEventListener('resize', updateControlsView);
+
+    controlsToggle.addEventListener('click', function() {
+      const isExpanded = controlsContent.style.display === 'block';
+      controlsContent.style.display = isExpanded ? 'none' : 'block';
+      controlsPanel.classList.toggle('expanded');
+    });
+  });
+</script>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+    --sage-green: #5B7B6A;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .explore-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: #f5f5f5;
+  }
+
+  .explore-map {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Controls panel */
+  .explore-controls {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+
+  .controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+  }
+
+  .controls-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .controls-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    color: var(--coal-seam);
+  }
+
+  .controls-content {
+    padding: 1rem;
+    min-width: 200px;
+  }
+
+  /* Layer toggles */
+  .layer-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .layer-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .layer-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--sage-green);
+  }
+
+  .layer-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .layer-dot.community {
+    background-color: #5B7B6A;
+  }
+
+  .layer-dot.geology {
+    background-color: #C2956B;
+  }
+
+  .layer-dot.water {
+    background-color: #2C5F7C;
+  }
+
+  .layer-dot.historic {
+    background-color: #A0522D;
+  }
+
+  .layer-label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--coal-seam);
+    font-weight: 500;
+  }
+
+  /* Plan Visit button */
+  .plan-visit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--sky-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+  }
+
+  .plan-visit-btn:hover {
+    /* Disabled state */
+  }
+
+  /* Noscript fallback */
+  .noscript-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    z-index: 100;
+  }
+
+  .noscript-message p {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--coal-seam);
+    line-height: 1.6;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .explore-controls {
+      top: 0.75rem;
+      left: 0.75rem;
+    }
+
+    .explore-controls.mobile .controls-content {
+      display: none;
+    }
+
+    .explore-controls.expanded .controls-content {
+      display: block;
+    }
+
+    .controls-toggle {
+      display: block;
+    }
+
+    .controls-content {
+      min-width: 180px;
+    }
+  }
+
+  /* MapLibre popup styling */
+  :global(.maplibregl-popup-content) {
+    border-radius: 8px;
+    padding: 0 !important;
+  }
+
+  :global(.landmark-popup) {
+    padding: 1rem;
+    font-family: var(--font-body);
+  }
+
+  :global(.landmark-popup a) {
+    transition: color 0.2s ease;
+  }
+
+  :global(.landmark-popup a:hover) {
+    color: #1e4559;
+  }
+
+  /* MapLibre default styling fixes */
+  :global(.maplibregl-ctrl) {
+    background-color: white;
+    border: 1px solid #ddd;
+  }
+
+  :global(.maplibregl-ctrl button) {
+    background-color: white;
+    color: var(--coal-seam);
+  }
+
+  :global(.maplibregl-ctrl button:hover) {
+    background-color: #f5f5f5;
+  }
+</style>

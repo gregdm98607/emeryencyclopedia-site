@@ -1,0 +1,419 @@
+---
+// resources.astro — V5 Resources page with research sources, archives, maps, and further reading
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Resources"
+  description="Research sources, archives, maps, and further reading for the Encyclopedia of Emery County."
+>
+  <div class="resources-page">
+    {/* Hero section */}
+    <section class="resources-hero">
+      <div class="resources-hero__container">
+        <h1 class="resources-hero__title">Resources</h1>
+        <p class="resources-hero__subtitle">
+          Primary sources, archives, maps, and references supporting the Encyclopedia.
+        </p>
+      </div>
+    </section>
+
+    {/* Main content */}
+    <article class="resources-content">
+      <div class="resources-content__container">
+        {/* Primary Sources */}
+        <section class="resources-section">
+          <h2 class="resources-section__title">Primary Sources & Archives</h2>
+          <p>
+            The Encyclopedia draws heavily from primary sources — original documents, records, and artifacts from the period or place being studied.
+          </p>
+
+          <div class="resources-grid">
+            <div class="resource-card">
+              <h3 class="resource-card__title">FamilySearch & LDS Family History</h3>
+              <p class="resource-card__desc">Vital records, church records, and genealogical collections for Emery County families.</p>
+              <a href="https://familysearch.org" class="resource-card__link" target="_blank">Visit FamilySearch →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Utah State Archives</h3>
+              <p class="resource-card__desc">Government records, land documents, and territorial archives.</p>
+              <a href="https://archives.utah.gov" class="resource-card__link" target="_blank">Visit State Archives →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">BYU Special Collections</h3>
+              <p class="resource-card__desc">Rare books, manuscripts, photographs, and oral history collections related to Utah and the intermountain West.</p>
+              <a href="https://lib.byu.edu/special-collections/" class="resource-card__link" target="_blank">Visit BYU Special Collections →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Emery County Courthouse</h3>
+              <p class="resource-card__desc">Court records, land records, deeds, and local government documents.</p>
+              <a href="https://co.emery.ut.us" class="resource-card__link" target="_blank">Emery County →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Newspapers & Periodicals</h3>
+              <p class="resource-card__desc">Historic newspaper archives including the Emery County Progress and regional publications.</p>
+              <a href="https://historicnewspapers.org" class="resource-card__link" target="_blank">Historic Newspapers →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">USGS & Geological Data</h3>
+              <p class="resource-card__desc">Geologic maps, water quality data, and scientific publications on regional geology.</p>
+              <a href="https://www.usgs.gov" class="resource-card__link" target="_blank">Visit USGS →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Maps & Spatial Data */}
+        <section class="resources-section">
+          <h2 class="resources-section__title">Maps & Spatial Data</h2>
+          <p>
+            Maps and geographic information systems (GIS) are essential tools for understanding Emery County's landscape, settlement patterns, and regional context.
+          </p>
+
+          <div class="resources-grid">
+            <div class="resource-card">
+              <h3 class="resource-card__title">USGS Topographic Maps</h3>
+              <p class="resource-card__desc">Historical and current USGS 7.5-minute quadrangle maps for Emery County and surrounding areas.</p>
+              <a href="https://www.usgs.gov/faqs/what-usgs" class="resource-card__link" target="_blank">Learn more →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">BLM & NPS Data</h3>
+              <p class="resource-card__desc">Land management data, protected areas, and public lands information.</p>
+              <a href="https://www.blm.gov" class="resource-card__link" target="_blank">Visit BLM →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Utah GIS Clearinghouse</h3>
+              <p class="resource-card__desc">Statewide GIS datasets including elevation, land use, roads, and administrative boundaries.</p>
+              <a href="https://gis.utah.gov" class="resource-card__link" target="_blank">Visit Utah GIS →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Historical Maps</h3>
+              <p class="resource-card__desc">Historic maps of Emery County from various eras, showing settlement and infrastructure changes.</p>
+              <a href="https://www.loc.gov/collections/ameritopo/" class="resource-card__link" target="_blank">Library of Congress Maps →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Census & Demographic Data</h3>
+              <p class="resource-card__desc">U.S. Census historical data and contemporary demographic information.</p>
+              <a href="https://www.census.gov" class="resource-card__link" target="_blank">Visit Census Bureau →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Open Street Map</h3>
+              <p class="resource-card__desc">Community-maintained geographic data for navigation and reference mapping.</p>
+              <a href="https://www.openstreetmap.org" class="resource-card__link" target="_blank">Visit OpenStreetMap →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Academic & Reference */}
+        <section class="resources-section">
+          <h2 class="resources-section__title">Academic & Reference Materials</h2>
+          <p>
+            Secondary sources, academic publications, and curated reference works that synthesize research on Emery County, Utah history, and regional studies.
+          </p>
+
+          <div class="resources-grid">
+            <div class="resource-card">
+              <h3 class="resource-card__title">Utah Historical Society</h3>
+              <p class="resource-card__desc">Publications, research guides, and archives covering Utah history and local heritage.</p>
+              <a href="https://history.utah.gov" class="resource-card__link" target="_blank">Visit UHS →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">University of Utah Marriott Library</h3>
+              <p class="resource-card__desc">Extensive collections on Western history, mining, settlement, and regional development.</p>
+              <a href="https://www.lib.utah.edu" class="resource-card__link" target="_blank">Visit Marriott Library →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Published County Histories</h3>
+              <p class="resource-card__desc">County histories and local-authored works documenting Emery County's past.</p>
+              <a href="https://www.worldcat.org" class="resource-card__link" target="_blank">Search WorldCat →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Geological & Natural History</h3>
+              <p class="resource-card__desc">Academic papers on Emery County geology, paleontology, ecology, and natural history.</p>
+              <a href="https://scholar.google.com" class="resource-card__link" target="_blank">Google Scholar →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Mormon History & Settlement</h3>
+              <p class="resource-card__desc">Publications on LDS settlement, community development, and cultural history in the region.</p>
+              <a href="https://www.josephsmithpapers.org" class="resource-card__link" target="_blank">Joseph Smith Papers →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Indigenous Perspectives & Tribal Resources</h3>
+              <p class="resource-card__desc">Works by and about Ute, Paiute, Shoshone, and other tribal nations with connections to Emery County.</p>
+              <a href="https://www.nativamerican.si.edu" class="resource-card__link" target="_blank">Smithsonian Native American →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Field Resources */}
+        <section class="resources-section">
+          <h2 class="resources-section__title">Field Guides & Visitor Resources</h2>
+          <p>
+            Practical guides and resources for exploring Emery County's landscapes, wildlife, and communities.
+          </p>
+
+          <div class="resources-grid">
+            <div class="resource-card">
+              <h3 class="resource-card__title">National Parks & Monuments</h3>
+              <p class="resource-card__desc">Official guides and information for Arches, Canyonlands, and other nearby protected areas.</p>
+              <a href="https://www.nps.gov" class="resource-card__link" target="_blank">Visit NPS →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">BLM Recreation Guides</h3>
+              <p class="resource-card__desc">Trails, camping, scenic areas, and recreation opportunities on public lands.</p>
+              <a href="https://www.blm.gov/programs/recreation" class="resource-card__link" target="_blank">BLM Recreation →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Wildlife Identification</h3>
+              <p class="resource-card__desc">Field guides to fauna of the intermountain region and Colorado Plateau.</p>
+              <a href="https://www.wildlifegov.org" class="resource-card__link" target="_blank">Wildlife Resources →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Stargazing & Night Sky</h3>
+              <p class="resource-card__desc">Resources for observing night skies and understanding dark sky preservation.</p>
+              <a href="https://www.darksky.org" class="resource-card__link" target="_blank">International Dark Sky →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Hiking & Trail Resources</h3>
+              <p class="resource-card__desc">Trail maps, guides, and community-contributed route information.</p>
+              <a href="https://www.alltrails.com" class="resource-card__link" target="_blank">AllTrails →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Photography Locations</h3>
+              <p class="resource-card__desc">Scenic photography spots and landscape documentation resources.</p>
+              <a href="https://www.lightroom.adobe.com" class="resource-card__link" target="_blank">Adobe Lightroom →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Contribution */}
+        <section class="resources-section resources-section--final">
+          <h2 class="resources-section__title">Contribute to the Encyclopedia</h2>
+          <p>
+            Have a source to recommend? Found an error? Have photographs, oral histories, or primary documents to share? We're always looking to strengthen and expand the Encyclopedia's research base.
+          </p>
+          <a href="#contact" class="resources-contribute-link">Submit a Resource or Correction</a>
+        </section>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .resources-page {
+    min-height: 100vh;
+  }
+
+  /* Hero section */
+  .resources-hero {
+    background: linear-gradient(135deg, var(--coal-seam) 0%, rgba(26, 26, 46, 0.95) 100%);
+    color: var(--sky-wash);
+    padding: 4rem 2rem;
+  }
+
+  .resources-hero__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .resources-hero__title {
+    margin: 0 0 1rem 0;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  .resources-hero__subtitle {
+    margin: 0;
+    font-size: 1.25rem;
+    color: rgba(247, 243, 237, 0.85);
+    font-family: var(--font-body);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* Content area */
+  .resources-content {
+    padding: 3rem 2rem;
+  }
+
+  .resources-content__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Section styling */
+  .resources-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .resources-section--final {
+    margin-bottom: 0;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(26, 26, 46, 0.1);
+  }
+
+  .resources-section__title {
+    margin: 0 0 1rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .resources-section p {
+    margin: 0 0 2rem 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(26, 26, 46, 0.85);
+  }
+
+  /* Resource grid */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Resource card */
+  .resource-card {
+    padding: 1.5rem;
+    background: var(--sky-wash);
+    border-radius: 8px;
+    border-left: 4px solid var(--sandstone);
+    transition: all 0.2s ease;
+  }
+
+  .resource-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .resource-card__title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .resource-card__desc {
+    margin: 0 0 1rem 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(26, 26, 46, 0.75);
+  }
+
+  .resource-card__link {
+    display: inline-block;
+    color: var(--mesa-red);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  .resource-card__link:hover {
+    color: var(--coal-seam);
+    transform: translateX(4px);
+  }
+
+  /* Contribution link */
+  .resources-contribute-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--mesa-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+  }
+
+  .resources-contribute-link:hover {
+    background: #b74a44;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .resources-hero {
+      padding: 2rem 1.5rem;
+    }
+
+    .resources-hero__title {
+      font-size: 2rem;
+    }
+
+    .resources-hero__subtitle {
+      font-size: 1rem;
+    }
+
+    .resources-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .resources-section__title {
+      font-size: 1.5rem;
+    }
+
+    .resources-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .resources-hero__title {
+      font-size: 1.5rem;
+    }
+
+    .resources-section__title {
+      font-size: 1.25rem;
+    }
+
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

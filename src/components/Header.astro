@@ -1,0 +1,641 @@
+---
+// Header.astro — V10 Header with navigation, mega-menu, and mobile hamburger
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/', submenu: null },
+  {
+    label: 'Chapters',
+    href: '/chapters',
+    submenu: [
+      {
+        part: 'Part I: Foundations',
+        color: 'var(--sandstone)',
+        chapters: [
+          { num: '1', title: 'Geography & Physiography' },
+          { num: '2', title: 'Deep-Time Geology' },
+          { num: '3', title: 'Hydrology & Springs' }
+        ]
+      },
+      {
+        part: 'Part II: Peoples',
+        color: 'var(--mesa-red)',
+        chapters: [
+          { num: '8', title: 'Ancestral & Fremont Peoples' },
+          { num: '9', title: 'Ute Territory & Culture' },
+          { num: '10', title: 'Paiute & Shoshone Presence' }
+        ]
+      },
+      {
+        part: 'Part III: Settlement',
+        color: 'var(--coal-seam)',
+        chapters: [
+          { num: '16', title: 'Mormon Colonization' },
+          { num: '17', title: 'Coal, Copper & Uranium' },
+          { num: '18', title: 'Communities & Towns' }
+        ]
+      },
+      {
+        part: 'Part IV: Culture & Identity',
+        color: 'var(--forest-green)',
+        chapters: [
+          { num: '24', title: 'Arts & Music' },
+          { num: '25', title: 'Food & Foodways' },
+          { num: '26', title: 'Oral Histories & Stories' }
+        ]
+      },
+      {
+        part: 'Part V: Field Guide',
+        color: 'var(--sky-blue)',
+        chapters: [
+          { num: '36', title: 'Scenic Drives' },
+          { num: '37', title: 'Hiking & Trails' },
+          { num: '38', title: 'Photography Spots' }
+        ]
+      },
+      {
+        part: 'Part VI: Resources',
+        color: 'var(--canyon-bronze)',
+        chapters: [
+          { num: '41', title: 'Practical Information' },
+          { num: '42', title: 'Glossary' },
+          { num: '43', title: 'Index' }
+        ]
+      }
+    ]
+  },
+  { label: 'Field Guide', href: '/chapters#part-5', submenu: null },
+  { label: 'About', href: '/about', submenu: null },
+  { label: 'Resources', href: '/resources', submenu: null },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/' && currentPath === '/') return true;
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+}
+---
+
+<header class="header">
+  <nav class="header__nav" role="navigation" aria-label="Main navigation">
+    {/* Left: Identity Mark */}
+    <a href="/" class="header__mark" aria-label="Encyclopedia of Emery County home">
+      <svg
+        class="header__topo-mark"
+        viewBox="0 0 120 120"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        {/* Nested topographic contour lines */}
+        <circle cx="60" cy="60" r="50" fill="none" stroke="#D4A574" stroke-width="2" opacity="0.8" />
+        <circle cx="60" cy="60" r="40" fill="none" stroke="#D4A574" stroke-width="1.5" opacity="0.7" />
+        <circle cx="60" cy="60" r="30" fill="none" stroke="#D4A574" stroke-width="1" opacity="0.6" />
+        <circle cx="60" cy="60" r="20" fill="none" stroke="#D4A574" stroke-width="0.8" opacity="0.5" />
+        <circle cx="60" cy="60" r="10" fill="none" stroke="#D4A574" stroke-width="0.6" opacity="0.4" />
+      </svg>
+      <span class="header__title">Encyclopedia of Emery County</span>
+    </a>
+
+    {/* Center: Primary Navigation */}
+    <ul class="header__menu">
+      {navItems.map((item) => (
+        <li class="header__menu-item">
+          <a
+            href={item.href}
+            class={`header__link ${isActive(item.href) ? 'header__link--active' : ''}`}
+          >
+            {item.label}
+          </a>
+
+          {/* Mega Menu Dropdown (desktop only) */}
+          {item.submenu && (
+            <div class="header__mega-menu">
+              <div class="header__mega-grid">
+                {item.submenu.map((section) => (
+                  <div class="header__mega-section">
+                    <h3 class="header__mega-title" style={`color: ${section.color}`}>
+                      {section.part}
+                    </h3>
+                    <ul class="header__mega-list">
+                      {section.chapters.map((chapter) => (
+                        <li>
+                          <a href={`/chapters/${chapter.num}`} class="header__mega-link">
+                            Ch. {chapter.num}: {chapter.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    {/* Right: Search Trigger */}
+    <button
+      class="header__search-btn"
+      aria-label="Search"
+      data-search-trigger
+    >
+      <svg
+        class="header__search-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+    </button>
+
+    {/* Mobile: Hamburger Toggle */}
+    <button
+      class="header__hamburger"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  {/* Mobile Menu Overlay */}
+  <div class="header__mobile-menu" id="mobile-menu">
+    <ul class="header__mobile-list">
+      {navItems.map((item) => (
+        <li class="header__mobile-item">
+          {item.submenu ? (
+            <details class="header__mobile-accordion">
+              <summary class="header__mobile-summary">
+                {item.label}
+              </summary>
+              <div class="header__mobile-content">
+                {item.submenu.map((section) => (
+                  <div class="header__mobile-section">
+                    <h4 class="header__mobile-section-title" style={`color: ${section.color}`}>
+                      {section.part}
+                    </h4>
+                    <ul class="header__mobile-sublist">
+                      {section.chapters.map((chapter) => (
+                        <li>
+                          <a href={`/chapters/${chapter.num}`} class="header__mobile-link">
+                            Ch. {chapter.num}: {chapter.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <a href={item.href} class="header__mobile-link">
+              {item.label}
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 243, 237, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--sandstone);
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .header.header--scrolled {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(26, 26, 46, 0.1);
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 72px;
+  }
+
+  /* Logo / Mark */
+  .header__mark {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--coal-seam);
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mark:hover {
+    opacity: 0.8;
+  }
+
+  .header__topo-mark {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .header__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+  }
+
+  /* Primary Menu */
+  .header__menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .header__menu-item {
+    position: relative;
+  }
+
+  .header__link {
+    display: block;
+    color: var(--coal-seam);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .header__link:hover {
+    color: var(--mesa-red);
+    border-bottom-color: var(--sandstone);
+  }
+
+  .header__link--active {
+    color: var(--mesa-red);
+    border-bottom-color: var(--sandstone);
+  }
+
+  /* Mega Menu */
+  .header__mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background: var(--coal-seam);
+    color: var(--sky-wash);
+    padding: 2rem;
+    margin-top: 0.5rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 101;
+  }
+
+  .header__menu-item:hover .header__mega-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .header__mega-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header__mega-section {
+    min-width: 200px;
+  }
+
+  .header__mega-title {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .header__mega-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__mega-list li {
+    margin-bottom: 0.75rem;
+  }
+
+  .header__mega-link {
+    color: var(--sky-wash);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .header__mega-link:hover {
+    color: var(--sandstone);
+  }
+
+  /* Search Button */
+  .header__search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--coal-seam);
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .header__search-btn:hover {
+    color: var(--mesa-red);
+  }
+
+  .header__search-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Hamburger */
+  .header__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .header__hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--coal-seam);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .header__hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .header__hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* Mobile Menu */
+  .header__mobile-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: var(--sky-wash);
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+    z-index: 99;
+  }
+
+  .header__mobile-menu.menu-open {
+    max-height: calc(100vh - 72px);
+  }
+
+  .header__mobile-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0;
+  }
+
+  .header__mobile-item {
+    border-bottom: 1px solid rgba(26, 26, 46, 0.1);
+  }
+
+  .header__mobile-accordion {
+    width: 100%;
+  }
+
+  .header__mobile-summary {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--coal-seam);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .header__mobile-summary:hover {
+    background: rgba(212, 165, 116, 0.1);
+  }
+
+  .header__mobile-summary::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--coal-seam);
+    border-bottom: 2px solid var(--coal-seam);
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+  }
+
+  details[open] .header__mobile-summary::after {
+    transform: rotate(45deg);
+  }
+
+  .header__mobile-content {
+    padding: 1rem 2rem;
+    background: rgba(26, 26, 46, 0.03);
+  }
+
+  .header__mobile-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .header__mobile-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .header__mobile-section-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .header__mobile-sublist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__mobile-sublist li {
+    margin-bottom: 0.5rem;
+  }
+
+  .header__mobile-link {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--coal-seam);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .header__mobile-link:hover {
+    color: var(--mesa-red);
+  }
+
+  /* Desktop: Show menu, hide hamburger */
+  @media (min-width: 768px) {
+    .header__menu {
+      display: flex;
+    }
+
+    .header__hamburger,
+    .header__mobile-menu {
+      display: none;
+    }
+
+    .header__mark {
+      flex-shrink: 0;
+    }
+
+    .header__title {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Mobile: Adjust header height and padding */
+  @media (max-width: 767px) {
+    .header__nav {
+      height: 56px;
+      padding: 0 1rem;
+    }
+
+    .header__topo-mark {
+      width: 40px;
+      height: 40px;
+    }
+
+    .header__title {
+      display: none;
+    }
+
+    .header__mark {
+      gap: 0;
+    }
+
+    .header__search-btn {
+      width: 36px;
+      height: 36px;
+    }
+
+    .header__search-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .header__mega-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .header__mobile-menu {
+      top: 56px;
+      height: calc(100vh - 56px);
+    }
+
+    .header__mobile-menu.menu-open {
+      max-height: calc(100vh - 56px);
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const hamburger = document.querySelector('.header__hamburger') as HTMLButtonElement;
+  const mobileMenu = document.querySelector('.header__mobile-menu') as HTMLElement;
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', (!isOpen).toString());
+      mobileMenu.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.header')) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('menu-open');
+      }
+    });
+  }
+
+  // Scroll behavior: add scrolled class
+  const header = document.querySelector('.header') as HTMLElement;
+
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header--scrolled');
+      } else {
+        header.classList.remove('header--scrolled');
+      }
+    });
+  }
+</script>

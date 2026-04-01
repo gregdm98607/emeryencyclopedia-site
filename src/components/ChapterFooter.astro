@@ -1,0 +1,160 @@
+---
+import { CHAPTERS } from '../data/chapters';
+import { getPartColor, getPartLabel } from '../utils/parts';
+import ChapterCard from './ChapterCard.astro';
+
+interface Props {
+  chapter: number;
+  part: number;
+  related: number[];
+}
+
+const { chapter, part, related } = Astro.props;
+
+const allChapters = CHAPTERS;
+const prevChapter = allChapters.find(c => c.number === chapter - 1);
+const nextChapter = allChapters.find(c => c.number === chapter + 1);
+
+const relatedChapters = related.length > 0
+  ? related.map(num => allChapters.find(c => c.number === num)).filter(Boolean).slice(0, 3)
+  : allChapters.filter(c => c.part === part && c.number !== chapter).slice(0, 3);
+
+const partInfo = getPartColor(part);
+const prevPartInfo = prevChapter ? getPartColor(prevChapter.part) : null;
+const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
+---
+<div class="chapter-footer">
+  <nav class="chapter-nav" aria-label="Chapter navigation">
+    {prevChapter && (
+      <a href={`/chapters/${prevChapter.number}`} class="nav-card nav-prev" style={`border-top-color: ${prevPartInfo}`}>
+        <span class="nav-label">← Previous</span>
+        <span class="nav-title">Ch{String(prevChapter.number).padStart(2,'0')}: {prevChapter.title}</span>
+      </a>
+    )}
+    {nextChapter && (
+      <a href={`/chapters/${nextChapter.number}`} class="nav-card nav-next" style={`border-top-color: ${nextPartInfo}`}>
+        <span class="nav-label">{nextChapter.part !== part ? `Continue to Part ${nextChapter.part} →` : 'Next →'}</span>
+        <span class="nav-title">Ch{String(nextChapter.number).padStart(2,'0')}: {nextChapter.title}</span>
+      </a>
+    )}
+  </nav>
+
+  {relatedChapters.length > 0 && (
+    <section class="related-reading">
+      <h3>Related Reading</h3>
+      <div class="related-grid">
+        {relatedChapters.map((ch: any) => (
+          <ChapterCard
+            chapter={ch.number}
+            title={ch.title}
+            part={ch.part}
+            status={ch.status}
+            description={ch.description}
+            wordCount={ch.wordCount}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <div class="newsletter-cta">
+    <p>Enjoying the encyclopedia? Get chapter previews and field notes delivered to your inbox.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault()">
+      <input type="email" placeholder="your@email.com" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .chapter-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 3rem;
+    margin-top: 4rem;
+  }
+  .chapter-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .nav-card {
+    flex: 1;
+    background: white;
+    border-top: 3px solid;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .nav-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .nav-label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-muted-text);
+    margin-bottom: 0.5rem;
+  }
+  .nav-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    color: var(--canyon-shadow);
+  }
+  .nav-next { text-align: right; }
+  .related-reading { margin-bottom: 3rem; }
+  .related-reading h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    margin-bottom: 1.5rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .newsletter-cta {
+    background: var(--alkali-flat);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .newsletter-cta p {
+    flex: 1;
+    min-width: 200px;
+    font-size: var(--text-sm);
+    color: var(--canyon-shadow);
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .newsletter-form input {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+  }
+  .newsletter-form button {
+    padding: 0.6rem 1.5rem;
+    background: var(--mesa-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .chapter-nav { flex-direction: column; }
+    .nav-next { text-align: left; }
+    .newsletter-cta { flex-direction: column; }
+  }
+</style>

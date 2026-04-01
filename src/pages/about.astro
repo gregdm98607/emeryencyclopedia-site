@@ -1,0 +1,301 @@
+---
+// about.astro — V5 About page with project vision, structure, and contact
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about the Encyclopedia of Emery County project, its mission, structure, and research approach."
+>
+  <div class="about-page">
+    {/* Hero section */}
+    <section class="about-hero">
+      <div class="about-hero__container">
+        <h1 class="about-hero__title">About the Encyclopedia</h1>
+        <p class="about-hero__subtitle">
+          A comprehensive, rigorously sourced reference work dedicated to preserving and celebrating the story of Emery County, Utah.
+        </p>
+      </div>
+    </section>
+
+    {/* Main content */}
+    <article class="about-content">
+      <div class="about-content__container">
+        {/* Vision section */}
+        <section class="about-section">
+          <h2 class="about-section__title">Our Vision</h2>
+          <p>
+            The Encyclopedia of Emery County is the definitive reference work on Emery County, Utah — a comprehensive survey of its land, people, history, institutions, and culture from deep geological time to the present day.
+          </p>
+          <p>
+            Written for residents, descendants of pioneer families, genealogical researchers, academic historians, and visitors to the region, it serves as both a scholarly resource and a genuinely engaging read. Success means producing a published, comprehensive, and rigorously sourced work that preserves Emery County's story in a form that is both authoritative and accessible.
+          </p>
+        </section>
+
+        {/* Scope section */}
+        <section class="about-section">
+          <h2 class="about-section__title">Scope: Six Thematic Parts</h2>
+          <p>
+            The Encyclopedia organizes its content into six thematic parts, each building on the previous:
+          </p>
+          <ul class="about-list">
+            <li><strong>Part I: Foundations</strong> — Natural landscape (geology, climate, flora, fauna, night skies)</li>
+            <li><strong>Part II: Peoples</strong> — Indigenous cultures and history (Ancestral Puebloans, Fremont, Ute, Paiute, Shoshone, Navajo)</li>
+            <li><strong>Part III: Settlement</strong> — Mormon colonization, mining, communities, infrastructure, and land use</li>
+            <li><strong>Part IV: Culture & Identity</strong> — Arts, foodways, oral histories, celebrations, and notable people</li>
+            <li><strong>Part V: Field Guide</strong> — Scenic drives, hiking, photography spots, hot springs, and wildlife viewing</li>
+            <li><strong>Part VI: Resources</strong> — Practical information, glossary, systematic index, and appendices</li>
+          </ul>
+          <p>
+            Across these six parts, 43 chapters cover every significant topic in Emery County's history, culture, and natural heritage.
+          </p>
+        </section>
+
+        {/* Research Approach */}
+        <section class="about-section">
+          <h2 class="about-section__title">Research Approach</h2>
+          <p>
+            Every factual claim in the Encyclopedia is verified against primary sources. Our research draws from:
+          </p>
+          <ul class="about-list">
+            <li><strong>Primary sources:</strong> Government records, vital records, court and land records, LDS ward histories, oral histories, GEDCOM data, FamilySearch collections</li>
+            <li><strong>Secondary sources:</strong> Published county histories, newspaper archives, academic papers</li>
+            <li><strong>Digital resources:</strong> USGS data, NPS/BLM records, GIS datasets, census data</li>
+            <li><strong>Field research:</strong> On-the-ground observation, photography, GPS waypoints, and direct interviews</li>
+          </ul>
+          <p>
+            When sources conflict, we document all versions. When sources are thin, we flag gaps explicitly rather than filling them with speculation.
+          </p>
+        </section>
+
+        {/* Design Principles */}
+        <section class="about-section">
+          <h2 class="about-section__title">Design Principles</h2>
+          <div class="about-principles">
+            <div class="about-principle">
+              <h3 class="about-principle__title">Accuracy Over Speed</h3>
+              <p>Every claim must be verifiable against a cited source. It is better to leave a section stubbed than to publish something wrong.</p>
+            </div>
+            <div class="about-principle">
+              <h3 class="about-principle__title">Accessible to General Readers</h3>
+              <p>Scholarly rigor without academic jargon. Written at a level a motivated high-school student can follow.</p>
+            </div>
+            <div class="about-principle">
+              <h3 class="about-principle__title">Respect for Tribal Communities</h3>
+              <p>Indigenous history chapters prioritize tribal perspectives, use collaborative stewardship language, and avoid treating Native peoples as historical artifacts.</p>
+            </div>
+            <div class="about-principle">
+              <h3 class="about-principle__title">Engagement Through Interactivity</h3>
+              <p>Includes trivia call-outs, family activities, youth scavenger hunts, and practical field-guide itineraries that invite readers to experience the county firsthand.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Format section */}
+        <section class="about-section">
+          <h2 class="about-section__title">Dual Format: Print & Digital</h2>
+          <p>
+            The Encyclopedia exists as both a print manuscript and a living digital resource. Chapters appear on this website as they are completed — allowing early access while the full manuscript is being prepared for publication. The final printed edition will include all 43 chapters plus front matter (preface, how-to guide), back matter (appendices, glossary, index), and a comprehensive source bibliography.
+          </p>
+        </section>
+
+        {/* Author section */}
+        <section class="about-section">
+          <h2 class="about-section__title">About the Author</h2>
+          <p>
+            The Encyclopedia of Emery County is authored by <strong>Greg Maxfield</strong>, whose family roots in Emery County span generations. This project combines deep personal connection to the region with rigorous academic research, oral history collection, and field photography. The work is AI-assisted — leveraging Claude and custom automation tools to accelerate research, drafting, and fact-checking across a 43-chapter, multi-year effort.
+          </p>
+        </section>
+
+        {/* Contact section */}
+        <section class="about-section">
+          <h2 class="about-section__title">Get in Touch</h2>
+          <p>
+            Have questions? Found an error or have additional sources to suggest? Interested in contributing oral history or photographs? We'd love to hear from you.
+          </p>
+          <a href="#contact" class="about-contact-link">Contact the Editor</a>
+        </section>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .about-page {
+    min-height: 100vh;
+  }
+
+  /* Hero section */
+  .about-hero {
+    background: linear-gradient(135deg, var(--coal-seam) 0%, rgba(26, 26, 46, 0.95) 100%);
+    color: var(--sky-wash);
+    padding: 4rem 2rem;
+  }
+
+  .about-hero__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-hero__title {
+    margin: 0 0 1rem 0;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  .about-hero__subtitle {
+    margin: 0;
+    font-size: 1.25rem;
+    color: rgba(247, 243, 237, 0.85);
+    font-family: var(--font-body);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* Content area */
+  .about-content {
+    padding: 3rem 2rem;
+  }
+
+  .about-content__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Section styling */
+  .about-section {
+    margin-bottom: 3rem;
+  }
+
+  .about-section__title {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .about-section p {
+    margin: 0 0 1rem 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(26, 26, 46, 0.85);
+  }
+
+  .about-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Lists */
+  .about-list {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(26, 26, 46, 0.85);
+  }
+
+  .about-list li {
+    margin-bottom: 0.75rem;
+  }
+
+  .about-list strong {
+    color: var(--coal-seam);
+  }
+
+  /* Principles grid */
+  .about-principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .about-principle {
+    padding: 1.5rem;
+    background: var(--sky-wash);
+    border-left: 4px solid var(--sandstone);
+    border-radius: 4px;
+  }
+
+  .about-principle__title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .about-principle p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Contact link */
+  .about-contact-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--mesa-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+  }
+
+  .about-contact-link:hover {
+    background: #b74a44;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 2rem 1.5rem;
+    }
+
+    .about-hero__title {
+      font-size: 2rem;
+    }
+
+    .about-hero__subtitle {
+      font-size: 1rem;
+    }
+
+    .about-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .about-section__title {
+      font-size: 1.5rem;
+    }
+
+    .about-principles {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

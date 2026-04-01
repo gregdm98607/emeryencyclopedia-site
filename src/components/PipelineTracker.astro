@@ -1,0 +1,398 @@
+---
+// src/components/PipelineTracker.astro
+// Project progress visualization: status breakdown, part completion, and recent activity
+
+import { chapters, changelog, getStats } from '../data/chapters';
+import { PARTS } from '../utils/parts';
+
+// Compute statistics
+const stats = getStats();
+
+// Get chapters by part with completion percentages
+const partBreakdowns = Object.entries(PARTS).map(([partNum, part]) => {
+  const partChapters = chapters.filter(c => c.part === parseInt(partNum));
+  const completed = partChapters.filter(c => c.status === 'final').length;
+  const inProgress = partChapters.filter(c => ['draft', 'revised', 'fact-checked'].includes(c.status)).length;
+
+  return {
+    partNum: parseInt(partNum),
+    partLabel: part.label,
+    partColor: part.color,
+    total: partChapters.length,
+    completed,
+    inProgress,
+    percentComplete: partChapters.length > 0 ? Math.round((completed / partChapters.length) * 100) : 0
+  };
+});
+
+// Get recent 5 changelog entries
+const recentActivity = changelog.slice(0, 5);
+---
+
+<section class="tracker">
+  <!-- Section Header -->
+  <div class="tracker__header">
+    <h2 class="tracker__title">Project Progress</h2>
+    <p class="tracker__subtitle">Tracking the completion of all 43 chapters across six parts</p>
+  </div>
+
+  <!-- Overall Progress Bar -->
+  <div class="tracker__summary-bar">
+    <div class="tracker__bar-container">
+      <!-- Final segment -->
+      <div
+        class="tracker__bar-segment tracker__bar-segment--final"
+        style={`width: ${(stats.finalCount / stats.totalChapters) * 100}%`}
+        role="progressbar"
+        aria-valuenow={stats.finalCount}
+        aria-valuemin={0}
+        aria-valuemax={stats.totalChapters}
+      >
+      </div>
+
+      <!-- In Progress segment (diagonal stripes) -->
+      <div
+        class="tracker__bar-segment tracker__bar-segment--in-progress"
+        style={`width: ${(stats.inProgressCount / stats.totalChapters) * 100}%`}
+        role="progressbar"
+        aria-valuenow={stats.inProgressCount}
+        aria-valuemin={0}
+        aria-valuemax={stats.totalChapters}
+      >
+      </div>
+
+      <!-- Coming Soon segment -->
+      <div
+        class="tracker__bar-segment tracker__bar-segment--stub"
+        style={`width: ${(stats.stubCount / stats.totalChapters) * 100}%`}
+        role="progressbar"
+        aria-valuenow={stats.stubCount}
+        aria-valuemin={0}
+        aria-valuemax={stats.totalChapters}
+      >
+      </div>
+    </div>
+
+    <!-- Summary Text -->
+    <p class="tracker__summary-text">
+      <strong>{stats.finalCount + stats.inProgressCount} of {stats.totalChapters} chapters</strong> published or in progress
+      — <strong>~{(stats.totalWords / 1000).toLocaleString('en-US', { maximumFractionDigits: 0 })}K words</strong> and growing
+    </p>
+  </div>
+
+  <!-- Part Breakdown Grid -->
+  <div class="tracker__parts-grid">
+    {partBreakdowns.map((part) => (
+      <div class="tracker__part-card">
+        <div
+          class="tracker__part-label"
+          style={`border-left-color: ${part.partColor}`}
+        >
+          <h3 class="tracker__part-title" style={`color: ${part.partColor}`}>
+            Part {part.partNum}
+          </h3>
+          <p class="tracker__part-name">{part.partLabel}</p>
+        </div>
+
+        <p class="tracker__part-stat">
+          <strong>{part.completed}</strong> of <strong>{part.total}</strong> chapters available
+        </p>
+
+        <!-- Mini progress bar -->
+        <div class="tracker__mini-bar">
+          <div
+            class="tracker__mini-bar-fill"
+            style={`width: ${part.percentComplete}%; background-color: ${part.partColor}`}
+          ></div>
+        </div>
+
+        <p class="tracker__part-percent">{part.percentComplete}% complete</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Recent Activity Timeline -->
+  <div class="tracker__activity">
+    <h3 class="tracker__activity-title">Latest Updates</h3>
+
+    <div class="tracker__activity-list">
+      {recentActivity.map((entry, idx) => (
+        <div class="tracker__activity-item">
+          <div class="tracker__activity-dot" aria-hidden="true"></div>
+
+          <div class="tracker__activity-content">
+            <p class="tracker__activity-date">{entry.date}</p>
+            <p class="tracker__activity-text">
+              <strong>Chapter {String(entry.chapter).padStart(2, '0')}</strong> — {entry.action}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style scoped>
+  :root {
+    --color-sky-wash: #F7F3ED;
+    --color-coal-seam: #1A1A2E;
+    --color-text-muted: #666;
+    --color-sage-green: #7A8B6F;
+    --color-deep-sky: #2C5F7C;
+    --color-border-light: #e0e0e0;
+  }
+
+  .tracker {
+    background-color: var(--color-sky-wash);
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .tracker__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .tracker__title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-coal-seam);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .tracker__subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Overall Progress Bar */
+  .tracker__summary-bar {
+    margin-bottom: 3rem;
+  }
+
+  .tracker__bar-container {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+
+  .tracker__bar-segment {
+    flex: 0 1 auto;
+    transition: width 0.3s ease;
+  }
+
+  /* Segment colors */
+  .tracker__bar-segment--final {
+    background-color: var(--color-sage-green);
+  }
+
+  /* In progress with diagonal stripes */
+  .tracker__bar-segment--in-progress {
+    background-color: var(--color-deep-sky);
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.15) 10px,
+      rgba(255, 255, 255, 0.15) 20px
+    );
+  }
+
+  .tracker__bar-segment--stub {
+    background-color: var(--color-sky-wash);
+    border-right: 1px solid var(--color-border-light);
+  }
+
+  .tracker__summary-text {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    text-align: center;
+  }
+
+  .tracker__summary-text strong {
+    color: var(--color-coal-seam);
+  }
+
+  /* Part Breakdown Grid */
+  .tracker__parts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .tracker__part-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .tracker__part-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .tracker__part-label {
+    border-left: 4px solid;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tracker__part-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .tracker__part-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-coal-seam);
+  }
+
+  .tracker__part-stat {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Mini progress bar */
+  .tracker__mini-bar {
+    height: 6px;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .tracker__mini-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .tracker__part-percent {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Recent Activity */
+  .tracker__activity {
+    border-top: 1px solid var(--color-border-light);
+    padding-top: 2rem;
+  }
+
+  .tracker__activity-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-coal-seam);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .tracker__activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .tracker__activity-item {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .tracker__activity-dot {
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-sage-green);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--color-sage-green);
+  }
+
+  .tracker__activity-content {
+    flex: 1;
+  }
+
+  .tracker__activity-date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .tracker__activity-text {
+    font-size: 0.9rem;
+    color: var(--color-coal-seam);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .tracker__activity-text strong {
+    color: var(--color-coal-seam);
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .tracker {
+      padding: 2rem 1.5rem;
+    }
+
+    .tracker__title {
+      font-size: 1.5rem;
+    }
+
+    .tracker__parts-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .tracker__summary-text {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tracker {
+      padding: 1.5rem 1rem;
+    }
+
+    .tracker__title {
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .tracker__parts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tracker__activity-title {
+      font-size: 1.1rem;
+    }
+
+    .tracker__summary-text {
+      font-size: 0.8rem;
+    }
+  }
+</style>

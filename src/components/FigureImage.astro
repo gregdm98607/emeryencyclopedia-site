@@ -1,0 +1,273 @@
+---
+// FigureImage.astro — V8 Image treatment system with lightbox
+// Props: src, alt, caption, credit, annotations, width, height
+
+interface Annotation {
+  x: number;
+  y: number;
+  label: string;
+}
+
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  annotations?: Annotation[];
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, caption, credit, annotations = [], width, height } = Astro.props;
+---
+
+<figure class="figure-wrapper" data-lightbox>
+  <div class="figure-image-container" style={annotations.length > 0 ? 'position: relative;' : ''}>
+    <img 
+      src={src} 
+      alt={alt} 
+      loading="lazy"
+      width={width}
+      height={height}
+      class="figure-image"
+    />
+    
+    {annotations.length > 0 && (
+      <div class="annotations">
+        {annotations.map((annotation, index) => (
+          <div
+            class="annotation-point"
+            style={`left: ${annotation.x}%; top: ${annotation.y}%;`}
+            title={annotation.label}
+          >
+            {index + 1}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+
+  {annotations.length > 0 && (
+    <div class="annotations-legend">
+      {annotations.map((annotation, index) => (
+        <span class="legend-item">
+          <strong>{index + 1}.</strong> {annotation.label}
+        </span>
+      ))}
+    </div>
+  )}
+
+  {(caption || credit) && (
+    <figcaption class="figure-caption">
+      {caption && <span>{caption}</span>}
+      {credit && <span class="figure-credit">Photo: {credit}</span>}
+    </figcaption>
+  )}
+</figure>
+
+<script>
+  // Lightbox functionality
+  function initLightbox() {
+    const figures = document.querySelectorAll('figure[data-lightbox]');
+    
+    figures.forEach((figure) => {
+      const img = figure.querySelector('img.figure-image');
+      if (!img) return;
+
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(img);
+      });
+
+      img.style.cursor = 'pointer';
+    });
+  }
+
+  function openLightbox(img: HTMLImageElement) {
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+
+    const container = document.createElement('div');
+    container.className = 'lightbox-container';
+
+    const imgClone = img.cloneNode(true) as HTMLImageElement;
+    imgClone.className = 'lightbox-image';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'lightbox-close';
+    closeBtn.innerHTML = '×';
+    closeBtn.setAttribute('aria-label', 'Close');
+
+    const caption = img.closest('figure')?.querySelector('figcaption');
+    const captionText = caption?.textContent || '';
+
+    const captionEl = document.createElement('div');
+    captionEl.className = 'lightbox-caption';
+    captionEl.textContent = captionText;
+
+    container.appendChild(closeBtn);
+    container.appendChild(imgClone);
+    if (captionText) {
+      container.appendChild(captionEl);
+    }
+    overlay.appendChild(container);
+    document.body.appendChild(overlay);
+
+    function closeLightbox() {
+      overlay.remove();
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox);
+  } else {
+    initLightbox();
+  }
+</script>
+
+<style scoped>
+  .figure-wrapper {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    background: white;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .figure-image-container {
+    position: relative;
+  }
+
+  .figure-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.125rem;
+  }
+
+  .annotations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .annotation-point {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #b85c46;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.625rem;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    cursor: help;
+  }
+
+  .annotations-legend {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .legend-item {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .legend-item strong {
+    color: #b85c46;
+  }
+
+  .figure-caption {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: #7a7a7a;
+    margin-top: 0.75rem;
+    padding: 0;
+    line-height: 1.5;
+  }
+
+  .figure-credit {
+    float: right;
+    font-size: 0.75rem;
+    text-align: right;
+  }
+
+  /* Lightbox styles (global, added to page) */
+  :global(.lightbox-overlay) {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :global(.lightbox-container) {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  :global(.lightbox-image) {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  :global(.lightbox-close) {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+
+  :global(.lightbox-close:hover) {
+    opacity: 0.7;
+  }
+
+  :global(.lightbox-caption) {
+    color: white;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    text-align: center;
+    max-width: 90vw;
+  }
+</style>

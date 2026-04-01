@@ -1,0 +1,118 @@
+---
+import { CHAPTERS } from '../data/chapters';
+import { getPartColor } from '../utils/parts';
+
+interface Props {
+  chapter: number;
+}
+
+const { chapter } = Astro.props;
+const target = CHAPTERS.find(c => c.number === chapter);
+const partInfo = target ? getPartColor(target.part) : null;
+const isAvailable = target && target.status !== 'stub';
+const excerpt = target ? target.description.substring(0, 120) + (target.description.length > 120 ? '...' : '') : '';
+---
+<span class="crossref-wrapper">
+  {isAvailable ? (
+    <a href={`/chapters/${chapter}`} class="crossref-link" style={`text-decoration-color: ${partInfo}`}>
+      Ch{String(chapter).padStart(2,'0')}: {target?.title} <span class="crossref-arrow">↗</span>
+    </a>
+  ) : (
+    <span class="crossref-link crossref-stub">
+      Ch{String(chapter).padStart(2,'0')}: {target?.title || 'Unknown'}
+    </span>
+  )}
+  {target && (
+    <span class="crossref-card" style={`border-top-color: ${partInfo}`}>
+      <span class="crossref-part" style={`color: ${partInfo}`}>
+        <span class="crossref-dot" style={`background: ${partInfo}`}></span>
+        {target.part}
+      </span>
+      <strong>Ch{String(chapter).padStart(2,'0')}: {target.title}</strong>
+      <span class="crossref-excerpt">{excerpt}</span>
+      {isAvailable ? (
+        <a href={`/chapters/${chapter}`} class="crossref-read">Read chapter →</a>
+      ) : (
+        <span class="crossref-status">This chapter is in progress.</span>
+      )}
+    </span>
+  )}
+</span>
+
+<style>
+  .crossref-wrapper {
+    position: relative;
+    display: inline;
+  }
+  .crossref-link {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .crossref-stub {
+    color: var(--color-muted-text);
+    opacity: 0.7;
+    cursor: default;
+    text-decoration-style: dashed;
+  }
+  .crossref-arrow {
+    font-size: 0.75em;
+    margin-left: 0.15em;
+  }
+  .crossref-card {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: white;
+    border-radius: 8px;
+    border-top: 3px solid;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    padding: 1rem;
+    z-index: 50;
+    margin-bottom: 8px;
+  }
+  .crossref-wrapper:hover .crossref-card,
+  .crossref-wrapper:focus-within .crossref-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .crossref-part {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .crossref-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .crossref-card strong {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--canyon-shadow);
+  }
+  .crossref-excerpt {
+    font-size: var(--text-xs);
+    color: var(--color-muted-text);
+    line-height: 1.5;
+  }
+  .crossref-read {
+    font-size: var(--text-xs);
+    color: var(--mesa-red);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .crossref-status {
+    font-size: var(--text-xs);
+    color: var(--color-muted-text);
+    font-style: italic;
+  }
+</style>

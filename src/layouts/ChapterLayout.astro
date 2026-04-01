@@ -1,0 +1,229 @@
+---
+import { getPartColor, getPartLabel } from '../utils/parts';
+import ChapterFooter from '../components/ChapterFooter.astro';
+
+interface Props {
+  title: string;
+  chapter: number;
+  part: number;
+  description: string;
+  wordCount?: number;
+  related?: number[];
+}
+
+const { title, chapter, part, description, wordCount = 0, related = [] } = Astro.props;
+const partColor = getPartColor(part);
+const partLabel = getPartLabel(part);
+const chapterNum = String(chapter).padStart(2, '0');
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ch{chapterNum}: {title} | Encyclopedia of Emery County</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <div class="chapter-wrapper" data-part={part}>
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/chapters/">Chapters</a>
+      <span>/</span>
+      <a href={`/part/${part}/`}>Part {part}: {partLabel}</a>
+      <span>/</span>
+      <span>Ch{chapterNum}</span>
+    </nav>
+
+    <!-- Two-column layout -->
+    <div class="chapter-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" role="complementary">
+        <div class="sidebar-content">
+          <slot name="sidebar" />
+        </div>
+      </aside>
+
+      <!-- Main prose content -->
+      <article class="chapter-content">
+        <header class="chapter-header">
+          <div class="part-label" style={`border-top-color: ${partColor};`}>
+            Part {part} · {partLabel}
+          </div>
+          <h1>{title}</h1>
+          <p class="chapter-description">{description}</p>
+          {wordCount > 0 && (
+            <p class="chapter-meta">
+              {wordCount.toLocaleString()} words
+              {wordCount > 0 && ` · ~${Math.ceil(wordCount / 225)} min read`}
+            </p>
+          )}
+        </header>
+
+        <div class="prose">
+          <slot />
+        </div>
+
+        <ChapterFooter chapter={chapter} part={part} related={related} />
+      </article>
+    </div>
+  </div>
+</body>
+</html>
+
+<style scoped>
+  :root {
+    --part-color: v-bind('partColor');
+  }
+
+  .chapter-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  .breadcrumb {
+    padding: 1.5rem 2rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--color-border-light);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: var(--color-text-muted);
+  }
+
+  .chapter-layout {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
+
+  .sidebar-content {
+    background-color: var(--color-alkali-flat, #f5f5f0);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .chapter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .chapter-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 2rem;
+  }
+
+  .part-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    padding-top: 0.75rem;
+    border-top: 3px solid var(--part-color);
+    width: fit-content;
+  }
+
+  .chapter-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .chapter-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    max-width: 65ch;
+    margin: 0;
+  }
+
+  .chapter-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .prose {
+    max-width: 65ch;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  /* Responsive: single column on screens < 960px */
+  @media (max-width: 960px) {
+    .chapter-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .sidebar {
+      position: static;
+      max-height: none;
+    }
+
+    .chapter-header h1 {
+      font-size: 2rem;
+    }
+
+    .breadcrumb {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .chapter-layout {
+      padding: 1rem;
+    }
+
+    .chapter-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .breadcrumb {
+      padding: 0.75rem 1rem;
+      font-size: 0.8125rem;
+    }
+
+    .prose {
+      font-size: 0.9375rem;
+    }
+  }
+</style>

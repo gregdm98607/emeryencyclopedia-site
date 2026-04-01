@@ -1,0 +1,301 @@
+---
+// src/components/Hero.astro
+// Full-bleed hero section with dramatic desert gradient and CTAs
+
+interface Props {
+  headline?: string;
+  subheading?: string;
+  ctaPrimary?: { text: string; href: string };
+  ctaSecondary?: { text: string; href: string };
+}
+
+const {
+  headline = 'The Definitive Guide to Emery County, Utah',
+  subheading = 'From billion-year-old stone to the communities that call it home.',
+  ctaPrimary = { text: 'Read Chapter 1 →', href: '/chapters/1' },
+  ctaSecondary = { text: 'Explore the Table of Contents', href: '/chapters' }
+} = Astro.props;
+---
+
+<section class="hero">
+  <!-- Background gradient -->
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <!-- Topo texture overlay -->
+  <div class="hero__topo" aria-hidden="true"></div>
+
+  <!-- Dark gradient overlay (bottom fade) -->
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="hero__content">
+    <h1 class="hero__headline">{headline}</h1>
+    <p class="hero__subheading">{subheading}</p>
+
+    <div class="hero__ctas">
+      <a href={ctaPrimary.href} class="hero__btn hero__btn--primary">
+        {ctaPrimary.text}
+      </a>
+      <a href={ctaSecondary.href} class="hero__btn hero__btn--secondary">
+        {ctaSecondary.text}
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero__scroll-hint" aria-hidden="true">
+    <div class="hero__scroll-chevron">↓</div>
+    <p class="hero__scroll-text">Scroll</p>
+  </div>
+</section>
+
+<style scoped>
+  :root {
+    --color-sandstone: #D4A574;
+    --color-mesa-red: #A0522D;
+    --color-canyon-shadow: #3B2F2F;
+    --color-coal-seam: #1A1A2E;
+    --color-sky-wash: #F7F3ED;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Background gradient: desert landscape colors */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      170deg,
+      #D4A574 0%,
+      #A0522D 25%,
+      #3B2F2F 60%,
+      #1A1A2E 100%
+    );
+    z-index: 0;
+  }
+
+  /* Topo texture overlay */
+  .hero__topo {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/topo-contours.svg');
+    background-size: 400px;
+    background-repeat: repeat;
+    opacity: 0.05;
+    z-index: 1;
+  }
+
+  /* Dark gradient overlay (fade to dark at bottom) */
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(26, 26, 46, 0.85) 0%,
+      rgba(26, 26, 46, 0.3) 50%,
+      transparent 100%
+    );
+    z-index: 2;
+  }
+
+  /* Content container */
+  .hero__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    max-width: 700px;
+  }
+
+  /* Headline */
+  .hero__headline {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.5px;
+  }
+
+  /* Subheading */
+  .hero__subheading {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 400;
+    color: var(--color-sky-wash);
+    opacity: 0.95;
+    margin: 0 0 2.5rem 0;
+    line-height: 1.6;
+    max-width: 65ch;
+  }
+
+  /* CTA buttons container */
+  .hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Button base styles */
+  .hero__btn {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  /* Primary button: solid mesa-red */
+  .hero__btn--primary {
+    background-color: var(--color-mesa-red);
+    color: white;
+  }
+
+  .hero__btn--primary:hover {
+    background-color: #8B3E35;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(26, 26, 46, 0.3);
+  }
+
+  .hero__btn--primary:active {
+    transform: translateY(0);
+  }
+
+  /* Secondary button: outlined sandstone */
+  .hero__btn--secondary {
+    background-color: transparent;
+    color: var(--color-sandstone);
+    border-color: var(--color-sandstone);
+  }
+
+  .hero__btn--secondary:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  .hero__btn--secondary:active {
+    transform: translateY(0);
+  }
+
+  /* Scroll hint at bottom */
+  .hero__scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .hero__scroll-chevron {
+    font-size: 1.5rem;
+    color: var(--color-sky-wash);
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .hero__scroll-text {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.875rem;
+    color: var(--color-sky-wash);
+    opacity: 0.7;
+    margin: 0.5rem 0 0 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Float animation for scroll hint */
+  @keyframes float {
+    0%, 100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateX(-50%) translateY(8px);
+    }
+  }
+
+  /* Responsive: tablets */
+  @media (max-width: 768px) {
+    .hero__headline {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero__subheading {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      margin-bottom: 2rem;
+    }
+
+    .hero__ctas {
+      gap: 0.75rem;
+    }
+
+    .hero__btn {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Responsive: mobile */
+  @media (max-width: 480px) {
+    .hero {
+      min-height: auto;
+      padding: 3rem 1rem;
+    }
+
+    .hero__content {
+      padding: 1rem;
+    }
+
+    .hero__headline {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero__subheading {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__ctas {
+      flex-direction: column;
+      width: 100%;
+      gap: 0.75rem;
+    }
+
+    .hero__btn {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .hero__scroll-hint {
+      display: none;
+    }
+  }
+</style>

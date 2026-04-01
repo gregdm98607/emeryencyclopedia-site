@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "San Rafael Swell",
+        "chapters": [1, 2, 31],
+        "partColor": "#C2956B",
+        "description": "Massive dome-shaped uplift exposing ancient rock formations across central Emery County"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-110.2, 38.5],
+            [-110.8, 38.4],
+            [-111.0, 38.7],
+            [-110.9, 39.0],
+            [-110.4, 39.1],
+            [-109.9, 38.9],
+            [-110.2, 38.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Book Cliffs",
+        "chapters": [1, 2],
+        "partColor": "#C2956B",
+        "description": "2,000-foot escarpment stretching across northern Emery County, forming the southern boundary of the Uinta Basin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-111.5, 39.65],
+          [-111.3, 39.60],
+          [-111.0, 39.58],
+          [-110.7, 39.55],
+          [-110.4, 39.52],
+          [-110.1, 39.55]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Castle Valley & Settlement Corridor",
+        "chapters": [20, 21, 23, 24, 25],
+        "partColor": "#5B7B6A",
+        "description": "Main settlement and agricultural region of Emery County, including Castle Dale, Ferron, Orangeville, and surrounding communities"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-111.3, 39.40],
+            [-111.1, 39.15],
+            [-110.9, 39.10],
+            [-110.8, 39.25],
+            [-110.95, 39.35],
+            [-111.15, 39.38],
+            [-111.3, 39.40]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Goblin Valley & Hoodoos",
+        "chapters": [2, 31],
+        "partColor": "#C2956B",
+        "description": "Surreal badlands landscape of mushroom-shaped hoodoos eroded from Entrada Sandstone in southern Emery County"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-110.52, 38.62],
+            [-110.40, 38.58],
+            [-110.38, 38.48],
+            [-110.50, 38.45],
+            [-110.62, 38.50],
+            [-110.52, 38.62]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Huntington Canyon & Water Sources",
+        "chapters": [3, 20],
+        "partColor": "#2C5F7C",
+        "description": "High elevation canyon drainage system providing water to Huntington and northern Emery County communities"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-111.15, 39.45],
+          [-111.10, 39.38],
+          [-111.08, 39.25],
+          [-111.05, 39.10]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Coal & Uranium Mining Districts",
+        "chapters": [17],
+        "partColor": "#A0522D",
+        "description": "Historic mining districts including Sego Ghost Town and Temple Mountain uranium mining area"
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [-109.80, 39.04],
+          [-110.67, 38.67]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Green River Gateway",
+        "chapters": [18, 21],
+        "partColor": "#5B7B6A",
+        "description": "Gateway town to the San Rafael Swell and Colorado River recreation areas, eastern entry point to Emery County"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-110.1627, 38.9955]
+      }
+    }
+  ]
+}

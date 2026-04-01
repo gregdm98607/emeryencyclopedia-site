@@ -1,0 +1,551 @@
+---
+// geology.astro — W1 Interactive Stratigraphic Column
+// A full-page interactive geological timeline spanning 300+ million years
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import formations from '../data/formations.json';
+
+// Helper to determine contrast text color
+function getContrastColor(hexColor: string): string {
+  const hex = hexColor.replace('#', '');
+  const r = parseInt(hex.substr(0, 2), 16);
+  const g = parseInt(hex.substr(2, 2), 16);
+  const b = parseInt(hex.substr(4, 2), 16);
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness > 155 ? '#000000' : '#ffffff';
+}
+
+// Sort formations from oldest (bottom) to youngest (top)
+const sortedFormations = [...formations].reverse();
+
+// Scale: 1 Million years = 1.5 pixels height
+const timeScale = 1.5;
+const totalHeight = Math.max(...sortedFormations.map(f => (f.ageRangeStart - f.ageRangeEnd) * timeScale)) + 500;
+---
+
+<BaseLayout
+  title="Scroll Through 300 Million Years"
+  description="An interactive stratigraphic column revealing the geological history of Emery County from the Precambrian to the present day."
+>
+  <div class="geology-page">
+    {/* HERO INTRO */}
+    <section class="geology-hero">
+      <div class="geology-hero__container">
+        <h1 class="geology-hero__title">Scroll Through 300 Million Years of Emery County Geology</h1>
+        <p class="geology-hero__subtitle">
+          From ancient tropical seas to the canyon-carved landscape of today — explore the rock record that tells Emery County's deepest story.
+        </p>
+        <p class="geology-hero__note">
+          Based on Chapter 2: Deep-Time Geology
+        </p>
+      </div>
+    </section>
+
+    {/* JUMP-TO NAVIGATION */}
+    <div class="jump-nav">
+      <span class="jump-nav__label">Jump to:</span>
+      <div class="jump-nav__buttons">
+        <a href="#navajo-sandstone" class="jump-nav__btn">Navajo Sandstone</a>
+        <a href="#morrison-formation" class="jump-nav__btn">Morrison Formation</a>
+        <a href="#mancos-shale" class="jump-nav__btn">Mancos Shale</a>
+        <a href="#price-river-formation" class="jump-nav__btn">Price River Formation</a>
+        <a href="#chinle-formation" class="jump-nav__btn">Chinle Formation</a>
+        <a href="#cutler-formation" class="jump-nav__btn">Cutler Formation</a>
+        <a href="#precambrian-basement" class="jump-nav__btn">Precambrian</a>
+      </div>
+    </div>
+
+    {/* MAIN INTERACTIVE CONTENT */}
+    <div class="geology-main">
+      {/* LEFT PANEL: STICKY STRATIGRAPHIC COLUMN */}
+      <div class="strat-column__wrapper">
+        <div class="strat-column" style={`height: ${totalHeight}px`}>
+          {sortedFormations.map((formation, idx) => {
+            const height = (formation.ageRangeStart - formation.ageRangeEnd) * timeScale;
+            const topAge = formation.ageRangeStart;
+            const bottomAge = formation.ageRangeEnd;
+            
+            return (
+              <div
+                class="strat-band"
+                data-slug={formation.slug}
+                style={`
+                  background-color: ${formation.color};
+                  height: ${height}px;
+                  border-bottom: 1px solid rgba(0,0,0,0.2);
+                `}
+              >
+                <div class="strat-band__label">
+                  <span class="strat-band__name">{formation.name}</span>
+                  <span class="strat-band__age">{bottomAge}–{topAge} Ma</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        {/* TIMELINE RULER */}
+        <div class="timeline-ruler">
+          <div class="timeline-ruler__item" data-period="Holocene">Holocene</div>
+          <div class="timeline-ruler__item" data-period="Tertiary">Tertiary</div>
+          <div class="timeline-ruler__item" data-period="Cretaceous">Cretaceous</div>
+          <div class="timeline-ruler__item" data-period="Jurassic">Jurassic</div>
+          <div class="timeline-ruler__item" data-period="Triassic">Triassic</div>
+          <div class="timeline-ruler__item" data-period="Permian">Permian</div>
+          <div class="timeline-ruler__item" data-period="Pennsylvanian">Pennsylv.</div>
+          <div class="timeline-ruler__item" data-period="Carboniferous">Carboniferou</div>
+          <div class="timeline-ruler__item" data-period="Devonian">Devonian</div>
+          <div class="timeline-ruler__item" data-period="Silurian">Silurian</div>
+          <div class="timeline-ruler__item" data-period="Ordovician">Ordovician</div>
+          <div class="timeline-ruler__item" data-period="Cambrian">Cambrian</div>
+          <div class="timeline-ruler__item" data-period="Archean to Proterozoic">Archean</div>
+        </div>
+      </div>
+
+      {/* RIGHT PANEL: FORMATION DETAILS */}
+      <div class="formation-details">
+        {sortedFormations.map((formation) => (
+          <section class="formation-section" id={formation.slug}>
+            <div class="formation-header">
+              <h2 class="formation-name">{formation.name}</h2>
+              <span class="formation-age">{formation.ageRangeEnd}–{formation.ageRangeStart} Ma</span>
+            </div>
+
+            <div class="formation-period">
+              <span 
+                class="period-badge"
+                style={`background-color: ${formation.color}; color: ${getContrastColor(formation.color)}`}
+              >
+                {formation.period}
+              </span>
+            </div>
+
+            <p class="formation-environment">
+              {formation.environment}
+            </p>
+
+            <div class="formation-facts">
+              <div class="fact-item">
+                <h4 class="fact-label">Thickness</h4>
+                <p class="fact-value">{formation.thickness}</p>
+              </div>
+              <div class="fact-item">
+                <h4 class="fact-label">Notable Fossils</h4>
+                <p class="fact-value">{formation.fossils}</p>
+              </div>
+              <div class="fact-item">
+                <h4 class="fact-label">Economic Significance</h4>
+                <p class="fact-value">{formation.economic}</p>
+              </div>
+            </div>
+
+            <div class="formation-photo">
+              <div 
+                class="photo-placeholder"
+                style={`background-color: ${formation.color}; color: ${getContrastColor(formation.color)}`}
+              >
+                <span>Photograph: {formation.name}</span>
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .geology-page {
+    width: 100%;
+  }
+
+  /* HERO SECTION */
+  .geology-hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .geology-hero__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .geology-hero__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+  }
+
+  .geology-hero__subtitle {
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    opacity: 0.95;
+    line-height: 1.6;
+  }
+
+  .geology-hero__note {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* JUMP-TO NAVIGATION */
+  .jump-nav {
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 80px;
+    z-index: 50;
+  }
+
+  .jump-nav__label {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  .jump-nav__buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .jump-nav__btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .jump-nav__btn:hover {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+
+  /* MAIN LAYOUT */
+  .geology-main {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* STRATIGRAPHIC COLUMN */
+  .strat-column__wrapper {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .strat-column {
+    flex: 0 0 200px;
+    position: sticky;
+    top: 200px;
+    height: fit-content;
+    max-height: 80vh;
+    border: 2px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
+
+  .strat-band {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s ease;
+  }
+
+  .strat-band:hover {
+    filter: brightness(1.1);
+  }
+
+  .strat-band.active {
+    border: 3px solid #ffd700;
+    box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+
+  .strat-band__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+    padding: 0.5rem;
+    mix-blend-mode: multiply;
+  }
+
+  .strat-band__name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .strat-band__age {
+    font-size: 0.65rem;
+    opacity: 0.8;
+  }
+
+  /* TIMELINE RULER */
+  .timeline-ruler {
+    flex: 0 0 80px;
+    position: sticky;
+    top: 200px;
+    height: fit-content;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-left: 2px solid #999;
+    padding-left: 0.5rem;
+  }
+
+  .timeline-ruler__item {
+    font-size: 0.7rem;
+    color: #666;
+    padding: 0.5rem 0;
+    border-left: 1px solid #ccc;
+    padding-left: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .timeline-ruler__item.active {
+    color: #000;
+    font-weight: 600;
+    border-left-color: #ffd700;
+  }
+
+  /* FORMATION DETAILS */
+  .formation-details {
+    flex: 1;
+  }
+
+  .formation-section {
+    min-height: 80vh;
+    padding: 3rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    scroll-margin-top: 200px;
+  }
+
+  .formation-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .formation-name {
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .formation-age {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .formation-period {
+    margin-bottom: 2rem;
+  }
+
+  .period-badge {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .formation-environment {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 0 0 2.5rem 0;
+    max-width: 700px;
+  }
+
+  .formation-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .fact-item {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-left: 4px solid #333;
+  }
+
+  .fact-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+
+  .fact-value {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .formation-photo {
+    margin-top: 3rem;
+  }
+
+  .photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .geology-main {
+      grid-template-columns: 1fr;
+    }
+
+    .strat-column__wrapper {
+      order: 2;
+      margin-top: 3rem;
+    }
+
+    .formation-details {
+      order: 1;
+    }
+
+    .strat-column {
+      position: relative;
+      top: 0;
+      max-height: none;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .timeline-ruler {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .geology-hero__title {
+      font-size: 2rem;
+    }
+
+    .geology-hero__subtitle {
+      font-size: 1rem;
+    }
+
+    .geology-main {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .formation-section {
+      padding: 2rem 1rem;
+      min-height: auto;
+    }
+
+    .formation-name {
+      font-size: 1.5rem;
+    }
+
+    .formation-facts {
+      grid-template-columns: 1fr;
+    }
+
+    .jump-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .jump-nav__buttons {
+      width: 100%;
+    }
+
+    .jump-nav__btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll sync
+  const formations = document.querySelectorAll('.formation-section');
+  const stratBands = document.querySelectorAll('.strat-band');
+  const timelineItems = document.querySelectorAll('.timeline-ruler__item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const slug = entry.target.id;
+        
+        // Remove active class from all
+        stratBands.forEach(band => band.classList.remove('active'));
+        timelineItems.forEach(item => item.classList.remove('active'));
+
+        // Add active class to matching elements
+        const activeBand = document.querySelector(`[data-slug="${slug}"]`);
+        if (activeBand) {
+          activeBand.classList.add('active');
+        }
+
+        // Highlight period in timeline
+        const formationEl = document.getElementById(slug);
+        if (formationEl) {
+          const period = formationEl.querySelector('.period-badge').textContent;
+          timelineItems.forEach((item) => {
+            item.classList.toggle('active', item.textContent.includes(period));
+          });
+        }
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '-100px 0px -100px 0px'
+  });
+
+  formations.forEach(formation => observer.observe(formation));
+
+  // Smooth scroll for jump buttons
+  document.querySelectorAll('.jump-nav__btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(btn.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>

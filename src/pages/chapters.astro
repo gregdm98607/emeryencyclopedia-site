@@ -1,0 +1,190 @@
+---
+// chapters.astro — V5 Table of Contents page with part-organized chapter grid
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ChapterCard from '../components/ChapterCard.astro';
+import { CHAPTERS } from '../data/chapters';
+import { getAllParts } from '../utils/parts';
+
+const parts = getAllParts();
+
+// Group chapters by part
+const chaptersByPart = parts.map(part => ({
+  part,
+  chapters: CHAPTERS.filter(ch => ch.part === part.number)
+}));
+---
+
+<BaseLayout title="Table of Contents" description="Explore all 43 chapters of the Encyclopedia of Emery County, organized across six thematic parts.">
+  <div class="toc-hero">
+    <div class="toc-hero__container">
+      <h1 class="toc-hero__title">Table of Contents</h1>
+      <p class="toc-hero__subtitle">
+        Explore all 43 chapters of the Encyclopedia, organized across six thematic parts.
+      </p>
+    </div>
+  </div>
+
+  <div class="toc-container">
+    {chaptersByPart.map((group) => (
+      <section class="toc-part-section" style={`--part-color: ${group.part.color}`}>
+        <div class="toc-part-header">
+          <h2 class="toc-part-title">
+            Part {group.part.number}: {group.part.label}
+          </h2>
+          <p class="toc-part-description">{group.part.description}</p>
+        </div>
+
+        <div class="toc-chapter-grid">
+          {group.chapters.map((chapter) => (
+            <ChapterCard
+              chapter={chapter.number}
+              title={chapter.title}
+              part={chapter.part}
+              status={chapter.status}
+              description={chapter.description}
+              wordCount={chapter.wordCount}
+            />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --forest-green: #4A6741;
+    --sky-blue: #5B8AC5;
+    --canyon-bronze: #8B6F47;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Hero section */
+  .toc-hero {
+    background: linear-gradient(135deg, var(--coal-seam) 0%, rgba(26, 26, 46, 0.95) 100%);
+    color: var(--sky-wash);
+    padding: 4rem 2rem;
+  }
+
+  .toc-hero__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .toc-hero__title {
+    margin: 0 0 1rem 0;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  .toc-hero__subtitle {
+    margin: 0;
+    font-size: 1.25rem;
+    color: rgba(247, 243, 237, 0.85);
+    font-family: var(--font-body);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Main container */
+  .toc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  /* Part section */
+  .toc-part-section {
+    margin-bottom: 4rem;
+  }
+
+  .toc-part-section:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Part header */
+  .toc-part-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--part-color);
+  }
+
+  .toc-part-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--coal-seam);
+  }
+
+  .toc-part-description {
+    margin: 0;
+    font-size: 1rem;
+    color: rgba(26, 26, 46, 0.75);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  /* Chapter grid */
+  .toc-chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .toc-hero {
+      padding: 2rem 1.5rem;
+    }
+
+    .toc-hero__title {
+      font-size: 2rem;
+    }
+
+    .toc-hero__subtitle {
+      font-size: 1rem;
+    }
+
+    .toc-container {
+      padding: 2rem 1.5rem;
+    }
+
+    .toc-part-section {
+      margin-bottom: 3rem;
+    }
+
+    .toc-part-title {
+      font-size: 1.5rem;
+    }
+
+    .toc-chapter-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .toc-hero__title {
+      font-size: 1.5rem;
+    }
+
+    .toc-part-title {
+      font-size: 1.25rem;
+    }
+
+    .toc-chapter-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

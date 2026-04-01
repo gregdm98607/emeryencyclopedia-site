@@ -1,0 +1,141 @@
+---
+// Search overlay - integrates with Pagefind at build time
+---
+<div class="search-overlay" id="search-overlay" aria-hidden="true">
+  <div class="search-backdrop"></div>
+  <div class="search-container" role="dialog" aria-label="Search">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <input type="search" class="search-input" placeholder="Search chapters, places, people..." autofocus />
+    <div class="search-results"></div>
+    <p class="search-hint">Press <kbd>Esc</kbd> to close &middot; <kbd>Enter</kbd> to search</p>
+  </div>
+</div>
+
+<style>
+  .search-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+  }
+  .search-overlay.active { display: block; }
+  .search-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.85);
+    backdrop-filter: blur(4px);
+  }
+  .search-container {
+    position: relative;
+    max-width: 640px;
+    margin: 10vh auto 0;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .search-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-muted-text);
+    cursor: pointer;
+  }
+  .search-input {
+    width: 100%;
+    font-size: var(--text-lg);
+    font-family: var(--font-body);
+    border: none;
+    border-bottom: 2px solid var(--sandstone);
+    padding: 0.75rem 0;
+    outline: none;
+    background: transparent;
+    color: var(--canyon-shadow);
+  }
+  .search-results {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-top: 1.5rem;
+  }
+  .search-hint {
+    margin-top: 1rem;
+    font-size: var(--text-xs);
+    color: var(--color-muted-text);
+    text-align: center;
+  }
+  .search-hint kbd {
+    background: var(--alkali-flat);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('search-overlay');
+  const input = overlay?.querySelector('.search-input');
+  const backdrop = overlay?.querySelector('.search-backdrop');
+  const closeBtn = overlay?.querySelector('.search-close');
+  const results = overlay?.querySelector('.search-results');
+
+  function openSearch() {
+    overlay?.classList.add('active');
+    overlay?.setAttribute('aria-hidden', 'false');
+    (input as HTMLInputElement)?.focus();
+  }
+  function closeSearch() {
+    overlay?.classList.remove('active');
+    overlay?.setAttribute('aria-hidden', 'true');
+  }
+
+  // Trigger from header search button
+  document.querySelectorAll('[data-search-trigger]').forEach(btn => {
+    btn.addEventListener('click', openSearch);
+  });
+
+  // Cmd/Ctrl+K shortcut
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearch();
+    }
+    if (e.key === 'Escape') closeSearch();
+  });
+
+  backdrop?.addEventListener('click', closeSearch);
+  closeBtn?.addEventListener('click', closeSearch);
+
+  // Pagefind integration
+  let pagefind: any = null;
+  async function initPagefind() {
+    try {
+      pagefind = await import('/pagefind/pagefind.js' as any);
+      await pagefind.init();
+    } catch {
+      if (results) results.innerHTML = '<p style="color: var(--color-muted-text); text-align: center; padding: 2rem;">Search is available after the site is built.</p>';
+    }
+  }
+  initPagefind();
+
+  input?.addEventListener('input', async (e) => {
+    const query = (e.target as HTMLInputElement).value;
+    if (!pagefind || !query || query.length < 2) {
+      if (results) results.innerHTML = '';
+      return;
+    }
+    const search = await pagefind.search(query);
+    const items = await Promise.all(search.results.slice(0, 8).map((r: any) => r.data()));
+    if (results) {
+      results.innerHTML = items.map((item: any) => `
+        <a href="${item.url}" style="display:block;padding:1rem;border-bottom:1px solid var(--color-border);text-decoration:none;color:inherit;">
+          <strong style="font-family:var(--font-display);color:var(--canyon-shadow)">${item.meta?.title || 'Untitled'}</strong>
+          <p style="font-size:var(--text-sm);color:var(--color-muted-text);margin-top:0.25rem">${item.excerpt || ''}</p>
+        </a>
+      `).join('');
+    }
+  });
+</script>

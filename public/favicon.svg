@@ -1,0 +1,29 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Topographic contour lines in sandstone color -->
+  <defs>
+    <style>
+      .contour {
+        fill: none;
+        stroke: #D4A574;
+        stroke-width: 0.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  
+  <!-- Outermost contour (faint) -->
+  <ellipse cx="16" cy="16" rx="14" ry="12" class="contour" opacity="0.4"/>
+  
+  <!-- Second contour -->
+  <ellipse cx="16" cy="15.5" rx="11" ry="9.5" class="contour" opacity="0.6"/>
+  
+  <!-- Third contour -->
+  <ellipse cx="16" cy="15" rx="8" ry="7" class="contour" opacity="0.8"/>
+  
+  <!-- Innermost contour -->
+  <ellipse cx="16" cy="15.5" rx="5" ry="4.5" class="contour" opacity="1"/>
+  
+  <!-- Subtle ridge detail (wavy contour accent) -->
+  <path d="M 8 16 Q 12 14, 16 14.5 T 24 16" class="contour" opacity="0.5" stroke-width="0.6"/>
+</svg>
