@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>USGS Current Conditions for USGS 09328500 SAN RAFAEL RIVER NEAR GREEN RIVER, UT
+ x</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="/nwisweb/stylesheets/USGS_common.css" />
+<link rel="stylesheet" type="text/css" href="/nwisweb/stylesheets/USGS_custom.css" />
+<!--<link rel="stylesheet" type="text/css" href="/nwisweb/stylesheets/nwisweb.css" />-->
+
+<!-- JF - media queries - responsive design - different device widths  -->
+<link rel="stylesheet" media="screen and (min-width: 180px) and (max-width: 450px)" href="/nwisweb/stylesheets/nwiswebfluidsmallest.css" />
+<link rel="stylesheet" media="screen and (min-width: 450px) and (max-width: 900px)" href="/nwisweb/stylesheets/nwiswebfluid.css" />
+<link rel="stylesheet" media="screen and (min-width: 900px)" href="/nwisweb/stylesheets/nwisweb.css" />
+
+<!--
+<link rel="stylesheet" media="screen and (min-width: 450px) and (max-width: 770px)" href="/nwisweb/stylesheets/nwiswebfluid.css" />
+<link rel="stylesheet" media="screen and (min-width: 770px)" href="/nwisweb/stylesheets/nwisweb.css" />
+-->
+<script type="text/javascript" src="/nwisweb/javascripts/respond.min.js"></script>
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" media="all" href="/nwisweb/stylesheets/nwisweb.css"/>
+<![endif]-->
+
+<meta http-equiv="refresh" content="0; url=https://waterdata.usgs.gov/monitoring-location/09328500">
+
+<meta http-equiv="P3P" content='policyref="https://nwis.waterdata.usgs.gov/w3c/p3p.xml"'>
+<link rel="P3Pv1" href="https://nwis.waterdata.usgs.gov/w3c/p3p.xml" type="text/xml" />
+<link rel="alternate" type="application/rss+xml" title="USGS Water Data for the Nation and USGS Water Services News" href="https://help.waterdata.usgs.gov/news/RSS/" />
+<meta name="keywords" content="water, earth science, hydrology, hydrologic, data, streamflow, stream, river, lake, flood, drought, quality, basin, watershed, environment, groundwater, groundwater">
+</head>
+<body>
+
+<b></b>
+<h2>USGS 09328500 SAN RAFAEL RIVER NEAR GREEN RIVER, UT</h2>
+<div>
+
+<div class="stationContainer">
+
+<h2><a href="https://waterdata.usgs.gov/provisional-data-statement/">PROVISIONAL DATA SUBJECT TO REVISION</a></h2>
+
+<!-- STATION LEVEL NAVIGATION -->
+
+<script type="text/javascript">
+<!--
+function station_navigation_manager_1() {
+   var national_host_url     = "";
+   var WDFN_URL              = "https://waterdata.usgs.gov/";
+   var enable_uv_to_new_page = "1";
+   var local_cgi_url_base    = "";
+   var program_index         = document.station_navigation_1.program.selectedIndex;
+   var program               = document.station_navigation_1.program.options[ program_index ].value;
+   var site_no               = document.station_navigation_1.site_no.value;
+   var agency_cd             = document.station_navigation_1.agency_cd.value;
+   var ref_module            = '';
+   
+   if(program.match(/dv|dvstat|monthly|annual/)) {
+      ref_module = "";
+      if(ref_module == "") {
+         ref_module = "&amp;referred_module=sw"
+      }
+   }
+   // Hardcoding stay_local variable here due to javascript incompatiblities
+   var stay_local = 0;
+   if (program_index <= 4 || program.match(/dv|dvstat|monthly|annual|measurements|wys_rpt/)){
+      stay_local = 1;
+   }
+   //alert("stay_local " + stay_local);
+   var url = '';
+   if (program == "epa_huc_surf") {
+      url = "https://cfpub.epa.gov/surf/huc.cfm?huc_code=14060009";
+   }
+   else if (program == "adr") {
+      url = "https://wdr.water.usgs.gov/wy2025/pdfs/09328500.2025.pdf";
+   }
+   //else if (program == "awl") {
+   //   url = "https://groundwaterwatch.usgs.gov/AWLSites.asp?S=09328500";
+   //}
+   else {
+      if (stay_local == 1) {
+         url = "/nwis/";
+      } else {
+         if (national_host_url) {
+            url = "/ut/nwis/";
+         } else {
+            url = "/nwis/";
+         }
+      }
+      var dv_pattern = /dvstat|monthly|annual/;
+      if(program.match(dv_pattern)) {
+         url =  url + program + "/?search_site_no=" + site_no + "&amp;agency_cd=" + agency_cd  + ref_module + "&amp;format=sites_selection_links";
+      } else {
+         url =  url + program + "/?site_no=" + site_no + "&agency_cd=" + agency_cd + ref_module;
+
+         // Send uv [Available data for this site] to new page
+         if (enable_uv_to_new_page == "1" && program == "uv") {
+            url = "https://waterdata.usgs.gov/" + "monitoring-location/" + site_no;
+         }
+      }
+   }
+ window.location = (url);
+ return (false);
+}
+//-->
+</script>
+
+<!--<noscript>Warning: Javascript must be enabled to use all the features on this page!</noscript>-->
+
+<form id="station_level_navigation_bar_form" name="station_navigation_1" action="/nwis">
+<div id="availableData">
+
+   <label accesskey="A" for="select_data_1"><font color="#FFFFFF" face="Verdana,Arial,Helvetica,sans-serif" size="-1">
+   <strong> &nbsp; Available data for this site &nbsp; </strong>
+   </font></label>
+
+   <font color="#FFFFFF" face="Verdana,Arial,Helvetica,sans-serif" size="-1">
+   <select onchange="return station_navigation_manager_1();" name='program' id="select_data_1">
+<option value="inventory" >SUMMARY OF ALL AVAILABLE DATA</option>
+<option value="uv" selected="selected">Time-series: &nbsp; Current/Historical Observations</option>
+<option value="dv" >Time-series: &nbsp; Daily data</option>
+<option value="dvstat" >Time-series: &nbsp; Daily statistics</option>
+<option value="monthly" >Time-series: &nbsp; Monthly statistics</option>
+<option value="annual" >Time-series: &nbsp; Annual statistics</option>
+<option value="peak" >Surface-water: &nbsp; Peak streamflow</option>
+<option value="measurements" >Surface-water: &nbsp; Field measurements</option>
+<option value="qwdata" >Water-Quality: &nbsp; Field/Lab samples</option>
+<option value="wys_rpt" >Water-Year Summary</option>
+<option value="revision" >Revisions</option>
+</select>
+   <input type="hidden" alt="Site Number" name="site_no"   value="09328500" />
+   <input type="hidden" alt="Agency Code" name="agency_cd" id="agency_cd" value="USGS" />
+   <input type="submit" alt="Submit" value="GO" onclick="return station_navigation_manager_1()" />
+   </font>
+
+</div>
+<div class='clear'></div>
+</form>
+
+
+
+<div class="collapse_div">
+<div id="station_header" class="station_tx_header_div">
+  <span id="collapsingStationIcon" class="ui-icon ui-icon-circle-minus"></span>
+  <span id="station_header_tx">Click to hide</span>station-specific text 
+</div>
+<div id="station_tx">
+<a href=
+"http://waterdata.usgs.gov/nwisweb/local/nwis_host/nwisut/local/site_text/images/09328500.jpg">
+<img src=
+"http://waterdata.usgs.gov/nwisweb/local/nwis_host/nwisut/local/site_text/images/09328500th.jpg"
+alt="USGS station 09328500" width="200" height="150" border="1" style=
+"float:right" /></a> Station operated by the U.S. Geological Survey as
+part of the Federal Priority Streamgages Network, in cooperation with
+the U.S. Bureau of Reclamation.<br />
+<br />
+<a href=
+"http://nrtwq.usgs.gov/explore/plot?site_no=09328500&amp;pcode=00060&amp;period=7d_all&amp;timestep=uv"
+target="_blank"><img src=
+"http://waterdata.usgs.gov/nwisweb/local/nwis_host/nwisut/local/site_text/images/qw.png"
+width="35" height="35" border="0" alt=
+"Logo for USGS Real-time Water Quality" /></a> Visit <a href=
+"http://nrtwq.usgs.gov/explore/plot?site_no=09328500&amp;pcode=00060&amp;period=7d_all&amp;timestep=uv">
+USGS Real-Time Water Quality</a> to view continuous estimates of
+concentrations and loads for bacteria and other chemicals.<br />
+
+<table>
+  <tr>
+    <td>
+      <table border="0" cellpadding="5" cellspacing="5">
+        <tr>
+          <td colspan="10"><a href=
+          "http://waterdata.usgs.gov/ut/nwis/current/?type=precip&amp;group_key=basin_cd">
+          <img width="40" height="40" border="0" align="absmiddle" alt=
+          "rainfall" src=
+          "http://waterdata.usgs.gov/nwisweb/local/nwis_host/nwisut/local/site_text/images/rainfall2clr.gif" /></a></td>
+
+          <td colspan="10"><font color="#000080"><a style=
+          "text-decoration: underline" onmouseover=
+          "document.body.style.cursor=&#39;pointer&#39;;" onmouseout=
+          "document.body.style.cursor=&#39;default&#39;;" onkeydown=
+          "document.body.style.cursor=&#39;pointer&#39;;" onclick=
+          "if (document.getElementById(&#39;PrecipDisclaimer&#39;).style.display==&#39;none&#39;) { document.getElementById(&#39;PrecipDisclaimer&#39;).style.display=&#39;block&#39;; } else { document.getElementById(&#39;PrecipDisclaimer&#39;).style.display=&#39;none&#39;;}">
+          <script type="text/javascript">
+//<![CDATA[
+          document.write("<strong>Precipitation Data Disclaimer<\/strong>");
+          //]]>
+          </script><img name="arrow" alt="Arrow" src=
+          "http://waterdata.usgs.gov/nwisweb/local/nwis_host/nwisut/local/site_text/images/arrow_up.jpg"
+          style=
+          "text-decoration:none; border:0; vertical-align: bottom;" /></a>
+          <span id="PrecipDisclaimer" style="display:none;"><font size=
+          "2"><strong>The 15-minute precipitation data for this station
+          are temporary</strong> and will only be displayed for 120
+          days. Time series of 15-minute or cumulative daily values
+          will NOT be available for retrieval following the 120-day
+          display period. Although the instrumentation is calibrated at
+          least once per year, the temporary classification means that
+          documented routine inspections and other quality assurance
+          measures are not performed that would make the data
+          acceptable for archival, retrieval, or future use in general
+          scientific or interpretive studies.<br />
+          <br /></font></span></font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</div>
+</div>
+
+ This station managed by the Moab UT Field Office.<br /><br />
+
+
+<form id="available_parameters_form" method="get" action="/nwis/uv">
+
+<div id="available_parameters_table">
+
+	<div class="available_parameters_float1"><!--<table cols="4" border="1" cellspacing="0">-->
+<table border="0" cellspacing="0">
+<thead>
+<tr>
+<td></td><th><font face="Verdana,Arial,Helvetica" size="-1">Available Parameters</font></th>
+<th nowrap="nowrap" colspan="2" align="center"> <font face="Verdana,Arial,Helvetica" size="-1">Available Period</font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="5%"><input type="checkbox" id="all_available_parameters" class="available_parameters" alt="Check for Parameter Code" name="cb_all_"  /></td><td width="65%"><font face="Verdana,Arial,Helvetica" size="-1"><div id="check_all_parameters"><label for="all_available_parameters">All 5 Available Parameters for this site</label></div></font></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td width="5%"><font face="Verdana,Arial,Helvetica" size="-1"><input type="checkbox" id="checkbox_00010" class="available_parameters" alt="Check for Parameter Code" name="cb_00010"  ts_ids="ts_ids_144144"/></font></td>
+<td ><label for="checkbox_00010"><font face="Verdana,Arial,Helvetica" size="-1">00010 Temperature, water</font></label></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2015-12-04&nbsp;</font></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2026-04-01</font></td>
+ 
+</tr>
+ 
+<tr>
+<td width="5%"><font face="Verdana,Arial,Helvetica" size="-1"><input type="checkbox" id="checkbox_00045" class="available_parameters" alt="Check for Parameter Code" name="cb_00045"  ts_ids="ts_ids_144147"/></font></td>
+<td ><label for="checkbox_00045"><font face="Verdana,Arial,Helvetica" size="-1">00045 Precipitation</font></label></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2025-12-02&nbsp;</font></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2026-04-01</font></td>
+ 
+</tr>
+ 
+<tr>
+<td width="5%"><font face="Verdana,Arial,Helvetica" size="-1"><input type="checkbox" id="checkbox_00060" class="available_parameters" alt="Check for Parameter Code" name="cb_00060" checked="checked" ts_ids="ts_ids_144145"/></font></td>
+<td ><label for="checkbox_00060"><font face="Verdana,Arial,Helvetica" size="-1">00060 Discharge</font></label></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">1986-10-01&nbsp;</font></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2026-04-01</font></td>
+ 
+</tr>
+ 
+<tr>
+<td width="5%"><font face="Verdana,Arial,Helvetica" size="-1"><input type="checkbox" id="checkbox_00065" class="available_parameters" alt="Check for Parameter Code" name="cb_00065"  ts_ids="ts_ids_144148"/></font></td>
+<td ><label for="checkbox_00065"><font face="Verdana,Arial,Helvetica" size="-1">00065 Gage height</font></label></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2010-08-18&nbsp;</font></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2026-04-01</font></td>
+ 
+</tr>
+ 
+<tr>
+<td width="5%"><font face="Verdana,Arial,Helvetica" size="-1"><input type="checkbox" id="checkbox_00095" class="available_parameters" alt="Check for Parameter Code" name="cb_00095"  ts_ids="ts_ids_144146"/></font></td>
+<td ><label for="checkbox_00095"><font face="Verdana,Arial,Helvetica" size="-1">00095 Specific cond at 25C</font></label></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2016-02-27&nbsp;</font></td>
+<td nowrap="nowrap" ><font face="Verdana,Arial,Helvetica" size="-1">2026-04-01</font></td>
+ 
+</tr>
+ 
+</tbody>
+</table></div>
+
+	<div class="available_parameters_float2"><label><font face="Verdana,Arial,Helvetica" size="-1"><strong>Output format</strong></font></label><br />
+	 <input id="gif_default" class="output_formats" type="radio" alt="Format" name="format" value="gif_default" checked="checked" /> <label for="gif_default">Graph</label> <br />
+ <input id="gif_stats" class="output_formats" type="radio" alt="Format" name="format" value="gif_stats"  /> <label for="gif_stats">Graph w/ stats</label> <br />
+ <input id="gif" class="output_formats" type="radio" alt="Format" name="format" value="gif"  /> <label for="gif">Graph w/o stats</label> <br />
+ <input id="gif_mult_parms" class="output_formats" type="radio" alt="Format" name="format" value="gif_mult_parms"  /> <label for="gif_mult_parms">Graph w/ (up to 3) parms</label> <br />
+ <input id="html" class="output_formats" type="radio" alt="Format" name="format" value="html"  /> <label for="html">Table</label> <br />
+ <input id="rdb" class="output_formats" type="radio" alt="Format" name="format" value="rdb"  /> <label for="rdb">Tab-separated</label> <br />
+</div>
+
+	<div class="available_parameters_float3">
+	    <div style="display:inline-block; float:right; margin-top:.3em;">
+	    <input type="hidden" name="site_no" value="09328500" />
+	    <input type="hidden" name="legacy" value="" />
+	     
+	    <input id="go_available_button" type="submit" value="GO" />	
+	    </div>
+	        <div style="float:left;">
+    <font face="Verdana,Arial,Helvetica" size="-1"><label for="period"><strong>Days</strong></label> &nbsp;(365)<br />
+      &nbsp; <input name="period" id="period" value="" size="8" alt="Enter no of days" /></font><br /> &nbsp;  -- or -- <br />
+    <font face="Verdana,Arial,Helvetica" size="-1"><label for="begin_date"><strong>Begin date</strong></label><br />
+      &nbsp; <input name="begin_date" id="begin_date" value="2025-04-01" size="8" alt="Enter Begin Date" /></font><br />
+    <font face="Verdana,Arial,Helvetica" size="-1"><label for="end_date"><strong>End date</strong></label><br />
+      &nbsp; <input name="end_date" id="end_date" value="2026-04-01" size="8" alt="Enter End Date" /></font><br />
+    </div>
+
+	</div>
+	
+	<div class="clear"></div>
+
+</div>
+
+</form>
+
+
+
+<font size="+1" color="red"><strong><a href="/nwis/inventory/?site_no=09328500&amp;agency_cd=USGS">
+Summary of all available data for this site</a></strong></font>
+<br />
+<font size="+1"><strong>
+<a href="https://waterdata.usgs.gov/iv-data-availability-statement/" target="_blank">Instantaneous-data availability statement</a>
+</strong></font>
+</div>
+
+</div><div class="stationContainer">
+<hr />
+<div class="stationContainerHeading">
+<a name="gifno-99"><br /><strong>Discharge, cubic feet per second</strong></a>  
+<br />
+</div>
+
+Most recent instantaneous value: 1.38 04-01-2026 &nbsp; 13:45 MDT 
+
+
+<br />
+<font size="-1"></font>
+
+<div class='clear'></div>
+
+<div class="stationContainerSubHeading">
+   <div id="table_09328500_144145_00060" border="0" class="iv_graph_float1">    
+    <img src="https://nadww02.cr.usgs.gov/nwisweb/data/img/USGS.09328500.144145.00060..20250401.20260401.log.0..gif" border="0" alt="Graph of  Discharge, cubic feet per second" height="384" width="576" /> 
+   </div>
+   
+   <div class="iv_graph_float2">
+          <form id="form_mult_sites_09328500_144145_00060" class="add_mult_sites" method="get" action="/nwis/uv">
+      <div>
+         <p>Add up to 2 more sites and replot for &quot;Discharge, cubic feet per second&quot;</p>
+        <div class="helpBtn">
+         <a href="https://help.waterdata.usgs.gov/codes-and-parameters/codes#search_full_site_no" title="'Enter up to 2 site numbers separated by a comma. A site number consists of 8 to 15 digits'" id="search_full_site_no"><span>?</span></a>
+        </div>&nbsp;<label for="add_mult_sites_09328500_144145_00060">Add site numbers</label>
+        <div class="helpBtn NoteBtn">
+         <a href="https://help.waterdata.usgs.gov/codes-and-parameters/codes#add_mult_sites" title="Caution: When viewing a plot with multiple sites, it is important to understand the characteristics of data being plotted. For example, some parameters are measured from a reference point that varies from site to site, such as water-level depth below land surface datum for wells, and gage height for streams. Calculating the difference between values at sites with different altitudes would have limited meaning." id="add_mult_sites"><span>Note</span></a>
+        </div>
+        <br />
+         <textarea tabindex="10" id="add_mult_sites_09328500_144145_00060" class="add_mult_sites" alt="Number 8 to 15 long that uniquely defines a site" name="site_no" cols="20" rows="8">'Enter up to 2 site numbers separated by a comma. A site number consists of 8 to 15 digits'</textarea>
+         <input id="format_09328500_144145_00060" type="hidden" name="format" value="gif_mult_sites">
+         <input id="parameter_09328500_144145_00060" type="hidden" name="PARAmeter_cd" value="00060">
+         <input type="hidden" name="legacy" value="">
+         <input id="period_09328500_144145_00060" type="hidden" name="period" value="365">
+        <br />
+         <input id="go_09328500_144145_00060" class="go_mult_sites" type="submit" value="GO" />
+        <br />
+      </div>
+     </form>
+   </div>
+   <div class='clear'></div>
+   
+   <font size="-1"> Create <a href="/nwis/uv/?ts_id=144145&amp;format=img_default&amp;site_no=09328500&amp;begin_date=20250401&amp;end_date=20260401">presentation-quality</a>
+     / <a href="/nwisweb/graph?agency_cd=USGS&site_no=09328500&parm_cd=00060&period=365">stand-alone</a>   graph. &nbsp; Subscribe to <div class="helpBtn"><a href="https://accounts.waterdata.usgs.gov/wateralert/" title="Subscribe to receive e-mail or text messages when certain parameters, as measured by a USGS real-time data-collection station, exceed user-definable thresholds." id="water_alert"><span>?</span></a></div> <a href="https://accounts.waterdata.usgs.gov/wateralert/my-alerts/#siteNumber=09328500&parameterCode=00060" target="_blank">WaterAlert</a> &nbsp; &nbsp; &nbsp;  </font>
+   <font size="-4"></font><br />
+   
+   <font size="-1">   <br /><div>
+
+   See this graph on the <a href="https://waterdata.usgs.gov/monitoring-location/09328500/#parameterCode=00060&amp;ts_id=144145" target="_blank">Monitoring Location Pages</a>
+   </div></font>
+   <br />
+   <div class="addthis_toolbox addthis_default_style "
+         addthis:url="https://nwis.waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=09328500&parm_cd=00060&period=365"
+         addthis:title="USGS graph"
+   >
+   <a href="https://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4f4f8fe755190329" class="addthis_button_compact">Share this graph</a>
+   <span class="addthis_separator">|</span>
+   <a class="addthis_button_preferred_1"></a>
+   <a class="addthis_button_preferred_2"></a>
+   <a class="addthis_button_preferred_3"></a>
+   <a class="addthis_button_preferred_4"></a>
+   </div><br />
+</div>
+
+<!-- Stats table -->
+<div class="stationContainerSubHeading">
+
+</div>
+<div class='clear'></div>
+
+</div>
+  
+<div id="nwisweb_footer">
+
+<div class='clear'></div>
+
+<div id="usgssubfooter">
+<hr>
+	<div id="leftsubfooter">
+	        <a id="gs_questions" href=https://waterdata.usgs.gov/questions-comments/?&ownerCode=UT&referrerUrl=https%3A%2F%2Fnwis.waterdata.usgs.gov%2Fusa%2Fnwis%2Fuv%3Fcb_00060%3Don%26format%3Dgif_default%26site_no%3D09328500%26period%3D365 target="_blank">Questions or Comments</a><br />
+		<a href="https://help.waterdata.usgs.gov">Help</a><br />
+	</div>
+
+	<div id="rightsubfooter">
+		<a href="https://water.usgs.gov/data/watertips.html">Data Tips</a><br />
+		<a href="https://water.usgs.gov/edu/dictionary.html">Explanation of terms</a><br />
+		   <!--<a href="/nwis/help/help?form=email">Subscribe for system changes</a>-->
+   <!--<a href="/nwis/subscribe/help?form=email">Subscribe for system changes</a>-->
+   <a href="/nwis/subscribe?form=email">Subscribe for system changes</a>
+ <br />
+	</div>
+
+</div>
+
+<div class='clear'></div>
+
+
+
+<!-- BEGIN USGS Footer Template -->
+<div id="usgsfooter">
+  <p id="usgsfooterbar">
+  <a href="https://www.usgs.gov/laws/accessibility.html" title="Accessibility Policy (Section 508)">Accessibility</a>
+  <a href="https://www.usgs.gov/foia/" title="Freedom of Information Act">FOIA</a>
+  <a href="https://www.usgs.gov/privacy.html" title="Privacy policies of the U.S. Geological Survey.">Privacy</a>
+  <a href="https://www.usgs.gov/policies_notices.html" title="Policies and notices that govern information posted on USGS Web sites.">Policies and Notices</a>
+  </p>
+  <p id="usgsfootertext">
+    <a href="https://usa.gov/"><img src="/nwisweb/icons/USGS_footer_graphic_usagov.jpg" alt="USA.gov logo" title="USAGov: Government Made Easy" width="90" height="26" /></a>
+
+    <a href="https://www.doi.gov/">U.S. Department of the Interior</a> |
+    <a href="https://www.usgs.gov/">U.S. Geological Survey</a><br />
+    <b>Title: USGS Current Conditions for the Nation <br />
+    URL: <span id="footerURL">https://nwis.waterdata.usgs.gov/nwis/uv?<br /><br /></span></b>
+    Page Contact Information: <a href=https://waterdata.usgs.gov/questions-comments/?&ownerCode=UT&referrerUrl=https%3A%2F%2Fnwis.waterdata.usgs.gov%2Fusa%2Fnwis%2Fuv%3Fcb_00060%3Don%26format%3Dgif_default%26site_no%3D09328500%26period%3D365 target="_blank">Utah Water Data Support Team</a><br />
+    Page Last Modified: 2026-04-01 15:55:20 EDT<br />
+    <font size="-2"> 4.07 &nbsp; 2.89 nadww02<br /></font>
+   </p>
+</div>
+<br>
+<!-- END USGS Footer Template -->
+</div> <!-- nwisweb_footer -->
+</body>
+</html>

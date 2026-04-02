@@ -26,25 +26,25 @@ export const CHAPTERS: Chapter[] = [
     number: 2,
     title: 'Deep-Time Geology',
     part: 1,
-    status: 'stub',
+    status: 'final',
     description: 'A billion-year journey through stone: Precambrian foundations, Paleozoic seas, Mesozoic dinosaurs, and recent tectonics.',
-    wordCount: 0
+    wordCount: 4200
   },
   {
     number: 3,
     title: 'Hydrology & Springs',
     part: 1,
-    status: 'stub',
+    status: 'final',
     description: 'Water in the desert: springs, seeps, rivers, and the hydrologic systems that sustain life in Emery County.',
-    wordCount: 0
+    wordCount: 4100
   },
   {
     number: 4,
     title: 'Climate & Weather',
     part: 1,
-    status: 'stub',
+    status: 'final',
     description: 'Seasonal patterns, precipitation, temperature extremes, and how climate shapes the landscape and communities.',
-    wordCount: 0
+    wordCount: 4500
   },
   {
     number: 5,
@@ -58,17 +58,17 @@ export const CHAPTERS: Chapter[] = [
     number: 6,
     title: 'Fauna',
     part: 1,
-    status: 'stub',
+    status: 'revised',
     description: 'Wildlife of Emery County: mammals, birds, reptiles, amphibians, and invertebrates in their natural habitats.',
-    wordCount: 0
+    wordCount: 4400
   },
   {
     number: 7,
     title: 'Night Skies & Astronomy',
     part: 1,
-    status: 'stub',
+    status: 'draft',
     description: 'Dark skies and celestial wonders: constellations, milky way viewing, and the astronomical heritage of the high desert.',
-    wordCount: 0
+    wordCount: 4300
   },
 
   // Part II: Peoples (8-15)
@@ -76,9 +76,9 @@ export const CHAPTERS: Chapter[] = [
     number: 8,
     title: 'Ancestral Puebloans & Fremont',
     part: 2,
-    status: 'stub',
+    status: 'draft',
     description: 'The first peoples: Fremont culture, Ancestral Puebloans, and the archaeological record of ancient settlement.',
-    wordCount: 0
+    wordCount: 4200
   },
   {
     number: 9,
@@ -346,27 +346,27 @@ export const CHAPTERS: Chapter[] = [
   // Part VI: Resources (41-43)
   {
     number: 41,
-    title: 'Practical Information',
+    title: 'Further Reading',
     part: 6,
-    status: 'stub',
-    description: 'Visitor essentials: contact information, hours, lodging, dining, services, and emergency resources.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Curated bibliography and further reading for deeper exploration of Emery County topics.',
+    wordCount: 1475
   },
   {
     number: 42,
     title: 'Glossary',
     part: 6,
-    status: 'stub',
+    status: 'draft',
     description: 'Definitions of geological, cultural, historical, and technical terms used throughout the encyclopedia.',
-    wordCount: 0
+    wordCount: 2183
   },
   {
     number: 43,
     title: 'Systematic Index',
     part: 6,
-    status: 'stub',
+    status: 'draft',
     description: 'Comprehensive index enabling cross-reference navigation through topics, names, places, and concepts.',
-    wordCount: 0
+    wordCount: 1280
   }
 ];
 
@@ -420,6 +420,12 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-01', chapter: 8, action: 'Paleo-Indian & Archaic draft published to site' },
+  { date: '2026-04-01', chapter: 7, action: 'Night Skies & Astronomy draft published to site' },
+  { date: '2026-04-01', chapter: 6, action: 'Fauna revised draft published to site' },
+  { date: '2026-04-01', chapter: 4, action: 'Climate & Weather final published to site' },
+  { date: '2026-04-01', chapter: 3, action: 'Hydrology & Springs final published to site' },
+  { date: '2026-04-01', chapter: 2, action: 'Deep-Time Geology final published to site' },
   { date: '2026-03-28', chapter: 2, action: 'Chapter reached draft status' },
   { date: '2026-03-24', chapter: 5, action: 'Flora Zones draft completed' },
   { date: '2026-03-18', chapter: 1, action: 'Geography & Physiography fact-check begun' },
