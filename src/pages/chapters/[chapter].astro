@@ -1,0 +1,159 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const chapters = await getCollection('chapters');
+  return chapters.map(entry => ({
+    params: { chapter: String(entry.data.chapter) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`Chapter ${entry.data.chapter}: ${entry.data.title}`} description={entry.data.description}>
+  <article class="chapter-content">
+    <header class="chapter-header">
+      <div class="chapter-header__container">
+        <a href="/chapters" class="chapter-back">← Table of Contents</a>
+        <div class="chapter-meta">
+          <span class="chapter-number">Chapter {entry.data.chapter}</span>
+        </div>
+        <h1 class="chapter-title">{entry.data.title}</h1>
+        {entry.data.description && (
+          <p class="chapter-description">{entry.data.description}</p>
+        )}
+        {entry.data.readingTime && (
+          <span class="chapter-reading-time">{entry.data.readingTime}</span>
+        )}
+      </div>
+    </header>
+
+    <div class="chapter-body">
+      <div class="chapter-body__container">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .chapter-header {
+    background: linear-gradient(135deg, var(--coal-seam) 0%, rgba(26, 26, 46, 0.95) 100%);
+    color: var(--sky-wash);
+    padding: 3rem 2rem;
+  }
+
+  .chapter-header__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .chapter-back {
+    display: inline-block;
+    color: rgba(247, 243, 237, 0.7);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  .chapter-back:hover {
+    color: var(--sky-wash);
+  }
+
+  .chapter-meta {
+    margin-bottom: 0.75rem;
+  }
+
+  .chapter-number {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--sandstone);
+  }
+
+  .chapter-title {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  .chapter-description {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    color: rgba(247, 243, 237, 0.85);
+    line-height: 1.6;
+  }
+
+  .chapter-reading-time {
+    font-size: 0.875rem;
+    color: rgba(247, 243, 237, 0.6);
+  }
+
+  .chapter-body {
+    padding: 3rem 2rem;
+  }
+
+  .chapter-body__container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--coal-seam);
+  }
+
+  .chapter-body__container :global(h1),
+  .chapter-body__container :global(h2),
+  .chapter-body__container :global(h3) {
+    font-family: var(--font-display);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .chapter-body__container :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .chapter-body__container :global(ul),
+  .chapter-body__container :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .chapter-body__container :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(212, 165, 116, 0.3);
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .chapter-header {
+      padding: 2rem 1.5rem;
+    }
+
+    .chapter-title {
+      font-size: 1.75rem;
+    }
+
+    .chapter-body {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

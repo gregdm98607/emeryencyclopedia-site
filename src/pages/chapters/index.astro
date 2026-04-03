@@ -1,10 +1,10 @@
 ---
-// chapters.astro — V5 Table of Contents page with part-organized chapter grid
+// chapters/index.astro — V5 Table of Contents page with part-organized chapter grid
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ChapterCard from '../components/ChapterCard.astro';
-import { CHAPTERS } from '../data/chapters';
-import { getAllParts } from '../utils/parts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChapterCard from '../../components/ChapterCard.astro';
+import { CHAPTERS } from '../../data/chapters';
+import { getAllParts } from '../../utils/parts';
 
 const parts = getAllParts();
 
