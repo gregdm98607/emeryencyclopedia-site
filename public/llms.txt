@@ -1,0 +1,78 @@
+# Emery County Encyclopedia
+
+> Comprehensive local history encyclopedia covering Emery County, Utah — geology, hydrology, climate, ecology, settlement history, mining, agriculture, and community life across 40+ chapters.
+
+The Emery County Encyclopedia is a multi-chapter reference work documenting the natural and human history of Emery County in central Utah. Topics range from the geological formation of the San Rafael Swell to modern community development. The encyclopedia covers the land itself, its ecology and climate, settlement patterns, economic history including mining and agriculture, and cultural heritage.
+
+## Chapters
+
+### Part I: The Land (Chapters 1–7)
+
+- [Chapter 1: Geography & Physiography](https://emeryencyclopedia.com/chapters/1) — The physical landscape of Emery County: plateaus, canyons, rivers, and the defining topography of the region.
+- [Chapter 2: Deep-Time Geology](https://emeryencyclopedia.com/chapters/2) — A billion-year journey through stone: Precambrian foundations, Paleozoic seas, Mesozoic dinosaurs, and recent tectonics.
+- [Chapter 3: Hydrology & Springs](https://emeryencyclopedia.com/chapters/3) — Water in the desert: springs, seeps, rivers, and the hydrologic systems that sustain life in Emery County.
+- [Chapter 4: Climate & Weather](https://emeryencyclopedia.com/chapters/4) — Seasonal patterns, precipitation, temperature extremes, and how climate shapes the landscape and communities.
+- [Chapter 5: Flora Zones](https://emeryencyclopedia.com/chapters/5) — Plant communities from high-elevation forests to desert shrublands across elevational gradients.
+- [Chapter 6: Fauna](https://emeryencyclopedia.com/chapters/6) — Wildlife of Emery County: mammals, birds, reptiles, amphibians, and invertebrates in their natural habitats.
+- [Chapter 7: Night Skies & Astronomy](https://emeryencyclopedia.com/chapters/7) — Dark skies and celestial wonders: constellations, Milky Way viewing, and astronomical heritage of the high desert.
+
+### Part II: First Peoples (Chapters 8–15)
+
+- [Chapter 8: Ancestral Puebloans & Fremont](https://emeryencyclopedia.com/chapters/8) — The first peoples: Fremont culture, Ancestral Puebloans, and the archaeological record of ancient settlement.
+- [Chapter 9: Ute Territory & Culture](https://emeryencyclopedia.com/chapters/9) — The Ute Nation: traditional territories, seasonal movements, cultural practices, and historical continuity.
+- [Chapter 10: Paiute & Shoshone Presence](https://emeryencyclopedia.com/chapters/10) — The Paiute and Shoshone peoples: their presence in Emery County and the broader Intermountain West.
+- [Chapter 11: Navajo & Puebloan Connections](https://emeryencyclopedia.com/chapters/11) — Navajo trading networks and Puebloan cultural connections across the Colorado Plateau.
+- [Chapter 12: Trade Routes & Exchange](https://emeryencyclopedia.com/chapters/12) — Pre-contact trade networks: goods, routes, and cultural exchange across the Southwest.
+- [Chapter 13: Contact & Collision](https://emeryencyclopedia.com/chapters/13) — Spanish expeditions, first contact narratives, and the beginning of colonial disruption.
+- [Chapter 14: Tribal Nations Today](https://emeryencyclopedia.com/chapters/14) — Contemporary Ute Mountain Ute, Ute Indian Tribe, and other tribal nations with historic and present ties to Emery County.
+- [Chapter 15: Indigenous Arts & Knowledge](https://emeryencyclopedia.com/chapters/15) — Weaving, pottery, hunting practices, plant knowledge, and cultural expressions of Emery County tribes.
+
+### Part III: Exploration & Settlement (Chapters 16–23)
+
+- [Chapter 16: Mormon Colonization](https://emeryencyclopedia.com/chapters/16) — LDS settlement of Emery County: pioneers, founding of towns, religious community formation, and settlement patterns.
+- [Chapter 17: Coal, Copper & Uranium](https://emeryencyclopedia.com/chapters/17) — Mining boom: coal camps, miners, mining operations, and the economic transformation of the county.
+- [Chapter 18: Communities & Towns](https://emeryencyclopedia.com/chapters/18) — Town histories: Castle Dale, Ferron, Huntington, Green River, Cleveland, and smaller settlements.
+- [Chapter 19: Agriculture & Land Use](https://emeryencyclopedia.com/chapters/19) — Ranching, farming, livestock management, and the evolution of agricultural practice in an arid landscape.
+- [Chapter 20: Transportation & Infrastructure](https://emeryencyclopedia.com/chapters/20) — Roads, railways, telegraph, utilities, and the infrastructure that connected Emery County to the broader region.
+- [Chapter 21: Ghost Towns & Abandonment](https://emeryencyclopedia.com/chapters/21) — Ephemeral settlements: mining camps, railroad towns, and communities that faded as economic tides shifted.
+- [Chapter 22: Land & Ownership](https://emeryencyclopedia.com/chapters/22) — Public lands, private property, Native American lands, and the legal frameworks governing land tenure.
+- [Chapter 23: Environment & Conservation](https://emeryencyclopedia.com/chapters/23) — Landscape conservation, environmental challenges, resource management, and sustainability in Emery County.
+
+### Part IV: Government & Community (Chapters 24–35)
+
+- [Chapter 24: Arts & Music](https://emeryencyclopedia.com/chapters/24) — Visual arts, music traditions, theater, and creative expression in Emery County communities.
+- [Chapter 25: Food & Foodways](https://emeryencyclopedia.com/chapters/25) — Traditional foods, cooking practices, cultural dishes, and the culinary heritage of Emery County.
+- [Chapter 26: Oral Histories & Stories](https://emeryencyclopedia.com/chapters/26) — Personal narratives, folklore, family stories, and the oral traditions that preserve local memory.
+- [Chapter 27: Celebrations & Traditions](https://emeryencyclopedia.com/chapters/27) — Festivals, holidays, parades, and annual events that celebrate Emery County heritage.
+- [Chapter 28: Notable People & Leaders](https://emeryencyclopedia.com/chapters/28) — Influential figures: pioneers, civic leaders, artists, activists, and visionaries who shaped the county.
+- [Chapter 29: Genealogy & Family Lines](https://emeryencyclopedia.com/chapters/29) — Pioneer families, kinship networks, and the genealogical threads connecting Emery County residents.
+- [Chapter 30: Education & Institutions](https://emeryencyclopedia.com/chapters/30) — Schools, libraries, churches, civic organizations, and the institutions that build community.
+- [Chapter 31: Economy & Livelihoods](https://emeryencyclopedia.com/chapters/31) — Modern economy: tourism, agriculture, small business, and the contemporary livelihoods of residents.
+- [Chapter 32: Recreation & Leisure](https://emeryencyclopedia.com/chapters/32) — Outdoor recreation, hunting, fishing, boating, and the recreational culture of Emery County.
+- [Chapter 33: Media & Communications](https://emeryencyclopedia.com/chapters/33) — Newspapers, radio, internet, and how Emery County residents stay connected and informed.
+- [Chapter 34: Sports & Athletics](https://emeryencyclopedia.com/chapters/34) — High school sports, community leagues, and the athletic traditions of local schools.
+- [Chapter 35: Tourism & Visitor Experience](https://emeryencyclopedia.com/chapters/35) — Visitor economy, lodging, dining, attractions, and the tourist experience in Emery County.
+
+### Part V: Field Guide (Chapters 36–40)
+
+- [Chapter 36: Scenic Drives & Byways](https://emeryencyclopedia.com/chapters/36) — Recommended driving routes: scenic loops, highway vistas, and roadside viewpoints.
+- [Chapter 37: Hiking & Trails](https://emeryencyclopedia.com/chapters/37) — Trail guide: day hikes, backpacking routes, difficulty ratings, and route descriptions.
+- [Chapter 38: Photography Spots](https://emeryencyclopedia.com/chapters/38) — Best locations for landscape and nature photography: light, season, and composition tips.
+- [Chapter 39: Hot Springs, Waterfalls & Scenic Sites](https://emeryencyclopedia.com/chapters/39) — Guide to natural wonders: hot springs, waterfalls, geological formations, and special places.
+- [Chapter 40: Wildlife Viewing & Natural History Sites](https://emeryencyclopedia.com/chapters/40) — Best places and seasons for wildlife observation: animals, birds, and natural habitats.
+
+### Part VI: Research Tools (Chapters 41–43)
+
+- [Chapter 41: Further Reading](https://emeryencyclopedia.com/chapters/41) — Curated bibliography and further reading for deeper exploration of Emery County topics.
+- [Chapter 42: Glossary](https://emeryencyclopedia.com/chapters/42) — Definitions of geological, cultural, historical, and technical terms used throughout the encyclopedia.
+- [Chapter 43: Systematic Index](https://emeryencyclopedia.com/chapters/43) — Comprehensive index enabling cross-reference navigation through topics, names, places, and concepts.
+
+## About
+
+- [About the Encyclopedia](https://emeryencyclopedia.com/about) — Mission, authorship, methodology, and acknowledgments for the Emery County Encyclopedia.
+
+## Optional
+
+- [Table of Contents](https://emeryencyclopedia.com/chapters) — Full chapter listing organized by part.
+- [Explore](https://emeryencyclopedia.com/explore) — Browse and search encyclopedia content by theme or keyword.
+- [Resources](https://emeryencyclopedia.com/resources) — External links, archives, and reference sources for Emery County research.
