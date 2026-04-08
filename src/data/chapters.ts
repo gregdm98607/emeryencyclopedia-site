@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Chapter data and definitions
  * Status: 'final' | 'revised' | 'fact-checked' | 'draft' | 'stub'
  */
@@ -58,7 +58,7 @@ export const CHAPTERS: Chapter[] = [
     number: 6,
     title: 'Fauna',
     part: 1,
-    status: 'revised',
+    status: 'final',
     description: 'Wildlife of Emery County: mammals, birds, reptiles, amphibians, and invertebrates in their natural habitats.',
     wordCount: 4400
   },
@@ -66,7 +66,7 @@ export const CHAPTERS: Chapter[] = [
     number: 7,
     title: 'Night Skies & Astronomy',
     part: 1,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Dark skies and celestial wonders: constellations, milky way viewing, and the astronomical heritage of the high desert.',
     wordCount: 4300
   },
@@ -76,7 +76,7 @@ export const CHAPTERS: Chapter[] = [
     number: 8,
     title: 'Ancestral Puebloans & Fremont',
     part: 2,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'The first peoples: Fremont culture, Ancestral Puebloans, and the archaeological record of ancient settlement.',
     wordCount: 4200
   },
@@ -420,6 +420,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-06', chapter: 8, action: 'Paleo-Indian & Archaic status updated to fact-checked' },
+  { date: '2026-04-06', chapter: 7, action: 'Night Skies & Astronomy status updated to fact-checked' },
+  { date: '2026-04-06', chapter: 6, action: 'Fauna status updated to final' },
   { date: '2026-04-01', chapter: 8, action: 'Paleo-Indian & Archaic draft published to site' },
   { date: '2026-04-01', chapter: 7, action: 'Night Skies & Astronomy draft published to site' },
   { date: '2026-04-01', chapter: 6, action: 'Fauna revised draft published to site' },
