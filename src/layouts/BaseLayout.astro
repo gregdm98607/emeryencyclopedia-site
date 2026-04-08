@@ -6,12 +6,20 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { 
-  title, 
-  description = 'The definitive guide to Emery County, Utah — from billion-year-old stone to the communities that call it home.' 
+const {
+  title,
+  description = 'The definitive guide to Emery County, Utah — from billion-year-old stone to the communities that call it home.',
+  image = '/images/og_image_eec.png',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
+const pageTitle = title === 'Encyclopedia of Emery County'
+  ? title
+  : `${title} | Encyclopedia of Emery County`;
 ---
 
 <html lang="en">
@@ -26,12 +34,24 @@ const {
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | Encyclopedia of Emery County</title>
+  <title>{pageTitle}</title>
   <meta name="description" content={description} />
-  <meta property="og:title" content={title} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
   <meta property="og:site_name" content="Encyclopedia of Emery County" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
