@@ -140,12 +140,22 @@ const totalHeight = Math.max(...sortedFormations.map(f => (f.ageRangeStart - f.a
             </div>
 
             <div class="formation-photo">
-              <div 
-                class="photo-placeholder"
-                style={`background-color: ${formation.color}; color: ${getContrastColor(formation.color)}`}
-              >
-                <span>Photograph: {formation.name}</span>
-              </div>
+              {formation.image ? (
+                <img
+                  src={formation.image}
+                  alt={`Photograph of ${formation.name} in Emery County, Utah`}
+                  class="formation-photo__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div 
+                  class="photo-placeholder"
+                  style={`background-color: ${formation.color}; color: ${getContrastColor(formation.color)}`}
+                >
+                  <span>Photograph: {formation.name}</span>
+                </div>
+              )}
             </div>
           </section>
         ))}
@@ -413,6 +423,14 @@ const totalHeight = Math.max(...sortedFormations.map(f => (f.ageRangeStart - f.a
 
   .formation-photo {
     margin-top: 3rem;
+  }
+
+  .formation-photo__img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .photo-placeholder {

@@ -29,10 +29,22 @@ const chaptersByPart = parts.map(part => ({
     {chaptersByPart.map((group) => (
       <section class="toc-part-section" style={`--part-color: ${group.part.color}`}>
         <div class="toc-part-header">
-          <h2 class="toc-part-title">
-            Part {group.part.number}: {group.part.label}
-          </h2>
-          <p class="toc-part-description">{group.part.description}</p>
+          <div class="toc-part-banner">
+            <img
+              src={group.part.image}
+              alt={`Part ${group.part.number}: ${group.part.label}`}
+              class="toc-part-banner__img"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="toc-part-banner__overlay"></div>
+            <div class="toc-part-banner__text">
+              <h2 class="toc-part-title">
+                Part {group.part.number}: {group.part.label}
+              </h2>
+              <p class="toc-part-description">{group.part.description}</p>
+            </div>
+          </div>
         </div>
 
         <div class="toc-chapter-grid">
@@ -115,22 +127,55 @@ const chaptersByPart = parts.map(part => ({
   /* Part header */
   .toc-part-header {
     margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 3px solid var(--part-color);
+  }
+
+  .toc-part-banner {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .toc-part-banner__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .toc-part-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(26, 26, 46, 0.85) 0%,
+      rgba(26, 26, 46, 0.3) 60%,
+      transparent 100%
+    );
+  }
+
+  .toc-part-banner__text {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    width: 100%;
   }
 
   .toc-part-title {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1.75rem;
     font-weight: 700;
     font-family: var(--font-display);
-    color: var(--coal-seam);
+    color: #fff;
   }
 
   .toc-part-description {
     margin: 0;
     font-size: 1rem;
-    color: rgba(26, 26, 46, 0.75);
+    color: rgba(255, 255, 255, 0.85);
     font-family: var(--font-body);
     line-height: 1.6;
   }

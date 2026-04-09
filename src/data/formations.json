@@ -86,6 +86,7 @@
     "period": "Cretaceous",
     "thickness": "2,000-3,500 ft",
     "color": "#4A4A4A",
+    "image": "/images/formation_mancos_shale.png",
     "environment": "Deep marine basin. Fine-grained muds and silts deposited far from shore during a major highstand of the Western Interior Seaway. Rich in organic material.",
     "fossils": "Abundant ammonites, inoceramids, fish teeth, marine reptile bones, foraminifera",
     "economic": "Oil and gas source rock; bentonite beds"
@@ -112,6 +113,7 @@
     "period": "Jurassic",
     "thickness": "400-800 ft",
     "color": "#8B6F47",
+    "image": "/images/formation_morrison.png",
     "environment": "Fluvial and lacustrine settings. Meandering rivers and ephemeral lakes with muddy floodplains. Semi-arid continental environment. World-famous for dinosaur fossils.",
     "fossils": "Abundant dinosaur bones (Allosaurus, Brachiosaurus, Diplodocus), turtles, crocodilians, fish, plants",
     "economic": "Paleontological resources; some uranium mineralization"
@@ -151,6 +153,7 @@
     "period": "Jurassic",
     "thickness": "300-500 ft",
     "color": "#E6B87D",
+    "image": "/images/formation_entrada_sandstone.png",
     "environment": "Coastal and nearshore deposits. Clean, well-sorted sandstones with cross-bedding and ripples. Represents a shallow marine environment transitioning from arid flats.",
     "fossils": "Sparse trace fossils, rare marine invertebrates",
     "economic": "Potential petroleum reservoir"
@@ -177,6 +180,7 @@
     "period": "Jurassic",
     "thickness": "1,000-2,000 ft",
     "color": "#F4A460",
+    "image": "/images/formation_navajo_sandstone.png",
     "environment": "Eolian dunes and interdune deposits. Vast desert with shifting dunes, shallow lakes, and braided streams. Represents the Jurassic Sahara of North America.",
     "fossils": "Trace fossils, rare vertebrate remains, wind-blown plant material",
     "economic": "Building stone; aquifer; some uranium and vanadium mineralization"

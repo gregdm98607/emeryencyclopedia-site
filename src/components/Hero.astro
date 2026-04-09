@@ -1,24 +1,36 @@
 ---
 // src/components/Hero.astro
-// Full-bleed hero section with dramatic desert gradient and CTAs
+// Full-bleed hero section with landscape photo background and CTAs
 
 interface Props {
   headline?: string;
   subheading?: string;
   ctaPrimary?: { text: string; href: string };
   ctaSecondary?: { text: string; href: string };
+  heroImage?: string;
 }
+
+const heroImages = [
+  '/images/hero_san_rafael_swell.png',
+  '/images/hero_book_cliffs.png',
+  '/images/hero_buckhorn_wash.png',
+  '/images/hero_goblin_valley.png',
+];
 
 const {
   headline = 'The Definitive Guide to Emery County, Utah',
   subheading = 'From billion-year-old stone to the communities that call it home.',
   ctaPrimary = { text: 'Read Chapter 1 →', href: '/chapters/1' },
-  ctaSecondary = { text: 'Explore the Table of Contents', href: '/chapters' }
+  ctaSecondary = { text: 'Explore the Table of Contents', href: '/chapters' },
+  heroImage = heroImages[Math.floor(Math.random() * heroImages.length)]
 } = Astro.props;
 ---
 
 <section class="hero">
-  <!-- Background gradient -->
+  <!-- Background photo -->
+  <img src={heroImage} alt="" class="hero__bg-img" aria-hidden="true" />
+
+  <!-- Background gradient fallback -->
   <div class="hero__bg" aria-hidden="true"></div>
 
   <!-- Topo texture overlay -->
@@ -67,7 +79,17 @@ const {
     overflow: hidden;
   }
 
-  /* Background gradient: desert landscape colors */
+  /* Background photo */
+  .hero__bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* Background gradient fallback (behind image) */
   .hero__bg {
     position: absolute;
     inset: 0;
@@ -78,7 +100,7 @@ const {
       #3B2F2F 60%,
       #1A1A2E 100%
     );
-    z-index: 0;
+    z-index: -1;
   }
 
   /* Topo texture overlay */
