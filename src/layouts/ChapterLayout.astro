@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 import { getPartColor, getPartLabel } from '../utils/parts';
 import ChapterFooter from '../components/ChapterFooter.astro';
 
@@ -9,12 +10,17 @@ interface Props {
   description: string;
   wordCount?: number;
   related?: number[];
+  image?: string;
 }
 
-const { title, chapter, part, description, wordCount = 0, related = [] } = Astro.props;
+const { title, chapter, part, description, wordCount = 0, related = [], image = '/images/og_image_eec.png' } = Astro.props;
 const partColor = getPartColor(part);
 const partLabel = getPartLabel(part);
 const chapterNum = String(chapter).padStart(2, '0');
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
+const pageTitle = `Ch${chapterNum}: ${title} | Encyclopedia of Emery County`;
 ---
 
 <html lang="en">
@@ -29,8 +35,24 @@ const chapterNum = String(chapter).padStart(2, '0');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ch{chapterNum}: {title} | Encyclopedia of Emery County</title>
+  <title>{pageTitle}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:site_name" content="Encyclopedia of Emery County" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
