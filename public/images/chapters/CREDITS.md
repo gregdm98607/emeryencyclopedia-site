@@ -97,6 +97,30 @@ is provided below for each file.
 | **Original page** | https://www.blm.gov/visit/buckhorn-panel |
 | **License** | Public domain (U.S. government work) |
 
+## Ch09 — Fremont Culture
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch09_opensource_fremont_rock_art.jpg` |
+| **Description** | Photograph of prehistoric Fremont-age rock art along the Green River, Utah |
+| **Source** | USGS photo by D. Delano, June 9, 2019 |
+| **Agency** | U.S. Geological Survey (USGS) |
+| **URL** | https://www.usgs.gov/media/images/we-find-rock-art-prehistoic-peoples-during-a-lunch-stop |
+| **License** | Public domain (U.S. government work) |
+| **Date accessed** | April 9, 2026 |
+
+## Ch10 — Numic Expansion
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch10_opensource_great_basin_map.png` |
+| **Description** | Map of the Great Basin region showing the geographic context for Numic peoples' westward origins and eastward migration |
+| **Source** | Wikimedia Commons, created by Kmusser (2010) |
+| **Agency** | N/A (community-created) |
+| **URL** | https://commons.wikimedia.org/wiki/File:Greatbasinmap.png |
+| **License** | Creative Commons Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0) |
+| **Date accessed** | April 9, 2026 |
+
 ## Ch41 — Further Reading
 
 | Field | Value |

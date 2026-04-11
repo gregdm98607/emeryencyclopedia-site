@@ -36,15 +36,15 @@ export const CHAPTERS: Chapter[] = [
     part: 1,
     status: 'final',
     description: 'Water in the desert: springs, seeps, rivers, and the hydrologic systems that sustain life in Emery County.',
-    wordCount: 4100
+    wordCount: 4774
   },
   {
     number: 4,
     title: 'Climate & Weather',
     part: 1,
     status: 'final',
-    description: 'Seasonal patterns, precipitation, temperature extremes, and how climate shapes the landscape and communities.',
-    wordCount: 4500
+    description: 'Climate as invisible architecture: precipitation, temperature, and weather patterns shaping life across Emery County\'s elevation gradient.',
+    wordCount: 5206
   },
   {
     number: 5,
@@ -58,9 +58,9 @@ export const CHAPTERS: Chapter[] = [
     number: 6,
     title: 'Fauna',
     part: 1,
-    status: 'final',
-    description: 'Wildlife of Emery County: mammals, birds, reptiles, amphibians, and invertebrates in their natural habitats.',
-    wordCount: 4400
+    status: 'revised',
+    description: 'Wildlife across the elevation gradient: mammals, birds, reptiles, fish, and invertebrates of Emery County\'s diverse habitats.',
+    wordCount: 4777
   },
   {
     number: 7,
@@ -82,19 +82,19 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 9,
-    title: 'Ute Territory & Culture',
+    title: 'Fremont Culture',
     part: 2,
-    status: 'stub',
-    description: 'The Ute Nation: traditional territories, seasonal movements, cultural practices, and historical continuity.',
-    wordCount: 0
+    status: 'draft',
+    description: 'The most visible ancient culture in Emery County: Fremont pit houses, pottery, irrigation, and the spectacular rock art panels of the San Rafael Swell.',
+    wordCount: 4063
   },
   {
     number: 10,
-    title: 'Paiute & Shoshone Presence',
+    title: 'Numic Expansion',
     part: 2,
-    status: 'stub',
-    description: 'The Paiute and Shoshone peoples: their presence in Emery County and broader Intermountain West.',
-    wordCount: 0
+    status: 'draft',
+    description: 'The Numic peoples — ancestors of the Ute, Southern Paiute, and Shoshone — and their arrival on the Colorado Plateau after the Fremont decline.',
+    wordCount: 3561
   },
   {
     number: 11,
@@ -420,6 +420,11 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-09', chapter: 6, action: 'Fauna revised draft published to site (new content)' },
+  { date: '2026-04-09', chapter: 4, action: 'Climate & Weather content updated (wc 4500→5206)' },
+  { date: '2026-04-09', chapter: 3, action: 'Hydrology & Springs content updated (wc 4100→4774)' },
+  { date: '2026-04-09', chapter: 10, action: 'Numic Expansion draft published to site' },
+  { date: '2026-04-09', chapter: 9, action: 'Fremont Culture draft published to site' },
   { date: '2026-04-06', chapter: 8, action: 'Paleo-Indian & Archaic status updated to fact-checked' },
   { date: '2026-04-06', chapter: 7, action: 'Night Skies & Astronomy status updated to fact-checked' },
   { date: '2026-04-06', chapter: 6, action: 'Fauna status updated to final' },
