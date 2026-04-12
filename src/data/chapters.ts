@@ -66,7 +66,7 @@ export const CHAPTERS: Chapter[] = [
     number: 7,
     title: 'Night Skies & Astronomy',
     part: 1,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Dark skies and celestial wonders: constellations, milky way viewing, and the astronomical heritage of the high desert.',
     wordCount: 4300
   },
@@ -76,7 +76,7 @@ export const CHAPTERS: Chapter[] = [
     number: 8,
     title: 'Ancestral Puebloans & Fremont',
     part: 2,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'The first peoples: Fremont culture, Ancestral Puebloans, and the archaeological record of ancient settlement.',
     wordCount: 4200
   },
@@ -98,19 +98,19 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 11,
-    title: 'Navajo & Puebloan Connections',
+    title: 'Navajo & Puebloan Interactions',
     part: 2,
-    status: 'stub',
-    description: 'Navajo trading networks and Puebloan cultural connections across the Colorado Plateau.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Athabaskan migration, Pueblo Revolt diaspora, trade networks, pastoral revolution, and the deep cultural exchanges between Navajo, Puebloan, and Ute peoples across the Colorado Plateau.',
+    wordCount: 4200
   },
   {
     number: 12,
-    title: 'Trade Routes & Exchange',
+    title: 'Rock Art & Sacred Landscapes',
     part: 2,
-    status: 'stub',
-    description: 'Pre-contact trade networks: goods, routes, and cultural exchange across the Southwest.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Barrier Canyon Style, Fremont, and Ute rock art traditions across 400+ documented sites in Emery County — styles, chronology, preservation, and Indigenous stewardship of sacred landscapes.',
+    wordCount: 4800
   },
   {
     number: 13,
@@ -420,6 +420,10 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-10', chapter: 12, action: 'Rock Art & Sacred Landscapes draft published to site' },
+  { date: '2026-04-10', chapter: 11, action: 'Navajo & Puebloan Interactions draft published to site' },
+  { date: '2026-04-10', chapter: 8, action: 'Paleo-Indian & Archaic status updated to revised' },
+  { date: '2026-04-10', chapter: 7, action: 'Night Skies & Astronomy status updated to revised' },
   { date: '2026-04-09', chapter: 6, action: 'Fauna revised draft published to site (new content)' },
   { date: '2026-04-09', chapter: 4, action: 'Climate & Weather content updated (wc 4500→5206)' },
   { date: '2026-04-09', chapter: 3, action: 'Hydrology & Springs content updated (wc 4100→4774)' },

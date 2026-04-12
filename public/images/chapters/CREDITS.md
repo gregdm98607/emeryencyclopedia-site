@@ -121,6 +121,30 @@ is provided below for each file.
 | **License** | Creative Commons Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0) |
 | **Date accessed** | April 9, 2026 |
 
+## Ch11 — Navajo & Puebloan Interactions
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch11_opensource_old_spanish_trail_map.png` |
+| **Description** | NPS Old Spanish National Historic Trail brochure map showing the trail route through Utah |
+| **Source** | National Park Service — Old Spanish National Historic Trail Official Brochure |
+| **Agency** | National Park Service (NPS) |
+| **URL** | https://www.nps.gov/olsp/planyourvisit/upload/National-Park-Service-Old-Spanish-Brochure-Map-508.pdf |
+| **License** | Public domain (U.S. government work) |
+| **Date accessed** | April 10, 2026 |
+
+## Ch12 — Rock Art & Sacred Landscapes
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch12_opensource_san_rafael_swell_rock_art.jpg` |
+| **Description** | Horned serpent petroglyph in the San Rafael Swell, Utah — example of prehistoric rock art |
+| **Source** | Wikimedia Commons, photographed by Brian C. Lee (Markarian421) |
+| **Agency** | N/A (community-created) |
+| **URL** | https://commons.wikimedia.org/wiki/File:Horned-Serpent-SanRafaelSwell-Utah-100_1933.jpg |
+| **License** | Creative Commons Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0) |
+| **Date accessed** | April 10, 2026 |
+
 ## Ch41 — Further Reading
 
 | Field | Value |
