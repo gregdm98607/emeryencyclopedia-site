@@ -227,3 +227,16 @@ is provided below for each file.
 - Charts and maps generated with matplotlib use **public data** from the agencies cited.
 - The BLM Flickr photographs are published by the U.S. government and are public domain.
 - Downloaded assets retain their original format; generated visualizations are saved as PNG at 150 DPI.
+
+## Ch16 — Mormon Colonization
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch16_opensource_sanborn_castle_dale.jpg` |
+| **Description** | Sanborn Fire Insurance Map of Castle Dale, Emery County, Utah (1917–1931) — shows the street grid, lot layout, and building footprints of the LDS-founded county seat during the early 20th century |
+| **Source** | Library of Congress, Geography and Map Division, Sanborn Maps Collection |
+| **Agency** | Library of Congress |
+| **URL** | https://www.loc.gov/item/sanborn08834_002/ |
+| **License** | Public domain — "The content of the Library of Congress online Sanborn Maps Collection is in the public domain and is free to use and reuse." |
+| **Date accessed** | April 15, 2026 |
+

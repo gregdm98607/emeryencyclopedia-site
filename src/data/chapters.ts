@@ -68,7 +68,7 @@ export const CHAPTERS: Chapter[] = [
     part: 1,
     status: 'revised',
     description: 'Dark skies and celestial wonders: constellations, milky way viewing, and the astronomical heritage of the high desert.',
-    wordCount: 4300
+    wordCount: 4798
   },
 
   // Part II: Peoples (8-15)
@@ -78,7 +78,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'revised',
     description: 'The first peoples: Fremont culture, Ancestral Puebloans, and the archaeological record of ancient settlement.',
-    wordCount: 4200
+    wordCount: 4390
   },
   {
     number: 9,
@@ -142,9 +142,9 @@ export const CHAPTERS: Chapter[] = [
     number: 16,
     title: 'Mormon Colonization',
     part: 3,
-    status: 'stub',
-    description: 'LDS settlement of Emery County: pioneers, founding of towns, religious community formation, and settlement patterns.',
-    wordCount: 0
+    status: 'draft',
+    description: 'LDS settlement of Emery County: the call to colonize Castle Valley, founding of pioneer towns, cooperative irrigation, and the transformation of a remote desert into an agricultural community.',
+    wordCount: 3066
   },
   {
     number: 17,
@@ -420,6 +420,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-15', chapter: 16, action: 'Mormon Colonization draft published to site' },
+  { date: '2026-04-15', chapter: 8, action: 'Paleo-Indian & Archaic content updated (wc 4200→4390)' },
+  { date: '2026-04-15', chapter: 7, action: 'Night Skies & Astronomy content updated (wc 4300→4798)' },
   { date: '2026-04-13', chapter: 15, action: 'Powell Expeditions draft published to site' },
   { date: '2026-04-13', chapter: 14, action: 'Spanish Trails & Fur Trappers draft published to site' },
   { date: '2026-04-13', chapter: 13, action: 'Archaeological Stewardship draft published to site' },
