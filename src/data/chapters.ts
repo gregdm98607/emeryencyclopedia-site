@@ -114,27 +114,27 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 13,
-    title: 'Contact & Collision',
+    title: 'Archaeological Stewardship',
     part: 2,
-    status: 'stub',
-    description: 'Spanish expeditions, first contact narratives, and the beginning of colonial disruption.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Legal frameworks, monitoring programs, site stewardship, curation practices, and ethical principles for protecting Emery County\u2019s archaeological resources on BLM, tribal, and private lands.',
+    wordCount: 4724
   },
   {
     number: 14,
-    title: 'Tribal Nations Today',
-    part: 2,
-    status: 'stub',
-    description: 'Contemporary Ute Mountain Ute, Ute Indian Tribe, and other tribal nations with historic and present ties to Emery County.',
-    wordCount: 0
+    title: 'Spanish Trails & Fur Trappers',
+    part: 3,
+    status: 'draft',
+    description: 'The era of exploration and trade preceding Euro-American settlement: ancient Ute commerce routes, the Old Spanish Trail, Mexican pack-train operators, and American mountain men in Emery County canyon country.',
+    wordCount: 4019
   },
   {
     number: 15,
-    title: 'Indigenous Arts & Knowledge',
-    part: 2,
-    status: 'stub',
-    description: 'Weaving, pottery, hunting practices, plant knowledge, and cultural expressions of Emery County tribes.',
-    wordCount: 0
+    title: 'Powell Expeditions',
+    part: 3,
+    status: 'draft',
+    description: 'John Wesley Powell\u2019s 1869 and 1871\u201372 voyages through Desolation Canyon and the Green River corridor: scientific mapping, photography, and the founding of the U.S. Geological Survey.',
+    wordCount: 3324
   },
 
   // Part III: Settlement (16-23)
@@ -420,6 +420,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-13', chapter: 15, action: 'Powell Expeditions draft published to site' },
+  { date: '2026-04-13', chapter: 14, action: 'Spanish Trails & Fur Trappers draft published to site' },
+  { date: '2026-04-13', chapter: 13, action: 'Archaeological Stewardship draft published to site' },
   { date: '2026-04-10', chapter: 12, action: 'Rock Art & Sacred Landscapes draft published to site' },
   { date: '2026-04-10', chapter: 11, action: 'Navajo & Puebloan Interactions draft published to site' },
   { date: '2026-04-10', chapter: 8, action: 'Paleo-Indian & Archaic status updated to revised' },

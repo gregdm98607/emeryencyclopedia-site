@@ -145,6 +145,42 @@ is provided below for each file.
 | **License** | Creative Commons Attribution-Share Alike 3.0 Unported (CC BY-SA 3.0) |
 | **Date accessed** | April 10, 2026 |
 
+## Ch13 — Archaeological Stewardship
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch13_opensource_cultural_sites_map.png` |
+| **Description** | Schematic reference map of documented cultural sites and BLM-managed archaeological landscapes in Emery County (Buckhorn Panel, Rochester Panel, Head of Sinbad, Nine Mile Canyon, Range Creek, Molen Reef, Cedar Mountain) |
+| **Source** | Compiled from BLM Price Field Office cultural resource inventory and Utah Division of State History site catalogs; chart generated with matplotlib |
+| **Agency** | Bureau of Land Management (BLM) / Utah Division of State History |
+| **URL** | https://www.blm.gov/programs/cultural-heritage-and-paleontology/cultural-heritage/archaeology-and-the-blm |
+| **License** | Public domain (U.S./state government data); schematic generated with matplotlib |
+| **Date accessed** | April 13, 2026 |
+
+## Ch14 — Spanish Trails & Fur Trappers
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch14_opensource_old_spanish_trail_routes.png` |
+| **Description** | Schematic map of the Old Spanish Trail north branch and Ashley–Provost fur brigade routes (ca. 1820–1850) passing through what is now Emery County |
+| **Source** | NPS Old Spanish National Historic Trail geographic data and Utah State Historical Society fur-trade route summaries |
+| **Agency** | National Park Service (NPS) / Utah State Historical Society |
+| **URL** | https://www.nps.gov/olsp/learn/historyculture/index.htm |
+| **License** | Public domain (U.S. government work); schematic generated with matplotlib |
+| **Date accessed** | April 13, 2026 |
+
+## Ch15 — Powell Expeditions
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch15_opensource_powell_route_map.png` |
+| **Description** | River-mile schematic of the 1869 Powell expedition route through Flaming Gorge, Gate of Lodore, Desolation Canyon, Gray Canyon, and the Green–Colorado confluence, highlighting Emery County's 85-mile corridor |
+| **Source** | USGS historical expedition records and John Wesley Powell's 1875 expedition report |
+| **Agency** | U.S. Geological Survey (USGS) |
+| **URL** | https://www.usgs.gov/special-topics/water-science-school/science/john-wesley-powell-soldier-explorer-scientist |
+| **License** | Public domain (U.S. government work); schematic generated with matplotlib |
+| **Date accessed** | April 13, 2026 |
+
 ## Ch41 — Further Reading
 
 | Field | Value |
