@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = '2026-04-16';
+---
+
+<BaseLayout title="Terms of Service" description="Terms of Service for the Encyclopedia of Emery County.">
+  <section class="legal-page">
+    <h1>Terms of Service</h1>
+    <p class="last-updated">Last updated: {lastUpdated}</p>
+
+    <p>
+      Welcome to the Encyclopedia of Emery County ("the Site"), operated by Silver Sage Media, LLC ("we," "us," or "our"), a Washington State limited liability company. By accessing or using <strong>emeryencyclopedia.com</strong>, you agree to these Terms of Service ("Terms"). If you do not agree, please do not use the Site.
+    </p>
+
+    <h2>Use of the Site</h2>
+    <p>
+      The Site provides educational and reference content about Emery County, Utah — its geography, history, people, and culture. You may use the Site for personal, educational, and non-commercial purposes. You agree not to: reproduce, distribute, or republish Site content without written permission; use automated tools to scrape or harvest content; attempt to interfere with the Site's operation; or use the Site for any unlawful purpose.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <p>
+      All content on the Site — including text, images, graphics, maps, logos, and educational materials — is the property of Silver Sage Media, LLC or its content creators and is protected by United States copyright law. "Encyclopedia of Emery County" and associated branding are trademarks of Silver Sage Media, LLC.
+    </p>
+    <p>
+      Brief quotations for commentary, criticism, educational, or academic purposes are permitted under fair use, provided proper attribution is given.
+    </p>
+
+    <h2>Research &amp; Content Disclaimer</h2>
+    <p>
+      The historical, geological, cultural, and geographic content on this Site is for informational and educational purposes only. While we strive for accuracy through primary-source research and expert consultation, some information may be incomplete or subject to scholarly debate. We do not guarantee the accuracy, completeness, or currency of all information presented. Users should independently verify critical facts, especially for academic or professional use.
+    </p>
+    <p>
+      Content related to Indigenous peoples reflects current scholarly understanding and publicly available sources. We respect the sovereignty and cultural knowledge of tribal nations and acknowledge that some traditional knowledge may not be fully represented.
+    </p>
+
+    <h2>Third-Party Links</h2>
+    <p>
+      The Site contains links to third-party websites, including archives, academic institutions, government agencies, and research databases. We are not responsible for the content, privacy practices, or availability of these external sites. Inclusion of a link does not imply endorsement.
+    </p>
+
+    <h2>User Submissions</h2>
+    <p>
+      If you submit feedback, corrections, historical accounts, or other communications to us, you grant Silver Sage Media, LLC a non-exclusive, royalty-free, perpetual license to use, modify, and display such submissions in connection with the Site and our educational mission.
+    </p>
+
+    <h2>Disclaimer of Warranties</h2>
+    <p>
+      The Site and its content are provided "as is" and "as available" without warranties of any kind, either express or implied. We disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Site will be uninterrupted, error-free, or free of harmful components.
+    </p>
+
+    <h2>Limitation of Liability</h2>
+    <p>
+      To the fullest extent permitted by law, Silver Sage Media, LLC and its owners, officers, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site. Our total liability for any claim related to the Site shall not exceed the amount you paid to us (if any) in the twelve months preceding the claim.
+    </p>
+
+    <h2>Indemnification</h2>
+    <p>
+      You agree to indemnify and hold harmless Silver Sage Media, LLC from any claims, damages, losses, or expenses (including reasonable attorneys' fees) arising from your use of the Site or violation of these Terms.
+    </p>
+
+    <h2>Changes to These Terms</h2>
+    <p>
+      We may update these Terms from time to time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of the Site after changes constitutes acceptance of the updated Terms.
+    </p>
+
+    <h2>Governing Law</h2>
+    <p>
+      These Terms are governed by the laws of the State of Washington, without regard to conflict of law principles. Any disputes shall be resolved in the state or federal courts located in Washington State.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For questions about these Terms of Service, contact:<br />
+      Silver Sage Media, LLC<br />
+      Email: <a href="mailto:greg@operationgrannyfiles.com">greg@operationgrannyfiles.com</a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    max-width: 780px;
+    margin: 3rem auto 4rem;
+    padding: 0 1.5rem;
+    font-family: 'Freight Text', Georgia, serif;
+    line-height: 1.75;
+    color: #2A2A3E;
+  }
+
+  .legal-page h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    color: #1A1A2E;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: #8B6F47;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .legal-page h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1A1A2E;
+    border-bottom: 1px solid #E8E0D4;
+    padding-bottom: 0.3rem;
+  }
+
+  .legal-page p {
+    margin-bottom: 1rem;
+  }
+
+  .legal-page a {
+    color: #8B6F47;
+    text-decoration: underline;
+  }
+
+  .legal-page a:hover {
+    color: #D4A574;
+  }
+
+  @media (max-width: 768px) {
+    .legal-page {
+      padding: 0 1rem;
+    }
+
+    .legal-page h1 {
+      font-size: 1.6rem;
+    }
+  }
+</style>

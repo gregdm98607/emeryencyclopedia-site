@@ -150,9 +150,9 @@ export const CHAPTERS: Chapter[] = [
     number: 17,
     title: 'Coal, Copper & Uranium',
     part: 3,
-    status: 'stub',
-    description: 'Mining boom: coal camps, miners, mining operations, and the economic transformation of the county.',
-    wordCount: 0
+    status: 'draft',
+    description: 'The extractive century: coal seams of the Wasatch Plateau, uranium-rich sandstones of the San Rafael Swell, copper byproducts, company towns, the Wilberg and Crandall Canyon disasters, and the ongoing energy transition reshaping Emery County\u2019s economy.',
+    wordCount: 4500
   },
   {
     number: 18,
@@ -420,6 +420,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-15', chapter: 17, action: 'Coal, Copper & Uranium draft published to site' },
   { date: '2026-04-15', chapter: 16, action: 'Mormon Colonization draft published to site' },
   { date: '2026-04-15', chapter: 8, action: 'Paleo-Indian & Archaic content updated (wc 4200→4390)' },
   { date: '2026-04-15', chapter: 7, action: 'Night Skies & Astronomy content updated (wc 4300→4798)' },

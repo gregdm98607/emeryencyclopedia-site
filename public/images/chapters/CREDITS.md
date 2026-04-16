@@ -240,3 +240,15 @@ is provided below for each file.
 | **License** | Public domain — "The content of the Library of Congress online Sanborn Maps Collection is in the public domain and is free to use and reuse." |
 | **Date accessed** | April 15, 2026 |
 
+
+## Ch17 — Coal, Copper & Uranium
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch17_opensource_utah_coal_production.png` |
+| **Description** | Utah Geological Survey Table 2.8 — Coal Production in Utah by Coal Mine, showing Emery County production data |
+| **Source** | Utah Geological Survey, Energy & Mineral Statistics |
+| **Agency** | Utah Geological Survey (UGS) |
+| **URL** | https://geology.utah.gov/docs/statistics/coal2.0/pdf/T2.8.pdf |
+| **License** | Public domain (Utah state government work) |
+| **Date accessed** | April 15, 2026 |
