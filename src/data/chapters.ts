@@ -66,7 +66,7 @@ export const CHAPTERS: Chapter[] = [
     number: 7,
     title: 'Night Skies & Astronomy',
     part: 1,
-    status: 'revised',
+    status: 'final',
     description: 'Dark skies and celestial wonders: constellations, milky way viewing, and the astronomical heritage of the high desert.',
     wordCount: 4798
   },
@@ -76,7 +76,7 @@ export const CHAPTERS: Chapter[] = [
     number: 8,
     title: 'Ancestral Puebloans & Fremont',
     part: 2,
-    status: 'revised',
+    status: 'final',
     description: 'The first peoples: Fremont culture, Ancestral Puebloans, and the archaeological record of ancient settlement.',
     wordCount: 4390
   },
@@ -84,7 +84,7 @@ export const CHAPTERS: Chapter[] = [
     number: 9,
     title: 'Fremont Culture',
     part: 2,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'The most visible ancient culture in Emery County: Fremont pit houses, pottery, irrigation, and the spectacular rock art panels of the San Rafael Swell.',
     wordCount: 4063
   },
@@ -92,7 +92,7 @@ export const CHAPTERS: Chapter[] = [
     number: 10,
     title: 'Numic Expansion',
     part: 2,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'The Numic peoples — ancestors of the Ute, Southern Paiute, and Shoshone — and their arrival on the Colorado Plateau after the Fremont decline.',
     wordCount: 3561
   },
@@ -100,7 +100,7 @@ export const CHAPTERS: Chapter[] = [
     number: 11,
     title: 'Navajo & Puebloan Interactions',
     part: 2,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Athabaskan migration, Pueblo Revolt diaspora, trade networks, pastoral revolution, and the deep cultural exchanges between Navajo, Puebloan, and Ute peoples across the Colorado Plateau.',
     wordCount: 4200
   },
@@ -108,7 +108,7 @@ export const CHAPTERS: Chapter[] = [
     number: 12,
     title: 'Rock Art & Sacred Landscapes',
     part: 2,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Barrier Canyon Style, Fremont, and Ute rock art traditions across 400+ documented sites in Emery County — styles, chronology, preservation, and Indigenous stewardship of sacred landscapes.',
     wordCount: 4800
   },
@@ -116,7 +116,7 @@ export const CHAPTERS: Chapter[] = [
     number: 13,
     title: 'Archaeological Stewardship',
     part: 2,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Legal frameworks, monitoring programs, site stewardship, curation practices, and ethical principles for protecting Emery County\u2019s archaeological resources on BLM, tribal, and private lands.',
     wordCount: 4724
   },
@@ -124,7 +124,7 @@ export const CHAPTERS: Chapter[] = [
     number: 14,
     title: 'Spanish Trails & Fur Trappers',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'The era of exploration and trade preceding Euro-American settlement: ancient Ute commerce routes, the Old Spanish Trail, Mexican pack-train operators, and American mountain men in Emery County canyon country.',
     wordCount: 4019
   },
@@ -132,7 +132,7 @@ export const CHAPTERS: Chapter[] = [
     number: 15,
     title: 'Powell Expeditions',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'John Wesley Powell\u2019s 1869 and 1871\u201372 voyages through Desolation Canyon and the Green River corridor: scientific mapping, photography, and the founding of the U.S. Geological Survey.',
     wordCount: 3324
   },
@@ -142,7 +142,7 @@ export const CHAPTERS: Chapter[] = [
     number: 16,
     title: 'Mormon Colonization',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'LDS settlement of Emery County: the call to colonize Castle Valley, founding of pioneer towns, cooperative irrigation, and the transformation of a remote desert into an agricultural community.',
     wordCount: 3066
   },
@@ -150,7 +150,7 @@ export const CHAPTERS: Chapter[] = [
     number: 17,
     title: 'Coal, Copper & Uranium',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'The extractive century: coal seams of the Wasatch Plateau, uranium-rich sandstones of the San Rafael Swell, copper byproducts, company towns, the Wilberg and Crandall Canyon disasters, and the ongoing energy transition reshaping Emery County\u2019s economy.',
     wordCount: 4500
   },
@@ -420,6 +420,17 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-16', chapter: 7, action: 'Night Skies & Astronomy finalized — status updated to final' },
+  { date: '2026-04-16', chapter: 8, action: 'Paleo-Indian & Archaic finalized — status updated to final' },
+  { date: '2026-04-16', chapter: 9, action: 'Fremont Culture fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 10, action: 'Numic Expansion fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 11, action: 'Navajo & Puebloan Interactions fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 12, action: 'Rock Art & Sacred Landscapes fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 13, action: 'Archaeological Stewardship fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 14, action: 'Spanish Trails & Fur Trappers fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 15, action: 'Powell Expeditions fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 16, action: 'Mormon Colonization fact-checked — status updated to fact-checked' },
+  { date: '2026-04-16', chapter: 17, action: 'Coal, Copper & Uranium fact-checked — status updated to fact-checked' },
   { date: '2026-04-15', chapter: 17, action: 'Coal, Copper & Uranium draft published to site' },
   { date: '2026-04-15', chapter: 16, action: 'Mormon Colonization draft published to site' },
   { date: '2026-04-15', chapter: 8, action: 'Paleo-Indian & Archaic content updated (wc 4200→4390)' },
