@@ -94,7 +94,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'fact-checked',
     description: 'The Numic peoples — ancestors of the Ute, Southern Paiute, and Shoshone — and their arrival on the Colorado Plateau after the Fremont decline.',
-    wordCount: 3561
+    wordCount: 3533
   },
   {
     number: 11,
@@ -102,7 +102,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'fact-checked',
     description: 'Athabaskan migration, Pueblo Revolt diaspora, trade networks, pastoral revolution, and the deep cultural exchanges between Navajo, Puebloan, and Ute peoples across the Colorado Plateau.',
-    wordCount: 4200
+    wordCount: 3933
   },
   {
     number: 12,
@@ -110,7 +110,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'fact-checked',
     description: 'Barrier Canyon Style, Fremont, and Ute rock art traditions across 400+ documented sites in Emery County — styles, chronology, preservation, and Indigenous stewardship of sacred landscapes.',
-    wordCount: 4800
+    wordCount: 4347
   },
   {
     number: 13,
@@ -126,7 +126,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'fact-checked',
     description: 'The era of exploration and trade preceding Euro-American settlement: ancient Ute commerce routes, the Old Spanish Trail, Mexican pack-train operators, and American mountain men in Emery County canyon country.',
-    wordCount: 4019
+    wordCount: 4016
   },
   {
     number: 15,
@@ -144,7 +144,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'fact-checked',
     description: 'LDS settlement of Emery County: the call to colonize Castle Valley, founding of pioneer towns, cooperative irrigation, and the transformation of a remote desert into an agricultural community.',
-    wordCount: 3066
+    wordCount: 3063
   },
   {
     number: 17,
@@ -152,7 +152,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'fact-checked',
     description: 'The extractive century: coal seams of the Wasatch Plateau, uranium-rich sandstones of the San Rafael Swell, copper byproducts, company towns, the Wilberg and Crandall Canyon disasters, and the ongoing energy transition reshaping Emery County\u2019s economy.',
-    wordCount: 4500
+    wordCount: 3748
   },
   {
     number: 18,
@@ -420,6 +420,13 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-17', chapter: 17, action: 'Fact-check corrections applied: Crandall Canyon penalty $1.64M to $1.85M; Temple Mountain mining 1918 to 1914' },
+  { date: '2026-04-17', chapter: 16, action: 'Fact-check corrections applied: Emery Stake 1882 to 1880 (with pending-verification flag); Huntington brothers 1855' },
+  { date: '2026-04-17', chapter: 15, action: 'Fact-check corrections applied: Desolation Canyon NRHP 1968 + NHL (was 2022); Shiloh date; Howland/Dunn dispute; Blake Station + Tavaputs etymology flagged' },
+  { date: '2026-04-17', chapter: 14, action: 'Fact-check corrections applied: Humboldt-Jefferson chain softened; Horse Creek 1840; Julien late-1820s; ECHS markers' },
+  { date: '2026-04-17', chapter: 12, action: 'Fact-check corrections applied: Ute migration vs. rock art dating; Loendorf 2013 flagged; 400-sites softened; OSL note added' },
+  { date: '2026-04-17', chapter: 11, action: 'Fact-check corrections applied: Pueblo Revolt death toll; Navajo Nation acreage phrasing' },
+  { date: '2026-04-17', chapter: 10, action: 'Fact-check corrections applied: Proto-Numic timeline; Treaty of Spanish Fork annuity; 1986 SCOTUS clarified; Black Hawk War participants' },
   { date: '2026-04-16', chapter: 7, action: 'Night Skies & Astronomy finalized — status updated to final' },
   { date: '2026-04-16', chapter: 8, action: 'Paleo-Indian & Archaic finalized — status updated to final' },
   { date: '2026-04-16', chapter: 9, action: 'Fremont Culture fact-checked — status updated to fact-checked' },
