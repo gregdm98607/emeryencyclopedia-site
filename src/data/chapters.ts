@@ -93,25 +93,25 @@ export const CHAPTERS: Chapter[] = [
     number: 9,
     title: 'Fremont Culture',
     part: 2,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'The most visible ancient culture in Emery County: Fremont pit houses, pottery, irrigation, and the spectacular rock art panels of the San Rafael Swell.',
-    wordCount: 4063
+    wordCount: 4511
   },
   {
     number: 10,
     title: 'Numic Expansion',
     part: 2,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'The Numic peoples — ancestors of the Ute, Southern Paiute, and Shoshone — and their arrival on the Colorado Plateau after the Fremont decline.',
-    wordCount: 3615
+    wordCount: 3976
   },
   {
     number: 11,
     title: 'Navajo & Puebloan Interactions',
     part: 2,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Athabaskan migration, Pueblo Revolt diaspora, trade networks, pastoral revolution, and the deep cultural exchanges between Navajo, Puebloan, and Ute peoples across the Colorado Plateau.',
-    wordCount: 3935
+    wordCount: 4283
   },
   {
     number: 12,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-20', chapter: 11, action: 'Navajo & Puebloan Interactions advanced to revised (Phase 8 revision integrated; wc 3935→4283, +348 words)' },
+  { date: '2026-04-20', chapter: 10, action: 'Numic Expansion advanced to revised (Phase 8 revision integrated; wc 3615→3976, +361 words)' },
+  { date: '2026-04-20', chapter: 9, action: 'Fremont Culture advanced to revised (Phase 8 revision integrated; wc 4063→4511, +448 words)' },
   { date: '2026-04-18', chapter: 13, action: 'Archaeological Stewardship status advanced to fact-checked (content refresh to site)' },
   { date: '2026-04-18', chapter: 15, action: 'Powell Expeditions content refreshed to site (wc 3324→3435, +111 words from fact-check revisions)' },
   { date: '2026-04-18', chapter: 14, action: 'Spanish Trails & Fur Trappers content refreshed to site (wc 4016→4085, +69 words from fact-check revisions)' },
