@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Chapter data and definitions
  * Status: 'final' | 'revised' | 'fact-checked' | 'draft' | 'stub'
  */
@@ -10,6 +10,15 @@ export interface Chapter {
   status: 'final' | 'revised' | 'fact-checked' | 'draft' | 'stub';
   description: string;
   wordCount: number;
+  /**
+   * Optional companion article. When set, the chapter card surfaces a
+   * "Read the companion article" affordance even if the chapter itself
+   * is still a stub. First use: Ch18 (Communities & Towns) → Castle Dale 1880.
+   */
+  companionArticle?: {
+    slug: string;
+    label: string;
+  };
 }
 
 export const CHAPTERS: Chapter[] = [
@@ -94,7 +103,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'fact-checked',
     description: 'The Numic peoples — ancestors of the Ute, Southern Paiute, and Shoshone — and their arrival on the Colorado Plateau after the Fremont decline.',
-    wordCount: 3533
+    wordCount: 3615
   },
   {
     number: 11,
@@ -102,7 +111,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'fact-checked',
     description: 'Athabaskan migration, Pueblo Revolt diaspora, trade networks, pastoral revolution, and the deep cultural exchanges between Navajo, Puebloan, and Ute peoples across the Colorado Plateau.',
-    wordCount: 3933
+    wordCount: 3935
   },
   {
     number: 12,
@@ -110,7 +119,7 @@ export const CHAPTERS: Chapter[] = [
     part: 2,
     status: 'fact-checked',
     description: 'Barrier Canyon Style, Fremont, and Ute rock art traditions across 400+ documented sites in Emery County — styles, chronology, preservation, and Indigenous stewardship of sacred landscapes.',
-    wordCount: 4347
+    wordCount: 4459
   },
   {
     number: 13,
@@ -126,7 +135,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'fact-checked',
     description: 'The era of exploration and trade preceding Euro-American settlement: ancient Ute commerce routes, the Old Spanish Trail, Mexican pack-train operators, and American mountain men in Emery County canyon country.',
-    wordCount: 4016
+    wordCount: 4085
   },
   {
     number: 15,
@@ -134,7 +143,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'fact-checked',
     description: 'John Wesley Powell\u2019s 1869 and 1871\u201372 voyages through Desolation Canyon and the Green River corridor: scientific mapping, photography, and the founding of the U.S. Geological Survey.',
-    wordCount: 3324
+    wordCount: 3435
   },
 
   // Part III: Settlement (16-23)
@@ -160,7 +169,11 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'stub',
     description: 'Individual town histories: Castle Dale, Ferron, Huntington, Green River, Cleveland, and smaller settlements.',
-    wordCount: 0
+    wordCount: 0,
+    companionArticle: {
+      slug: 'castle-dale-1880',
+      label: 'Castle Dale, 1880 — read the vignette'
+    }
   },
   {
     number: 19,
@@ -420,6 +433,12 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-18', chapter: 13, action: 'Archaeological Stewardship status advanced to fact-checked (content refresh to site)' },
+  { date: '2026-04-18', chapter: 15, action: 'Powell Expeditions content refreshed to site (wc 3324→3435, +111 words from fact-check revisions)' },
+  { date: '2026-04-18', chapter: 14, action: 'Spanish Trails & Fur Trappers content refreshed to site (wc 4016→4085, +69 words from fact-check revisions)' },
+  { date: '2026-04-17', chapter: 12, action: 'Rock Art & Sacred Landscapes content refreshed to site (fact-check corrections; wc 4347→4459)' },
+  { date: '2026-04-17', chapter: 11, action: 'Navajo & Puebloan Interactions content refreshed to site (fact-check corrections; wc 3933→3935)' },
+  { date: '2026-04-17', chapter: 10, action: 'Numic Expansion content refreshed to site (fact-check corrections; wc 3533→3615)' },
   { date: '2026-04-17', chapter: 17, action: 'Fact-check corrections applied: Crandall Canyon penalty $1.64M to $1.85M; Temple Mountain mining 1918 to 1914' },
   { date: '2026-04-17', chapter: 16, action: 'Fact-check corrections applied: Emery Stake 1882 to 1880 (with pending-verification flag); Huntington brothers 1855' },
   { date: '2026-04-17', chapter: 15, action: 'Fact-check corrections applied: Desolation Canyon NRHP 1968 + NHL (was 2022); Shiloh date; Howland/Dunn dispute; Blake Station + Tavaputs etymology flagged' },

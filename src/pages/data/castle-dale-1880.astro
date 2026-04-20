@@ -1,0 +1,491 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/census/castle-dale-1880.json';
+
+const { community, year, counts, source, downloadUrl, people, households } = data;
+const pageTitle = `${community} ${year} Census Dataset`;
+const description = `Browse all ${counts.people} residents and ${counts.households} households recorded in the ${year} U.S. Federal Census for ${community}, Utah Territory. Sortable, filterable, with full source citation.`;
+
+// Distinct values for filter dropdowns
+const birthPlaces = Array.from(new Set(people.map((p: any) => p.birthPlace).filter(Boolean))).sort();
+const occupations = Array.from(new Set(people.map((p: any) => p.occupation).filter(Boolean))).sort();
+const dwellings = Array.from(new Set(people.map((p: any) => p.dwelling).filter(Boolean))).sort((a: any, b: any) => a - b);
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="dataset-page">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/articles/castle-dale-1880/">Castle Dale 1880 Vignette</a>
+      <span>/</span>
+      <span>Dataset</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="dataset-header">
+      <p class="kicker">Dataset · Companion to Chapter 18: Communities &amp; Towns</p>
+      <h1>{community} in {year}</h1>
+      <p class="lede">{description}</p>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-num">{counts.people}</span><span class="stat-label">People</span></div>
+        <div class="stat"><span class="stat-num">{counts.households}</span><span class="stat-label">Households</span></div>
+        <div class="stat"><span class="stat-num">{birthPlaces.length}</span><span class="stat-label">Birthplaces</span></div>
+      </div>
+
+      <div class="actions">
+        <a href={downloadUrl} class="btn btn-primary" download>↓ Download .xlsx ({Math.round(39456 / 1024)} KB)</a>
+        <a href="/articles/castle-dale-1880/" class="btn btn-secondary">← Read the vignette</a>
+      </div>
+    </header>
+
+    <!-- Source citation -->
+    {source && (
+      <details class="source-citation">
+        <summary>Source citation &amp; provenance</summary>
+        <dl>
+          {source.title && (<><dt>Title</dt><dd>{source.title}</dd></>)}
+          {source.enumerator && (<><dt>Enumerator</dt><dd>{source.enumerator}</dd></>)}
+          {source.enumerationDates && (<><dt>Enumeration dates</dt><dd>{source.enumerationDates}</dd></>)}
+          {source.repository && (<><dt>Repository</dt><dd>{source.repository}</dd></>)}
+          {source.callNumber && (<><dt>Call number</dt><dd>{source.callNumber}</dd></>)}
+          {source.accessUrl && (<><dt>Access URL</dt><dd><a href={source.accessUrl} rel="external">{source.accessUrl}</a></dd></>)}
+          {source.accessDate && (<><dt>Access date</dt><dd>{source.accessDate}</dd></>)}
+          {source.terminalMarker && (<><dt>Terminal marker</dt><dd><em>{source.terminalMarker}</em></dd></>)}
+          {source.citationFull && (<><dt>Full citation</dt><dd class="full-citation">{source.citationFull}</dd></>)}
+        </dl>
+      </details>
+    )}
+
+    <!-- Filters -->
+    <section class="filters">
+      <h2>People <span class="count" id="people-count">({counts.people})</span></h2>
+
+      <div class="filter-grid">
+        <label class="filter">
+          <span>Search</span>
+          <input type="search" id="filter-q" placeholder="name, occupation, birthplace…" />
+        </label>
+        <label class="filter">
+          <span>Birthplace</span>
+          <select id="filter-birthplace">
+            <option value="">— Any —</option>
+            {birthPlaces.map((bp: string) => <option value={bp}>{bp}</option>)}
+          </select>
+        </label>
+        <label class="filter">
+          <span>Sex</span>
+          <select id="filter-sex">
+            <option value="">— Any —</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </label>
+        <label class="filter">
+          <span>Dwelling</span>
+          <select id="filter-dwelling">
+            <option value="">— Any —</option>
+            {dwellings.map((d: number) => <option value={d}>{d}</option>)}
+          </select>
+        </label>
+        <label class="filter">
+          <span>Occupation</span>
+          <select id="filter-occupation">
+            <option value="">— Any —</option>
+            {occupations.map((o: string) => <option value={o}>{o}</option>)}
+          </select>
+        </label>
+        <button id="filter-clear" class="btn btn-ghost">Clear filters</button>
+      </div>
+    </section>
+
+    <!-- People table -->
+    <div class="table-wrap">
+      <table class="data-table" id="people-table">
+        <thead>
+          <tr>
+            <th data-sort="dwelling" data-type="number">Dwelling</th>
+            <th data-sort="surname">Surname</th>
+            <th data-sort="given">Given</th>
+            <th data-sort="sex">Sex</th>
+            <th data-sort="age" data-type="number">Age</th>
+            <th data-sort="birthPlace">Birthplace</th>
+            <th data-sort="relationship">Relationship</th>
+            <th data-sort="occupation">Occupation</th>
+          </tr>
+        </thead>
+        <tbody id="people-body">
+          {people.map((p: any) => (
+            <tr
+              data-dwelling={p.dwelling}
+              data-surname={p.surname ?? ''}
+              data-given={p.given ?? ''}
+              data-sex={p.sex ?? ''}
+              data-age={p.age ?? ''}
+              data-birthplace={p.birthPlace ?? ''}
+              data-relationship={p.relationship ?? ''}
+              data-occupation={p.occupation ?? ''}
+              data-search={`${p.surname ?? ''} ${p.given ?? ''} ${p.occupation ?? ''} ${p.birthPlace ?? ''} ${p.fatherBP ?? ''} ${p.motherBP ?? ''}`.toLowerCase()}
+            >
+              <td>{p.dwelling}</td>
+              <td>{p.surname}</td>
+              <td>{p.given}</td>
+              <td>{p.sex}</td>
+              <td>{p.age}</td>
+              <td>{p.birthPlace}</td>
+              <td>{p.relationship}</td>
+              <td>{p.occupation ?? <span class="muted">—</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Households table -->
+    <section class="filters" style="margin-top: 3rem;">
+      <h2>Households <span class="count">({counts.households})</span></h2>
+    </section>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Dwelling</th>
+            <th>Family ID</th>
+            <th>Husband</th>
+            <th>Wife</th>
+            <th>Children</th>
+            <th>Verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          {households.map((h: any) => (
+            <tr>
+              <td>{h.dwelling}</td>
+              <td><code class="famid">{h.famId}</code></td>
+              <td>{h.husbandPer ? <code class="famid">{h.husbandPer}</code> : <span class="muted">—</span>}</td>
+              <td>{h.wifePer ? <code class="famid">{h.wifePer}</code> : <span class="muted">—</span>}</td>
+              <td>{h.childrenCount ?? 0}</td>
+              <td><span class={`pill pill-${h.verification}`}>{h.verification}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="dataset-footnote">
+      Data last built: <time datetime={data.lastBuilt}>{new Date(data.lastBuilt).toLocaleString('en-US', { dateStyle: 'medium' })}</time>.
+      Verification status reflects the working transcription as of that date — &quot;provisional&quot; rows are still under review against the original images.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  // Filter + sort + URL-param state for the people table.
+  const tbody = document.getElementById('people-body') as HTMLTableSectionElement | null;
+  const countEl = document.getElementById('people-count');
+  const filters = {
+    q: document.getElementById('filter-q') as HTMLInputElement | null,
+    birthplace: document.getElementById('filter-birthplace') as HTMLSelectElement | null,
+    sex: document.getElementById('filter-sex') as HTMLSelectElement | null,
+    dwelling: document.getElementById('filter-dwelling') as HTMLSelectElement | null,
+    occupation: document.getElementById('filter-occupation') as HTMLSelectElement | null,
+  };
+  const clearBtn = document.getElementById('filter-clear');
+
+  if (!tbody) throw new Error('people-body missing');
+  const allRows = Array.from(tbody.querySelectorAll('tr'));
+
+  // Read URL params on load — lets the article deep-link to filtered views
+  const params = new URLSearchParams(window.location.search);
+  if (filters.q && params.get('q')) filters.q.value = params.get('q') || '';
+  if (filters.birthplace && params.get('birthPlace')) filters.birthplace.value = params.get('birthPlace') || '';
+  if (filters.sex && params.get('sex')) filters.sex.value = params.get('sex') || '';
+  if (filters.dwelling && params.get('dwelling')) filters.dwelling.value = params.get('dwelling') || '';
+  if (filters.occupation && params.get('occupation')) filters.occupation.value = params.get('occupation') || '';
+
+  function applyFilters() {
+    const q = (filters.q?.value || '').trim().toLowerCase();
+    const bp = filters.birthplace?.value || '';
+    const sex = filters.sex?.value || '';
+    const dw = filters.dwelling?.value || '';
+    const occ = filters.occupation?.value || '';
+
+    let visible = 0;
+    for (const tr of allRows) {
+      const ds = tr.dataset;
+      const matches =
+        (!q || (ds.search || '').includes(q)) &&
+        (!bp || ds.birthplace === bp) &&
+        (!sex || ds.sex === sex) &&
+        (!dw || ds.dwelling === dw) &&
+        (!occ || ds.occupation === occ);
+      tr.style.display = matches ? '' : 'none';
+      if (matches) visible++;
+    }
+    if (countEl) countEl.textContent = `(${visible}${visible !== allRows.length ? ` of ${allRows.length}` : ''})`;
+
+    // Sync URL params
+    const url = new URL(window.location.href);
+    url.searchParams.delete('q'); url.searchParams.delete('birthPlace');
+    url.searchParams.delete('sex'); url.searchParams.delete('dwelling'); url.searchParams.delete('occupation');
+    if (q) url.searchParams.set('q', q);
+    if (bp) url.searchParams.set('birthPlace', bp);
+    if (sex) url.searchParams.set('sex', sex);
+    if (dw) url.searchParams.set('dwelling', dw);
+    if (occ) url.searchParams.set('occupation', occ);
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  for (const f of Object.values(filters)) {
+    if (f) f.addEventListener('input', applyFilters);
+  }
+  if (clearBtn) clearBtn.addEventListener('click', () => {
+    for (const f of Object.values(filters)) {
+      if (f) (f as HTMLInputElement | HTMLSelectElement).value = '';
+    }
+    applyFilters();
+  });
+  // Apply on initial load (handles URL params)
+  applyFilters();
+
+  // Column sort
+  const headers = document.querySelectorAll('#people-table th[data-sort]');
+  let sortState: { key: string; dir: 1 | -1 } | null = null;
+  headers.forEach(th => {
+    th.addEventListener('click', () => {
+      const key = (th as HTMLElement).dataset.sort!;
+      const type = (th as HTMLElement).dataset.type || 'string';
+      const dir: 1 | -1 = sortState && sortState.key === key && sortState.dir === 1 ? -1 : 1;
+      sortState = { key, dir };
+
+      const sorted = [...allRows].sort((a, b) => {
+        let av: any = a.dataset[key.toLowerCase()] ?? '';
+        let bv: any = b.dataset[key.toLowerCase()] ?? '';
+        if (type === 'number') { av = Number(av) || 0; bv = Number(bv) || 0; }
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        return 0;
+      });
+
+      tbody.innerHTML = '';
+      sorted.forEach(r => tbody.appendChild(r));
+      headers.forEach(h => h.removeAttribute('data-sorted'));
+      th.setAttribute('data-sorted', dir === 1 ? 'asc' : 'desc');
+    });
+  });
+</script>
+
+<style>
+  .dataset-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--color-text, #1A1A2E);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--color-accent-primary, #C85A54); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { color: var(--color-text-muted, #777); }
+
+  .dataset-header {
+    border-bottom: 1px solid var(--color-border-light, #e5e5e5);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  .kicker {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #777);
+    margin: 0 0 0.5rem;
+  }
+  .dataset-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .lede {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted, #555);
+    max-width: 70ch;
+    line-height: 1.6;
+  }
+
+  .stats {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent-primary, #C85A54);
+    font-family: 'Libre Baskerville', serif;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #777);
+  }
+
+  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 0.625rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--color-accent-primary, #C85A54); color: #fff; }
+  .btn-primary:hover { background: #a64a44; }
+  .btn-secondary { border-color: var(--color-accent-primary, #C85A54); color: var(--color-accent-primary, #C85A54); background: transparent; }
+  .btn-secondary:hover { background: rgba(200,90,84,0.05); }
+  .btn-ghost { border-color: var(--color-border-light, #ccc); background: transparent; color: var(--color-text-muted, #555); }
+
+  .source-citation {
+    background: #f9f7f3;
+    border-left: 3px solid #D4A574;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .source-citation summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .source-citation dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1rem;
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
+  }
+  .source-citation dt {
+    font-weight: 600;
+    color: var(--color-text-muted, #555);
+  }
+  .source-citation dd { margin: 0; }
+  .source-citation .full-citation { font-style: italic; line-height: 1.6; }
+
+  .filters h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+  }
+  .filters .count {
+    color: var(--color-text-muted, #777);
+    font-weight: normal;
+    font-size: 1rem;
+  }
+  .filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem 1rem;
+    align-items: end;
+    margin-bottom: 1.5rem;
+  }
+  .filter { display: flex; flex-direction: column; gap: 0.25rem; }
+  .filter span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #777);
+  }
+  .filter input, .filter select {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.9375rem;
+    border: 1px solid var(--color-border-light, #ccc);
+    border-radius: 4px;
+    background: #fff;
+    font-family: inherit;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border-light, #e5e5e5);
+    border-radius: 6px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .data-table th, .data-table td {
+    padding: 0.625rem 0.875rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light, #f0f0f0);
+  }
+  .data-table th {
+    background: #f9f7f3;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted, #555);
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  .data-table th[data-sort]:after {
+    content: ' ⇅';
+    opacity: 0.3;
+    font-size: 0.75rem;
+  }
+  .data-table th[data-sorted="asc"]:after { content: ' ↑'; opacity: 1; }
+  .data-table th[data-sorted="desc"]:after { content: ' ↓'; opacity: 1; }
+  .data-table tbody tr:hover { background: #fafafa; }
+  .data-table .muted { color: #aaa; }
+  .data-table .famid {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8125rem;
+    background: #f0ede7;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .pill-provisional { background: #fff4e0; color: #8b5a00; }
+  .pill-verified { background: #e0f5e8; color: #1d6e3a; }
+
+  .dataset-footnote {
+    margin-top: 2rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted, #777);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .dataset-page { padding: 1rem; }
+    .dataset-header h1 { font-size: 1.75rem; }
+    .stats { gap: 1rem; }
+    .stat-num { font-size: 1.5rem; }
+    .data-table { font-size: 0.8125rem; }
+    .data-table th, .data-table td { padding: 0.5rem 0.625rem; }
+  }
+</style>

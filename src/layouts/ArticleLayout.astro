@@ -1,0 +1,308 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  kind?: 'vignette' | 'teaser' | 'companion' | 'essay';
+  companionToChapter?: number;
+  companionToSection?: string;
+  companionChapterTitle?: string;
+  datasetPath?: string;
+  datasetLabel?: string;
+  wordCount?: number;
+  readingTime?: string;
+  publishDate?: string;
+  lastUpdated?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  kind = 'vignette',
+  companionToChapter,
+  companionToSection,
+  companionChapterTitle,
+  datasetPath,
+  datasetLabel,
+  wordCount = 0,
+  readingTime,
+  publishDate,
+  lastUpdated,
+  image = '/images/og_image_eec.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
+const pageTitle = `${title} | Encyclopedia of Emery County`;
+
+const kindLabel: Record<string, string> = {
+  vignette: 'Vignette',
+  teaser: 'Teaser',
+  companion: 'Companion Article',
+  essay: 'Essay',
+};
+
+const chapterNum = companionToChapter ? String(companionToChapter).padStart(2, '0') : null;
+const computedReadingTime = readingTime ?? (wordCount > 0 ? `~${Math.ceil(wordCount / 225)} min read` : null);
+---
+
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHV1KEBHXS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QHV1KEBHXS');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:site_name" content="Encyclopedia of Emery County" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <div class="article-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/articles/">Articles</a>
+      <span>/</span>
+      <span>{title}</span>
+    </nav>
+
+    <article class="article-content">
+      <header class="article-header">
+        <div class="article-kind-label">
+          {kindLabel[kind] ?? 'Article'}
+          {companionToChapter && (
+            <>
+              {' · Companion to '}
+              <a href={`/chapters/${companionToChapter}/`}>Chapter {companionToChapter}{companionChapterTitle ? `: ${companionChapterTitle}` : ''}</a>
+              {companionToSection && ` (${companionToSection})`}
+            </>
+          )}
+        </div>
+        <h1>{title}</h1>
+        <p class="article-description">{description}</p>
+        {(computedReadingTime || publishDate) && (
+          <p class="article-meta">
+            {wordCount > 0 && `${wordCount.toLocaleString()} words`}
+            {wordCount > 0 && computedReadingTime && ' · '}
+            {computedReadingTime}
+            {(wordCount > 0 || computedReadingTime) && publishDate && ' · '}
+            {publishDate && `Published ${publishDate}`}
+          </p>
+        )}
+        {datasetPath && (
+          <aside class="dataset-banner">
+            <strong>Explore the data:</strong>
+            <a href={datasetPath}>{datasetLabel ?? 'Browse the underlying dataset →'}</a>
+          </aside>
+        )}
+      </header>
+
+      <div class="prose">
+        <slot />
+      </div>
+
+      {companionToChapter && (
+        <footer class="article-footer">
+          <div class="footer-chapter-link">
+            <span class="footer-label">Continue reading</span>
+            <a href={`/chapters/${companionToChapter}/`} class="footer-chapter-cta">
+              Chapter {companionToChapter}{companionChapterTitle ? `: ${companionChapterTitle}` : ''} →
+            </a>
+          </div>
+        </footer>
+      )}
+    </article>
+  </div>
+</body>
+</html>
+
+<style scoped>
+  .article-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  .breadcrumb {
+    padding: 1.5rem 2rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--color-border-light);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: var(--color-text-muted);
+  }
+
+  .article-content {
+    flex: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .article-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 2rem;
+  }
+
+  .article-kind-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .article-kind-label a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+  }
+
+  .article-kind-label a:hover {
+    text-decoration: underline;
+  }
+
+  .article-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .article-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    max-width: 65ch;
+    margin: 0;
+  }
+
+  .article-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .dataset-banner {
+    background-color: var(--color-alkali-flat, #f5f5f0);
+    border-left: 3px solid var(--color-accent-primary, #C85A54);
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .dataset-banner strong {
+    margin-right: 0.5rem;
+  }
+
+  .dataset-banner a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .dataset-banner a:hover {
+    text-decoration: underline;
+  }
+
+  .prose {
+    max-width: 65ch;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--color-border-light);
+    padding-top: 2rem;
+  }
+
+  .footer-chapter-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-chapter-cta {
+    font-size: 1.25rem;
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-chapter-cta:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .article-content {
+      padding: 1.5rem 1rem;
+    }
+
+    .article-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .breadcrumb {
+      padding: 0.75rem 1rem;
+      font-size: 0.8125rem;
+    }
+
+    .prose {
+      font-size: 0.9375rem;
+    }
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { CHAPTERS } from '../../data/chapters';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+// Resolve chapter title if this article pairs with a chapter
+const companionChapter = entry.data.companionToChapter
+  ? CHAPTERS.find(ch => ch.number === entry.data.companionToChapter)
+  : null;
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  kind={entry.data.kind}
+  companionToChapter={entry.data.companionToChapter}
+  companionToSection={entry.data.companionToSection}
+  companionChapterTitle={companionChapter?.title}
+  datasetPath={entry.data.datasetPath}
+  wordCount={entry.data.wordCount}
+  readingTime={entry.data.readingTime}
+  publishDate={entry.data.publishDate}
+  lastUpdated={entry.data.lastUpdated}
+  image={entry.data.heroImage}
+>
+  <Content />
+</ArticleLayout>

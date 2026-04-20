@@ -10,9 +10,10 @@ interface Props {
   status: string;
   description: string;
   wordCount?: number;
+  companionArticle?: { slug: string; label: string };
 }
 
-const { chapter, title, part, status, description, wordCount = 0 } = Astro.props;
+const { chapter, title, part, status, description, wordCount = 0, companionArticle } = Astro.props;
 
 // Determine if card is linkable and calculate reading time
 const isLinkable = ['final', 'draft', 'revised', 'fact-checked'].includes(status);
@@ -60,6 +61,15 @@ const cardProps = isLinkable ? { href: `/chapters/${chapter}` } : {};
   {wordCount > 0 && (
     <div class="chapter-card__footer">
       <span class="chapter-card__read-time">{readingTime} min read</span>
+    </div>
+  )}
+
+  {/* Companion article link — surfaces even for stub chapters */}
+  {companionArticle && (
+    <div class="chapter-card__companion">
+      <a href={`/articles/${companionArticle.slug}`} class="chapter-card__companion-link">
+        {companionArticle.label} →
+      </a>
     </div>
   )}
 </CardElement>
@@ -194,5 +204,26 @@ const cardProps = isLinkable ? { href: `/chapters/${chapter}` } : {};
     color: rgba(26, 26, 46, 0.5);
     font-family: var(--font-body);
     font-weight: 500;
+  }
+
+  /* Companion article link */
+  .chapter-card__companion {
+    padding: 0.875rem 1.5rem;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+    background: rgba(212, 165, 116, 0.06);
+  }
+
+  .chapter-card__companion-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--mesa-red);
+    text-decoration: none;
+    font-family: var(--font-body);
+    position: relative;
+    z-index: 2;
+  }
+
+  .chapter-card__companion-link:hover {
+    text-decoration: underline;
   }
 </style>
