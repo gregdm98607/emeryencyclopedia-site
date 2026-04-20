@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with the Encyclopedia of Emery County editorial team. Submit corrections, share sources, or ask questions."
+>
+  <section class="contact-page">
+    <h1>Contact</h1>
+
+    <p>
+      Have a question, found an error, or want to contribute historical sources, photographs, or oral histories? We'd love to hear from you.
+    </p>
+
+    <div class="contact-card">
+      <h2>Editorial Team</h2>
+      <p>
+        <strong>Encyclopedia of Emery County</strong><br />
+        Published by Silver Sage Media, LLC
+      </p>
+      <p>
+        Email: <a href="mailto:info@emeryencyclopedia.com">info@emeryencyclopedia.com</a>
+      </p>
+      <p class="contact-note">
+        We aim to respond within 5 business days. For corrections to published chapters, please include the chapter number and the source you're referencing.
+      </p>
+    </div>
+
+    <div class="contact-topics">
+      <h2>Common Reasons to Write</h2>
+      <ul>
+        <li><strong>Corrections &amp; sources</strong> — Found an error or have a better source? We want to know.</li>
+        <li><strong>Oral histories</strong> — Family stories, pioneer accounts, and living memory are invaluable. We welcome contributions.</li>
+        <li><strong>Photographs &amp; maps</strong> — Historical images, current field photography, and historic maps help bring the Encyclopedia to life.</li>
+        <li><strong>Media &amp; academic inquiries</strong> — Researchers, journalists, and educators are welcome to reach out for permissions or collaboration.</li>
+        <li><strong>Newsletter</strong> — To subscribe to chapter previews and research updates, use the signup form in the footer below.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :root {
+    --sandstone: #D4A574;
+    --mesa-red: #C85A54;
+    --coal-seam: #1A1A2E;
+    --sky-wash: #F7F3ED;
+    --canyon-bronze: #8B6F47;
+  }
+
+  .contact-page {
+    max-width: 780px;
+    margin: 3rem auto 4rem;
+    padding: 0 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.75;
+    color: #2A2A3E;
+  }
+
+  .contact-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--coal-seam);
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+
+  .contact-page > p {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    color: rgba(26, 26, 46, 0.85);
+  }
+
+  .contact-card {
+    background: var(--sky-wash);
+    border-left: 4px solid var(--sandstone);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card h2 {
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+    color: var(--coal-seam);
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+
+  .contact-card p {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  .contact-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-card a {
+    color: var(--canyon-bronze);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 111, 71, 0.4);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .contact-card a:hover {
+    color: var(--sandstone);
+    border-bottom-color: var(--sandstone);
+  }
+
+  .contact-note {
+    font-size: 0.875rem !important;
+    color: rgba(26, 26, 46, 0.65) !important;
+    font-style: italic;
+  }
+
+  .contact-topics h2 {
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    color: var(--coal-seam);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    border-bottom: 1px solid #E8E0D4;
+    padding-bottom: 0.4rem;
+  }
+
+  .contact-topics ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-topics li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .contact-page {
+      padding: 0 1rem;
+    }
+
+    .contact-page h1 {
+      font-size: 1.6rem;
+    }
+
+    .contact-card {
+      padding: 1.25rem 1.25rem;
+    }
+  }
+</style>

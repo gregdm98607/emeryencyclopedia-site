@@ -119,9 +119,10 @@ const parts = [
         Chapter previews, behind-the-research stories, and Emery County discoveries — delivered to your inbox.
       </p>
 
-      <form class="footer__newsletter-form" onsubmit="event.preventDefault();">
+      <form class="footer__newsletter-form" id="footer-newsletter-form">
         <input
           type="email"
+          name="email"
           placeholder="Enter your email"
           class="footer__newsletter-input"
           required
@@ -131,6 +132,7 @@ const parts = [
           Subscribe
         </button>
       </form>
+      <p class="footer__newsletter-status" id="footer-newsletter-status" aria-live="polite"></p>
     </div>
 
     {/* Column 3: About & Links */}
@@ -144,13 +146,13 @@ const parts = [
         <a href="/about" class="footer__link">About</a>
         <a href="/chapters" class="footer__link">Table of Contents</a>
         <a href="/resources" class="footer__link">Resources</a>
-        <a href="#contact" class="footer__link">Contact</a>
+        <a href="/contact" class="footer__link">Contact</a>
         <a href="/privacy-policy" class="footer__link">Privacy Policy</a>
         <a href="/terms" class="footer__link">Terms of Service</a>
       </nav>
 
       <p class="footer__credit">
-        A project by Greg Maxfield
+        A Silver Sage Media project
       </p>
     </div>
   </div>
@@ -414,6 +416,20 @@ const parts = [
     margin: 0;
   }
 
+  .footer__newsletter-status {
+    margin: 0;
+    font-size: 0.85rem;
+    min-height: 1.2em;
+  }
+
+  .footer__newsletter-status.success {
+    color: #7EC99B;
+  }
+
+  .footer__newsletter-status.error {
+    color: #E07070;
+  }
+
   /* Mobile: Stack columns */
   @media (max-width: 1023px) {
     .footer__container {
@@ -444,3 +460,40 @@ const parts = [
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('footer-newsletter-form') as HTMLFormElement | null;
+  const status = document.getElementById('footer-newsletter-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const email = emailInput.value.trim();
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    if (status) { status.textContent = ''; status.className = 'footer__newsletter-status'; }
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        if (status) { status.textContent = "You're in! Watch for your first dispatch."; status.classList.add('success'); }
+        emailInput.value = '';
+      } else {
+        const data = await res.json();
+        if (status) { status.textContent = data.error || 'Something went wrong. Try again.'; status.classList.add('error'); }
+      }
+    } catch {
+      if (status) { status.textContent = 'Something went wrong. Try again.'; status.classList.add('error'); }
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Subscribe';
+  });
+</script>
