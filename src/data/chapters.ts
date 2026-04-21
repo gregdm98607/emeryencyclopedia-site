@@ -117,25 +117,25 @@ export const CHAPTERS: Chapter[] = [
     number: 12,
     title: 'Rock Art & Sacred Landscapes',
     part: 2,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Barrier Canyon Style, Fremont, and Ute rock art traditions across 400+ documented sites in Emery County — styles, chronology, preservation, and Indigenous stewardship of sacred landscapes.',
-    wordCount: 4459
+    wordCount: 4892
   },
   {
     number: 13,
     title: 'Archaeological Stewardship',
     part: 2,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Legal frameworks, monitoring programs, site stewardship, curation practices, and ethical principles for protecting Emery County\u2019s archaeological resources on BLM, tribal, and private lands.',
-    wordCount: 4724
+    wordCount: 5071
   },
   {
     number: 14,
     title: 'Spanish Trails & Fur Trappers',
     part: 3,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'The era of exploration and trade preceding Euro-American settlement: ancient Ute commerce routes, the Old Spanish Trail, Mexican pack-train operators, and American mountain men in Emery County canyon country.',
-    wordCount: 4085
+    wordCount: 4339
   },
   {
     number: 15,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-20', chapter: 14, action: 'Spanish Trails & Fur Trappers advanced to revised (Phase 8 revision integrated; wc 4085→4339, +254 words)' },
+  { date: '2026-04-20', chapter: 13, action: 'Archaeological Stewardship advanced to revised (Phase 8 revision integrated; wc 4724→5071, +347 words)' },
+  { date: '2026-04-20', chapter: 12, action: 'Rock Art & Sacred Landscapes advanced to revised (Phase 8 revision integrated; wc 4459→4892, +433 words; tribal_review_flag retained)' },
   { date: '2026-04-20', chapter: 11, action: 'Navajo & Puebloan Interactions advanced to revised (Phase 8 revision integrated; wc 3935→4283, +348 words)' },
   { date: '2026-04-20', chapter: 10, action: 'Numic Expansion advanced to revised (Phase 8 revision integrated; wc 3615→3976, +361 words)' },
   { date: '2026-04-20', chapter: 9, action: 'Fremont Culture advanced to revised (Phase 8 revision integrated; wc 4063→4511, +448 words)' },
