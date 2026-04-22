@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { getPartColor, getPartLabel } from '../utils/parts';
 import ChapterFooter from '../components/ChapterFooter.astro';
+import SearchOverlay from '../components/SearchOverlay.astro';
 
 interface Props {
   title: string;
@@ -101,6 +102,7 @@ const pageTitle = `Ch${chapterNum}: ${title} | Encyclopedia of Emery County`;
       </article>
     </div>
   </div>
+  <SearchOverlay />
 </body>
 </html>
 

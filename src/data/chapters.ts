@@ -13,7 +13,7 @@ export interface Chapter {
   /**
    * Optional companion article. When set, the chapter card surfaces a
    * "Read the companion article" affordance even if the chapter itself
-   * is still a stub. First use: Ch18 (Communities & Towns) → Castle Dale 1880.
+   * is still a stub. First use: Ch16 (Mormon Colonization) → Castle Dale 1880 vignette.
    */
   companionArticle?: {
     slug: string;
@@ -93,7 +93,7 @@ export const CHAPTERS: Chapter[] = [
     number: 9,
     title: 'Fremont Culture',
     part: 2,
-    status: 'revised',
+    status: 'final',
     description: 'The most visible ancient culture in Emery County: Fremont pit houses, pottery, irrigation, and the spectacular rock art panels of the San Rafael Swell.',
     wordCount: 4511
   },
@@ -101,7 +101,7 @@ export const CHAPTERS: Chapter[] = [
     number: 10,
     title: 'Numic Expansion',
     part: 2,
-    status: 'revised',
+    status: 'final',
     description: 'The Numic peoples — ancestors of the Ute, Southern Paiute, and Shoshone — and their arrival on the Colorado Plateau after the Fremont decline.',
     wordCount: 3976
   },
@@ -109,7 +109,7 @@ export const CHAPTERS: Chapter[] = [
     number: 11,
     title: 'Navajo & Puebloan Interactions',
     part: 2,
-    status: 'revised',
+    status: 'final',
     description: 'Athabaskan migration, Pueblo Revolt diaspora, trade networks, pastoral revolution, and the deep cultural exchanges between Navajo, Puebloan, and Ute peoples across the Colorado Plateau.',
     wordCount: 4283
   },
@@ -117,7 +117,7 @@ export const CHAPTERS: Chapter[] = [
     number: 12,
     title: 'Rock Art & Sacred Landscapes',
     part: 2,
-    status: 'revised',
+    status: 'final',
     description: 'Barrier Canyon Style, Fremont, and Ute rock art traditions across 400+ documented sites in Emery County — styles, chronology, preservation, and Indigenous stewardship of sacred landscapes.',
     wordCount: 4892
   },
@@ -125,7 +125,7 @@ export const CHAPTERS: Chapter[] = [
     number: 13,
     title: 'Archaeological Stewardship',
     part: 2,
-    status: 'revised',
+    status: 'final',
     description: 'Legal frameworks, monitoring programs, site stewardship, curation practices, and ethical principles for protecting Emery County\u2019s archaeological resources on BLM, tribal, and private lands.',
     wordCount: 5071
   },
@@ -133,7 +133,7 @@ export const CHAPTERS: Chapter[] = [
     number: 14,
     title: 'Spanish Trails & Fur Trappers',
     part: 3,
-    status: 'revised',
+    status: 'final',
     description: 'The era of exploration and trade preceding Euro-American settlement: ancient Ute commerce routes, the Old Spanish Trail, Mexican pack-train operators, and American mountain men in Emery County canyon country.',
     wordCount: 4339
   },
@@ -153,7 +153,11 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'final',
     description: 'LDS settlement of Emery County: the call to colonize Castle Valley, founding of pioneer towns, cooperative irrigation, and the transformation of a remote desert into an agricultural community.',
-    wordCount: 3353
+    wordCount: 3353,
+    companionArticle: {
+      slug: 'castle-dale-1880',
+      label: 'Castle Dale, 1880 — read the vignette'
+    }
   },
   {
     number: 17,
@@ -165,46 +169,42 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 18,
-    title: 'Communities & Towns',
+    title: 'Rails, Roads & Infrastructure',
     part: 3,
-    status: 'stub',
-    description: 'Individual town histories: Castle Dale, Ferron, Huntington, Green River, Cleveland, and smaller settlements.',
-    wordCount: 0,
-    companionArticle: {
-      slug: 'castle-dale-1880',
-      label: 'Castle Dale, 1880 — read the vignette'
-    }
+    status: 'draft',
+    description: 'The transportation and utility networks that wove Emery County into the broader region: the Old Spanish Trail, the 1883 Denver & Rio Grande Western main line, federal highways, Interstate 70 through the San Rafael Swell, rural electric and telephone cooperatives, and the coal-to-electricity pipeline.',
+    wordCount: 4500
   },
   {
     number: 19,
-    title: 'Agriculture & Land Use',
+    title: 'Water for the Desert',
+    part: 3,
+    status: 'draft',
+    description: 'Water, the defining constraint of Emery County life: pioneer ditches and the 1890s salinization crisis, the federal Emery County Project (Joe\u2019s Valley, Huntington North, Millsite), the Colorado River Compact, the Emery Water Conservancy District, and the twenty-first-century megadrought.',
+    wordCount: 4500
+  },
+  {
+    number: 20,
+    title: 'Agriculture & Ranching',
     part: 3,
     status: 'stub',
     description: 'Ranching, farming, livestock management, and the evolution of agricultural practice in an arid landscape.',
     wordCount: 0
   },
   {
-    number: 20,
-    title: 'Transportation & Infrastructure',
-    part: 3,
-    status: 'stub',
-    description: 'Roads, railways, telegraph, utilities, and the infrastructure that connected Emery County to the broader region.',
-    wordCount: 0
-  },
-  {
     number: 21,
-    title: 'Ghost Towns & Abandonment',
+    title: 'Energy Transition',
     part: 3,
     status: 'stub',
-    description: 'Ephemeral settlements: mining camps, railroad towns, and communities that faded as economic tides shifted.',
+    description: 'The arc from coal dominance to a post-coal economy: power-plant retirements, nuclear and renewable alternatives, workforce transition, and the future of Emery County\u2019s energy identity.',
     wordCount: 0
   },
   {
     number: 22,
-    title: 'Land & Ownership',
+    title: 'Demography & Social Change',
     part: 3,
     status: 'stub',
-    description: 'Public lands, private property, Native American lands, and the legal frameworks governing land tenure.',
+    description: 'Population dynamics across a century and a half: pioneer settlement, mining-era immigration, boom-and-bust cycles, outmigration, and the social change reshaping Emery County communities.',
     wordCount: 0
   },
   {
@@ -433,6 +433,18 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-22', chapter: 22, action: 'Part III realignment: Ch22 renamed from Land & Ownership to Demography & Social Change (stub) to match Hub Ch14–Ch22 structure' },
+  { date: '2026-04-22', chapter: 21, action: 'Part III realignment: Ch21 renamed from Ghost Towns & Abandonment to Energy Transition (stub)' },
+  { date: '2026-04-22', chapter: 20, action: 'Part III realignment: Ch20 renamed from Transportation & Infrastructure to Agriculture & Ranching (stub)' },
+  { date: '2026-04-22', chapter: 19, action: 'Water for the Desert draft ported from vault (~4500 words); status stub → draft; replaces prior Agriculture & Land Use stub' },
+  { date: '2026-04-22', chapter: 18, action: 'Rails, Roads & Infrastructure draft ported from vault (~4500 words); status stub → draft; replaces prior Communities & Towns stub; Castle Dale 1880 companion relocated to Ch16' },
+  { date: '2026-04-22', chapter: 16, action: 'Castle Dale 1880 companion article attached to Mormon Colonization (moved from former Ch18 Communities & Towns)' },
+  { date: '2026-04-22', chapter: 14, action: 'Spanish Trails & Fur Trappers advanced to final (vault finalized 2026-04-21)' },
+  { date: '2026-04-22', chapter: 13, action: 'Archaeological Stewardship advanced to final (vault finalized 2026-04-21)' },
+  { date: '2026-04-22', chapter: 12, action: 'Rock Art & Sacred Landscapes advanced to final (vault finalized 2026-04-21)' },
+  { date: '2026-04-22', chapter: 11, action: 'Navajo & Puebloan Interactions advanced to final (vault finalized 2026-04-21)' },
+  { date: '2026-04-22', chapter: 10, action: 'Numic Expansion advanced to final (vault finalized 2026-04-21)' },
+  { date: '2026-04-22', chapter: 9, action: 'Fremont Culture advanced to final (vault finalized 2026-04-21)' },
   { date: '2026-04-21', chapter: 17, action: 'Coal, Copper & Uranium advanced to final (content refresh to site; wc 3748→4131, +383 words)' },
   { date: '2026-04-21', chapter: 16, action: 'Mormon Colonization advanced to final (content refresh to site; wc 3063→3353, +290 words)' },
   { date: '2026-04-21', chapter: 15, action: 'Powell Expeditions advanced to final (content refresh to site; wc 3435→3788, +353 words)' },

@@ -59,10 +59,11 @@ const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
 
   <div class="newsletter-cta">
     <p>Enjoying the encyclopedia? Get chapter previews and field notes delivered to your inbox.</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault()">
-      <input type="email" placeholder="your@email.com" />
+    <form class="newsletter-form" id="chapter-newsletter-form">
+      <input type="email" name="email" placeholder="your@email.com" />
       <button type="submit">Subscribe</button>
     </form>
+    <p class="newsletter-status" id="chapter-newsletter-status" aria-live="polite"></p>
   </div>
 </div>
 
@@ -152,9 +153,57 @@ const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
     font-weight: 600;
     cursor: pointer;
   }
+  .newsletter-status {
+    font-size: var(--text-sm);
+    margin: 0;
+    min-height: 1.2em;
+  }
+  .newsletter-status.success {
+    color: #7EC99B;
+  }
+  .newsletter-status.error {
+    color: #E07070;
+  }
   @media (max-width: 768px) {
     .chapter-nav { flex-direction: column; }
     .nav-next { text-align: left; }
     .newsletter-cta { flex-direction: column; }
   }
 </style>
+
+<script>
+  const form = document.getElementById('chapter-newsletter-form') as HTMLFormElement | null;
+  const status = document.getElementById('chapter-newsletter-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const email = emailInput.value.trim();
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    if (status) { status.textContent = ''; status.className = 'newsletter-status'; }
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        if (status) { status.textContent = "You're in! Watch for your first dispatch."; status.classList.add('success'); }
+        emailInput.value = '';
+      } else {
+        const data = await res.json();
+        if (status) { status.textContent = data.error || 'Something went wrong. Try again.'; status.classList.add('error'); }
+      }
+    } catch {
+      if (status) { status.textContent = 'Something went wrong. Try again.'; status.classList.add('error'); }
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Subscribe';
+  });
+</script>

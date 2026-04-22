@@ -10,4 +10,11 @@ export default defineConfig({
       theme: 'github-light',
     },
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        external: ['/pagefind/pagefind.js'],
+      },
+    },
+  },
 });
