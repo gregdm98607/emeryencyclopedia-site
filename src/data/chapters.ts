@@ -141,9 +141,9 @@ export const CHAPTERS: Chapter[] = [
     number: 15,
     title: 'Powell Expeditions',
     part: 3,
-    status: 'fact-checked',
+    status: 'final',
     description: 'John Wesley Powell\u2019s 1869 and 1871\u201372 voyages through Desolation Canyon and the Green River corridor: scientific mapping, photography, and the founding of the U.S. Geological Survey.',
-    wordCount: 3435
+    wordCount: 3788
   },
 
   // Part III: Settlement (16-23)
@@ -151,17 +151,17 @@ export const CHAPTERS: Chapter[] = [
     number: 16,
     title: 'Mormon Colonization',
     part: 3,
-    status: 'fact-checked',
+    status: 'final',
     description: 'LDS settlement of Emery County: the call to colonize Castle Valley, founding of pioneer towns, cooperative irrigation, and the transformation of a remote desert into an agricultural community.',
-    wordCount: 3063
+    wordCount: 3353
   },
   {
     number: 17,
     title: 'Coal, Copper & Uranium',
     part: 3,
-    status: 'fact-checked',
+    status: 'final',
     description: 'The extractive century: coal seams of the Wasatch Plateau, uranium-rich sandstones of the San Rafael Swell, copper byproducts, company towns, the Wilberg and Crandall Canyon disasters, and the ongoing energy transition reshaping Emery County\u2019s economy.',
-    wordCount: 3748
+    wordCount: 4131
   },
   {
     number: 18,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-21', chapter: 17, action: 'Coal, Copper & Uranium advanced to final (content refresh to site; wc 3748→4131, +383 words)' },
+  { date: '2026-04-21', chapter: 16, action: 'Mormon Colonization advanced to final (content refresh to site; wc 3063→3353, +290 words)' },
+  { date: '2026-04-21', chapter: 15, action: 'Powell Expeditions advanced to final (content refresh to site; wc 3435→3788, +353 words)' },
   { date: '2026-04-20', chapter: 14, action: 'Spanish Trails & Fur Trappers advanced to revised (Phase 8 revision integrated; wc 4085→4339, +254 words)' },
   { date: '2026-04-20', chapter: 13, action: 'Archaeological Stewardship advanced to revised (Phase 8 revision integrated; wc 4724→5071, +347 words)' },
   { date: '2026-04-20', chapter: 12, action: 'Rock Art & Sacred Landscapes advanced to revised (Phase 8 revision integrated; wc 4459→4892, +433 words; tribal_review_flag retained)' },
