@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SearchOverlay from '../components/SearchOverlay.astro';
 
 interface Props {
   title: string;
@@ -65,5 +66,6 @@ const pageTitle = title === 'Encyclopedia of Emery County'
     <slot />
   </main>
   <Footer />
+  <SearchOverlay />
 </body>
 </html>
