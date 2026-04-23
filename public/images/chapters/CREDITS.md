@@ -315,6 +315,20 @@ is provided below for each file.
 | **License** | Public domain (U.S. government work; chart generated with matplotlib) |
 | **Date accessed** | April 22, 2026 |
 
+## Ch20 — Agriculture & Ranching (Added 2026-04-23)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch20_opensource_emery_county_project.png` |
+| **Description** | Bar charts showing the Emery County Reclamation Project's three reservoirs — Joes Valley (62,460 ac-ft, 187 ft), Millsite (~4,600 ac-ft, ~135 ft), and Huntington North (~3,000 ac-ft, ~28 ft) — by storage capacity and dam height. Federal project authorized 1956, completed 1966–1971. Total service area: 18,755 acres; average annual delivery: 28,100 acre-feet. |
+| **Source** | U.S. Bureau of Reclamation — Emery County Project (Project ID 447) |
+| **Agency** | U.S. Bureau of Reclamation (USBR) |
+| **URL** | https://www.usbr.gov/projects/index.php?id=447 |
+| **License** | Public domain (U.S. government data; chart generated with matplotlib) |
+| **Date accessed** | April 23, 2026 |
+
+---
+
 ### Ch16 — Mormon Colonization (Round 2)
 
 | Field | Value |

@@ -28,8 +28,8 @@ export const CHAPTERS: Chapter[] = [
     title: 'Geography & Physiography',
     part: 1,
     status: 'draft',
-    description: 'The physical landscape of Emery County: plateaus, canyons, rivers, and the defining topography of the region.',
-    wordCount: 4200
+    description: 'The physical landscape of Emery County: plateaus, canyons, rivers, and the defining topography of the region. Covers physiographic provinces, drainage basins, elevation gradient, structural geology, soils, karst, and aeolian landforms.',
+    wordCount: 12847
   },
   {
     number: 2,
@@ -187,9 +187,9 @@ export const CHAPTERS: Chapter[] = [
     number: 20,
     title: 'Agriculture & Ranching',
     part: 3,
-    status: 'stub',
-    description: 'Ranching, farming, livestock management, and the evolution of agricultural practice in an arid landscape.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Pioneer canal-building and cooperative irrigation, the salinization crisis, the federal Emery County Project\'s dams and reservoirs, alfalfa and hay farming, Green River\'s celebrated melons, cattle and sheep ranching on public lands, and the water future facing Emery County agriculture.',
+    wordCount: 4200
   },
   {
     number: 21,
@@ -433,6 +433,8 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-23', chapter: 20, action: 'Agriculture & Ranching draft published to site (~4200 words); status stub → draft; covers pioneer irrigation, salinization crisis, Emery County Project, Green River melons, cattle/sheep ranching, and drought outlook' },
+  { date: '2026-04-23', chapter: 1, action: 'Geography & Physiography wordCount corrected in chapters.ts (4200 → 12847); site ch01.md was already current from 2026-04-20 revision (12 sections, engagement features, full sources)' },
   { date: '2026-04-22', chapter: 22, action: 'Part III realignment: Ch22 renamed from Land & Ownership to Demography & Social Change (stub) to match Hub Ch14–Ch22 structure' },
   { date: '2026-04-22', chapter: 21, action: 'Part III realignment: Ch21 renamed from Ghost Towns & Abandonment to Energy Transition (stub)' },
   { date: '2026-04-22', chapter: 20, action: 'Part III realignment: Ch20 renamed from Transportation & Infrastructure to Agriculture & Ranching (stub)' },
