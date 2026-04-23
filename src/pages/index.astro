@@ -146,30 +146,6 @@ const featuredChapters = CHAPTERS.filter(ch =>
     </div>
   </section>
 
-  {/* ========== NEWSLETTER SECTION ========== */}
-  <section class="newsletter">
-    <div class="newsletter__container">
-      <h2 class="newsletter__title">Stay in the Field</h2>
-      <p class="newsletter__subtitle">
-        Chapter previews, behind-the-research stories, and Emery County discoveries — delivered to your inbox.
-      </p>
-
-      <form class="newsletter__form" onsubmit="event.preventDefault();">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          class="newsletter__input"
-          required
-          aria-label="Email address"
-        />
-        <button type="submit" class="newsletter__btn">Subscribe</button>
-      </form>
-
-      <p class="newsletter__note">
-        No spam. Unsubscribe anytime. Privacy respected.
-      </p>
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
@@ -453,6 +429,7 @@ const featuredChapters = CHAPTERS.filter(ch =>
     font-size: 2rem;
     font-weight: 700;
     font-family: var(--font-display);
+    color: var(--sky-wash);
   }
 
   .about__container p {
@@ -504,86 +481,6 @@ const featuredChapters = CHAPTERS.filter(ch =>
   .about__link:hover {
     color: var(--sky-wash);
     transform: translateX(4px);
-  }
-
-  /* ========== NEWSLETTER SECTION ========== */
-  .newsletter {
-    background: var(--sky-wash);
-    padding: 3rem 2rem;
-  }
-
-  .newsletter__container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .newsletter__title {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.75rem;
-    font-weight: 700;
-    font-family: var(--font-display);
-    color: var(--coal-seam);
-  }
-
-  .newsletter__subtitle {
-    margin: 0 0 2rem 0;
-    font-size: 1rem;
-    color: rgba(26, 26, 46, 0.7);
-    font-family: var(--font-body);
-    line-height: 1.6;
-  }
-
-  .newsletter__form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .newsletter__input {
-    padding: 0.875rem 1rem;
-    background: white;
-    border: 2px solid rgba(26, 26, 46, 0.15);
-    border-radius: 6px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .newsletter__input::placeholder {
-    color: rgba(26, 26, 46, 0.5);
-  }
-
-  .newsletter__input:focus {
-    outline: none;
-    border-color: var(--mesa-red);
-    background: white;
-  }
-
-  .newsletter__btn {
-    padding: 0.875rem 1.5rem;
-    background: var(--mesa-red);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .newsletter__btn:hover {
-    background: #b74a44;
-    transform: translateY(-2px);
-  }
-
-  .newsletter__note {
-    margin: 0;
-    font-size: 0.85rem;
-    color: rgba(26, 26, 46, 0.6);
-    font-family: var(--font-body);
   }
 
   /* ========== RESPONSIVE ========== */

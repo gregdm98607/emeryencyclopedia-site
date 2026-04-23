@@ -22,6 +22,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     {/* Main content */}
     <article class="resources-content">
       <div class="resources-content__container">
+        {/* Published Chapters */}
+        <section class="resources-section">
+          <h2 class="resources-section__title">Published Chapters</h2>
+          <p>
+            The following chapters are currently available to read. The Encyclopedia ships chapters as they are completed — Part VI (Further Reading, Glossary, and Systematic Index) is kept current as a living reference.
+          </p>
+
+          <div class="resources-grid">
+            <div class="resource-card">
+              <h3 class="resource-card__title">Part I: Foundations (Ch 1–7)</h3>
+              <p class="resource-card__desc">Deep-Time Geology, Hydrology & Springs, Climate & Weather, Fauna, and Night Skies & Astronomy are fully published. Geography & Physiography and Flora Zones are available in draft.</p>
+              <a href="/chapters" class="resource-card__link">Browse Part I →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Part II: Peoples (Ch 8–13)</h3>
+              <p class="resource-card__desc">All six chapters finalized: Ancestral Puebloans & Fremont, Fremont Culture, Numic Expansion, Navajo & Puebloan Interactions, Rock Art & Sacred Landscapes, and Archaeological Stewardship.</p>
+              <a href="/chapters" class="resource-card__link">Browse Part II →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Part III: Settlement (Ch 14–19)</h3>
+              <p class="resource-card__desc">Spanish Trails & Fur Trappers, Powell Expeditions, Mormon Colonization, and Coal, Copper & Uranium are finalized. Rails, Roads & Infrastructure and Water for the Desert are available in draft.</p>
+              <a href="/chapters" class="resource-card__link">Browse Part III →</a>
+            </div>
+
+            <div class="resource-card">
+              <h3 class="resource-card__title">Part VI: Resources (Ch 41–43)</h3>
+              <p class="resource-card__desc">Further Reading (master bibliography), Glossary, and Systematic Index are published in draft and updated as new chapters are completed.</p>
+              <a href="/chapters/41" class="resource-card__link">Further Reading →</a>
+            </div>
+          </div>
+        </section>
+
         {/* Primary Sources */}
         <section class="resources-section">
           <h2 class="resources-section__title">Primary Sources & Archives</h2>
@@ -212,7 +246,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>
             Have a source to recommend? Found an error? Have photographs, oral histories, or primary documents to share? We're always looking to strengthen and expand the Encyclopedia's research base.
           </p>
-          <a href="#contact" class="resources-contribute-link">Submit a Resource or Correction</a>
+          <a href="/contact" class="resources-contribute-link">Submit a Resource or Correction</a>
         </section>
       </div>
     </article>

@@ -201,10 +201,10 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 22,
-    title: 'Demography & Social Change',
+    title: 'Communities & Towns',
     part: 3,
     status: 'stub',
-    description: 'Population dynamics across a century and a half: pioneer settlement, mining-era immigration, boom-and-bust cycles, outmigration, and the social change reshaping Emery County communities.',
+    description: 'The towns of Emery County: Castle Dale, Huntington, Ferron, Orangeville, Cleveland, Emery, and Green River — founding, layout, civic institutions, and the evolution of community identity from pioneer settlement to the present.',
     wordCount: 0
   },
   {

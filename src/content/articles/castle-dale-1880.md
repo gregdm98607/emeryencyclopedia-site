@@ -2,14 +2,14 @@
 title: "Castle Dale in 1880: Fifty Houses, 264 People, and a Whole Lot of Trouble Brewing"
 description: "The first federal census of Castle Dale, Utah — June 1880. 264 people in 50 houses, a missing dwelling number, two boys named James, and a whole lot of questions."
 kind: teaser
-companionToChapter: 18
+companionToChapter: 16
 companionToSection: "Castle Dale"
 datasetPath: "/data/castle-dale-1880"
 audience: "general / middle-high-school"
 wordCount: 2350
 readingTime: "~10 min read"
 publishDate: "2026-04-19"
-tags: ["castle-dale", "census", "1880", "emery-county", "ch18"]
+tags: ["castle-dale", "census", "1880", "emery-county", "ch16"]
 ---
 
 ## The Man With the Pencil

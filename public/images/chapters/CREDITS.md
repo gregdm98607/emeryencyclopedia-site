@@ -252,3 +252,77 @@ is provided below for each file.
 | **URL** | https://geology.utah.gov/docs/statistics/coal2.0/pdf/T2.8.pdf |
 | **License** | Public domain (Utah state government work) |
 | **Date accessed** | April 15, 2026 |
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch17_opensource_utah_coal_production_timeline.png` |
+| **Description** | Utah statewide coal production trend chart, 1900–2020, with Emery County share annotation. Emery County contributed approximately 50% of Utah's total coal output at peak production. |
+| **Source** | U.S. Energy Information Administration (EIA) coal production data; Utah Geological Survey Energy & Mineral Statistics |
+| **Agency** | U.S. Energy Information Administration / Utah Geological Survey |
+| **URL** | https://www.eia.gov/coal/data/ |
+| **License** | Public domain (U.S. government data; chart generated with matplotlib) |
+| **Date accessed** | April 22, 2026 |
+
+---
+
+## Round 2 Assets — Added 2026-04-22
+
+### Ch01 — Geography & Physiography (Round 2)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch01_opensource_emery_county_land_ownership.png` |
+| **Description** | Land ownership and management jurisdiction pie chart for Emery County, Utah (~4,462 sq. mi.). BLM administers approximately 63% of county land; private, USFS, State, and NPS holdings account for the remainder. |
+| **Source** | Bureau of Land Management Price Field Office; USDA Forest Service Manti-La Sal National Forest; Utah School and Institutional Trust Lands Administration (SITLA); NPS |
+| **Agency** | Bureau of Land Management / USDA Forest Service / Utah SITLA / NPS |
+| **URL** | https://www.blm.gov/office/price-field-office |
+| **License** | Public domain (U.S. and Utah state government data; chart generated with matplotlib) |
+| **Date accessed** | April 22, 2026 |
+
+### Ch03 — Hydrology & Springs (Round 2)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch03_opensource_san_rafael_river_peak_discharge.png` |
+| **Description** | Annual peak discharge record for the San Rafael River at USGS Gage 09328500 (near Green River, UT), 1950–2023. Illustrates the highly variable semi-arid hydrology of the primary Emery County drainage. |
+| **Source** | USGS National Water Information System (NWIS) — Gage 09328500 |
+| **Agency** | U.S. Geological Survey (USGS) |
+| **URL** | https://waterdata.usgs.gov/monitoring-location/USGS-09328500/ |
+| **License** | Public domain (U.S. government data; chart generated with matplotlib) |
+| **Date accessed** | April 22, 2026 |
+
+### Ch08 — Paleo-Indian & Archaic (Round 2)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch08_opensource_emery_county_prehistoric_site_types.png` |
+| **Description** | Distribution of recorded prehistoric site types in Emery County, Utah, from the Utah State Historic Preservation Office (SHPO) site inventory. Rock art panels and lithic scatters are the most numerous recorded types. |
+| **Source** | BLM Price Field Office cultural resource inventory; Utah Division of State History / SHPO site catalog |
+| **Agency** | Bureau of Land Management (BLM) / Utah State Historic Preservation Office |
+| **URL** | https://heritage.utah.gov/history/state-historic-preservation-office |
+| **License** | Public domain (U.S. and Utah state government data; chart generated with matplotlib) |
+| **Date accessed** | April 22, 2026 |
+
+### Ch15 — Powell Expeditions (Round 2)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch15_opensource_powell_expedition_elevation_profile.png` |
+| **Description** | River elevation profile for the 1869 Powell Expedition route from Green River Station, Wyoming to Lee's Ferry, Arizona — approximately 680 river miles. Emery County's Desolation and Gray Canyon reach (miles 300–380) is highlighted. Elevation data from USGS and Powell's 1875 congressional report. |
+| **Source** | USGS / Powell, J.W. (1875). *Exploration of the Colorado River of the West* — U.S. Government Printing Office (public domain) |
+| **Agency** | U.S. Geological Survey (USGS) |
+| **URL** | https://pubs.usgs.gov/unnumbered/70039238/report.pdf |
+| **License** | Public domain (U.S. government work; chart generated with matplotlib) |
+| **Date accessed** | April 22, 2026 |
+
+### Ch16 — Mormon Colonization (Round 2)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch16_opensource_emery_county_population_1880_1940.png` |
+| **Description** | Emery County total population growth, 1880–1940, from U.S. Census Bureau decennial counts. Shows rapid LDS colonization-era growth from 264 people (Castle Dale precinct) in 1880 to a peak near 9,876 by 1930, then slight Depression-era decline. |
+| **Source** | U.S. Census Bureau, Decennial Census — Historical Population data, Utah counties |
+| **Agency** | U.S. Census Bureau |
+| **URL** | https://www.census.gov/data/tables/time-series/dec/popchange-data-text.html |
+| **License** | Public domain (U.S. government data; chart generated with matplotlib) |
+| **Date accessed** | April 22, 2026 |
