@@ -195,9 +195,9 @@ export const CHAPTERS: Chapter[] = [
     number: 21,
     title: 'Energy Transition',
     part: 3,
-    status: 'stub',
-    description: 'The arc from coal dominance to a post-coal economy: power-plant retirements, nuclear and renewable alternatives, workforce transition, and the future of Emery County\u2019s energy identity.',
-    wordCount: 0
+    status: 'draft',
+    description: 'From coal peak to post-carbon crossroads: mine closures, shifting retirement timelines for Hunter and Huntington power plants, the billion-dollar Green River Energy Center, workforce retraining gaps, property tax pressures, and Emery County\'s uncertain but emerging new economic identity.',
+    wordCount: 4300
   },
   {
     number: 22,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-23', chapter: 21, action: 'Energy Transition draft published to site (~4300 words); status stub → draft; covers coal peak/mine closures/Lila Canyon/Hunter+Huntington plants/policy whiplash/property tax crisis/U-REDI/Castle Solar/Green River Energy Center/workforce gaps/demographics/tourism/2026 outlook' },
   { date: '2026-04-23', chapter: 20, action: 'Agriculture & Ranching draft published to site (~4200 words); status stub → draft; covers pioneer irrigation, salinization crisis, Emery County Project, Green River melons, cattle/sheep ranching, and drought outlook' },
   { date: '2026-04-23', chapter: 1, action: 'Geography & Physiography wordCount corrected in chapters.ts (4200 → 12847); site ch01.md was already current from 2026-04-20 revision (12 sections, engagement features, full sources)' },
   { date: '2026-04-22', chapter: 22, action: 'Part III realignment: Ch22 renamed from Land & Ownership to Demography & Social Change (stub) to match Hub Ch14–Ch22 structure' },

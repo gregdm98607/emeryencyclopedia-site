@@ -340,3 +340,28 @@ is provided below for each file.
 | **URL** | https://www.census.gov/data/tables/time-series/dec/popchange-data-text.html |
 | **License** | Public domain (U.S. government data; chart generated with matplotlib) |
 | **Date accessed** | April 22, 2026 |
+
+## Ch21 — Energy Transition (Added 2026-04-23)
+
+### Open-Source Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch21_opensource_eia_coal_production_decline.png` |
+| **Description** | U.S. coal production by rank (1980–2023) — dual bar charts showing bituminous and subbituminous coal production decline from peak to 2023. Bituminous peaked at 693 MMst (1990), fell to 263 MMst (2023); subbituminous peaked at 539 MMst (2008), fell to 271 MMst (2023). Provides national context for the coal decline driving Emery County's energy transition. |
+| **Source** | U.S. Energy Information Administration (EIA) — Today in Energy article, April 8, 2025 |
+| **Agency** | U.S. Energy Information Administration (EIA) |
+| **URL** | https://www.eia.gov/todayinenergy/detail.php?id=64924 |
+| **Image URL** | https://www.eia.gov/todayinenergy/images/2025.04.08/main.svg |
+| **License** | Public domain (U.S. government work — 17 U.S.C. § 105) |
+| **Date accessed** | April 23, 2026 |
+
+### AI-Generated Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch21_generated_energy_transition.png` |
+| **Description** | Field-guide illustration depicting the Emery County energy transition: solar PV panels in the foreground on sun-baked desert plateau; coal-fired power plant cooling tower silhouette in the middle distance; Utah mesa and canyon formations in the background. Desert Scholarly brand palette (Sandstone, Canyon Shadow, Sage Green, Mesa Red, Sky Wash, Deep Sky). No text or people. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) |
+| **Generated** | 2026-04-23 |
+| **Prompt style** | Field-guide scientific illustration, Colorado Plateau setting |
