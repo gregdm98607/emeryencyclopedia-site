@@ -189,7 +189,9 @@ const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        // source: 'chapter' routes this subscriber to the eec-chapters Kit tag
+        // (distinct from the generic eec-swell-report tag used by the footer form)
+        body: JSON.stringify({ email, source: 'chapter' }),
       });
 
       if (res.ok) {

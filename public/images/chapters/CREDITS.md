@@ -365,3 +365,27 @@ is provided below for each file.
 | **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) |
 | **Generated** | 2026-04-23 |
 | **Prompt style** | Field-guide scientific illustration, Colorado Plateau setting |
+
+## Ch22 — Demography & Social Change (Added 2026-04-24)
+
+### Open-Source Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch22_opensource_population_history.png` |
+| **Description** | Emery County, Utah population history 1880–2023 — line chart showing decennial census counts from the pioneer founding cohort (556, 1880) through the 1970s coal boom peak (~13,000, 1983) and post-bust decline to 9,825 (2020 census). Annotates key eras and estimated vs. census-confirmed values. |
+| **Source** | U.S. Census Bureau decennial census (1880–2020); FRED UTEMER5POP series — St. Louis Federal Reserve Bank |
+| **Agency** | U.S. Census Bureau / Federal Reserve Bank of St. Louis |
+| **URL** | https://fred.stlouisfed.org/series/UTEMER5POP |
+| **License** | Public domain (U.S. government data — 17 U.S.C. § 105; chart generated with matplotlib) |
+| **Date accessed** | April 24, 2026 |
+
+### AI-Generated Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch22_generated_castle_valley_community.png` |
+| **Description** | Historical illustration of a small pioneer Utah community in Castle Valley circa 1900 — bird's-eye view showing adobe and sandstone brick buildings along a main street, an LDS meetinghouse at town center, irrigated alfalfa fields and cottonwood-lined canals, dramatic canyon walls and the Wasatch Plateau rising in the background. Desert Scholarly brand palette. No text or labels. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) |
+| **Generated** | 2026-04-24 |
+| **Prompt style** | Historical atlas illustration, ink and watercolor, 16:9 aspect ratio |

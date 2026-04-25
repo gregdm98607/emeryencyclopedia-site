@@ -201,11 +201,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 22,
-    title: 'Communities & Towns',
+    title: 'Demography & Social Change',
     part: 3,
-    status: 'stub',
-    description: 'The towns of Emery County: Castle Dale, Huntington, Ferron, Orangeville, Cleveland, Emery, and Green River — founding, layout, civic institutions, and the evolution of community identity from pioneer settlement to the present.',
-    wordCount: 0
+    status: 'draft',
+    description: 'From pioneer founding cohort to post-coal crossroads: population boom and bust, LDS social architecture, an aging and shrinking workforce, school enrollment cliff, healthcare access gaps, and the resilience of a community navigating energy transition and demographic change.',
+    wordCount: 4683
   },
   {
     number: 23,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-24', chapter: 22, action: 'Demography & Social Change draft published to site (~4683 words); status stub → draft; title updated from Communities & Towns; covers pioneer wave/coal boom/bust, LDS social architecture, race/ethnicity, schools enrollment cliff, healthcare access gap, labor force shifts, out-migration and aging, community resilience' },
   { date: '2026-04-23', chapter: 21, action: 'Energy Transition draft published to site (~4300 words); status stub → draft; covers coal peak/mine closures/Lila Canyon/Hunter+Huntington plants/policy whiplash/property tax crisis/U-REDI/Castle Solar/Green River Energy Center/workforce gaps/demographics/tourism/2026 outlook' },
   { date: '2026-04-23', chapter: 20, action: 'Agriculture & Ranching draft published to site (~4200 words); status stub → draft; covers pioneer irrigation, salinization crisis, Emery County Project, Green River melons, cattle/sheep ranching, and drought outlook' },
   { date: '2026-04-23', chapter: 1, action: 'Geography & Physiography wordCount corrected in chapters.ts (4200 → 12847); site ch01.md was already current from 2026-04-20 revision (12 sections, engagement features, full sources)' },
