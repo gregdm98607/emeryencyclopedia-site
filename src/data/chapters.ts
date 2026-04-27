@@ -209,11 +209,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 23,
-    title: 'Environment & Conservation',
-    part: 3,
-    status: 'stub',
-    description: 'Landscape conservation, environmental challenges, resource management, and sustainability in Emery County.',
-    wordCount: 0
+    title: 'County Governance',
+    part: 4,
+    status: 'draft',
+    description: 'From territorial formation in 1880 through the Dingell Act of 2019: the Board of County Commissioners, elected offices, federal land management conflicts, the fiscal impact of coal decline, and the political culture of one of Utah\'s most reliably conservative rural counties.',
+    wordCount: 4402
   },
 
   // Part IV: Culture & Identity (24-35)
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-25', chapter: 23, action: 'County Governance draft published to site (~4402 words); status stub → draft; title corrected from Environment & Conservation; part 3 → 4 (aligns with vault Part IV - Government, Community & Culture); covers county formation 1880, boundary changes (Grand/Carbon County splits), commission form of govt, elected offices, sheriff/courts, infrastructure/services, federal lands relationship, Dingell Act 2019 (663k acres wilderness), fiscal structure/coal decline, PILT, political culture, Seven County Infrastructure Coalition' },
   { date: '2026-04-24', chapter: 22, action: 'Demography & Social Change draft published to site (~4683 words); status stub → draft; title updated from Communities & Towns; covers pioneer wave/coal boom/bust, LDS social architecture, race/ethnicity, schools enrollment cliff, healthcare access gap, labor force shifts, out-migration and aging, community resilience' },
   { date: '2026-04-23', chapter: 21, action: 'Energy Transition draft published to site (~4300 words); status stub → draft; covers coal peak/mine closures/Lila Canyon/Hunter+Huntington plants/policy whiplash/property tax crisis/U-REDI/Castle Solar/Green River Energy Center/workforce gaps/demographics/tourism/2026 outlook' },
   { date: '2026-04-23', chapter: 20, action: 'Agriculture & Ranching draft published to site (~4200 words); status stub → draft; covers pioneer irrigation, salinization crisis, Emery County Project, Green River melons, cattle/sheep ranching, and drought outlook' },

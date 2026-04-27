@@ -389,3 +389,28 @@ is provided below for each file.
 | **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) |
 | **Generated** | 2026-04-24 |
 | **Prompt style** | Historical atlas illustration, ink and watercolor, 16:9 aspect ratio |
+
+## Ch23 - County Governance (Added 2026-04-25)
+
+### Open-Source Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch23_opensource_usgs_topo_emery_county.png` |
+| **Description** | USGS National Map topographic basemap of Emery County, Utah — 1600×1000px export showing the full county extent (bbox: -111.5°W to -109.8°W, 38.5°N to 39.65°N). Displays terrain, drainage, roads, towns (Castle Dale, Huntington, Ferron, Price R. corridor), and federal land context relevant to the county governance narrative. |
+| **Source** | USGS National Map — USGSTopo MapServer tile export |
+| **Agency** | U.S. Geological Survey (USGS) |
+| **URL** | https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer |
+| **License** | Public domain (U.S. government work — 17 U.S.C. § 105) |
+| **Date accessed** | April 25, 2026 |
+
+### AI-Generated Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch23_generated_county_courthouse_illustration.png` |
+| **Description** | Historical illustration of the Emery County courthouse and county seat in Castle Dale, Utah — wide panoramic view showing county administration buildings set against dramatic sandstone buttes and mesas of Castle Valley. Mid-century American county seat aesthetic with period-accurate architecture and desert canyon country setting. Desert Scholarly brand palette (Sandstone, Canyon Shadow, Sage Green, Mesa Red, Sky Wash, Deep Sky). No text overlays, no signs, no labels. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) |
+| **Generated** | 2026-04-25 |
+| **Prompt style** | Historical illustration / architectural rendering, 16:9 aspect ratio |
+
