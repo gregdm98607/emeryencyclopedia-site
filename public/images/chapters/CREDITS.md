@@ -414,3 +414,28 @@ is provided below for each file.
 | **Generated** | 2026-04-25 |
 | **Prompt style** | Historical illustration / architectural rendering, 16:9 aspect ratio |
 
+
+## Ch24 - Education & Learning (Added 2026-04-27)
+
+### Open-Source Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch24_opensource_population_school_milestones.png` |
+| **Description** | Emery County, UT population (1880-2020 decennial census) overlaid with five education milestones: county formation and first dugout schools (1880), founding of Emery Stake Academy (1889), academy ceded to Emery County School District (1922), three high schools consolidated into Emery High Spartans (1962), and CEU's merger into USU Eastern (2010). Generated with matplotlib using the Desert Scholarly brand palette. |
+| **Source** | U.S. Census Bureau decennial population counts for Emery County, UT (1880-2020); milestone dates from Tabone (1976), Utah History Encyclopedia, and Utah State University Eastern institutional history |
+| **Agency** | U.S. Census Bureau |
+| **URL** | https://www.census.gov/library/stories/state-by-state/utah-population-change-between-census-decade.html |
+| **License** | Public domain (U.S. government work - 17 U.S.C.  105); chart generated with matplotlib |
+| **Date accessed** | April 27, 2026 |
+
+### AI-Generated Asset
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch24_generated_pioneer_schoolhouse.png` |
+| **Description** | Historical illustration of a one-room pioneer schoolhouse on the Castle Valley floor in central Utah, late 1880s. Single-story log-and-adobe building with belfry and stone chimney, hitched horse at a split-rail fence, children carrying slates and McGuffey readers along a cottonwood-lined creek path toward a young schoolteacher in the doorway. Sandstone canyon walls in the middle distance and the Wasatch Plateau in the background. Desert Scholarly brand palette (Sandstone, Canyon Shadow, Sage Green, Mesa Red, Sky Wash, Deep Sky). No text overlays, no signs, no modern objects. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) |
+| **Generated** | 2026-04-27 |
+| **Prompt style** | Historical illustration, painterly atmospheric watercolor with graphite linework, 16:9 aspect ratio |
+

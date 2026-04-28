@@ -219,11 +219,11 @@ export const CHAPTERS: Chapter[] = [
   // Part IV: Culture & Identity (24-35)
   {
     number: 24,
-    title: 'Arts & Music',
+    title: 'Education & Learning',
     part: 4,
-    status: 'stub',
-    description: 'Visual arts, music traditions, theater, and creative expression in Emery County communities.',
-    wordCount: 0
+    status: 'draft',
+    description: 'From dugout-classroom pioneer schoolhouses through the Emery Stake Academy (1889-1922), the three-high-school era, and the 1962 consolidation into the Emery High Spartans, to today\'s Emery County School District (ten schools, ~2,248 students), USU Eastern\'s Castle Dale education center, and the post-coal CTE pipeline confronting workforce transition - a 145-year arc of education in Castle Valley.',
+    wordCount: 4400
   },
   {
     number: 25,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-27', chapter: 24, action: 'Education & Learning draft published to site (~4400 words); status stub → draft; title updated from Arts & Music; covers pioneer schoolhouse era 1877-1900, Emery Stake Academy 1889-1922 (Tabone 1976), three-high-school era 1922-1962 (North Emery/Central/South Emery), 1962 consolidation into Emery High Spartans, current district footprint (10 schools / ~2,248 students), Green River eastern fringe, Carbon College/CEU/USU Eastern + Castle Dale Education Center, county library system (no Carnegie), 2022-2026 outcomes (87% grad / 42% math / 35% reading), post-coal CTE/IT-Pathways/GEAR UP pipeline, future-of-learning structural questions' },
   { date: '2026-04-25', chapter: 23, action: 'County Governance draft published to site (~4402 words); status stub → draft; title corrected from Environment & Conservation; part 3 → 4 (aligns with vault Part IV - Government, Community & Culture); covers county formation 1880, boundary changes (Grand/Carbon County splits), commission form of govt, elected offices, sheriff/courts, infrastructure/services, federal lands relationship, Dingell Act 2019 (663k acres wilderness), fiscal structure/coal decline, PILT, political culture, Seven County Infrastructure Coalition' },
   { date: '2026-04-24', chapter: 22, action: 'Demography & Social Change draft published to site (~4683 words); status stub → draft; title updated from Communities & Towns; covers pioneer wave/coal boom/bust, LDS social architecture, race/ethnicity, schools enrollment cliff, healthcare access gap, labor force shifts, out-migration and aging, community resilience' },
   { date: '2026-04-23', chapter: 21, action: 'Energy Transition draft published to site (~4300 words); status stub → draft; covers coal peak/mine closures/Lila Canyon/Hunter+Huntington plants/policy whiplash/property tax crisis/U-REDI/Castle Solar/Green River Energy Center/workforce gaps/demographics/tourism/2026 outlook' },
