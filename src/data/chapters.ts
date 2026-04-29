@@ -227,11 +227,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 25,
-    title: 'Food & Foodways',
+    title: 'Religious Life',
     part: 4,
-    status: 'stub',
-    description: 'Traditional foods, cooking practices, cultural dishes, and the culinary heritage of Emery County.',
-    wordCount: 0
+    status: 'draft',
+    description: 'A 145-year religious history of Emery County: Indigenous spiritual landscapes that predate settlement, the 1882 LDS Emery Stake and 1982 Castle Dale/Ferron division, the Presbyterian mission school in Ferron (1906-1950s), Greek Orthodox spillover from the Carbon County coalfields after the 1924 Castle Gate disaster, two enduring small Catholic congregations, released-time seminary and Relief Society networks, and a 21st-century pluralization in which roughly one in three residents now claims no religious affiliation.',
+    wordCount: 5156
   },
   {
     number: 26,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-28', chapter: 25, action: 'Religious Life draft published to site (~5156 words); status stub → draft; title updated from Food & Foodways; covers Indigenous spiritual landscapes (Numic/Ute, Fremont sacred geography), 1877 Mormon settlement and 1882 Emery Stake formation, pioneer meetinghouse architecture, 1982 Castle Dale/Ferron stake division, Relief Society networks and women\'s religious labor, Ferron Presbyterian mission school (1906-1950s), Greek Orthodox coal-camp spillover from Carbon County after 1924 Castle Gate disaster, two enduring small Catholic congregations, released-time seminary/institute pipeline, modern demographics and generational change, 21st-century pluralism and ~1-in-3 religiously unaffiliated; tribal_review_flag carried from vault per Indigenous-content principle' },
   { date: '2026-04-27', chapter: 24, action: 'Education & Learning draft published to site (~4400 words); status stub → draft; title updated from Arts & Music; covers pioneer schoolhouse era 1877-1900, Emery Stake Academy 1889-1922 (Tabone 1976), three-high-school era 1922-1962 (North Emery/Central/South Emery), 1962 consolidation into Emery High Spartans, current district footprint (10 schools / ~2,248 students), Green River eastern fringe, Carbon College/CEU/USU Eastern + Castle Dale Education Center, county library system (no Carnegie), 2022-2026 outcomes (87% grad / 42% math / 35% reading), post-coal CTE/IT-Pathways/GEAR UP pipeline, future-of-learning structural questions' },
   { date: '2026-04-25', chapter: 23, action: 'County Governance draft published to site (~4402 words); status stub → draft; title corrected from Environment & Conservation; part 3 → 4 (aligns with vault Part IV - Government, Community & Culture); covers county formation 1880, boundary changes (Grand/Carbon County splits), commission form of govt, elected offices, sheriff/courts, infrastructure/services, federal lands relationship, Dingell Act 2019 (663k acres wilderness), fiscal structure/coal decline, PILT, political culture, Seven County Infrastructure Coalition' },
   { date: '2026-04-24', chapter: 22, action: 'Demography & Social Change draft published to site (~4683 words); status stub → draft; title updated from Communities & Towns; covers pioneer wave/coal boom/bust, LDS social architecture, race/ethnicity, schools enrollment cliff, healthcare access gap, labor force shifts, out-migration and aging, community resilience' },

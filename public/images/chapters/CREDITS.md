@@ -439,3 +439,16 @@ is provided below for each file.
 | **Generated** | 2026-04-27 |
 | **Prompt style** | Historical illustration, painterly atmospheric watercolor with graphite linework, 16:9 aspect ratio |
 
+
+
+## Ch25 - Religious Life
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch25_opensource_population_religious_milestones.png` |
+| **Description** | Decennial population of Emery County, Utah (1880-2020) overlaid with religious-life milestones (1882 Emery Stake formation, 1906 Ferron Presbyterian mission, 1924 Castle Gate disaster spillover, 1936 federal Census of Religious Bodies, 1982 Castle Dale/Ferron stake division, 2020 Religion Census ~70% LDS adherence) |
+| **Source** | U.S. Census Bureau decennial population counts; religious-life milestones synthesized from Utah History Encyclopedia, FamilySearch Research Wiki, and U.S. Religion Census 2020 (Association of Religion Data Archives) |
+| **Agency** | U.S. Census Bureau (population data) |
+| **URL** | https://www.census.gov/programs-surveys/decennial-census/data.html |
+| **License** | Public domain (U.S. federal government work). Chart generated with matplotlib using Desert Scholarly palette. Religious-milestone annotations are factual public-record events with secondary citations to ARDA and the Utah History Encyclopedia. |
+| **Date accessed** | 2026-04-28 |
