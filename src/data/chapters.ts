@@ -173,7 +173,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'draft',
     description: 'The transportation and utility networks that wove Emery County into the broader region: the Old Spanish Trail, the 1883 Denver & Rio Grande Western main line, federal highways, Interstate 70 through the San Rafael Swell, rural electric and telephone cooperatives, and the coal-to-electricity pipeline.',
-    wordCount: 4500
+    wordCount: 4505
   },
   {
     number: 19,
@@ -189,7 +189,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'draft',
     description: 'Pioneer canal-building and cooperative irrigation, the salinization crisis, the federal Emery County Project\'s dams and reservoirs, alfalfa and hay farming, Green River\'s celebrated melons, cattle and sheep ranching on public lands, and the water future facing Emery County agriculture.',
-    wordCount: 4200
+    wordCount: 4359
   },
   {
     number: 21,
@@ -197,7 +197,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'draft',
     description: 'From coal peak to post-carbon crossroads: mine closures, shifting retirement timelines for Hunter and Huntington power plants, the billion-dollar Green River Energy Center, workforce retraining gaps, property tax pressures, and Emery County\'s uncertain but emerging new economic identity.',
-    wordCount: 4300
+    wordCount: 3979
   },
   {
     number: 22,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-04-29', chapter: 18, action: 'Rails, Roads & Infrastructure draft refreshed from vault (~4505 words; +903 from prior site version); covers ancient trade paths, 1883 Denver & Rio Grande Western main line, federal highways era, 1970 I-70 through San Rafael Swell, rural electric and telephone cooperatives, coal-to-electricity pipeline; status remains draft' },
+  { date: '2026-04-29', chapter: 20, action: 'Agriculture & Ranching draft refreshed from vault (~4359 words; +883 from prior site version); covers pioneer canal-building, cooperative irrigation, salinization crisis, federal Emery County Project dams and reservoirs, alfalfa/hay farming, Green River melons, cattle and sheep ranching on public lands, water future for Emery County agriculture; status remains draft' },
+  { date: '2026-04-29', chapter: 21, action: 'Energy Transition draft refreshed from vault (~3979 words; +640 from prior site version); covers coal peak to post-carbon crossroads, mine closures, Hunter and Huntington power plant retirement timelines, Green River Energy Center, workforce transitions, property tax pressures, emerging post-coal economic identity; status remains draft' },
   { date: '2026-04-28', chapter: 25, action: 'Religious Life draft published to site (~5156 words); status stub → draft; title updated from Food & Foodways; covers Indigenous spiritual landscapes (Numic/Ute, Fremont sacred geography), 1877 Mormon settlement and 1882 Emery Stake formation, pioneer meetinghouse architecture, 1982 Castle Dale/Ferron stake division, Relief Society networks and women\'s religious labor, Ferron Presbyterian mission school (1906-1950s), Greek Orthodox coal-camp spillover from Carbon County after 1924 Castle Gate disaster, two enduring small Catholic congregations, released-time seminary/institute pipeline, modern demographics and generational change, 21st-century pluralism and ~1-in-3 religiously unaffiliated; tribal_review_flag carried from vault per Indigenous-content principle' },
   { date: '2026-04-27', chapter: 24, action: 'Education & Learning draft published to site (~4400 words); status stub → draft; title updated from Arts & Music; covers pioneer schoolhouse era 1877-1900, Emery Stake Academy 1889-1922 (Tabone 1976), three-high-school era 1922-1962 (North Emery/Central/South Emery), 1962 consolidation into Emery High Spartans, current district footprint (10 schools / ~2,248 students), Green River eastern fringe, Carbon College/CEU/USU Eastern + Castle Dale Education Center, county library system (no Carnegie), 2022-2026 outcomes (87% grad / 42% math / 35% reading), post-coal CTE/IT-Pathways/GEAR UP pipeline, future-of-learning structural questions' },
   { date: '2026-04-25', chapter: 23, action: 'County Governance draft published to site (~4402 words); status stub → draft; title corrected from Environment & Conservation; part 3 → 4 (aligns with vault Part IV - Government, Community & Culture); covers county formation 1880, boundary changes (Grand/Carbon County splits), commission form of govt, elected offices, sheriff/courts, infrastructure/services, federal lands relationship, Dingell Act 2019 (663k acres wilderness), fiscal structure/coal decline, PILT, political culture, Seven County Infrastructure Coalition' },
