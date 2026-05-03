@@ -235,11 +235,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 26,
-    title: 'Oral Histories & Stories',
+    title: 'Arts, Literature & Media',
     part: 4,
-    status: 'stub',
-    description: 'Personal narratives, folklore, family stories, and the oral traditions that preserve local memory.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Emery County\'s cultural footprint runs unusually deep for a county of fewer than 10,000 residents: pioneer brass bands and Welsh choral traditions; coal-camp music carried in by Greek, Italian, and Slavic miners; a 118-year-old county newspaper; the Emery Telcom/ETV broadcasting cooperative; the Castle Valley Pageant performed every other summer for nearly half a century; a four-museum circuit; folk-craft guilds; and a San Rafael Swell that has doubled as a Hollywood backdrop.',
+    wordCount: 4320
   },
   {
     number: 27,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-01', chapter: 26, action: 'Arts, Literature & Media added from vault (~4320 words; first publication; replaces prior Ch26 stub "Oral Histories & Stories"); 12 sections covering pioneer music/dance, Welsh choirs, coal-camp Greek/Italian/Slavic soundscapes, McElprang 1949 county history, Geary\'s Poplarhaven 1985, the Emery County Progress 1900-2018, Emery Telcom and ETV News, the Castle Valley Pageant, the four-museum circuit, folk crafts, San Rafael Swell on screen, and the cultural future of a shrinking county; status: draft' },
   { date: '2026-04-29', chapter: 18, action: 'Rails, Roads & Infrastructure draft refreshed from vault (~4505 words; +903 from prior site version); covers ancient trade paths, 1883 Denver & Rio Grande Western main line, federal highways era, 1970 I-70 through San Rafael Swell, rural electric and telephone cooperatives, coal-to-electricity pipeline; status remains draft' },
   { date: '2026-04-29', chapter: 20, action: 'Agriculture & Ranching draft refreshed from vault (~4359 words; +883 from prior site version); covers pioneer canal-building, cooperative irrigation, salinization crisis, federal Emery County Project dams and reservoirs, alfalfa/hay farming, Green River melons, cattle and sheep ranching on public lands, water future for Emery County agriculture; status remains draft' },
   { date: '2026-04-29', chapter: 21, action: 'Energy Transition draft refreshed from vault (~3979 words; +640 from prior site version); covers coal peak to post-carbon crossroads, mine closures, Hunter and Huntington power plant retirement timelines, Green River Energy Center, workforce transitions, property tax pressures, emerging post-coal economic identity; status remains draft' },

@@ -452,3 +452,16 @@ is provided below for each file.
 | **URL** | https://www.census.gov/programs-surveys/decennial-census/data.html |
 | **License** | Public domain (U.S. federal government work). Chart generated with matplotlib using Desert Scholarly palette. Religious-milestone annotations are factual public-record events with secondary citations to ARDA and the Utah History Encyclopedia. |
 | **Date accessed** | 2026-04-28 |
+
+## Ch26 - Arts, Literature & Media
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch26_opensource_cultural_institutions_timeline.png` |
+| **Description** | Timeline (1879-2024) of Emery County cultural institution founding/milestone dates: 1879 settlement, 1900 Emery County Progress, 1928 Pageant of the Arts, 1949 McElprang's Castle Valley, 1953 Emery County Telephone Cooperative (later Emery Telcom/ETV), 1969 DUP Pioneer Museum, 1978 Museum of the San Rafael, 1979 Castle Valley Pageant, 1985 Geary's Poplarhaven, 1989 county library system, 1995 ETV News, 2008 Museum of the San Rafael Swell, 2018 Progress ceases print, 2024 Pageant 23rd biennial. |
+| **Source** | Founding/milestone dates compiled from public records: Emery County Progress masthead and Library of Congress Chronicling America; Emery Telcom corporate disclosures; Castle Valley Pageant programs; Utah State Library museum directories; Utah History Encyclopedia entries. |
+| **Agency** | Aggregated public-record data (Library of Congress Chronicling America; Utah State Library; Utah History Encyclopedia / Utah Division of State History) |
+| **URL** | https://chroniclingamerica.loc.gov/ ; https://heritage.utah.gov/history/utah-history-encyclopedia |
+| **License** | Underlying dates are public-record facts (not copyrightable); chart generated with matplotlib in the Desert Scholarly palette by Emery County Encyclopedia, 2026. |
+| **Date accessed** | 2026-05-01 |
+
