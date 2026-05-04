@@ -465,3 +465,21 @@ is provided below for each file.
 | **License** | Underlying dates are public-record facts (not copyrightable); chart generated with matplotlib in the Desert Scholarly palette by Emery County Encyclopedia, 2026. |
 | **Date accessed** | 2026-05-01 |
 
+
+
+## Ch27 - Festivals, Folklore & Foodways
+
+### `ch27_opensource_festival_timeline.png`
+
+**Source:** Composite chart of public-record founding dates for Emery County festivals and foodway milestones. Dates compiled from:
+- Utah State Historical Society - Emery County history records
+- USDA National Agricultural Statistics Service (NASS) - Utah Agricultural Census archives
+- *Emery County Progress* newspaper morgue (1900-2018)
+- Castle Valley Pageant program archive
+- *Castle Valley* (Stella McElprang, 1949) county history
+
+**License:** US government works are in the public domain; historical-record dates from local newspapers and county histories are freely citable factual data.
+
+**Date accessed:** May 2, 2026
+
+**Notes:** Rendered using matplotlib in the Desert Scholarly palette. No copyrighted image content reproduced - all data points are public-record dates rendered as a custom timeline visualization.

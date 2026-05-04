@@ -243,11 +243,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 27,
-    title: 'Celebrations & Traditions',
+    title: 'Festivals, Folklore & Foodways',
     part: 4,
-    status: 'stub',
-    description: 'Festivals, holidays, parades, and annual events that celebrate Emery County heritage.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Emery County\'s participatory culture - the festivals, foodways, and folk arts that knit a population of fewer than 10,000 across 7,000 square miles. The county calendar from the Pioneer Day rodeo cluster (Castle Dale\'s RMPRA-sanctioned Cowboys Memorial Rodeo, Huntington Heritage Days, Emery, Orangeville) through Ferron Peach Days (1906) and Green River Melon Days (1906), the Emery County Fair, and the Castle Valley Pageant (since 1978); layered foodways of pioneer Mormon dryfarming, coal-camp Welsh-Cornish-Greek-Italian-Slavic kitchens, and modern ranching tables; cowboy-poetry, fiddling, choral, quilting, and storytelling traditions.',
+    wordCount: 5264
   },
   {
     number: 28,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-02', chapter: 27, action: 'Festivals, Folklore & Foodways added from vault (~5264 words; first publication; replaces prior Ch27 stub "Celebrations & Traditions"); covers the Pioneer Day rodeo cluster (Castle Dale Cowboys Memorial Rodeo as RMPRA opener, Huntington Heritage Days, Emery, Orangeville), Ferron Peach Days (1906, oldest continuous Utah celebration), Green River Melon Days (1906), Emery County Fair, San Rafael Folk Art Festival, Castle Valley Pageant (since 1978, Seely), pioneer Mormon foodways (Dutch oven, dryfarm wheat, orchard fruit), coal-camp ethnic foodways (Welsh, Cornish, Greek, Italian, Slavic), ranching and hunting foodways, modern table, folk arts (cowboy poetry, fiddling, choral, quilting, storytelling), and continuity questions for the 2020s; status: draft' },
   { date: '2026-05-01', chapter: 26, action: 'Arts, Literature & Media added from vault (~4320 words; first publication; replaces prior Ch26 stub "Oral Histories & Stories"); 12 sections covering pioneer music/dance, Welsh choirs, coal-camp Greek/Italian/Slavic soundscapes, McElprang 1949 county history, Geary\'s Poplarhaven 1985, the Emery County Progress 1900-2018, Emery Telcom and ETV News, the Castle Valley Pageant, the four-museum circuit, folk crafts, San Rafael Swell on screen, and the cultural future of a shrinking county; status: draft' },
   { date: '2026-04-29', chapter: 18, action: 'Rails, Roads & Infrastructure draft refreshed from vault (~4505 words; +903 from prior site version); covers ancient trade paths, 1883 Denver & Rio Grande Western main line, federal highways era, 1970 I-70 through San Rafael Swell, rural electric and telephone cooperatives, coal-to-electricity pipeline; status remains draft' },
   { date: '2026-04-29', chapter: 20, action: 'Agriculture & Ranching draft refreshed from vault (~4359 words; +883 from prior site version); covers pioneer canal-building, cooperative irrigation, salinization crisis, federal Emery County Project dams and reservoirs, alfalfa/hay farming, Green River melons, cattle and sheep ranching on public lands, water future for Emery County agriculture; status remains draft' },
