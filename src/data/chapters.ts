@@ -251,11 +251,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 28,
-    title: 'Notable People & Leaders',
+    title: 'Notable People & Oral Histories',
     part: 4,
-    status: 'stub',
-    description: 'Influential figures: pioneers, civic leaders, artists, activists, and visionaries who shaped the county.',
-    wordCount: 0
+    status: 'draft',
+    description: 'A representative gallery of Emery County\'s people from 1877 to the present: Indigenous voices, founding pioneers (Orange Seely + the 1880 Emery Stake, Hyrum Seely, Henry U. Burr, Rasmus Johnson), the four Swasey brothers (1875), Butch Cassidy at Castle Gate (1897-04-21), Sid\'s Mountain WSA, Ned Chaffin, the 1984 Wilberg / 2007 Crandall Canyon memorial archive (Karen Jobe Templeton bronzes; Markosek-Ardohain 2016 monument), county commissioners and sheriffs, educators and midwives, religious leaders (LDS, Presbyterian Ferron mission 1906-1950s, Catholic, Greek Orthodox), writers and artists (Stella McElprang 1949, Edward A. Geary 1985-1996, Edwin Montell Seely 1934-2008), Emery County Progress editors from H.T. Haines (1900) forward, and the five-door oral-history apparatus (Emery County Archives, BYU L. Tom Perry, USU Fife, UHS Oral History Program, FamilySearch). Tribal review flag carried from vault.',
+    wordCount: 4470
   },
   {
     number: 29,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-04', chapter: 28, action: 'Notable People & Oral Histories added from vault (~4470 words; first publication; replaces prior Ch28 stub "Notable People & Leaders"); 12 sections covering Indigenous voices and elders (tribal_review_flag retained from vault, parallel to Ch12), founding pioneers 1875-1900 (Orange Seely 1843-1918 + Emery Stake 1880, Hyrum Seely 1881-1939, Henry U. Burr, Rasmus Johnson), frontier ranchers cowboys outlaws (the four Swasey brothers from 1875, Butch Cassidy at Castle Gate 1897-04-21, the 1912 C.J. Layton outlaw photograph, Sid\'s Mountain WSA, Kathleen Teasdale, Ned Chaffin queue), coal-camp leaders and the toll (Wilberg 1984-12-19 = 27 dead worst Utah coal-mine fire; Crandall Canyon 2007-08-06 + 2007-08-16 = 6+3 dead; Karen Jobe Templeton\'s nine bronzes dedicated 2008-09-14; Markosek + Ardohain 2016 Memorial = 123 men + 1 woman, $170k), county builders (current commission Sitterud-Leonard-Jensen), educators physicians midwives, religious leaders across LDS / Ferron Presbyterian mission 1906-1950s / Catholic / Greek Orthodox, writers historians artists (Stella McElprang 1949, Edward A. Geary 1985/1992/1996, Edwin Montell Seely 1934-2008), Emery County Progress editors from H.T. Haines 1900 forward (Bruce L. Olsen 1965 BYU thesis), oral history infrastructure (Emery County Archives + BYU L. Tom Perry + USU Fife + UHS Oral History Program + FamilySearch), People Research Queue, future of biographical preservation; status: draft' },
   { date: '2026-05-02', chapter: 27, action: 'Festivals, Folklore & Foodways added from vault (~5264 words; first publication; replaces prior Ch27 stub "Celebrations & Traditions"); covers the Pioneer Day rodeo cluster (Castle Dale Cowboys Memorial Rodeo as RMPRA opener, Huntington Heritage Days, Emery, Orangeville), Ferron Peach Days (1906, oldest continuous Utah celebration), Green River Melon Days (1906), Emery County Fair, San Rafael Folk Art Festival, Castle Valley Pageant (since 1978, Seely), pioneer Mormon foodways (Dutch oven, dryfarm wheat, orchard fruit), coal-camp ethnic foodways (Welsh, Cornish, Greek, Italian, Slavic), ranching and hunting foodways, modern table, folk arts (cowboy poetry, fiddling, choral, quilting, storytelling), and continuity questions for the 2020s; status: draft' },
   { date: '2026-05-01', chapter: 26, action: 'Arts, Literature & Media added from vault (~4320 words; first publication; replaces prior Ch26 stub "Oral Histories & Stories"); 12 sections covering pioneer music/dance, Welsh choirs, coal-camp Greek/Italian/Slavic soundscapes, McElprang 1949 county history, Geary\'s Poplarhaven 1985, the Emery County Progress 1900-2018, Emery Telcom and ETV News, the Castle Valley Pageant, the four-museum circuit, folk crafts, San Rafael Swell on screen, and the cultural future of a shrinking county; status: draft' },
   { date: '2026-04-29', chapter: 18, action: 'Rails, Roads & Infrastructure draft refreshed from vault (~4505 words; +903 from prior site version); covers ancient trade paths, 1883 Denver & Rio Grande Western main line, federal highways era, 1970 I-70 through San Rafael Swell, rural electric and telephone cooperatives, coal-to-electricity pipeline; status remains draft' },

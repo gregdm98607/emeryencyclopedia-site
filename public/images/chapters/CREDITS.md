@@ -483,3 +483,38 @@ is provided below for each file.
 **Date accessed:** May 2, 2026
 
 **Notes:** Rendered using matplotlib in the Desert Scholarly palette. No copyrighted image content reproduced - all data points are public-record dates rendered as a custom timeline visualization.
+
+
+## Ch28 - Notable People & Oral Histories
+
+### `ch28_opensource_people_timeline.png`
+
+**Source:** Composite chart of public-record milestones for Emery County biographical
+and oral-history infrastructure (1843-2024). Public-record dates compiled from:
+- Library of Congress Chronicling America - *Emery County Progress* masthead and run-of-paper (1900-2018)
+- BYU L. Tom Perry Special Collections - Bruce L. Olsen 1965 BYU thesis on the *Progress*
+- Utah State Historical Society (USHS) Oral History Program records
+- USU Fife Folklore Archives finding aids
+- Mine Safety and Health Administration (MSHA) - Wilberg 1984-12-19 and Crandall Canyon 2007 disaster summaries
+- LDS public stake-formation records (Emery Stake 1880; Castle Dale/Ferron division 1982)
+- Utah History Encyclopedia entries (Geary, Seely, McElprang)
+- Public obituary record for Edwin Montell Seely (1934-2008)
+- Utah Division of State History public files
+
+**Agency:** Aggregated public-record data (Library of Congress; USHS; USU Fife; MSHA; Utah History Encyclopedia / Utah Division of State History; BYU)
+
+**URL:** https://chroniclingamerica.loc.gov/ ; https://heritage.utah.gov/history/utah-history-encyclopedia ; https://www.msha.gov/ ; https://lib.usu.edu/folklore
+
+**License:** Underlying dates are public-record facts (not copyrightable); chart generated with matplotlib in the Desert Scholarly palette by the Emery County Encyclopedia, 2026. No copyrighted image content reproduced.
+
+**Date accessed:** 2026-05-04
+
+### `ch28_generated_archive_reading_room.png`
+
+**Source:** AI-generated illustration via Google Imagen 4 (`imagen-4.0-generate-001`).
+
+**Style:** Pen-and-watercolor historical illustration in the Desert Scholarly palette (sandstone, canyon shadow, sage green, mesa red, deep sky). Atmospheric reading-room interior - long oak table, leather-bound ledgers, oval-framed portraits, mullioned windows. No text overlays. 16:9 aspect.
+
+**License:** Generated content created for the Emery County Encyclopedia, 2026. Per Imagen Terms, the user owns the generated output. No real persons, brands, or copyrighted artworks depicted.
+
+**Date generated:** 2026-05-04
