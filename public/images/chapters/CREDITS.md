@@ -518,3 +518,37 @@ and oral-history infrastructure (1843-2024). Public-record dates compiled from:
 **License:** Generated content created for the Emery County Encyclopedia, 2026. Per Imagen Terms, the user owns the generated output. No real persons, brands, or copyrighted artworks depicted.
 
 **Date generated:** 2026-05-04
+
+
+## Ch29 - Health, Safety & Emergency
+
+### `ch29_opensource_health_safety_timeline.png`
+
+**Source:** Composite chart of public-record milestones for Emery County health,
+safety, and emergency-services institutions (1877-2024). Public-record dates compiled from:
+- Utah History Encyclopedia (Mormon midwifery; pioneer medicine; Castleview Hospital history)
+- Influenza Archive, University of Michigan - Salt Lake City case study (1918-10-10 ban order)
+- ETV News - "Castleview Hospital Celebrates 40-Year Anniversary" (founding date 1980-06)
+- LifePoint Health press releases - Castleview Top-20 Rural Hospital and 2023-07 Level IV Trauma Center designation
+- Mine Safety and Health Administration (MSHA) - Wilberg 1984-12-19 and Crandall Canyon 2007-08-06 / 2007-08-16 disaster summaries
+- Salt Lake Tribune investigative reporting - "Millions of opioid pills" (Carbon-Emery overdose mortality 47.7/100k 2014-2016)
+- Utah Investigative Journalism Project - "Utah's rehab deserts" (4 centers to 1, 2014-2019)
+- University of Utah College of Nursing press release - rural-Utah opioid initiative launch (Sept 2022)
+
+**Agency:** Aggregated public-record data (Utah History Encyclopedia / Utah Division of State History; Influenza Archive U.Mich.; ETV News; LifePoint Health; MSHA; Salt Lake Tribune; Utah Investigative Journalism Project; U of U Health)
+
+**URL:** https://heritage.utah.gov/history/utah-history-encyclopedia ; https://www.influenzaarchive.org ; https://www.msha.gov/ ; https://www.castleviewhospital.com/ ; https://www.sltrib.com ; https://www.utahinvestigative.org
+
+**License:** Underlying dates are public-record facts (not copyrightable); chart generated with matplotlib in the Desert Scholarly palette by the Emery County Encyclopedia, 2026. No copyrighted image content reproduced.
+
+**Date accessed:** 2026-05-05
+
+### `ch29_generated_search_rescue_staging.png`
+
+**Source:** AI-generated illustration via Google Imagen 4 (`imagen-4.0-generate-001`).
+
+**Style:** Pen-and-watercolor historical illustration in the Desert Scholarly palette (sandstone, canyon shadow, sage green, mesa red, sky wash, deep sky). Twilight scene of a volunteer Search-and-Rescue staging area at the edge of the San Rafael Swell - a parked pickup with a folding command table and topographic map, coiled rope, folded stretcher, battery-powered radio. Dignified field-guide style; no text overlays, no readable signs, no logos, no real persons depicted. 16:9 aspect.
+
+**License:** Generated content created for the Emery County Encyclopedia, 2026. Per Imagen Terms, the user owns the generated output. No real persons, brands, or copyrighted artworks depicted.
+
+**Date generated:** 2026-05-05
