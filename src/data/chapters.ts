@@ -171,7 +171,7 @@ export const CHAPTERS: Chapter[] = [
     number: 18,
     title: 'Rails, Roads & Infrastructure',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'The transportation and utility networks that wove Emery County into the broader region: the Old Spanish Trail, the 1883 Denver & Rio Grande Western main line, federal highways, Interstate 70 through the San Rafael Swell, rural electric and telephone cooperatives, and the coal-to-electricity pipeline.',
     wordCount: 4505
   },
@@ -179,7 +179,7 @@ export const CHAPTERS: Chapter[] = [
     number: 19,
     title: 'Water for the Desert',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Water, the defining constraint of Emery County life: pioneer ditches and the 1890s salinization crisis, the federal Emery County Project (Joe\u2019s Valley, Huntington North, Millsite), the Colorado River Compact, the Emery Water Conservancy District, and the twenty-first-century megadrought.',
     wordCount: 4500
   },
@@ -187,7 +187,7 @@ export const CHAPTERS: Chapter[] = [
     number: 20,
     title: 'Agriculture & Ranching',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Pioneer canal-building and cooperative irrigation, the salinization crisis, the federal Emery County Project\'s dams and reservoirs, alfalfa and hay farming, Green River\'s celebrated melons, cattle and sheep ranching on public lands, and the water future facing Emery County agriculture.',
     wordCount: 4359
   },
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-06', chapter: 20, action: 'Agriculture & Ranching advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-06', chapter: 19, action: 'Water for the Desert advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; assets generated this run - one open-source USGS reservoir/streamflow reference + one AI-generated illustration in Desert Scholarly palette)' },
+  { date: '2026-05-06', chapter: 18, action: 'Rails, Roads & Infrastructure advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; assets generated this run - one open-source D&RGW historic railroad reference + one AI-generated illustration in Desert Scholarly palette)' },
   { date: '2026-05-05', chapter: 29, action: 'Health, Safety & Emergency added from vault (~4096 words; first publication; replaces prior Ch29 stub "Genealogy & Family Lines"); 12 sections covering pioneer-era frontier medicine and Mormon midwifery 1877-1920 (Ellis Reynolds Shipp lineage), the 1918 influenza pandemic and Utah Territory public-health response (Beatty 1918-10-10 ban, empyema-mortality spike), Castleview Hospital in Price (1980 founding, 39-bed acute care, LifePoint, Top-20 Rural designation, 2023-07 Level IV Trauma), Emery Medical Center primary care at 90 W Main Street Castle Dale, Four Corners Community Behavioral Health (FCCBH, Opioid Treatment Program first in rural Utah, 24/7 crisis), the Carbon-Emery opioid epidemic (47.7/100k 2014-2016 = 2.5x state, single pharmacy 4.8M pills 2006-2012, treatment-desert collapse from 4 centers to 1, UROHC-CCM and U of U rural-nursing initiative), the Emery County Sheriff\'s Office (4,500 sq mi, county jail, civil/courts/corrections), Emery County Search and Rescue (~50 missions/yr, San Rafael Swell technical canyoneering coverage, volunteer model), volunteer fire districts (Castle Dale, Ferron, Huntington, Orangeville, Green River, Emery, Cleveland), ambulance and EMS coordination, county Emergency Management (floods/wildfires/hazmat/earthquake/Wasatch Plateau slope failures), and the public-health distance problem in a four-county-corner geography; tribal-review-flag NOT carried (no Indigenous-content overlap)' },
   { date: '2026-05-05', chapter: 23, action: 'County Governance content refreshed from vault (~4374 words; -28 from prior 4402 site version, body fully rewritten and tightened; same Part 4 / draft status); covers county formation 1880-02-12 from Sevier and Sanpete, Grand County (1890) and Carbon County (1894) splits from original Emery boundaries, three-member Board of County Commissioners structure, elected county offices, the Sheriff\'s Office and judicial system, the federal-lands relationship (BLM + USFS dominance, Dingell Act 2019 663,000-acre wilderness designation), fiscal pressure from coal decline (PILT, severance taxes, school district enrollment), Seven County Infrastructure Coalition, and the conservative political culture of post-coal rural Utah; status remains draft' },
   { date: '2026-05-04', chapter: 28, action: 'Notable People & Oral Histories added from vault (~4470 words; first publication; replaces prior Ch28 stub "Notable People & Leaders"); 12 sections covering Indigenous voices and elders (tribal_review_flag retained from vault, parallel to Ch12), founding pioneers 1875-1900 (Orange Seely 1843-1918 + Emery Stake 1880, Hyrum Seely 1881-1939, Henry U. Burr, Rasmus Johnson), frontier ranchers cowboys outlaws (the four Swasey brothers from 1875, Butch Cassidy at Castle Gate 1897-04-21, the 1912 C.J. Layton outlaw photograph, Sid\'s Mountain WSA, Kathleen Teasdale, Ned Chaffin queue), coal-camp leaders and the toll (Wilberg 1984-12-19 = 27 dead worst Utah coal-mine fire; Crandall Canyon 2007-08-06 + 2007-08-16 = 6+3 dead; Karen Jobe Templeton\'s nine bronzes dedicated 2008-09-14; Markosek + Ardohain 2016 Memorial = 123 men + 1 woman, $170k), county builders (current commission Sitterud-Leonard-Jensen), educators physicians midwives, religious leaders across LDS / Ferron Presbyterian mission 1906-1950s / Catholic / Greek Orthodox, writers historians artists (Stella McElprang 1949, Edward A. Geary 1985/1992/1996, Edwin Montell Seely 1934-2008), Emery County Progress editors from H.T. Haines 1900 forward (Bruce L. Olsen 1965 BYU thesis), oral history infrastructure (Emery County Archives + BYU L. Tom Perry + USU Fife + UHS Oral History Program + FamilySearch), People Research Queue, future of biographical preservation; status: draft' },

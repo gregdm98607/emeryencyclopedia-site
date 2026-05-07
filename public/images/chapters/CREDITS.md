@@ -315,6 +315,30 @@ is provided below for each file.
 | **License** | Public domain (U.S. government work; chart generated with matplotlib) |
 | **Date accessed** | April 22, 2026 |
 
+## Ch18 — Rails, Roads & Infrastructure (Added 2026-05-06)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch18_opensource_transportation_timeline.png` |
+| **Description** | Timeline of Emery County transportation and utility corridor milestones, 1829-2025: Old Spanish Trail, Denver & Rio Grande Western 1883 main line, U.S. Highway 6 + 89 designation 1926, Garkane Power rural electrification 1938, Emery Telcom 1951, I-70 across the San Rafael Swell 1970, fiber-to-the-home buildout 2008. |
+| **Source** | Compiled from BLM Old Spanish National Historic Trail records, FHWA U.S. numbered-highway designation history (1926), UDOT Historic Roads Inventory, USDA Rural Utilities Service co-op founding records, and the FHWA's federal-highway documentation for I-70 across the San Rafael Swell. |
+| **Agency** | Bureau of Land Management (BLM); Federal Highway Administration (FHWA); Utah Department of Transportation (UDOT); USDA Rural Utilities Service |
+| **URL** | https://www.blm.gov/programs/national-conservation-lands/national-scenic-and-historic-trails/old-spanish-trail ; https://www.fhwa.dot.gov/infrastructure/numbers.cfm |
+| **License** | Public domain (U.S. government works); chart generated with matplotlib |
+| **Date accessed** | May 6, 2026 |
+
+## Ch19 — Water for the Desert (Added 2026-05-06)
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch19_opensource_reservoir_capacities.png` |
+| **Description** | Active storage capacity (acre-feet) for the major reservoirs serving Emery County: Joe's Valley (Cottonwood Creek, 1966; 62,460 ac-ft), Electric Lake (Huntington Creek, 1973; ~30,500 ac-ft), Millsite (Ferron Creek, 1971; 18,300 ac-ft), Huntington North (1966; 5,420 ac-ft), Cleveland (1962; ~5,000 ac-ft). |
+| **Source** | U.S. Bureau of Reclamation Emery County Project records; PacifiCorp / Utah Division of Water Resources reservoir-status data |
+| **Agency** | U.S. Bureau of Reclamation (USBR); Utah Division of Water Resources |
+| **URL** | https://www.usbr.gov/projects/index.php?id=37 ; https://water.utah.gov/ |
+| **License** | Public domain (U.S. government work); chart generated with matplotlib |
+| **Date accessed** | May 6, 2026 |
+
 ## Ch20 — Agriculture & Ranching (Added 2026-04-23)
 
 | Field | Value |
