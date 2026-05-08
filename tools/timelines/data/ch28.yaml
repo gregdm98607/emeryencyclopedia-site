@@ -1,0 +1,31 @@
+title: "Emery County Notable People & Oral-History Apparatus"
+subtitle: "A timeline of public-record milestones, 1843–2024"
+out: "ch28_opensource_people_timeline.png"
+source: "Sources: LOC Chronicling America; BYU L. Tom Perry Special Collections; USU Fife Folklore Archives; USHS Oral History Program; MSHA disaster records; Utah History Encyclopedia."
+
+categories:
+  - {key: pioneer,   label: "Pioneers / frontier",       color: "#A0522D"}
+  - {key: religion,  label: "Religious life",            color: "#3B2F2F"}
+  - {key: outlaw,    label: "Outlaws / frontier",        color: "#1A1A2E"}
+  - {key: arts,      label: "Arts / letters",            color: "#7A8B6F"}
+  - {key: press,     label: "Press / records",           color: "#2C5F7C"}
+  - {key: disaster,  label: "Mining disasters",          color: "#D4A574"}
+  - {key: archive,   label: "Archive infrastructure",    color: "#6B6B6B"}
+
+events:
+  - {year: 1843, category: pioneer,  label: "Orange Seely born"}
+  - {year: 1873, category: pioneer,  label: "Mary Seely born"}
+  - {year: 1881, category: religion, label: "First settlement-era stake"}
+  - {year: 1900, category: press,    label: "Emery County Progress founded"}
+  - {year: 1912, category: pioneer,  label: "DUP fieldwork begins"}
+  - {year: 1934, category: pioneer,  label: "Edwin Montell Seely born"}
+  - {year: 1965, category: arts,     label: "Bruce L. Olsen BYU thesis"}
+  - {year: 1976, category: archive,  label: "USU Fife Folklore Archives"}
+  - {year: 1984, category: disaster, label: "Wilberg Mine, 27 dead"}
+  - {year: 1985, category: arts,     label: "Geary's Poplarhaven"}
+  - {year: 1992, category: religion, label: "Stake division, Castle Dale/Ferron"}
+  - {year: 1996, category: arts,     label: "Geary History of Emery Co."}
+  - {year: 2007, category: disaster, label: "Crandall Canyon, 9 lost"}
+  - {year: 2016, category: arts,     label: "Geary memorial dedicated"}
+  - {year: 2018, category: press,    label: "Progress ceases print"}
+  - {year: 2024, category: archive,  label: "Oral history index online"}

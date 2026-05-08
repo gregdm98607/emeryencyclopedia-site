@@ -9,6 +9,8 @@
     "dev": "astro dev",
     "build-data": "node scripts/build-census-data.mjs",
     "prebuild": "node scripts/build-census-data.mjs",
+    "promote-images": "node scripts/promote-approved-images.mjs",
+    "promote-images:dry": "node scripts/promote-approved-images.mjs --dry-run",
     "build": "astro build",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",

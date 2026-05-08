@@ -1,0 +1,23 @@
+title: "Emery County Health, Safety & Emergency Milestones"
+subtitle: "Public-record milestones, 1877–2024"
+out: "ch29_opensource_health_safety_timeline.png"
+source: "Sources: Utah History Encyclopedia; Influenza Archive (U. Mich.); ETV News; LifePoint Health press; MSHA records; Salt Lake Tribune; U of U College of Nursing."
+
+categories:
+  - {key: pioneer,    label: "Pioneer / memorial",        color: "#A0522D"}
+  - {key: state,      label: "Public health / response",  color: "#2C5F7C"}
+  - {key: institution, label: "Institution / crisis",     color: "#7A8B6F"}
+  - {key: disaster,   label: "Disaster (mining)",         color: "#D4A574"}
+
+events:
+  - {year: 1877, category: pioneer,     label: "Castle Valley midwifery era"}
+  - {year: 1918, category: state,       label: "Influenza pandemic"}
+  - {year: 1980, category: institution, label: "Castleview Hospital opens"}
+  - {year: 1984, category: disaster,    label: "Wilberg Mine: 27 dead"}
+  - {year: 2007, category: disaster,    label: "Crandall Canyon collapse"}
+  - {year: 2008, category: institution, label: "Castleview Top-20 Rural"}
+  - {year: 2014, category: state,       label: "Opioid crisis: 47.7/100k"}
+  - {year: 2016, category: state,       label: "Carbon-Emery overdose peak"}
+  - {year: 2019, category: state,       label: "Rehab desert: 4 to 1"}
+  - {year: 2022, category: institution, label: "U of U Nursing rural launch"}
+  - {year: 2023, category: institution, label: "Castleview Level IV Trauma"}

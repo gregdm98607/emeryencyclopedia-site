@@ -1,0 +1,24 @@
+title: "Emery County Festivals & Foodways, 1877–2025"
+subtitle: "A public-record timeline of folkways and gatherings"
+out: "ch27_opensource_festival_timeline.png"
+source: "Sources: Utah State Historical Society; USDA-NASS Utah Agricultural Census; Emery County Progress archive; Castle Valley Pageant program archive."
+
+categories:
+  - {key: settlement, label: "Settlement",  color: "#2C5F7C"}
+  - {key: festival,   label: "Festival",    color: "#A0522D"}
+  - {key: foodway,    label: "Foodway",     color: "#7A8B6F"}
+  - {key: folklore,   label: "Folklore",    color: "#3B2F2F"}
+
+events:
+  - {year: 1877, category: settlement, label: "Emery County established"}
+  - {year: 1882, category: settlement, label: "Emery Stake organized"}
+  - {year: 1900, category: foodway,    label: "Emery Co. Progress founded"}
+  - {year: 1906, category: festival,   label: "Castle Dale Pioneer Day"}
+  - {year: 1909, category: foodway,    label: "Mormon Trek-era foodways"}
+  - {year: 1924, category: folklore,   label: "Castle Gate disaster wave"}
+  - {year: 1932, category: festival,   label: "Castle Dale Memorial Rodeo"}
+  - {year: 1949, category: folklore,   label: "McElprang's Castle Valley"}
+  - {year: 1978, category: festival,   label: "Castle Valley Pageant era"}
+  - {year: 1985, category: folklore,   label: "Geary's Poplarhaven"}
+  - {year: 1990, category: festival,   label: "IRMHA-sanction era, Castle Dale"}
+  - {year: 2010, category: foodway,    label: "San Rafael Folk Art Festival"}
