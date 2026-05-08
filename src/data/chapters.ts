@@ -195,25 +195,25 @@ export const CHAPTERS: Chapter[] = [
     number: 21,
     title: 'Energy Transition',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'From coal peak to post-carbon crossroads: mine closures, shifting retirement timelines for Hunter and Huntington power plants, the billion-dollar Green River Energy Center, workforce retraining gaps, property tax pressures, and Emery County\'s uncertain but emerging new economic identity.',
-    wordCount: 3979
+    wordCount: 3718
   },
   {
     number: 22,
     title: 'Demography & Social Change',
     part: 3,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'From pioneer founding cohort to post-coal crossroads: population boom and bust, LDS social architecture, an aging and shrinking workforce, school enrollment cliff, healthcare access gaps, and the resilience of a community navigating energy transition and demographic change.',
-    wordCount: 4683
+    wordCount: 4544
   },
   {
     number: 23,
     title: 'County Governance',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'From territorial formation in 1880 through the Dingell Act of 2019: the Board of County Commissioners, elected offices, federal land management conflicts, the fiscal impact of coal decline, and the political culture of one of Utah\'s most reliably conservative rural counties.',
-    wordCount: 4374
+    wordCount: 4233
   },
 
   // Part IV: Culture & Identity (24-35)
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-07', chapter: 23, action: 'County Governance advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; wordCount refreshed from vault body 4374 -> 4233; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-07', chapter: 22, action: 'Demography & Social Change advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; wordCount refreshed from vault body 4683 -> 4544; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-07', chapter: 21, action: 'Energy Transition advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; wordCount refreshed from vault body 3979 -> 3718; existing assets retained per status-only-update rule)' },
   { date: '2026-05-06', chapter: 20, action: 'Agriculture & Ranching advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-06', chapter: 19, action: 'Water for the Desert advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; assets generated this run - one open-source USGS reservoir/streamflow reference + one AI-generated illustration in Desert Scholarly palette)' },
   { date: '2026-05-06', chapter: 18, action: 'Rails, Roads & Infrastructure advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; assets generated this run - one open-source D&RGW historic railroad reference + one AI-generated illustration in Desert Scholarly palette)' },
