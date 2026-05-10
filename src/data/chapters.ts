@@ -221,7 +221,7 @@ export const CHAPTERS: Chapter[] = [
     number: 24,
     title: 'Education & Learning',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'From dugout-classroom pioneer schoolhouses through the Emery Stake Academy (1889-1922), the three-high-school era, and the 1962 consolidation into the Emery High Spartans, to today\'s Emery County School District (ten schools, ~2,248 students), USU Eastern\'s Castle Dale education center, and the post-coal CTE pipeline confronting workforce transition - a 145-year arc of education in Castle Valley.',
     wordCount: 4400
   },
@@ -229,7 +229,7 @@ export const CHAPTERS: Chapter[] = [
     number: 25,
     title: 'Religious Life',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'A 145-year religious history of Emery County: Indigenous spiritual landscapes that predate settlement, the 1882 LDS Emery Stake and 1982 Castle Dale/Ferron division, the Presbyterian mission school in Ferron (1906-1950s), Greek Orthodox spillover from the Carbon County coalfields after the 1924 Castle Gate disaster, two enduring small Catholic congregations, released-time seminary and Relief Society networks, and a 21st-century pluralization in which roughly one in three residents now claims no religious affiliation.',
     wordCount: 5156
   },
@@ -237,7 +237,7 @@ export const CHAPTERS: Chapter[] = [
     number: 26,
     title: 'Arts, Literature & Media',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Emery County\'s cultural footprint runs unusually deep for a county of fewer than 10,000 residents: pioneer brass bands and Welsh choral traditions; coal-camp music carried in by Greek, Italian, and Slavic miners; a 118-year-old county newspaper; the Emery Telcom/ETV broadcasting cooperative; the Castle Valley Pageant performed every other summer for nearly half a century; a four-museum circuit; folk-craft guilds; and a San Rafael Swell that has doubled as a Hollywood backdrop.',
     wordCount: 4320
   },
@@ -245,7 +245,7 @@ export const CHAPTERS: Chapter[] = [
     number: 27,
     title: 'Festivals, Folklore & Foodways',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Emery County\'s participatory culture - the festivals, foodways, and folk arts that knit a population of fewer than 10,000 across 7,000 square miles. The county calendar from the Pioneer Day rodeo cluster (Castle Dale\'s RMPRA-sanctioned Cowboys Memorial Rodeo, Huntington Heritage Days, Emery, Orangeville) through Ferron Peach Days (1906) and Green River Melon Days (1906), the Emery County Fair, and the Castle Valley Pageant (since 1978); layered foodways of pioneer Mormon dryfarming, coal-camp Welsh-Cornish-Greek-Italian-Slavic kitchens, and modern ranching tables; cowboy-poetry, fiddling, choral, quilting, and storytelling traditions.',
     wordCount: 5264
   },
@@ -253,7 +253,7 @@ export const CHAPTERS: Chapter[] = [
     number: 28,
     title: 'Notable People & Oral Histories',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'A representative gallery of Emery County\'s people from 1877 to the present: Indigenous voices, founding pioneers (Orange Seely + the 1880 Emery Stake, Hyrum Seely, Henry U. Burr, Rasmus Johnson), the four Swasey brothers (1875), Butch Cassidy at Castle Gate (1897-04-21), Sid\'s Mountain WSA, Ned Chaffin, the 1984 Wilberg / 2007 Crandall Canyon memorial archive (Karen Jobe Templeton bronzes; Markosek-Ardohain 2016 monument), county commissioners and sheriffs, educators and midwives, religious leaders (LDS, Presbyterian Ferron mission 1906-1950s, Catholic, Greek Orthodox), writers and artists (Stella McElprang 1949, Edward A. Geary 1985-1996, Edwin Montell Seely 1934-2008), Emery County Progress editors from H.T. Haines (1900) forward, and the five-door oral-history apparatus (Emery County Archives, BYU L. Tom Perry, USU Fife, UHS Oral History Program, FamilySearch). Tribal review flag carried from vault.',
     wordCount: 4470
   },
@@ -261,7 +261,7 @@ export const CHAPTERS: Chapter[] = [
     number: 29,
     title: 'Health, Safety & Emergency',
     part: 4,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'From frontier midwives and the 1918 influenza pandemic through Castleview Hospital (1980, Level IV Trauma 2023) and Emery Medical Center in Castle Dale, to Four Corners Community Behavioral Health (the first rural-Utah Opioid Treatment Program clinic), the Carbon-Emery overdose-mortality crisis (47.7/100k 2014-2016, 2.5x state rate) and the rebuilding treatment scaffold. Covers the Sheriff\'s Office and county jail, Emery County Search and Rescue (~50 missions/yr, San Rafael Swell coverage), the volunteer fire districts and ambulance services, and emergency management for floods, wildfires, hazmat, and earthquake. The institutions that close the distance in a 4,500-square-mile county where the nearest hospital has always been across the line in Carbon.',
     wordCount: 4096
   },
@@ -433,6 +433,12 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-08', chapter: 29, action: 'Health, Safety & Emergency advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch29.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-08', chapter: 28, action: 'Notable People & Oral Histories advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch28.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-08', chapter: 27, action: 'Festivals, Folklore & Foodways advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch27.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-08', chapter: 26, action: 'Arts, Literature & Media advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch26.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-08', chapter: 25, action: 'Religious Life advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch25.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-08', chapter: 24, action: 'Education & Learning advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch24.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-07', chapter: 23, action: 'County Governance advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; wordCount refreshed from vault body 4374 -> 4233; existing assets retained per status-only-update rule)' },
   { date: '2026-05-07', chapter: 22, action: 'Demography & Social Change advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; wordCount refreshed from vault body 4683 -> 4544; existing assets retained per status-only-update rule)' },
   { date: '2026-05-07', chapter: 21, action: 'Energy Transition advanced to fact-checked (vault status fact-checked since Greg\'s 2026-05-06 batch approval of Ch18-Ch29; site .md and chapters.ts status fields synced; wordCount refreshed from vault body 3979 -> 3718; existing assets retained per status-only-update rule)' },
