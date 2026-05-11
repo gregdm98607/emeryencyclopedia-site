@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Chapter data and definitions
  * Status: 'final' | 'revised' | 'fact-checked' | 'draft' | 'stub'
  */
@@ -267,11 +267,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 30,
-    title: 'Education & Institutions',
-    part: 4,
-    status: 'stub',
-    description: 'Schools, libraries, churches, civic organizations, and the institutions that build community.',
-    wordCount: 0
+    title: 'Landscapes of Adventure',
+    part: 5,
+    status: 'draft',
+    description: "A practical field guide to Emery County's adventure landscape: San Rafael Swell slot canyons and OHV routes, Goblin Valley State Park, Joe's Valley world-class bouldering, multi-day Green River trips through Labyrinth and Desolation Canyons, Wasatch Plateau fishing, and the safety essentials for one of the most remote corners of the American West.",
+    wordCount: 3800
   },
   {
     number: 31,
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+    { date: '2026-05-09', chapter: 30, action: 'Landscapes of Adventure published to site (~3800 words; first publication; Part V Field Guide; covers San Rafael Swell geology and access, Wedge Overlook, Buckhorn Wash pictograph panel and swinging bridge, Little Wild Horse/Bell Canyon slot canyon loop, Goblin Valley State Park (Dark Sky Park, Galaxy Quest film site), Joe's Valley bouldering (15,000 climbers/yr, 1,100+ problems), BLM 2026 TMP 1,500 miles OHV routes, Arapeen OHV 350+ miles, Labyrinth Canyon 68 river miles, Desolation/Gray 84 river miles, Joe's Valley Reservoir Blue Ribbon fishery, seasonal guide, field-guide summary table; chapter status: draft)' },
   { date: '2026-05-08', chapter: 29, action: 'Health, Safety & Emergency advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch29.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-08', chapter: 28, action: 'Notable People & Oral Histories advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch28.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-08', chapter: 27, action: 'Festivals, Folklore & Foodways advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch27.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
