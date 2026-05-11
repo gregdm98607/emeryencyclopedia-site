@@ -171,7 +171,7 @@ export const CHAPTERS: Chapter[] = [
     number: 18,
     title: 'Rails, Roads & Infrastructure',
     part: 3,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'The transportation and utility networks that wove Emery County into the broader region: the Old Spanish Trail, the 1883 Denver & Rio Grande Western main line, federal highways, Interstate 70 through the San Rafael Swell, rural electric and telephone cooperatives, and the coal-to-electricity pipeline.',
     wordCount: 4505
   },
@@ -179,7 +179,7 @@ export const CHAPTERS: Chapter[] = [
     number: 19,
     title: 'Water for the Desert',
     part: 3,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Water, the defining constraint of Emery County life: pioneer ditches and the 1890s salinization crisis, the federal Emery County Project (Joe\u2019s Valley, Huntington North, Millsite), the Colorado River Compact, the Emery Water Conservancy District, and the twenty-first-century megadrought.',
     wordCount: 4500
   },
@@ -187,7 +187,7 @@ export const CHAPTERS: Chapter[] = [
     number: 20,
     title: 'Agriculture & Ranching',
     part: 3,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Pioneer canal-building and cooperative irrigation, the salinization crisis, the federal Emery County Project\'s dams and reservoirs, alfalfa and hay farming, Green River\'s celebrated melons, cattle and sheep ranching on public lands, and the water future facing Emery County agriculture.',
     wordCount: 4359
   },
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-10', chapter: 20, action: 'Agriculture & Ranching advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch20.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-10', chapter: 19, action: 'Water for the Desert advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch19.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-10', chapter: 18, action: 'Rails, Roads & Infrastructure advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch18.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
     { date: '2026-05-09', chapter: 30, action: 'Landscapes of Adventure published to site (~3800 words; first publication; Part V Field Guide; covers San Rafael Swell geology and access, Wedge Overlook, Buckhorn Wash pictograph panel and swinging bridge, Little Wild Horse/Bell Canyon slot canyon loop, Goblin Valley State Park (Dark Sky Park, Galaxy Quest film site), Joe's Valley bouldering (15,000 climbers/yr, 1,100+ problems), BLM 2026 TMP 1,500 miles OHV routes, Arapeen OHV 350+ miles, Labyrinth Canyon 68 river miles, Desolation/Gray 84 river miles, Joe's Valley Reservoir Blue Ribbon fishery, seasonal guide, field-guide summary table; chapter status: draft)' },
   { date: '2026-05-08', chapter: 29, action: 'Health, Safety & Emergency advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch29.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-08', chapter: 28, action: 'Notable People & Oral Histories advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch28.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
