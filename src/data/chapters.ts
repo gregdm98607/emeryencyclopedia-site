@@ -275,11 +275,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 31,
-    title: 'Economy & Livelihoods',
-    part: 4,
-    status: 'stub',
-    description: 'Modern economy: tourism, agriculture, small business, and the contemporary livelihoods of residents.',
-    wordCount: 0
+    title: 'Parks & Monuments',
+    part: 5,
+    status: 'draft',
+    description: 'From Goblin Valley State Park to Jurassic National Monument: Emery County\'s four state parks, a BLM national monument, and the 217,000-acre San Rafael Swell Recreation Area — each site\'s origin story, managing agencies, and what it offers visitors in one of the most protected public-land landscapes in the American West.',
+    wordCount: 4200
   },
   {
     number: 32,
@@ -433,10 +433,11 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-11', chapter: 31, action: 'Parks & Monuments published to site (~4200 words; first publication; Part V Field Guide; 12 sections covering Goblin Valley State Park origin (Arthur Chaffin 1928, Philip Tompkins 1949 naming, 1964 state park, 2019 Dingell Act expansion, 2022 land transfer tripling park to ~21,000 acres, 500,000+ visitors/yr), Jurassic National Monument (Cleveland-Lloyd Quarry, 12,000+ fossils, 74 animals, Allosaurus-surplus predator puzzle, 1965 NNL designation, 1968 first BLM visitor center ever, 2019 Dingell Act NM designation, 2024 building replacement), San Rafael Swell Recreation Area (~217,000 acres, Dingell Act 2019, 2024 Travel Management Plan Draft EA), Huntington State Park (1966, Huntington brothers 1855 Elk Mountain Mission), Millsite State Park (Ferron Canyon, 6000 ft elevation, 9-hole golf, 1970 reservoir), Green River State Park (Labyrinth Canyon launch, 9-hole golf, cottonwood campground), Wedge Overlook/Little Grand Canyon (1200-ft canyon drop, Triassic-Jurassic stratigraphy, Butch Cassidy outlaw corridor), Buckhorn Wash Pictograph Panel (Barrier Canyon style, NRHP-listed, 1996 community restoration, 2022 BLM info center expansion), Temple Mountain uranium legacy (vanadium/uranium 1910s-1980s, Morrison Formation carnotite, Legacy Reclamation Program), federal-state-county management framework, and future designations (Head of Sinbad, TMP finalization, visitation pressure). Also fixes chapters.ts build failure: escaped Joe\'s Valley apostrophes x2 in Ch30 changelog entry.' },
   { date: '2026-05-10', chapter: 20, action: 'Agriculture & Ranching advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch20.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-10', chapter: 19, action: 'Water for the Desert advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch19.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-10', chapter: 18, action: 'Rails, Roads & Infrastructure advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch18.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
-    { date: '2026-05-09', chapter: 30, action: 'Landscapes of Adventure published to site (~3800 words; first publication; Part V Field Guide; covers San Rafael Swell geology and access, Wedge Overlook, Buckhorn Wash pictograph panel and swinging bridge, Little Wild Horse/Bell Canyon slot canyon loop, Goblin Valley State Park (Dark Sky Park, Galaxy Quest film site), Joe's Valley bouldering (15,000 climbers/yr, 1,100+ problems), BLM 2026 TMP 1,500 miles OHV routes, Arapeen OHV 350+ miles, Labyrinth Canyon 68 river miles, Desolation/Gray 84 river miles, Joe's Valley Reservoir Blue Ribbon fishery, seasonal guide, field-guide summary table; chapter status: draft)' },
+    { date: '2026-05-09', chapter: 30, action: 'Landscapes of Adventure published to site (~3800 words; first publication; Part V Field Guide; covers San Rafael Swell geology and access, Wedge Overlook, Buckhorn Wash pictograph panel and swinging bridge, Little Wild Horse/Bell Canyon slot canyon loop, Goblin Valley State Park (Dark Sky Park, Galaxy Quest film site), Joe\'s Valley bouldering (15,000 climbers/yr, 1,100+ problems), BLM 2026 TMP 1,500 miles OHV routes, Arapeen OHV 350+ miles, Labyrinth Canyon 68 river miles, Desolation/Gray 84 river miles, Joe\'s Valley Reservoir Blue Ribbon fishery, seasonal guide, field-guide summary table; chapter status: draft)' },
   { date: '2026-05-08', chapter: 29, action: 'Health, Safety & Emergency advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch29.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-08', chapter: 28, action: 'Notable People & Oral Histories advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch28.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-08', chapter: 27, action: 'Festivals, Folklore & Foodways advanced to fact-checked (vault status fact-checked since 2026-05-06 batch; site ch27.md and chapters.ts status fields synced; existing assets retained per status-only-update rule)' },

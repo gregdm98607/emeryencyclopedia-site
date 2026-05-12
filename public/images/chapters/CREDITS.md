@@ -719,3 +719,30 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **URL** | https://www.usgs.gov/programs/national-geospatial-program/topographic-maps |
 | **License** | Public domain (U.S. government data); chart generated with matplotlib |
 | **Date accessed** | 2026-05-10 |
+
+## Ch31 - Parks & Monuments (Added 2026-05-11)
+
+### ch31_opensource_goblin_valley.png
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch31_opensource_goblin_valley.png` |
+| **Description** | Goblin Valley State Park - view of the main goblin basin showing Entrada Sandstone hoodoo formations, Emery County, Utah |
+| **Source** | Wikimedia Commons - File:Goblin_Valley_State_Park_(3).JPG |
+| **Author** | Donar Reiskoffer (User:Donarreiskoffer) |
+| **Agency** | N/A (community-created) |
+| **URL** | https://commons.wikimedia.org/wiki/File:Goblin_Valley_State_Park_(3).JPG |
+| **License** | Creative Commons Attribution 3.0 Unported (CC BY 3.0) - Attribution: Donar Reiskoffer |
+| **Date accessed** | 2026-05-11 |
+
+### ch31_generated_parks_monuments.png
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch31_generated_parks_monuments.png` |
+| **Description** | Field-guide natural history illustration: Utah desert hoodoo formations at golden-hour twilight - wide valley of rounded Entrada Sandstone mushroom-shaped pillars, warm sandstone tan and mesa red tones, canyon shadow layered walls in the background, sparse sage green desert shrubs, pale cream sky. Scientific illustration aesthetic in the Desert Scholarly palette. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) via Gemini API |
+| **Generated** | 2026-05-11 |
+| **Prompt style** | Field-guide natural history illustration, 19th-century aesthetic, 16:9 aspect ratio |
+| **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
+
