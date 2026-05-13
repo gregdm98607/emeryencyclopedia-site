@@ -746,3 +746,31 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **Prompt style** | Field-guide natural history illustration, 19th-century aesthetic, 16:9 aspect ratio |
 | **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
 
+
+---
+
+## ch32_opensource_wedge_overlook.jpg
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch32_opensource_wedge_overlook.jpg` |
+| **Description** | Aerial/overview photograph of the Wedge Overlook (Little Grand Canyon of the San Rafael), showing the San Rafael River 1,200 feet below, canyon walls, and surrounding desert plateau — directly relevant to Ch32's Buckhorn Wash Scenic Backway section |
+| **Source** | Utah Geological Survey (UGS) — GeoSights: Little Grand Canyon, Wedge Overlook, and Buckhorn Draw Scenic Backway |
+| **URL** | https://geology.utah.gov/map-pub/survey-notes/geosights/little-grand-canyon/ |
+| **Agency** | Utah Geological Survey, Utah Department of Natural Resources — Utah State Government |
+| **License** | Public domain — Utah state government publication |
+| **Date accessed** | 2026-05-12 |
+
+---
+
+## ch32_generated_trails_routes.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch32_generated_trails_routes.png` |
+| **Description** | Field-guide watercolor illustration triptych: slot canyon hiker (left), Buckhorn Wash Scenic Backway gravel road through sage-green desert (center), canoe on Labyrinth Canyon flat-water river corridor (right). Painted in professional natural history field-guide style. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) via Gemini API |
+| **Generated** | 2026-05-12 |
+| **Prompt style** | Field-guide watercolor illustration, triptych composition, 16:9 aspect ratio, Desert Scholarly palette |
+| **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
+

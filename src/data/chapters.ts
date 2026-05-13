@@ -195,7 +195,7 @@ export const CHAPTERS: Chapter[] = [
     number: 21,
     title: 'Energy Transition',
     part: 3,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'From coal peak to post-carbon crossroads: mine closures, shifting retirement timelines for Hunter and Huntington power plants, the billion-dollar Green River Energy Center, workforce retraining gaps, property tax pressures, and Emery County\'s uncertain but emerging new economic identity.',
     wordCount: 3718
   },
@@ -203,7 +203,7 @@ export const CHAPTERS: Chapter[] = [
     number: 22,
     title: 'Demography & Social Change',
     part: 3,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'From pioneer founding cohort to post-coal crossroads: population boom and bust, LDS social architecture, an aging and shrinking workforce, school enrollment cliff, healthcare access gaps, and the resilience of a community navigating energy transition and demographic change.',
     wordCount: 4544
   },
@@ -211,7 +211,7 @@ export const CHAPTERS: Chapter[] = [
     number: 23,
     title: 'County Governance',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'From territorial formation in 1880 through the Dingell Act of 2019: the Board of County Commissioners, elected offices, federal land management conflicts, the fiscal impact of coal decline, and the political culture of one of Utah\'s most reliably conservative rural counties.',
     wordCount: 4233
   },
@@ -221,7 +221,7 @@ export const CHAPTERS: Chapter[] = [
     number: 24,
     title: 'Education & Learning',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'From dugout-classroom pioneer schoolhouses through the Emery Stake Academy (1889-1922), the three-high-school era, and the 1962 consolidation into the Emery High Spartans, to today\'s Emery County School District (ten schools, ~2,248 students), USU Eastern\'s Castle Dale education center, and the post-coal CTE pipeline confronting workforce transition - a 145-year arc of education in Castle Valley.',
     wordCount: 4400
   },
@@ -229,7 +229,7 @@ export const CHAPTERS: Chapter[] = [
     number: 25,
     title: 'Religious Life',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'A 145-year religious history of Emery County: Indigenous spiritual landscapes that predate settlement, the 1882 LDS Emery Stake and 1982 Castle Dale/Ferron division, the Presbyterian mission school in Ferron (1906-1950s), Greek Orthodox spillover from the Carbon County coalfields after the 1924 Castle Gate disaster, two enduring small Catholic congregations, released-time seminary and Relief Society networks, and a 21st-century pluralization in which roughly one in three residents now claims no religious affiliation.',
     wordCount: 5156
   },
@@ -237,7 +237,7 @@ export const CHAPTERS: Chapter[] = [
     number: 26,
     title: 'Arts, Literature & Media',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Emery County\'s cultural footprint runs unusually deep for a county of fewer than 10,000 residents: pioneer brass bands and Welsh choral traditions; coal-camp music carried in by Greek, Italian, and Slavic miners; a 118-year-old county newspaper; the Emery Telcom/ETV broadcasting cooperative; the Castle Valley Pageant performed every other summer for nearly half a century; a four-museum circuit; folk-craft guilds; and a San Rafael Swell that has doubled as a Hollywood backdrop.',
     wordCount: 4320
   },
@@ -245,7 +245,7 @@ export const CHAPTERS: Chapter[] = [
     number: 27,
     title: 'Festivals, Folklore & Foodways',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Emery County\'s participatory culture - the festivals, foodways, and folk arts that knit a population of fewer than 10,000 across 7,000 square miles. The county calendar from the Pioneer Day rodeo cluster (Castle Dale\'s RMPRA-sanctioned Cowboys Memorial Rodeo, Huntington Heritage Days, Emery, Orangeville) through Ferron Peach Days (1906) and Green River Melon Days (1906), the Emery County Fair, and the Castle Valley Pageant (since 1978); layered foodways of pioneer Mormon dryfarming, coal-camp Welsh-Cornish-Greek-Italian-Slavic kitchens, and modern ranching tables; cowboy-poetry, fiddling, choral, quilting, and storytelling traditions.',
     wordCount: 5264
   },
@@ -253,7 +253,7 @@ export const CHAPTERS: Chapter[] = [
     number: 28,
     title: 'Notable People & Oral Histories',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'A representative gallery of Emery County\'s people from 1877 to the present: Indigenous voices, founding pioneers (Orange Seely + the 1880 Emery Stake, Hyrum Seely, Henry U. Burr, Rasmus Johnson), the four Swasey brothers (1875), Butch Cassidy at Castle Gate (1897-04-21), Sid\'s Mountain WSA, Ned Chaffin, the 1984 Wilberg / 2007 Crandall Canyon memorial archive (Karen Jobe Templeton bronzes; Markosek-Ardohain 2016 monument), county commissioners and sheriffs, educators and midwives, religious leaders (LDS, Presbyterian Ferron mission 1906-1950s, Catholic, Greek Orthodox), writers and artists (Stella McElprang 1949, Edward A. Geary 1985-1996, Edwin Montell Seely 1934-2008), Emery County Progress editors from H.T. Haines (1900) forward, and the five-door oral-history apparatus (Emery County Archives, BYU L. Tom Perry, USU Fife, UHS Oral History Program, FamilySearch). Tribal review flag carried from vault.',
     wordCount: 4470
   },
@@ -261,7 +261,7 @@ export const CHAPTERS: Chapter[] = [
     number: 29,
     title: 'Health, Safety & Emergency',
     part: 4,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'From frontier midwives and the 1918 influenza pandemic through Castleview Hospital (1980, Level IV Trauma 2023) and Emery Medical Center in Castle Dale, to Four Corners Community Behavioral Health (the first rural-Utah Opioid Treatment Program clinic), the Carbon-Emery overdose-mortality crisis (47.7/100k 2014-2016, 2.5x state rate) and the rebuilding treatment scaffold. Covers the Sheriff\'s Office and county jail, Emery County Search and Rescue (~50 missions/yr, San Rafael Swell coverage), the volunteer fire districts and ambulance services, and emergency management for floods, wildfires, hazmat, and earthquake. The institutions that close the distance in a 4,500-square-mile county where the nearest hospital has always been across the line in Carbon.',
     wordCount: 4096
   },
@@ -283,11 +283,11 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 32,
-    title: 'Recreation & Leisure',
-    part: 4,
-    status: 'stub',
-    description: 'Outdoor recreation, hunting, fishing, boating, and the recreational culture of Emery County.',
-    wordCount: 0
+    title: "Trails & Routes",
+    part: 5,
+    status: 'draft',
+    description: "The complete trail grammar of Emery County: Buckhorn Wash Scenic Backway, Little Wild Horse and Bell Canyon slot-canyon loop, Black Box technical canyoneering, Muddy Creek wilderness backpacking, Joe's Valley mountain biking, the 600-mile Arapeen OHV system, Labyrinth Canyon river float, and the Old Spanish Trail historical corridor.",
+    wordCount: 4300
   },
   {
     number: 33,
@@ -433,6 +433,17 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-12', chapter: 32, action: 'Trails & Routes published to site (~4300 words; first publication; replaces Recreation & Leisure stub; Part V Field Guide; 12 sections covering Old Spanish Trail Heritage Loop at Elmo + Swasey brothers ranching legacy (Swazey Cabin 1921), Buckhorn Wash Scenic Backway (32-mile graded gravel, Wedge Overlook 1200-ft canyon, CCC Swinging Bridge 1937, Buckhorn Pictograph Panel 2000-yr Barrier Canyon style, 1996 community restoration), Little Wild Horse/Bell Canyon loop (8 mi, 787 ft gain, AllTrails 4.8 stars, flash-flood hazard), Crack/Chute Canyon loop (7 mi, Wingate/Kayenta narrows), Muddy Creek wilderness backpacking (The Chute deepest Swell canyon, 20-mi RT, 7 WSAs), Black Box Canyon technical canyoneering (Upper cold-pool stemming, Lower wading/swimming), Joe\'s Valley mountain biking (Josephite Point 6.8 mi, Miners Basin 3717 ft gain, Arapeen non-motorized segments), Arapeen OHV 600+ miles / Emery 70-mi flagship loop 6200-10000 ft / BLM 2024 TMP December designation, Labyrinth Canyon float (68-mi Green River State Park to Mineral Bottom, Bowknot Bend, free BLM permit), Desolation/Gray Canyon (86-mi whitewater, lottery permit, Swasey Beach take-out in Emery County), San Rafael Swell Discovery Route 4WD grand tour, trail ethics/flash flood/LNT/rock-art, seasonal permits maps; chapter status: draft)' },
+  { date: '2026-05-12', chapter: 29, action: 'Health, Safety & Emergency advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch29.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 28, action: 'Notable People & Oral Histories advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch28.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 27, action: 'Festivals, Folklore & Foodways advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch27.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 26, action: 'Arts, Literature & Media advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch26.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 25, action: 'Religious Life advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch25.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 24, action: 'Education & Learning advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch24.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 23, action: 'County Governance advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch23.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 22, action: 'Demography & Social Change advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch22.md status + lastUpdated synced; assets retained)' },
+  { date: '2026-05-12', chapter: 21, action: 'Energy Transition advanced to revised (vault status revised per eec-chapter-pipeline Ph7+Ph8 run 2026-05-09; site ch21.md status + lastUpdated synced; assets retained)' },
+
   { date: '2026-05-11', chapter: 31, action: 'Parks & Monuments published to site (~4200 words; first publication; Part V Field Guide; 12 sections covering Goblin Valley State Park origin (Arthur Chaffin 1928, Philip Tompkins 1949 naming, 1964 state park, 2019 Dingell Act expansion, 2022 land transfer tripling park to ~21,000 acres, 500,000+ visitors/yr), Jurassic National Monument (Cleveland-Lloyd Quarry, 12,000+ fossils, 74 animals, Allosaurus-surplus predator puzzle, 1965 NNL designation, 1968 first BLM visitor center ever, 2019 Dingell Act NM designation, 2024 building replacement), San Rafael Swell Recreation Area (~217,000 acres, Dingell Act 2019, 2024 Travel Management Plan Draft EA), Huntington State Park (1966, Huntington brothers 1855 Elk Mountain Mission), Millsite State Park (Ferron Canyon, 6000 ft elevation, 9-hole golf, 1970 reservoir), Green River State Park (Labyrinth Canyon launch, 9-hole golf, cottonwood campground), Wedge Overlook/Little Grand Canyon (1200-ft canyon drop, Triassic-Jurassic stratigraphy, Butch Cassidy outlaw corridor), Buckhorn Wash Pictograph Panel (Barrier Canyon style, NRHP-listed, 1996 community restoration, 2022 BLM info center expansion), Temple Mountain uranium legacy (vanadium/uranium 1910s-1980s, Morrison Formation carnotite, Legacy Reclamation Program), federal-state-county management framework, and future designations (Head of Sinbad, TMP finalization, visitation pressure). Also fixes chapters.ts build failure: escaped Joe\'s Valley apostrophes x2 in Ch30 changelog entry.' },
   { date: '2026-05-10', chapter: 20, action: 'Agriculture & Ranching advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch20.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
   { date: '2026-05-10', chapter: 19, action: 'Water for the Desert advanced to revised (vault revised: 2026-05-09 per eec-chapter-pipeline Ph7+Ph8 run; site ch19.md status + lastUpdated synced; existing assets retained per status-only-update rule)' },
