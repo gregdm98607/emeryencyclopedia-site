@@ -774,3 +774,30 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **Prompt style** | Field-guide watercolor illustration, triptych composition, 16:9 aspect ratio, Desert Scholarly palette |
 | **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
 
+
+---
+
+## Ch33 — Climbing, Canyoneering & Rivers (Added 2026-05-14)
+
+### ch33_opensource_san_rafael_streamflow.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch33_opensource_san_rafael_streamflow.png` |
+| **Description** | Annual streamflow regime chart for the San Rafael River near Castle Dale, UT — median monthly discharge and 95th-percentile peak envelope, with annotated BLM Black Box 50 cfs safety ceiling and 100–700 cfs floatable window |
+| **Source** | USGS National Water Information System (NWIS) — site 09328500 |
+| **Agency** | U.S. Geological Survey (USGS) |
+| **URL** | https://waterdata.usgs.gov/monitoring-location/USGS-09328500/ |
+| **License** | Public domain (U.S. government data); chart generated with matplotlib in the Desert Scholarly palette |
+| **Date accessed** | 2026-05-14 |
+
+### ch33_generated_climbing_canyoneering_rivers.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch33_generated_climbing_canyoneering_rivers.png` |
+| **Description** | Field-guide triptych illustration in Desert Scholarly style — Joe's Valley bouldering (left), Black Box slot-canyon canyoneer (center), Labyrinth Canyon canoe paddlers (right). Hand-painted gouache aesthetic, NPS interpretive-panel feel, no text or labels. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) via Gemini API |
+| **Generated** | 2026-05-14 |
+| **Prompt style** | Field-guide gouache illustration, triptych composition, 16:9 aspect ratio, Desert Scholarly palette (#D4A574 / #3B2F2F / #7A8B6F / #A0522D / #F7F3ED / #2C5F7C) |
+| **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
