@@ -269,59 +269,59 @@ export const CHAPTERS: Chapter[] = [
     number: 30,
     title: 'Landscapes of Adventure',
     part: 5,
-    status: 'revised',
+    status: 'final',
     description: "A practical field guide to Emery County's adventure landscape: San Rafael Swell slot canyons and OHV routes, Goblin Valley State Park, Joe's Valley world-class bouldering, multi-day Green River trips through Labyrinth and Desolation Canyons, Wasatch Plateau fishing, and the safety essentials for one of the most remote corners of the American West.",
-    wordCount: 5889
+    wordCount: 5891
   },
   {
     number: 31,
     title: 'Parks & Monuments',
     part: 5,
-    status: 'revised',
+    status: 'final',
     description: 'From Goblin Valley State Park to Jurassic National Monument: Emery County\'s four state parks, a BLM national monument, and the 217,000-acre San Rafael Swell Recreation Area — each site\'s origin story, managing agencies, and what it offers visitors in one of the most protected public-land landscapes in the American West.',
-    wordCount: 7084
+    wordCount: 7086
   },
   {
     number: 32,
     title: "Trails & Routes",
     part: 5,
-    status: 'revised',
+    status: 'final',
     description: "The complete trail grammar of Emery County: Buckhorn Wash Scenic Backway, Little Wild Horse and Bell Canyon slot-canyon loop, Black Box technical canyoneering, Muddy Creek wilderness backpacking, Joe's Valley mountain biking, the 600-mile Arapeen OHV system, Labyrinth Canyon river float, and the Old Spanish Trail historical corridor.",
-    wordCount: 5469
+    wordCount: 5471
   },
   {
     number: 33,
     title: 'Climbing, Canyoneering & Rivers',
     part: 5,
-    status: 'draft',
+    status: 'final',
     description: "Emery County's technical outdoor recreation: Joe's Valley world-class bouldering (V0-V13+, mid-1990s development, Ben Moon's Black Lung), the San Rafael Swell's hidden canyons, Upper and Lower Black Box technical canyoneering, Muddy Creek and The Chute, Little Wild Horse and Bell Canyon family slots, the spring San Rafael River float through the Little Grand Canyon, and the Green River corridor staging Labyrinth Canyon (free permit) and Desolation Canyon (lottery permit) river trips - with flash flood safety, BLM permit guidance, seasonal calendar, and skill-level matrix.",
-    wordCount: 5100
+    wordCount: 5841
   },
   {
     number: 34,
-    title: 'Sports & Athletics',
-    part: 4,
-    status: 'stub',
-    description: 'High school sports, community leagues, and the athletic traditions of local schools.',
-    wordCount: 0
+    title: 'Wildlife Watching',
+    part: 5,
+    status: 'revised',
+    description: "A field guide to wildlife observation across Emery County's three habitat zones - the Wasatch Plateau high country, the San Rafael Swell desert uplift, and the Green River riparian corridor - covering bighorn sheep, mule deer, elk, pronghorn, raptors, songbirds, reptiles, native and introduced fish, the seasonal viewing calendar, and ethical wildlife-watching practice in a county with Utah's largest desert bighorn herd.",
+    wordCount: 5187
   },
   {
     number: 35,
-    title: 'Tourism & Visitor Experience',
-    part: 4,
-    status: 'stub',
-    description: 'Visitor economy, lodging, dining, attractions, and the tourist experience in Emery County.',
-    wordCount: 0
+    title: 'Night Sky Tourism',
+    part: 5,
+    status: 'draft',
+    description: "Dark skies as Emery County's emerging tourism resource: Goblin Valley State Park's 2018 International Dark Sky designation, Bortle Class 1-2 skies across the San Rafael Swell, the Astronomers Without Borders observing programs, ranger-led star parties, the Mars Desert Research Station near Hanksville, and the practical field-guide essentials - seasonal viewing windows, equipment, photography techniques, and the public-lands etiquette that keeps the county's night sky among the darkest in the lower 48.",
+    wordCount: 3874
   },
 
   // Part V: Field Guide (36-40)
   {
     number: 36,
-    title: 'Scenic Drives & Byways',
+    title: 'Travel & Logistics',
     part: 5,
-    status: 'stub',
-    description: 'Recommended driving routes: scenic loops, highway vistas, and roadside viewpoints.',
-    wordCount: 0
+    status: 'draft',
+    description: "The practical infrastructure of visiting Emery County: I-70's longest service-station gap in the lower 48 (the 'fill up every time' rule), the gateway communities of Green River, Price, Castle Dale, Ferron, and Hanksville, lodging and camping by community and BLM dispersed area, fuel and food and water planning, the spotty cellular coverage that makes a satellite communicator close to mandatory, visitor centers and ranger stations, BLM and state-park permits and fees, the four-season climate split between the Wasatch Plateau and the Swell, EMSAR contact protocols, the Ten Essentials adapted for desert canyon country, and a sustainable-visitation framework.",
+    wordCount: 5792
   },
   {
     number: 37,
@@ -433,6 +433,13 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-18', chapter: 36, action: 'Travel & Logistics published to site (~5792 words; first publication; replaces prior Ch36 stub Scenic Drives & Byways / Part 5; Part V Field Guide; 12 sections covering I-70 service-gap framing as longest in lower-48 USA, highway access (I-70 + SR-10/SR-29/SR-31/SR-24/SR-155 + backcountry roads), gateway communities (Green River, Price, Castle Dale, Ferron, Hanksville + secondary bases), lodging inventory by community, camping spectrum (state parks, BLM developed, BLM dispersed, USFS), fuel/food/water with "fill up every time" rule, cellular coverage gaps + satellite-communicator imperative, visitor centers and ranger stations (Travel Bureau, Powell, Goblin Valley, USU Eastern), permits and fees (Desolation lottery, Labyrinth recreation.gov, Goblin Valley, Cleveland-Lloyd), safety framework (EMSAR contact + Ten Essentials + Castleview Hospital transfer), four-season Wasatch Plateau / Swell climate split, outfitters and accessibility partial-access guide, five Emery-specific leave-no-trace rules; chapter status: draft)' },
+  { date: '2026-05-18', chapter: 35, action: 'Night Sky Tourism published to site (~3874 words; first publication; replaces prior Ch35 stub Tourism & Visitor Experience / Part 4; Part V Field Guide; covers Goblin Valley State Park 2018 International Dark Sky designation, Bortle Class 1-2 skies across San Rafael Swell, Astronomers Without Borders observing programs, ranger-led star parties, Mars Desert Research Station near Hanksville as analog Mars-mission training facility, seasonal viewing windows including spring Milky Way galactic core and winter Orion/Pleiades, equipment guidance (naked eye, binoculars 10x50, dobsonian telescopes, astrophotography rigs), light-pollution preservation framework, and the public-lands etiquette - red flashlight only, no white-light campfires within viewing radius, leave-no-trace astronomy practice; chapter status: draft)' },
+  { date: '2026-05-18', chapter: 34, action: 'Wildlife Watching published to site (~5187 words; first publication; replaces prior Ch34 stub Sports & Athletics / Part 4; Part V Field Guide; 12 sections covering three-habitat framing (Wasatch Plateau, San Rafael Swell, Green River corridor), big-game mammals (Utah largest desert bighorn herd, mule deer migration, elk rut bugling at Joe Valley Reservoir, pronghorn 55-mph runners along SR-10), small mammals and reptiles, raptors (golden eagle, bald eagle, peregrine falcon recovery, prairie falcon), songbirds and migrants, native fish (Bonneville cutthroat, Colorado pikeminnow, razorback sucker, humpback chub, three native chubs), Joe Valley Reservoir Blue Ribbon fishery, seasonal viewing calendar by month, ethical wildlife-watching practice (200-yard rule, no calling/baiting, leash dogs, leave no trace), key viewing locations (Wedge Overlook, Buckhorn Wash, Green River wetlands, Joe Valley), and the desert-bighorn population recovery success story from 1970s reintroduction; chapter status: revised; vault status revised since 2026-05-15)' },
+  { date: '2026-05-18', chapter: 33, action: 'Climbing, Canyoneering & Rivers advanced to final (vault status final per eec-chapter-pipeline; site ch33.md status + wordCount synced 5100 -> 5841; existing assets retained per status-only-update rule; body content carried over from prior publication; +741 word content expansion noted for future body refresh)' },
+  { date: '2026-05-18', chapter: 32, action: 'Trails & Routes advanced to final (vault status final per eec-chapter-pipeline; site ch32.md status + wordCount synced 5469 -> 5471; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-18', chapter: 31, action: 'Parks & Monuments advanced to final (vault status final per eec-chapter-pipeline; site ch31.md status + wordCount synced 7084 -> 7086; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-18', chapter: 30, action: 'Landscapes of Adventure advanced to final (vault status final per eec-chapter-pipeline; site ch30.md status + wordCount synced 5889 -> 5891; existing assets retained per status-only-update rule)' },
   { date: '2026-05-14', chapter: 33, action: 'Climbing, Canyoneering & Rivers published to site (~5100 words; first publication; replaces prior Ch33 stub Media & Communications / Part 4; Part V Field Guide; 12 sections covering Joes Valley bouldering destination (mid-1990s development, Boone Speed + Jason Kehl, Ben Moon Black Lung V13 2000, three zones New Joes/Left Fork/Right Fork, BLM 15/night campgrounds), San Rafael Swell hidden canyons (BLM Price/Green River District, 2019 SRSRA designation), Upper Black Box technical canyoneering (~4.1 mi, 5-7 hr, wetsuit + rappel + cold pools, BLM 2.5 ft depth + 50 cfs go/no-go thresholds, lethal flash flood history), Lower Black Box non-technical but lethal, Muddy Creek The Chute 2BIV (15 mi, 8-14 hr, mud + Hidden Splendor airstrip uranium-era relic), Little Wild Horse + Bell Canyon family loop (~8 mi Entrada Sandstone narrows, no high-clearance required), Ding/Dang Canyons additional slots, spring San Rafael River float (Fuller Bottom to Buckhorn Wash Bridge 17 mi Class I-II, 100-700 cfs window, USGS gauge dependency, Upper Black Box transition warning), Green River town as river-running hub (pop. 900, state park boat ramp, I-70 access), Gray Canyon Class II-III + Swaseys Rapid, Labyrinth Canyon 68-mi flatwater free BLM permit Mineral Bottom take-out, Desolation Canyon 84-mi Class III lottery permit 35000 user-days/yr 1979 RMP, flash flood safety framework + EMSAR satellite-communicator guidance, permits/access/LNT table, seasonal calendar + skill-level matrix, Price + Green River BLM contacts; chapter status: draft)' },
   { date: '2026-05-14', chapter: 32, action: 'Trails & Routes advanced to revised (vault status revised per eec-chapter-pipeline; site ch32.md status + wordCount synced 4300 -> 5469; existing assets retained per status-only-update rule)' },
   { date: '2026-05-14', chapter: 31, action: 'Parks & Monuments advanced to revised (vault status revised per eec-chapter-pipeline; site ch31.md status + wordCount synced 4200 -> 7084; existing assets retained per status-only-update rule)' },
