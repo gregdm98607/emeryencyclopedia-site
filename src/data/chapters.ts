@@ -301,17 +301,17 @@ export const CHAPTERS: Chapter[] = [
     number: 34,
     title: 'Wildlife Watching',
     part: 5,
-    status: 'revised',
+    status: 'final',
     description: "A field guide to wildlife observation across Emery County's three habitat zones - the Wasatch Plateau high country, the San Rafael Swell desert uplift, and the Green River riparian corridor - covering bighorn sheep, mule deer, elk, pronghorn, raptors, songbirds, reptiles, native and introduced fish, the seasonal viewing calendar, and ethical wildlife-watching practice in a county with Utah's largest desert bighorn herd.",
-    wordCount: 5187
+    wordCount: 4907
   },
   {
     number: 35,
     title: 'Night Sky Tourism',
     part: 5,
-    status: 'draft',
+    status: 'fact-checked',
     description: "Dark skies as Emery County's emerging tourism resource: Goblin Valley State Park's 2018 International Dark Sky designation, Bortle Class 1-2 skies across the San Rafael Swell, the Astronomers Without Borders observing programs, ranger-led star parties, the Mars Desert Research Station near Hanksville, and the practical field-guide essentials - seasonal viewing windows, equipment, photography techniques, and the public-lands etiquette that keeps the county's night sky among the darkest in the lower 48.",
-    wordCount: 3874
+    wordCount: 3623
   },
 
   // Part V: Field Guide (36) / Part VI: Research Tools (37-40)
@@ -319,9 +319,9 @@ export const CHAPTERS: Chapter[] = [
     number: 36,
     title: 'Travel & Logistics',
     part: 5,
-    status: 'draft',
+    status: 'fact-checked',
     description: "The practical infrastructure of visiting Emery County: I-70's longest service-station gap in the lower 48 (the 'fill up every time' rule), the gateway communities of Green River, Price, Castle Dale, Ferron, and Hanksville, lodging and camping by community and BLM dispersed area, fuel and food and water planning, the spotty cellular coverage that makes a satellite communicator close to mandatory, visitor centers and ranger stations, BLM and state-park permits and fees, the four-season climate split between the Wasatch Plateau and the Swell, EMSAR contact protocols, the Ten Essentials adapted for desert canyon country, and a sustainable-visitation framework.",
-    wordCount: 5792
+    wordCount: 5699
   },
   {
     number: 37,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-20', chapter: 34, action: 'Wildlife Watching advanced to final (vault status final per eec-chapter-pipeline Phase 8 revision approval 2026-05-20; site ch34.md status + wordCount synced 5187 -> 4907; body content refreshed from updated vault draft incorporating Phase 4 fact-check corrections; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-20', chapter: 35, action: 'Night Sky Tourism advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline Phase 4 fact-check 2026-05-20 grade B+; site ch35.md status + wordCount synced 3874 -> 3623; body content refreshed from updated vault draft incorporating fact-check corrections — Venus transits 1874/1882 not 1882/1883, Utah IDSP count refresh from stale 24 to 27+, BYU Eyring Center observatory naming refinement, Kyba 2023 light-pollution citation; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-20', chapter: 36, action: 'Travel & Logistics advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline Phase 4 fact-check 2026-05-20 grade A-; site ch36.md status + wordCount synced 5792 -> 5699; body content refreshed from updated vault draft incorporating fact-check corrections — Green River 2020 Census 902 not 847, Glenwood Canyon 1992 caveat softening I-70 last-section claim, Desolation Canyon [needs verification] flag retained; existing assets retained per status-only-update rule)' },
   { date: '2026-05-20', chapter: 39, action: 'Mapping & GIS published to site (4861 words; first publication; replaces prior Ch39 stub Hot Springs, Waterfalls & Scenic Sites; Part VI Research Tools; status: fact-checked; 8 sections covering USGS topographic quads historic and current (~30 7.5-minute quads to cover the county; HTMC scanned archive 1884-2006; US Topo since 2009), Utah Geospatial Resource Center (UGRC) statewide layers, Emery County GIS office parcel data, BLM Travel Management Plan interactive web maps, Utah Geological Survey 30x60 San Rafael Desert map and 1968 USGS Bulletin 1239, 2024 statewide aerial lidar coverage at sub-meter resolution, field apps (CalTopo, Gaia GPS, onX), and cross-references to Ch01 Geography, Ch02 Geology, Ch17 Mining, Ch36 Travel & Logistics. Triggered by eec-site-publisher detecting vault status fact-checked + missing site content for Ch39 (vault Ch39_Mapping_GIS fact-checked 2026-05-20).' },
   { date: '2026-05-20', chapter: 38, action: 'Historic Registries published to site (3935 words; first publication; replaces prior Ch38 stub Photography Spots; Part VI Research Tools; status: fact-checked; covers 22 National Register of Historic Places listings (six address-restricted rock-art sites including Black Dragon Canyon, Buckhorn Wash, Ferron Box, Rochester-Muddy Creek, Temple Mountain Wash; Cleveland-Lloyd Dinosaur Quarry as the single National Historic Landmark), the parallel National Natural Landmark designation at Cleveland-Lloyd, the Old Spanish National Historic Trail, Jurassic National Monument proclaimed 2019, NHPA Section 106 review mechanics, federal/state/local registry interactions, the Utah SHPO and Emery County Historic Preservation Commission, and the practical nomination workflow. Triggered by eec-site-publisher detecting vault status fact-checked + missing site content for Ch38 (vault Ch38_Historic_Registries fact-checked 2026-05-20).' },
   { date: '2026-05-20', chapter: 37, action: 'Archives, Museums & Libraries published to site (4251 words; first publication; replaces prior Ch37 stub Hiking & Trails; Part VI Research Tools; status: fact-checked; tour-format coverage of the Emery County Archives in Castle Dale (donated collections, oral histories, blog at emerycountyarchives.blogspot.com), the Museum of the San Rafael, the Pioneer Museum, the eight-branch Emery County Library system, the Utah State Archives & Records Service in Salt Lake City, the fully digitized Emery County Progress newspaper run, three university repositories (USU Special Collections, USU Eastern Prehistoric Museum, BYU L. Tom Perry Special Collections), and a step-by-step research workflow. Triggered by eec-site-publisher detecting vault status fact-checked + missing site content for Ch37 (vault Ch37_Archives_Museums_Libraries fact-checked 2026-05-20).' },
