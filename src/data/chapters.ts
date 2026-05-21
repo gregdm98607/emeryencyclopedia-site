@@ -314,7 +314,7 @@ export const CHAPTERS: Chapter[] = [
     wordCount: 3874
   },
 
-  // Part V: Field Guide (36-40)
+  // Part V: Field Guide (36) / Part VI: Research Tools (37-40)
   {
     number: 36,
     title: 'Travel & Logistics',
@@ -325,34 +325,34 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     number: 37,
-    title: 'Hiking & Trails',
-    part: 5,
-    status: 'stub',
-    description: 'Trail guide: day hikes, backpacking routes, difficulty ratings, and route descriptions.',
-    wordCount: 0
+    title: 'Archives, Museums & Libraries',
+    part: 6,
+    status: 'fact-checked',
+    description: 'The working back-of-the-book for Emery County research: the County Archives in Castle Dale, the Museum of the San Rafael, the Pioneer Museum, the eight-branch library system, the Utah State Archives, the fully digitized Emery County Progress run, three university repositories at USU and BYU, and the practical research workflow that ties them all together.',
+    wordCount: 4251
   },
   {
     number: 38,
-    title: 'Photography Spots',
-    part: 5,
-    status: 'stub',
-    description: 'Best locations for landscape and nature photography: light, season, and composition tips.',
-    wordCount: 0
+    title: 'Historic Registries',
+    part: 6,
+    status: 'fact-checked',
+    description: 'Emery County\'s 22 National Register of Historic Places listings, one National Historic Landmark (Cleveland-Lloyd Dinosaur Quarry), the parallel National Natural Landmark designation, the Old Spanish National Historic Trail, Jurassic National Monument (2019), and the procedural mechanics of how to nominate a property and what designation actually protects.',
+    wordCount: 3935
   },
   {
     number: 39,
-    title: 'Hot Springs, Waterfalls & Scenic Sites',
-    part: 5,
-    status: 'stub',
-    description: 'Guide to natural wonders: hot springs, waterfalls, geological formations, and special places.',
-    wordCount: 0
+    title: 'Mapping & GIS',
+    part: 6,
+    status: 'fact-checked',
+    description: 'Maps and digital tools for a county where four out of five acres are federal: USGS topographic quads (historic and current), statewide UGRC GIS portals, Emery County GIS parcel data, BLM Travel Management Plan maps, the 2024 statewide sub-meter lidar coverage, the Utah Geological Survey map series, and the field apps (CalTopo, Gaia GPS, onX) that put it all in a researcher\'s pocket.',
+    wordCount: 4861
   },
   {
     number: 40,
-    title: 'Wildlife Viewing & Natural History Sites',
-    part: 5,
+    title: 'Citizen Science',
+    part: 6,
     status: 'stub',
-    description: 'Best places and seasons for wildlife observation: animals, birds, and natural habitats.',
+    description: 'Community-driven science in Emery County: bird counts, sky-quality monitoring, paleontology volunteer programs, rock-art site stewardship, and the citizen-naturalist projects that extend professional research into the public.',
     wordCount: 0
   },
 
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-20', chapter: 39, action: 'Mapping & GIS published to site (4861 words; first publication; replaces prior Ch39 stub Hot Springs, Waterfalls & Scenic Sites; Part VI Research Tools; status: fact-checked; 8 sections covering USGS topographic quads historic and current (~30 7.5-minute quads to cover the county; HTMC scanned archive 1884-2006; US Topo since 2009), Utah Geospatial Resource Center (UGRC) statewide layers, Emery County GIS office parcel data, BLM Travel Management Plan interactive web maps, Utah Geological Survey 30x60 San Rafael Desert map and 1968 USGS Bulletin 1239, 2024 statewide aerial lidar coverage at sub-meter resolution, field apps (CalTopo, Gaia GPS, onX), and cross-references to Ch01 Geography, Ch02 Geology, Ch17 Mining, Ch36 Travel & Logistics. Triggered by eec-site-publisher detecting vault status fact-checked + missing site content for Ch39 (vault Ch39_Mapping_GIS fact-checked 2026-05-20).' },
+  { date: '2026-05-20', chapter: 38, action: 'Historic Registries published to site (3935 words; first publication; replaces prior Ch38 stub Photography Spots; Part VI Research Tools; status: fact-checked; covers 22 National Register of Historic Places listings (six address-restricted rock-art sites including Black Dragon Canyon, Buckhorn Wash, Ferron Box, Rochester-Muddy Creek, Temple Mountain Wash; Cleveland-Lloyd Dinosaur Quarry as the single National Historic Landmark), the parallel National Natural Landmark designation at Cleveland-Lloyd, the Old Spanish National Historic Trail, Jurassic National Monument proclaimed 2019, NHPA Section 106 review mechanics, federal/state/local registry interactions, the Utah SHPO and Emery County Historic Preservation Commission, and the practical nomination workflow. Triggered by eec-site-publisher detecting vault status fact-checked + missing site content for Ch38 (vault Ch38_Historic_Registries fact-checked 2026-05-20).' },
+  { date: '2026-05-20', chapter: 37, action: 'Archives, Museums & Libraries published to site (4251 words; first publication; replaces prior Ch37 stub Hiking & Trails; Part VI Research Tools; status: fact-checked; tour-format coverage of the Emery County Archives in Castle Dale (donated collections, oral histories, blog at emerycountyarchives.blogspot.com), the Museum of the San Rafael, the Pioneer Museum, the eight-branch Emery County Library system, the Utah State Archives & Records Service in Salt Lake City, the fully digitized Emery County Progress newspaper run, three university repositories (USU Special Collections, USU Eastern Prehistoric Museum, BYU L. Tom Perry Special Collections), and a step-by-step research workflow. Triggered by eec-site-publisher detecting vault status fact-checked + missing site content for Ch37 (vault Ch37_Archives_Museums_Libraries fact-checked 2026-05-20).' },
   { date: '2026-05-18', chapter: 36, action: 'Travel & Logistics published to site (~5792 words; first publication; replaces prior Ch36 stub Scenic Drives & Byways / Part 5; Part V Field Guide; 12 sections covering I-70 service-gap framing as longest in lower-48 USA, highway access (I-70 + SR-10/SR-29/SR-31/SR-24/SR-155 + backcountry roads), gateway communities (Green River, Price, Castle Dale, Ferron, Hanksville + secondary bases), lodging inventory by community, camping spectrum (state parks, BLM developed, BLM dispersed, USFS), fuel/food/water with "fill up every time" rule, cellular coverage gaps + satellite-communicator imperative, visitor centers and ranger stations (Travel Bureau, Powell, Goblin Valley, USU Eastern), permits and fees (Desolation lottery, Labyrinth recreation.gov, Goblin Valley, Cleveland-Lloyd), safety framework (EMSAR contact + Ten Essentials + Castleview Hospital transfer), four-season Wasatch Plateau / Swell climate split, outfitters and accessibility partial-access guide, five Emery-specific leave-no-trace rules; chapter status: draft)' },
   { date: '2026-05-18', chapter: 35, action: 'Night Sky Tourism published to site (~3874 words; first publication; replaces prior Ch35 stub Tourism & Visitor Experience / Part 4; Part V Field Guide; covers Goblin Valley State Park 2018 International Dark Sky designation, Bortle Class 1-2 skies across San Rafael Swell, Astronomers Without Borders observing programs, ranger-led star parties, Mars Desert Research Station near Hanksville as analog Mars-mission training facility, seasonal viewing windows including spring Milky Way galactic core and winter Orion/Pleiades, equipment guidance (naked eye, binoculars 10x50, dobsonian telescopes, astrophotography rigs), light-pollution preservation framework, and the public-lands etiquette - red flashlight only, no white-light campfires within viewing radius, leave-no-trace astronomy practice; chapter status: draft)' },
   { date: '2026-05-18', chapter: 34, action: 'Wildlife Watching published to site (~5187 words; first publication; replaces prior Ch34 stub Sports & Athletics / Part 4; Part V Field Guide; 12 sections covering three-habitat framing (Wasatch Plateau, San Rafael Swell, Green River corridor), big-game mammals (Utah largest desert bighorn herd, mule deer migration, elk rut bugling at Joe Valley Reservoir, pronghorn 55-mph runners along SR-10), small mammals and reptiles, raptors (golden eagle, bald eagle, peregrine falcon recovery, prairie falcon), songbirds and migrants, native fish (Bonneville cutthroat, Colorado pikeminnow, razorback sucker, humpback chub, three native chubs), Joe Valley Reservoir Blue Ribbon fishery, seasonal viewing calendar by month, ethical wildlife-watching practice (200-yard rule, no calling/baiting, leash dogs, leave no trace), key viewing locations (Wedge Overlook, Buckhorn Wash, Green River wetlands, Joe Valley), and the desert-bighorn population recovery success story from 1970s reintroduction; chapter status: revised; vault status revised since 2026-05-15)' },

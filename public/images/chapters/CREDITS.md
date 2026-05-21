@@ -4,7 +4,45 @@ All assets in this directory with the `_opensource_` prefix are derived from
 U.S. government works (public domain) or open-license sources. Proper attribution
 is provided below for each file.
 
-**Date accessed:** April 1, 2026
+**Date accessed:** April 1, 2026 (most entries); May 20, 2026 (Ch37–Ch39)
+
+---
+
+## Ch37 — Archives, Museums & Libraries
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch37_opensource_repository_network.png` |
+| **Description** | Schematic network diagram of the Emery County research repository ecosystem: County Archives, museums, the eight-branch Emery County Library System, the Utah State Archives, and three university Special Collections (USU, USU Eastern Prehistoric Museum, BYU). |
+| **Source** | Emery County Library System branch directory; Utah State Archives & Records Service public records; USU and BYU Special Collections institutional pages. |
+| **Agency** | State of Utah / Emery County / Utah State University / Brigham Young University (public records). |
+| **URL** | https://archives.utah.gov/ ; https://www.emerycountyarchives.org/ ; https://library.usu.edu/specialcollections ; https://lib.byu.edu/ |
+| **License** | Public domain (U.S. state/local government works); diagram generated with matplotlib. |
+| **Date accessed** | May 20, 2026 |
+
+## Ch38 — Historic Registries
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch38_opensource_nrhp_by_theme.png` |
+| **Description** | Bar chart breakdown of Emery County's 22 National Register of Historic Places listings by thematic category (rock art, mining & industry, civic/church buildings, transportation & trails, pioneer-era residences, archaeological districts). |
+| **Source** | National Park Service, National Register of Historic Places weekly listings, late September 2025. |
+| **Agency** | U.S. National Park Service (NPS). |
+| **URL** | https://www.nps.gov/subjects/nationalregister/ ; https://npgallery.nps.gov/NRHP/ |
+| **License** | Public domain (U.S. government work); chart generated with matplotlib. |
+| **Date accessed** | May 20, 2026 |
+
+## Ch39 — Mapping & GIS
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch39_opensource_usgs_quad_index.png` |
+| **Description** | Schematic index of the USGS 7.5-minute topographic quadrangles that cover Emery County, with approximate county boundary overlay. Each cell ≈ 7.5′ × 7.5′ at 1:24,000; roughly 30 quads cover the county. |
+| **Source** | USGS Historical Topographic Map Collection (HTMC) and topoView quadrangle index. |
+| **Agency** | U.S. Geological Survey (USGS). |
+| **URL** | https://ngmdb.usgs.gov/topoview/ ; https://store.usgs.gov/ |
+| **License** | Public domain (U.S. government work); schematic index generated with matplotlib (not a georeferenced map). |
+| **Date accessed** | May 20, 2026 |
 
 ---
 
