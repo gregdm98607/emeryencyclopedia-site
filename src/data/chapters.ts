@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Chapter data and definitions
  * Status: 'final' | 'revised' | 'fact-checked' | 'draft' | 'stub'
  */
@@ -309,9 +309,9 @@ export const CHAPTERS: Chapter[] = [
     number: 35,
     title: 'Night Sky Tourism',
     part: 5,
-    status: 'fact-checked',
-    description: "Dark skies as Emery County's emerging tourism resource: Goblin Valley State Park's 2018 International Dark Sky designation, Bortle Class 1-2 skies across the San Rafael Swell, the Astronomers Without Borders observing programs, ranger-led star parties, the Mars Desert Research Station near Hanksville, and the practical field-guide essentials - seasonal viewing windows, equipment, photography techniques, and the public-lands etiquette that keeps the county's night sky among the darkest in the lower 48.",
-    wordCount: 3623
+    status: 'revised',
+    description: "Dark skies as Emery County's emerging tourism resource: Goblin Valley State Park's 2016 International Dark Sky designation, Bortle Class 1-2 skies across the San Rafael Swell, ranger-led star parties, Venus transit dates (1874/1882) visible from the county, light-pollution trends from Kyba et al. (2023), and the practical field-guide essentials - seasonal viewing windows, equipment, photography techniques, and the public-lands etiquette that keeps the county's night sky among the darkest in the lower 48.",
+    wordCount: 4300
   },
 
   // Part V: Field Guide (36) / Part VI: Research Tools (37-40)
@@ -319,15 +319,15 @@ export const CHAPTERS: Chapter[] = [
     number: 36,
     title: 'Travel & Logistics',
     part: 5,
-    status: 'fact-checked',
-    description: "The practical infrastructure of visiting Emery County: I-70's longest service-station gap in the lower 48 (the 'fill up every time' rule), the gateway communities of Green River, Price, Castle Dale, Ferron, and Hanksville, lodging and camping by community and BLM dispersed area, fuel and food and water planning, the spotty cellular coverage that makes a satellite communicator close to mandatory, visitor centers and ranger stations, BLM and state-park permits and fees, the four-season climate split between the Wasatch Plateau and the Swell, EMSAR contact protocols, the Ten Essentials adapted for desert canyon country, and a sustainable-visitation framework.",
+    status: 'revised',
+    description: "The practical infrastructure of visiting Emery County: I-70's longest service-station gap in the lower 48 (the 'fill up every time' rule), the gateway communities of Green River (pop. 902), Price, Castle Dale, Ferron, and Hanksville, lodging and camping by community and BLM dispersed area, fuel and food and water planning, the spotty cellular coverage that makes a satellite communicator close to mandatory, visitor centers and ranger stations, BLM and state-park permits and fees, the four-season climate split between the Wasatch Plateau and the Swell, EMSAR contact protocols, the Ten Essentials adapted for desert canyon country, and a sustainable-visitation framework.",
     wordCount: 5699
   },
   {
     number: 37,
     title: 'Archives, Museums & Libraries',
     part: 6,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'The working back-of-the-book for Emery County research: the County Archives in Castle Dale, the Museum of the San Rafael, the Pioneer Museum, the eight-branch library system, the Utah State Archives, the fully digitized Emery County Progress run, three university repositories at USU and BYU, and the practical research workflow that ties them all together.',
     wordCount: 4251
   },
@@ -335,7 +335,7 @@ export const CHAPTERS: Chapter[] = [
     number: 38,
     title: 'Historic Registries',
     part: 6,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Emery County\'s 22 National Register of Historic Places listings, one National Historic Landmark (Cleveland-Lloyd Dinosaur Quarry), the parallel National Natural Landmark designation, the Old Spanish National Historic Trail, Jurassic National Monument (2019), and the procedural mechanics of how to nominate a property and what designation actually protects.',
     wordCount: 3935
   },
@@ -343,7 +343,7 @@ export const CHAPTERS: Chapter[] = [
     number: 39,
     title: 'Mapping & GIS',
     part: 6,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Maps and digital tools for a county where four out of five acres are federal: USGS topographic quads (historic and current), statewide UGRC GIS portals, Emery County GIS parcel data, BLM Travel Management Plan maps, the 2024 statewide sub-meter lidar coverage, the Utah Geological Survey map series, and the field apps (CalTopo, Gaia GPS, onX) that put it all in a researcher\'s pocket.',
     wordCount: 4861
   },
@@ -433,6 +433,11 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-23', chapter: 39, action: 'Mapping & GIS advanced to revised (vault Phase 8 revisions 2026-05-23; BLM TMP coverage confirmed for both San Rafael Swell + San Rafael Desert TMAs; Howland/Bishop absolutist claim softened to ''among the earliest systematic surveys''; status + wordCount synced 4861 -> 4500; existing assets retained)' },
+  { date: '2026-05-23', chapter: 38, action: 'Historic Registries advanced to revised (vault Phase 8 revisions 2026-05-23; Jurassic NM designation date corrected 2019 -> Jan. 17 2025; Desolation Canyon NHL date Nov. 24 1968 added; Old Spanish Trail tautology reworded; status + wordCount synced 3935 -> 4200; existing assets retained)' },
+  { date: '2026-05-23', chapter: 37, action: 'Archives, Museums & Libraries advanced to revised (vault Phase 8 revisions 2026-05-23; USU Eastern collections figure softened; ''twelve new dinosaur species'' softened to ''approximately a dozen''; Powell Museum panels claim softened; status + wordCount synced 4251 -> 4400; existing assets retained)' },
+  { date: '2026-05-23', chapter: 36, action: 'Travel & Logistics advanced to revised (vault Phase 8 revisions 2026-05-23; Green River census 847 -> 902; I-70 Glenwood Canyon 1992 caveat added to ''longest gap'' claim; status + wordCount synced 5699 -> 4900; existing assets retained)' },
+  { date: '2026-05-23', chapter: 35, action: 'Night Sky Tourism advanced to revised (vault Phase 8 revisions 2026-05-23; Venus transit dates corrected 1882/1883 -> 1874/1882 HIGH SEVERITY; IDSP count updated 24 -> 25+; BYU observatory corrected to Eyring Science Center / Orson Pratt 16-inch; Kyba 2023 citation added; status + wordCount synced 3623 -> 4300; existing assets retained)' },
   { date: '2026-05-20', chapter: 34, action: 'Wildlife Watching advanced to final (vault status final per eec-chapter-pipeline Phase 8 revision approval 2026-05-20; site ch34.md status + wordCount synced 5187 -> 4907; body content refreshed from updated vault draft incorporating Phase 4 fact-check corrections; existing assets retained per status-only-update rule)' },
   { date: '2026-05-20', chapter: 35, action: 'Night Sky Tourism advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline Phase 4 fact-check 2026-05-20 grade B+; site ch35.md status + wordCount synced 3874 -> 3623; body content refreshed from updated vault draft incorporating fact-check corrections — Venus transits 1874/1882 not 1882/1883, Utah IDSP count refresh from stale 24 to 27+, BYU Eyring Center observatory naming refinement, Kyba 2023 light-pollution citation; existing assets retained per status-only-update rule)' },
   { date: '2026-05-20', chapter: 36, action: 'Travel & Logistics advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline Phase 4 fact-check 2026-05-20 grade A-; site ch36.md status + wordCount synced 5792 -> 5699; body content refreshed from updated vault draft incorporating fact-check corrections — Green River 2020 Census 902 not 847, Glenwood Canyon 1992 caveat softening I-70 last-section claim, Desolation Canyon [needs verification] flag retained; existing assets retained per status-only-update rule)' },
