@@ -829,6 +829,29 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **License** | Public domain (U.S. government data); chart generated with matplotlib in the Desert Scholarly palette |
 | **Date accessed** | 2026-05-14 |
 
+### ch40_opensource_usgs_monitoring_network.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch40_opensource_usgs_monitoring_network.png` |
+| **Description** | Emery County, Utah — stream gauge monitoring locations and CoCoRaHS precipitation data gaps. Active USGS stream gauges (Huntington Creek, Ferron Creek, Cottonwood Creek, San Rafael River at Buckhorn) plotted against county geography, with the eastern San Rafael Swell data-sparse zone highlighted. Chart illustrates the monitoring gap that volunteer CoCoRaHS observers are specifically recruited to fill. |
+| **Source** | U.S. Geological Survey National Water Information System (waterdata.usgs.gov) · CoCoRaHS Network (cocorahs.org) |
+| **Agency** | U.S. Geological Survey (USGS) / NOAA CoCoRaHS |
+| **URL** | https://waterdata.usgs.gov/ut/nwis/current/?type=precip&group_key=basin_cd |
+| **License** | Public domain (U.S. government data); visualization generated with matplotlib using USGS NWIS station data |
+| **Date accessed** | 2026-05-25 |
+
+### ch40_generated_citizen_science_fieldwork.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch40_generated_citizen_science_fieldwork.png` |
+| **Description** | Field-guide illustration of citizen scientists conducting outdoor research in a Utah canyon desert landscape — birder with binoculars, CoCoRaHS rain gauge on wooden post, smartphone showing nature observation app, ancient petroglyph rock art on sandstone cliffs. Wide mesa views and sagebrush. Desert Scholarly palette. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) via Gemini API |
+| **Generated** | 2026-05-25 |
+| **Prompt style** | Scientific field-guide illustration style, fine linework, naturalistic detail, 16:9 aspect ratio, Desert Scholarly palette (#D4A574 / #3B2F2F / #7A8B6F / #A0522D / #F7F3ED / #2C5F7C). No text overlays. |
+| **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
+
 ### ch33_generated_climbing_canyoneering_rivers.png
 
 | Field | Value |

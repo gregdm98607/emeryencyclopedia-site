@@ -351,9 +351,9 @@ export const CHAPTERS: Chapter[] = [
     number: 40,
     title: 'Citizen Science',
     part: 6,
-    status: 'stub',
-    description: 'Community-driven science in Emery County: bird counts, sky-quality monitoring, paleontology volunteer programs, rock-art site stewardship, and the citizen-naturalist projects that extend professional research into the public.',
-    wordCount: 0
+    status: 'draft',
+    description: 'Community-driven science in Emery County: iNaturalist biodiversity documentation, eBird migration monitoring, CoCoRaHS precipitation filling a rural data gap, Globe at Night dark-sky measurement, Utah Water Watch stream quality, SKYWARN severe-weather spotting, paleontology and archaeological site stewardship, and the citizen-naturalist programs that extend professional research across one of the most data-sparse landscapes in the American West.',
+    wordCount: 4200
   },
 
   // Part VI: Resources (41-43)
@@ -433,10 +433,10 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
-  { date: '2026-05-23', chapter: 39, action: 'Mapping & GIS advanced to revised (vault Phase 8 revisions 2026-05-23; BLM TMP coverage confirmed for both San Rafael Swell + San Rafael Desert TMAs; Howland/Bishop absolutist claim softened to ''among the earliest systematic surveys''; status + wordCount synced 4861 -> 4500; existing assets retained)' },
+  { date: '2026-05-23', chapter: 39, action: 'Mapping & GIS advanced to revised (vault Phase 8 revisions 2026-05-23; BLM TMP coverage confirmed for both San Rafael Swell + San Rafael Desert TMAs; Howland/Bishop absolutist claim softened to \'among the earliest systematic surveys\'; status + wordCount synced 4861 -> 4500; existing assets retained)' },
   { date: '2026-05-23', chapter: 38, action: 'Historic Registries advanced to revised (vault Phase 8 revisions 2026-05-23; Jurassic NM designation date corrected 2019 -> Jan. 17 2025; Desolation Canyon NHL date Nov. 24 1968 added; Old Spanish Trail tautology reworded; status + wordCount synced 3935 -> 4200; existing assets retained)' },
-  { date: '2026-05-23', chapter: 37, action: 'Archives, Museums & Libraries advanced to revised (vault Phase 8 revisions 2026-05-23; USU Eastern collections figure softened; ''twelve new dinosaur species'' softened to ''approximately a dozen''; Powell Museum panels claim softened; status + wordCount synced 4251 -> 4400; existing assets retained)' },
-  { date: '2026-05-23', chapter: 36, action: 'Travel & Logistics advanced to revised (vault Phase 8 revisions 2026-05-23; Green River census 847 -> 902; I-70 Glenwood Canyon 1992 caveat added to ''longest gap'' claim; status + wordCount synced 5699 -> 4900; existing assets retained)' },
+  { date: '2026-05-23', chapter: 37, action: 'Archives, Museums & Libraries advanced to revised (vault Phase 8 revisions 2026-05-23; USU Eastern collections figure softened; \'twelve new dinosaur species\' softened to \'approximately a dozen\'; Powell Museum panels claim softened; status + wordCount synced 4251 -> 4400; existing assets retained)' },
+  { date: '2026-05-23', chapter: 36, action: 'Travel & Logistics advanced to revised (vault Phase 8 revisions 2026-05-23; Green River census 847 -> 902; I-70 Glenwood Canyon 1992 caveat added to \'longest gap\' claim; status + wordCount synced 5699 -> 4900; existing assets retained)' },
   { date: '2026-05-23', chapter: 35, action: 'Night Sky Tourism advanced to revised (vault Phase 8 revisions 2026-05-23; Venus transit dates corrected 1882/1883 -> 1874/1882 HIGH SEVERITY; IDSP count updated 24 -> 25+; BYU observatory corrected to Eyring Science Center / Orson Pratt 16-inch; Kyba 2023 citation added; status + wordCount synced 3623 -> 4300; existing assets retained)' },
   { date: '2026-05-20', chapter: 34, action: 'Wildlife Watching advanced to final (vault status final per eec-chapter-pipeline Phase 8 revision approval 2026-05-20; site ch34.md status + wordCount synced 5187 -> 4907; body content refreshed from updated vault draft incorporating Phase 4 fact-check corrections; existing assets retained per status-only-update rule)' },
   { date: '2026-05-20', chapter: 35, action: 'Night Sky Tourism advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline Phase 4 fact-check 2026-05-20 grade B+; site ch35.md status + wordCount synced 3874 -> 3623; body content refreshed from updated vault draft incorporating fact-check corrections — Venus transits 1874/1882 not 1882/1883, Utah IDSP count refresh from stale 24 to 27+, BYU Eyring Center observatory naming refinement, Kyba 2023 light-pollution citation; existing assets retained per status-only-update rule)' },
