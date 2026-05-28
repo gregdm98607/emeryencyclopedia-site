@@ -271,7 +271,7 @@ export const CHAPTERS: Chapter[] = [
     part: 5,
     status: 'final',
     description: "A practical field guide to Emery County's adventure landscape: San Rafael Swell slot canyons and OHV routes, Goblin Valley State Park, Joe's Valley world-class bouldering, multi-day Green River trips through Labyrinth and Desolation Canyons, Wasatch Plateau fishing, and the safety essentials for one of the most remote corners of the American West.",
-    wordCount: 5891
+    wordCount: 5512
   },
   {
     number: 31,
@@ -279,7 +279,7 @@ export const CHAPTERS: Chapter[] = [
     part: 5,
     status: 'final',
     description: 'From Goblin Valley State Park to Jurassic National Monument: Emery County\'s four state parks, a BLM national monument, and the 217,000-acre San Rafael Swell Recreation Area — each site\'s origin story, managing agencies, and what it offers visitors in one of the most protected public-land landscapes in the American West.',
-    wordCount: 7086
+    wordCount: 6826
   },
   {
     number: 32,
@@ -287,7 +287,7 @@ export const CHAPTERS: Chapter[] = [
     part: 5,
     status: 'final',
     description: "The complete trail grammar of Emery County: Buckhorn Wash Scenic Backway, Little Wild Horse and Bell Canyon slot-canyon loop, Black Box technical canyoneering, Muddy Creek wilderness backpacking, Joe's Valley mountain biking, the 600-mile Arapeen OHV system, Labyrinth Canyon river float, and the Old Spanish Trail historical corridor.",
-    wordCount: 5471
+    wordCount: 5262
   },
   {
     number: 33,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-27', chapter: 31, action: 'Parks & Monuments content body refreshed from vault (status unchanged: final; site ch31.md body content synced from vault Ch31_draft.md - prior site body trailed canonical vault by ~3000 words; wordCount 7086 -> 6826; lastUpdated 2026-05-27; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-27', chapter: 32, action: 'Trails & Routes content body refreshed from vault (status unchanged: final; site ch32.md body content synced from vault Ch32_draft.md - prior site body trailed canonical vault by ~2200 words; wordCount 5471 -> 5262; lastUpdated 2026-05-27; existing assets retained per status-only-update rule)' },
+  { date: '2026-05-27', chapter: 30, action: 'Landscapes of Adventure content body refreshed from vault (status unchanged: final; site ch30.md body content synced from vault Ch30_draft.md - prior site body trailed canonical vault by ~1100 words; wordCount 5891 -> 5512; lastUpdated 2026-05-27; existing assets retained per status-only-update rule)' },
   { date: '2026-05-23', chapter: 39, action: 'Mapping & GIS advanced to revised (vault Phase 8 revisions 2026-05-23; BLM TMP coverage confirmed for both San Rafael Swell + San Rafael Desert TMAs; Howland/Bishop absolutist claim softened to \'among the earliest systematic surveys\'; status + wordCount synced 4861 -> 4500; existing assets retained)' },
   { date: '2026-05-23', chapter: 38, action: 'Historic Registries advanced to revised (vault Phase 8 revisions 2026-05-23; Jurassic NM designation date corrected 2019 -> Jan. 17 2025; Desolation Canyon NHL date Nov. 24 1968 added; Old Spanish Trail tautology reworded; status + wordCount synced 3935 -> 4200; existing assets retained)' },
   { date: '2026-05-23', chapter: 37, action: 'Archives, Museums & Libraries advanced to revised (vault Phase 8 revisions 2026-05-23; USU Eastern collections figure softened; \'twelve new dinosaur species\' softened to \'approximately a dozen\'; Powell Museum panels claim softened; status + wordCount synced 4251 -> 4400; existing assets retained)' },
