@@ -205,7 +205,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'final',
     description: 'From pioneer founding cohort to post-coal crossroads: population boom and bust, LDS social architecture, an aging and shrinking workforce, school enrollment cliff, healthcare access gaps, and the resilience of a community navigating energy transition and demographic change.',
-    wordCount: 5415
+    wordCount: 5382
   },
   {
     number: 23,
@@ -223,7 +223,7 @@ export const CHAPTERS: Chapter[] = [
     part: 4,
     status: 'final',
     description: 'From dugout-classroom pioneer schoolhouses through the Emery Stake Academy (1889-1922), the three-high-school era, and the 1962 consolidation into the Emery High Spartans, to today\'s Emery County School District (ten schools, ~2,248 students), USU Eastern\'s Castle Dale education center, and the post-coal CTE pipeline confronting workforce transition - a 145-year arc of education in Castle Valley.',
-    wordCount: 3866
+    wordCount: 3832
   },
   {
     number: 25,
@@ -295,7 +295,7 @@ export const CHAPTERS: Chapter[] = [
     part: 5,
     status: 'final',
     description: "Emery County's technical outdoor recreation: Joe's Valley world-class bouldering (V0-V13+, mid-1990s development, Ben Moon's Black Lung), the San Rafael Swell's hidden canyons, Upper and Lower Black Box technical canyoneering, Muddy Creek and The Chute, Little Wild Horse and Bell Canyon family slots, the spring San Rafael River float through the Little Grand Canyon, and the Green River corridor staging Labyrinth Canyon (free permit) and Desolation Canyon (lottery permit) river trips - with flash flood safety, BLM permit guidance, seasonal calendar, and skill-level matrix.",
-    wordCount: 5841
+    wordCount: 5804
   },
   {
     number: 34,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-28', chapter: 22, action: 'Demography & Social Change body refreshed from vault Ch22_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~889 words; resynced. By a consistent whitespace body-count the body grew 4493 -> 5382 words; wordCount field set 5415 -> 5382 (prior field used a different legacy count method). readingTime 19 -> 18 min. lastUpdated 2026-05-28. Existing assets retained (content refresh, not a new chapter).' },
+  { date: '2026-05-28', chapter: 33, action: 'Climbing, Canyoneering & Rivers body refreshed from vault Ch33_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~889 words; resynced. By a consistent whitespace body-count the body grew 4915 -> 5804 words; wordCount field set 5841 -> 5804 (prior field used a different legacy count method). readingTime 20 -> 19 min. lastUpdated 2026-05-28. Existing assets retained (content refresh, not a new chapter).' },
+  { date: '2026-05-28', chapter: 24, action: 'Education & Learning body refreshed from vault Ch24_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~868 words; resynced. By a consistent whitespace body-count the body grew 2964 -> 3832 words; wordCount field set 3866 -> 3832 (prior field used a different legacy count method). readingTime 19 -> 13 min. lastUpdated 2026-05-28. Existing assets retained (content refresh, not a new chapter).' },
   { date: '2026-05-27', chapter: 31, action: 'Parks & Monuments content body refreshed from vault (status unchanged: final; site ch31.md body content synced from vault Ch31_draft.md - prior site body trailed canonical vault by ~3000 words; wordCount 7086 -> 6826; lastUpdated 2026-05-27; existing assets retained per status-only-update rule)' },
   { date: '2026-05-27', chapter: 32, action: 'Trails & Routes content body refreshed from vault (status unchanged: final; site ch32.md body content synced from vault Ch32_draft.md - prior site body trailed canonical vault by ~2200 words; wordCount 5471 -> 5262; lastUpdated 2026-05-27; existing assets retained per status-only-update rule)' },
   { date: '2026-05-27', chapter: 30, action: 'Landscapes of Adventure content body refreshed from vault (status unchanged: final; site ch30.md body content synced from vault Ch30_draft.md - prior site body trailed canonical vault by ~1100 words; wordCount 5891 -> 5512; lastUpdated 2026-05-27; existing assets retained per status-only-update rule)' },

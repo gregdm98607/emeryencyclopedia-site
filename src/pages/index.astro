@@ -1,4 +1,4 @@
----
+﻿---
 // index.astro — V5 Homepage with hero, pipeline tracker, featured chapters, about, and newsletter
 
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -80,6 +80,14 @@ const featuredChapters = CHAPTERS.filter(ch =>
         <p class="pipeline__progress-text">
           {status.final + status.revised + status['fact-checked']} of 43 chapters completed
         </p>
+      </div>
+      <div class="pipeline__newsletter" style="margin-top:2.5rem;padding:1.75rem;border-radius:10px;background:#F7F3ED;border:1px solid #D4A574;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">
+        <p style="margin:0 0 0.9rem;color:#3B2F2F;font-weight:600;">Follow the progress &mdash; get chapter release updates in your inbox.</p>
+        <form id="pipeline-newsletter-form" style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
+          <input type="email" name="email" placeholder="your@email.com" required style="padding:0.6rem 0.8rem;border:1px solid #D4A574;border-radius:6px;min-width:240px;font-size:1rem;" />
+          <button type="submit" style="padding:0.6rem 1.3rem;background:#2C5F7C;color:#F7F3ED;border:none;border-radius:6px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+        <p id="pipeline-newsletter-status" aria-live="polite" style="margin:0.8rem 0 0;min-height:1.2em;font-size:0.9rem;"></p>
       </div>
     </div>
   </section>
@@ -532,3 +540,34 @@ const featuredChapters = CHAPTERS.filter(ch =>
     }
   }
 </style>
+
+<script>
+  const pf = document.getElementById('pipeline-newsletter-form');
+  const ps = document.getElementById('pipeline-newsletter-status');
+  pf?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = pf.querySelector('button[type="submit"]');
+    const input = pf.querySelector('input[name="email"]');
+    const email = input.value.trim();
+    btn.disabled = true; btn.textContent = 'Sending...';
+    if (ps) { ps.textContent = ''; ps.style.color = ''; }
+    try {
+      // source: 'chapter' routes this subscriber to the eec-chapters Kit tag
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'chapter' }),
+      });
+      if (res.ok) {
+        if (ps) { ps.textContent = "You are in! Watch for new chapter announcements."; ps.style.color = '#7A8B6F'; }
+        input.value = '';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        if (ps) { ps.textContent = data.error || 'Something went wrong. Try again.'; ps.style.color = '#A0522D'; }
+      }
+    } catch {
+      if (ps) { ps.textContent = 'Something went wrong. Try again.'; ps.style.color = '#A0522D'; }
+    }
+    btn.disabled = false; btn.textContent = 'Subscribe';
+  });
+</script>
