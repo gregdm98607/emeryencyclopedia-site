@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Chapter data and definitions
  * Status: 'final' | 'revised' | 'fact-checked' | 'draft' | 'stub'
  */
@@ -181,7 +181,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'final',
     description: 'Water, the defining constraint of Emery County life: pioneer ditches and the 1890s salinization crisis, the federal Emery County Project (Joe\u2019s Valley, Huntington North, Millsite), the Colorado River Compact, the Emery Water Conservancy District, and the twenty-first-century megadrought.',
-    wordCount: 4617
+    wordCount: 4579
   },
   {
     number: 20,
@@ -189,7 +189,7 @@ export const CHAPTERS: Chapter[] = [
     part: 3,
     status: 'final',
     description: 'Pioneer canal-building and cooperative irrigation, the salinization crisis, the federal Emery County Project\'s dams and reservoirs, alfalfa and hay farming, Green River\'s celebrated melons, cattle and sheep ranching on public lands, and the water future facing Emery County agriculture.',
-    wordCount: 5086
+    wordCount: 5050
   },
   {
     number: 21,
@@ -231,7 +231,7 @@ export const CHAPTERS: Chapter[] = [
     part: 4,
     status: 'final',
     description: 'A 145-year religious history of Emery County: Indigenous spiritual landscapes that predate settlement, the 1882 LDS Emery Stake and 1982 Castle Dale/Ferron division, the Presbyterian mission school in Ferron (1906-1950s), Greek Orthodox spillover from the Carbon County coalfields after the 1924 Castle Gate disaster, two enduring small Catholic congregations, released-time seminary and Relief Society networks, and a 21st-century pluralization in which roughly one in three residents now claims no religious affiliation.',
-    wordCount: 5930
+    wordCount: 5884
   },
   {
     number: 26,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-29', chapter: 19, action: 'Water for the Desert body refreshed from vault Ch19_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~656 words; resynced. By a consistent whitespace body-count the body grew 3923 -> 4579 words; wordCount field set 4617 -> 4579. readingTime 18 -> 15 min. lastUpdated 2026-05-29. Existing assets retained (content refresh, not a new chapter).' },
+  { date: '2026-05-29', chapter: 20, action: 'Agriculture & Ranching body refreshed from vault Ch20_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~655 words; resynced. By a consistent whitespace body-count the body grew 4395 -> 5050 words; wordCount field set 5086 -> 5050. readingTime 17 min (unchanged). lastUpdated 2026-05-29. Existing assets retained (content refresh, not a new chapter).' },
+  { date: '2026-05-29', chapter: 25, action: 'Religious Life body refreshed from vault Ch25_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~669 words; resynced. By a consistent whitespace body-count the body grew 5215 -> 5884 words; wordCount field set 5930 -> 5884. readingTime 21 -> 20 min. lastUpdated 2026-05-29. Existing assets retained (content refresh, not a new chapter).' },
   { date: '2026-05-28', chapter: 22, action: 'Demography & Social Change body refreshed from vault Ch22_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~889 words; resynced. By a consistent whitespace body-count the body grew 4493 -> 5382 words; wordCount field set 5415 -> 5382 (prior field used a different legacy count method). readingTime 19 -> 18 min. lastUpdated 2026-05-28. Existing assets retained (content refresh, not a new chapter).' },
   { date: '2026-05-28', chapter: 33, action: 'Climbing, Canyoneering & Rivers body refreshed from vault Ch33_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~889 words; resynced. By a consistent whitespace body-count the body grew 4915 -> 5804 words; wordCount field set 5841 -> 5804 (prior field used a different legacy count method). readingTime 20 -> 19 min. lastUpdated 2026-05-28. Existing assets retained (content refresh, not a new chapter).' },
   { date: '2026-05-28', chapter: 24, action: 'Education & Learning body refreshed from vault Ch24_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~868 words; resynced. By a consistent whitespace body-count the body grew 2964 -> 3832 words; wordCount field set 3866 -> 3832 (prior field used a different legacy count method). readingTime 19 -> 13 min. lastUpdated 2026-05-28. Existing assets retained (content refresh, not a new chapter).' },
