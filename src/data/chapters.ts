@@ -335,25 +335,25 @@ export const CHAPTERS: Chapter[] = [
     number: 38,
     title: 'Historic Registries',
     part: 6,
-    status: 'revised',
+    status: 'final',
     description: 'Emery County\'s 22 National Register of Historic Places listings, one National Historic Landmark (Cleveland-Lloyd Dinosaur Quarry), the parallel National Natural Landmark designation, the Old Spanish National Historic Trail, Jurassic National Monument (2019), and the procedural mechanics of how to nominate a property and what designation actually protects.',
-    wordCount: 3935
+    wordCount: 3798
   },
   {
     number: 39,
     title: 'Mapping & GIS',
     part: 6,
-    status: 'revised',
+    status: 'final',
     description: 'Maps and digital tools for a county where four out of five acres are federal: USGS topographic quads (historic and current), statewide UGRC GIS portals, Emery County GIS parcel data, BLM Travel Management Plan maps, the 2024 statewide sub-meter lidar coverage, the Utah Geological Survey map series, and the field apps (CalTopo, Gaia GPS, onX) that put it all in a researcher\'s pocket.',
-    wordCount: 4861
+    wordCount: 4373
   },
   {
     number: 40,
     title: 'Citizen Science',
     part: 6,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Community-driven science in Emery County: iNaturalist biodiversity documentation, eBird migration monitoring, CoCoRaHS precipitation filling a rural data gap, Globe at Night dark-sky measurement, Utah Water Watch stream quality, SKYWARN severe-weather spotting, paleontology and archaeological site stewardship, and the citizen-naturalist programs that extend professional research across one of the most data-sparse landscapes in the American West.',
-    wordCount: 4200
+    wordCount: 4963
   },
 
   // Part VI: Resources (41-43)
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-31', chapter: 38, action: 'Historic Registries advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch38.md body resynced from vault Ch38_draft.md and status synced revised -> final; wordCount 3935 -> 3798 via consistent whitespace body-count; readingTime 21 -> 19 min; lastUpdated 2026-05-31; existing ch38 assets retained, status/content update only, no Part or title change).' },
+  { date: '2026-05-31', chapter: 39, action: 'Mapping and GIS advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch39.md body resynced from vault Ch39_draft.md and status synced revised -> final; wordCount 4861 -> 4373 via consistent whitespace body-count; readingTime 22 -> 22 min; lastUpdated 2026-05-31; existing ch39 assets retained, status/content update only).' },
+  { date: '2026-05-31', chapter: 40, action: 'Citizen Science advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline fact-check 2026-05-30; site ch40.md body resynced from vault Ch40_draft.md and status synced draft -> fact-checked; wordCount 4200 -> 4963 via consistent whitespace body-count; readingTime 17 -> 25 min; lastUpdated 2026-05-31; existing ch40 assets retained).' },
   { date: '2026-05-30', chapter: 35, action: 'Night Sky Tourism advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch35.md body refreshed from vault Ch35_draft.md and status synced revised -> final; wordCount field set 4300 -> 3873 by a consistent whitespace body-count; readingTime 21 -> 13 min; lastUpdated 2026-05-30; two chapter assets generated this run - ch35 carried no assets from its 2026-05-18 first publication).' },
   { date: '2026-05-30', chapter: 36, action: 'Travel and Logistics advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch36.md body refreshed from vault Ch36_draft.md and status synced revised -> final; wordCount field set 5699 -> 5798 - also reconciles a prior chapters.ts vs ch36.md mismatch where the data file lagged at 5699 while the md frontmatter read 4900; readingTime 24 -> 19 min; lastUpdated 2026-05-30; two chapter assets generated this run - ch36 carried no assets from its 2026-05-18 first publication).' },
   { date: '2026-05-30', chapter: 37, action: 'Archives, Museums and Libraries advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch37.md body refreshed from vault Ch37_draft.md and status synced revised -> final; wordCount field set 4400 -> 4039 by a consistent whitespace body-count; readingTime 22 -> 13 min; lastUpdated 2026-05-30; existing ch37 assets retained - status-and-content update, not a new chapter).' },
