@@ -4,7 +4,7 @@ All assets in this directory with the `_opensource_` prefix are derived from
 U.S. government works (public domain) or open-license sources. Proper attribution
 is provided below for each file.
 
-**Date accessed:** April 1, 2026 (most entries); May 20, 2026 (Ch37–Ch39)
+**Date accessed:** April 1, 2026 (most entries); May 20, 2026 (Ch37-Ch39); May 30, 2026 (Ch35-Ch36)
 
 ---
 
@@ -43,6 +43,30 @@ is provided below for each file.
 | **URL** | https://ngmdb.usgs.gov/topoview/ ; https://store.usgs.gov/ |
 | **License** | Public domain (U.S. government work); schematic index generated with matplotlib (not a georeferenced map). |
 | **Date accessed** | May 20, 2026 |
+
+## Ch35 - Night Sky Tourism
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch35_opensource_bortle_darksky_scale.png` |
+| **Description** | Information-design chart placing Emery County night-sky locations (San Rafael Swell interior, Goblin Valley State Park DarkSky Park, Wedge Overlook) on the nine-point Bortle dark-sky scale, against Castle Dale/Ferron, Price, and Salt Lake City reference points. |
+| **Source** | NPS Natural Sounds and Night Skies Division night-sky quality framework; DarkSky International park designations. |
+| **Agency** | U.S. National Park Service (NPS). |
+| **URL** | https://www.nps.gov/orgs/1050/index.htm ; https://www.nps.gov/subjects/nightskies/index.htm |
+| **License** | Public domain (U.S. government work); chart generated with matplotlib. |
+| **Date accessed** | May 30, 2026 |
+
+## Ch36 - Travel & Logistics
+
+| Field | Value |
+|-------|-------|
+| **Filename** | `ch36_opensource_gateway_highway_network.png` |
+| **Description** | Schematic map of Emery County gateway communities (Price, Castle Dale, Ferron, Green River, Hanksville, and others) and the regional highway network (I-70, US-6, SR-10, SR-24), annotating the I-70 service-station gap. Not to scale; not georeferenced. |
+| **Source** | Place coordinates from USGS Geographic Names Information System (GNIS); road alignments generalized from U.S. Census Bureau TIGER/Line. |
+| **Agency** | U.S. Geological Survey (USGS) / U.S. Census Bureau. |
+| **URL** | https://www.usgs.gov/tools/geographic-names-information-system-gnis ; https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html |
+| **License** | Public domain (U.S. government works); schematic generated with matplotlib. |
+| **Date accessed** | May 30, 2026 |
 
 ---
 

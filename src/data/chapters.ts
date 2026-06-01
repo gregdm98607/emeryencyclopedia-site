@@ -309,9 +309,9 @@ export const CHAPTERS: Chapter[] = [
     number: 35,
     title: 'Night Sky Tourism',
     part: 5,
-    status: 'revised',
+    status: 'final',
     description: "Dark skies as Emery County's emerging tourism resource: Goblin Valley State Park's 2016 International Dark Sky designation, Bortle Class 1-2 skies across the San Rafael Swell, ranger-led star parties, Venus transit dates (1874/1882) visible from the county, light-pollution trends from Kyba et al. (2023), and the practical field-guide essentials - seasonal viewing windows, equipment, photography techniques, and the public-lands etiquette that keeps the county's night sky among the darkest in the lower 48.",
-    wordCount: 4300
+    wordCount: 3873
   },
 
   // Part V: Field Guide (36) / Part VI: Research Tools (37-40)
@@ -319,17 +319,17 @@ export const CHAPTERS: Chapter[] = [
     number: 36,
     title: 'Travel & Logistics',
     part: 5,
-    status: 'revised',
+    status: 'final',
     description: "The practical infrastructure of visiting Emery County: I-70's longest service-station gap in the lower 48 (the 'fill up every time' rule), the gateway communities of Green River (pop. 902), Price, Castle Dale, Ferron, and Hanksville, lodging and camping by community and BLM dispersed area, fuel and food and water planning, the spotty cellular coverage that makes a satellite communicator close to mandatory, visitor centers and ranger stations, BLM and state-park permits and fees, the four-season climate split between the Wasatch Plateau and the Swell, EMSAR contact protocols, the Ten Essentials adapted for desert canyon country, and a sustainable-visitation framework.",
-    wordCount: 5699
+    wordCount: 5798
   },
   {
     number: 37,
     title: 'Archives, Museums & Libraries',
     part: 6,
-    status: 'revised',
+    status: 'final',
     description: 'The working back-of-the-book for Emery County research: the County Archives in Castle Dale, the Museum of the San Rafael, the Pioneer Museum, the eight-branch library system, the Utah State Archives, the fully digitized Emery County Progress run, three university repositories at USU and BYU, and the practical research workflow that ties them all together.',
-    wordCount: 4251
+    wordCount: 4039
   },
   {
     number: 38,
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-05-30', chapter: 35, action: 'Night Sky Tourism advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch35.md body refreshed from vault Ch35_draft.md and status synced revised -> final; wordCount field set 4300 -> 3873 by a consistent whitespace body-count; readingTime 21 -> 13 min; lastUpdated 2026-05-30; two chapter assets generated this run - ch35 carried no assets from its 2026-05-18 first publication).' },
+  { date: '2026-05-30', chapter: 36, action: 'Travel and Logistics advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch36.md body refreshed from vault Ch36_draft.md and status synced revised -> final; wordCount field set 5699 -> 5798 - also reconciles a prior chapters.ts vs ch36.md mismatch where the data file lagged at 5699 while the md frontmatter read 4900; readingTime 24 -> 19 min; lastUpdated 2026-05-30; two chapter assets generated this run - ch36 carried no assets from its 2026-05-18 first publication).' },
+  { date: '2026-05-30', chapter: 37, action: 'Archives, Museums and Libraries advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch37.md body refreshed from vault Ch37_draft.md and status synced revised -> final; wordCount field set 4400 -> 4039 by a consistent whitespace body-count; readingTime 22 -> 13 min; lastUpdated 2026-05-30; existing ch37 assets retained - status-and-content update, not a new chapter).' },
   { date: '2026-05-29', chapter: 19, action: 'Water for the Desert body refreshed from vault Ch19_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~656 words; resynced. By a consistent whitespace body-count the body grew 3923 -> 4579 words; wordCount field set 4617 -> 4579. readingTime 18 -> 15 min. lastUpdated 2026-05-29. Existing assets retained (content refresh, not a new chapter).' },
   { date: '2026-05-29', chapter: 20, action: 'Agriculture & Ranching body refreshed from vault Ch20_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~655 words; resynced. By a consistent whitespace body-count the body grew 4395 -> 5050 words; wordCount field set 5086 -> 5050. readingTime 17 min (unchanged). lastUpdated 2026-05-29. Existing assets retained (content refresh, not a new chapter).' },
   { date: '2026-05-29', chapter: 25, action: 'Religious Life body refreshed from vault Ch25_draft.md (status unchanged: final). Prior site body trailed the canonical vault by ~669 words; resynced. By a consistent whitespace body-count the body grew 5215 -> 5884 words; wordCount field set 5930 -> 5884. readingTime 21 -> 20 min. lastUpdated 2026-05-29. Existing assets retained (content refresh, not a new chapter).' },
