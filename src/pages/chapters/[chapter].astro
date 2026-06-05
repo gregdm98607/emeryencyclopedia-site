@@ -1,152 +1,217 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import ChapterFooter from '../../components/ChapterFooter.astro';
+import CrossRef from '../../components/CrossRef.astro';
+import FigureImage from '../../components/FigureImage.astro';
+import TriviaCallout from '../../components/engagement/TriviaCallout.astro';
+import ScavengerHunt from '../../components/engagement/ScavengerHunt.astro';
+import FamilyActivity from '../../components/engagement/FamilyActivity.astro';
+import { getPartLabel, getPartColor } from '../../utils/parts';
 
 export async function getStaticPaths() {
   const chapters = await getCollection('chapters');
-  return chapters.map(entry => ({
+  return chapters.map((entry) => ({
     params: { chapter: String(entry.data.chapter) },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+const { chapter, title, part, description, wordCount = 0, readingTime, related = [], heroImage } = entry.data;
+
+const partLabel = getPartLabel(part);
+const partColor = getPartColor(part);
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+// Reconnected components are made available to MDX chapters without per-file imports.
+const mdxComponents = { CrossRef, FigureImage, TriviaCallout, ScavengerHunt, FamilyActivity };
+
+// Prefer explicit readingTime; otherwise estimate from wordCount (~225 wpm).
+const readMins = readingTime ?? (wordCount > 0 ? `${Math.ceil(wordCount / 225)} min read` : null);
 ---
 
-<BaseLayout title={`Chapter ${entry.data.chapter}: ${entry.data.title}`} description={entry.data.description}>
-  <article class="chapter-content">
-    <header class="chapter-header">
-      <div class="chapter-header__container">
-        <a href="/chapters" class="chapter-back">← Table of Contents</a>
-        <div class="chapter-meta">
-          <span class="chapter-number">Chapter {entry.data.chapter}</span>
-        </div>
-        <h1 class="chapter-title">{entry.data.title}</h1>
-        {entry.data.description && (
-          <p class="chapter-description">{entry.data.description}</p>
-        )}
-        {entry.data.readingTime && (
-          <span class="chapter-reading-time">{entry.data.readingTime}</span>
-        )}
-      </div>
-    </header>
+<BaseLayout title={`Chapter ${chapter}: ${title}`} description={description} image={heroImage}>
+  <div class={`chapter ${tocHeadings.length ? '' : 'chapter--full'}`} data-part={part} style={`--part-color: ${partColor}`}>
+    <nav class="chapter__breadcrumb" aria-label="Breadcrumb" data-pagefind-ignore>
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/chapters">Chapters</a>
+      <span aria-hidden="true">/</span>
+      <span>Part {part}: {partLabel}</span>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Ch.&nbsp;{chapter}</span>
+    </nav>
 
-    <div class="chapter-body">
-      <div class="chapter-body__container">
-        <Content />
-      </div>
+    <div class="chapter__grid">
+      {tocHeadings.length > 0 && (
+        <aside class="chapter__toc" data-pagefind-ignore>
+          <TableOfContents headings={tocHeadings} />
+        </aside>
+      )}
+
+      <article class="chapter__main">
+        <header class="chapter__header">
+          <p class="chapter__eyebrow">Part {part} · {partLabel}</p>
+          <h1 class="chapter__title">{title}</h1>
+          {description && <p class="chapter__lede">{description}</p>}
+          {(readMins || wordCount > 0) && (
+            <p class="chapter__meta">
+              {wordCount > 0 && `${wordCount.toLocaleString()} words`}
+              {wordCount > 0 && readMins && ' · '}
+              {readMins}
+            </p>
+          )}
+        </header>
+
+        <div class="prose">
+          <Content components={mdxComponents} />
+        </div>
+
+        <div data-pagefind-ignore>
+          <ChapterFooter chapter={chapter} part={part} related={related} />
+        </div>
+      </article>
     </div>
-  </article>
+  </div>
 </BaseLayout>
 
 <style>
-  /* Palette + font tokens inherited from global.css :root (single source of truth). */
-
-  .chapter-header {
-    background: linear-gradient(135deg, var(--coal-seam) 0%, rgba(26, 26, 46, 0.95) 100%);
-    color: var(--sky-wash);
-    padding: 3rem 2rem;
-  }
-
-  .chapter-header__container {
-    max-width: 800px;
+  .chapter {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 1.5rem 2rem 4rem;
   }
 
-  .chapter-back {
-    display: inline-block;
-    color: rgba(247, 243, 237, 0.7);
+  .chapter__breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--color-muted-text);
+    margin-bottom: 2rem;
+  }
+  .chapter__breadcrumb a {
+    color: var(--color-link);
     text-decoration: none;
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
-    transition: color 0.2s;
   }
+  .chapter__breadcrumb a:hover { text-decoration: underline; }
 
-  .chapter-back:hover {
-    color: var(--sky-wash);
+  .chapter__grid {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
   }
+  .chapter--full .chapter__grid { grid-template-columns: minmax(0, 1fr); }
 
-  .chapter-meta {
-    margin-bottom: 0.75rem;
+  .chapter__main { min-width: 0; }
+
+  .chapter__header {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
-
-  .chapter-number {
-    font-size: 0.875rem;
+  .chapter__eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: var(--text-xs);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--sandstone);
+    letter-spacing: 0.05em;
+    color: var(--part-color, var(--color-cta));
+  }
+  .chapter__title {
+    margin: 0 0 1rem;
+    font-size: var(--text-2xl);
+    line-height: 1.15;
+  }
+  .chapter__lede {
+    margin: 0;
+    font-size: var(--text-md);
+    color: var(--color-muted-text);
+    max-width: 65ch;
+  }
+  .chapter__meta {
+    margin: 1rem 0 0;
+    font-size: var(--text-sm);
+    color: var(--color-muted-text);
   }
 
-  .chapter-title {
-    margin: 0 0 1rem 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: var(--font-display);
-    line-height: 1.2;
-  }
+  /* Offset in-page anchor jumps so headings clear the sticky site header. */
+  .prose :is(h2, h3) { scroll-margin-top: 6rem; }
 
-  .chapter-description {
-    margin: 0 0 1rem 0;
-    font-size: 1.125rem;
-    color: rgba(247, 243, 237, 0.85);
-    line-height: 1.6;
-  }
-
-  .chapter-reading-time {
-    font-size: 0.875rem;
-    color: rgba(247, 243, 237, 0.6);
-  }
-
-  .chapter-body {
-    padding: 3rem 2rem;
-  }
-
-  .chapter-body__container {
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: var(--font-body);
-    font-size: 1.0625rem;
-    line-height: 1.75;
-    color: var(--coal-seam);
-  }
-
-  .chapter-body__container :global(h1),
-  .chapter-body__container :global(h2),
-  .chapter-body__container :global(h3) {
-    font-family: var(--font-display);
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .chapter-body__container :global(p) {
-    margin-bottom: 1.25rem;
-  }
-
-  .chapter-body__container :global(ul),
-  .chapter-body__container :global(ol) {
-    margin-bottom: 1.25rem;
-    padding-left: 1.5rem;
-  }
-
-  .chapter-body__container :global(hr) {
-    border: none;
-    border-top: 1px solid rgba(212, 165, 116, 0.3);
-    margin: 2rem 0;
-  }
-
-  @media (max-width: 768px) {
-    .chapter-header {
-      padding: 2rem 1.5rem;
-    }
-
-    .chapter-title {
-      font-size: 1.75rem;
-    }
-
-    .chapter-body {
-      padding: 2rem 1.5rem;
-    }
+  @media (max-width: 960px) {
+    .chapter { padding: 1rem 1.25rem 3rem; }
+    .chapter__grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .chapter__toc { display: none; }
   }
 </style>
+
+<!-- Figure lightbox for in-prose images (reconnects the FigureImage lightbox behavior to markdown images) -->
+<style is:global>
+  .chapter-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(26, 26, 46, 0.9);
+    cursor: zoom-out;
+  }
+  .chapter-lightbox__img {
+    max-width: 92vw;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+  .chapter-lightbox__cap {
+    margin: 0;
+    max-width: 70ch;
+    text-align: center;
+    color: var(--sky-wash);
+    font-size: var(--text-sm);
+  }
+</style>
+
+<script>
+  const proseImages = document.querySelectorAll<HTMLImageElement>('.prose img');
+  proseImages.forEach((img) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.className = 'chapter-lightbox';
+
+      const big = img.cloneNode(true) as HTMLImageElement;
+      big.removeAttribute('style');
+      big.className = 'chapter-lightbox__img';
+      overlay.appendChild(big);
+
+      const caption = img.getAttribute('alt');
+      if (caption) {
+        const cap = document.createElement('p');
+        cap.className = 'chapter-lightbox__cap';
+        cap.textContent = caption;
+        overlay.appendChild(cap);
+      }
+
+      function close() {
+        overlay.remove();
+        document.removeEventListener('keydown', onKey);
+      }
+      function onKey(e: KeyboardEvent) {
+        if (e.key === 'Escape') close();
+      }
+      overlay.addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+      document.body.appendChild(overlay);
+    });
+  });
+</script>
