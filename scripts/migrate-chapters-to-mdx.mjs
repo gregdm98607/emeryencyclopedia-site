@@ -37,10 +37,16 @@ function stripFrontmatter(src) {
 
 function mdxHazards(body) {
   const hazards = [];
-  // "<" + letter, excluding Markdown autolinks (<https://...>, <mailto:...>)
-  const tagLike = body.match(/<(?!https?:|mailto:)[A-Za-z][^>\s]*/g) || [];
-  if (tagLike.length) hazards.push(`${tagLike.length}x "<tag" (e.g. ${tagLike[0]})`);
-  if (body.includes('</')) hazards.push('closing "</"');
+  // Markdown autolinks are INVALID in MDX (<https://...>, <a@b.com>) — MDX parses
+  // them as JSX tags. Use a bare URL or [text](url) instead.
+  if (/<(?:https?:\/\/|mailto:)/i.test(body)) hazards.push('autolink <url>');
+  if (/<[^<>@\s]+@[^<>\s]+>/.test(body)) hazards.push('email autolink <a@b>');
+  // "<" before a digit parses as a tag in MDX (e.g. "<5,000"); escape as &lt;.
+  if (/<\d/.test(body)) hazards.push('"<" before a digit');
+  // Raw lowercase HTML tags (e.g. <figure>, <br>) — convert to a component or escape.
+  // (Uppercase <Component> tags are intended in .mdx and are NOT flagged.)
+  const rawTags = body.match(/<\/?[a-z][a-z0-9]*[\s/>]/g) || [];
+  if (rawTags.length) hazards.push(`${rawTags.length}x raw HTML tag (e.g. ${rawTags[0].trim()})`);
   if (body.includes('{')) hazards.push('"{" expression char');
   return hazards;
 }

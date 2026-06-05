@@ -97,3 +97,8 @@
 - Verified: build exit 0 (55 pages); figures render (caption + Source credit + lightbox); ch42 PDF links kept;
   escaped <-digit renders as text; TOC/prev-next intact.
 - Net: every chapter is now MDX and can use inline components; the publisher already writes .mdx going forward.
+- PR #9 CI catch: GitHub Actions build (clean checkout) failed on ch28.mdx:325 — Markdown autolinks
+  `<https://...>` are INVALID in MDX. LOCAL builds passed because Astro's content cache (.astro) masked it.
+  Lesson: always clear `node_modules/.astro` for an authoritative MDX build. Fixed: unwrapped ch28's 31
+  autolinks to bare URLs (GFM auto-links them); tightened migrate-chapters scan to flag autolinks, `<`+digit,
+  and raw lowercase HTML tags. Clean build (cache cleared) → exit 0, 55 pages, ch28 URLs render as links.
