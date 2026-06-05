@@ -96,6 +96,21 @@ Deliver four categorized outputs:
       then `npm run build`; (3) convert the 14 flagged chapters' <figure> HTML to <FigureImage/> and migrate those.
       The publisher then keeps chapters as `.mdx` going forward.
 
+## Implementation — Full MDX chapter migration (2026-06-05)
+- [x] Converted all 19 raw HTML `<figure>` blocks across 14 chapters to `<FigureImage/>` (script for the 18
+      uniform ones; ch42 by hand because its figcaption had `<a>` PDF download links → moved to a Markdown line).
+      Fixed two pre-existing content bugs in those figures: backslash `src="\images\..."` → `/images/...`,
+      and malformed `<\strong>` closing tags. Source attribution → the `credit` prop.
+- [x] FigureImage credit label changed "Photo:" → "Source:" (accurate for the site's maps/diagrams/illustrations;
+      no other consumers).
+- [x] Migrated ALL 43 chapters `.md` → `.mdx` (29 pure renames + 14 figure-converted).
+- [x] Build caught a hazard the scan missed: `<` + digit (e.g. "<6,000 ft", "<2%") parses as a JSX tag in MDX.
+      Escaped those 4 occurrences (`<` → `&lt;`) in ch04/ch05/ch42. (Heuristic only flagged `<letter`.)
+- Verified: build exit 0, 55 pages; ch02/ch42 figures render via FigureImage (caption + "Source:" credit + lightbox);
+      ch42 PDF links preserved; `&lt;6,000 ft` renders as text; TOC/prev-next furniture intact on chapter pages.
+- Chapters can now use inline components (CrossRef/Trivia/ScavengerHunt/FamilyActivity/FigureImage). The updated
+      eec-site-publisher writes `.mdx` going forward, so future syncs stay consistent.
+
 ## Notes
 - Astro 6.1.2, @astrojs/sitemap, @vercel/analytics, pagefind (search), xlsx (census build).
 - Engagement layer exists: ScavengerHunt, TriviaCallout, FamilyActivity — unusual for an encyclopedia, worth assessing.
