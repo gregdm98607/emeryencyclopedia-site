@@ -79,6 +79,23 @@ Deliver four categorized outputs:
   the sync must emit .mdx (or run a converter); otherwise a .md + .mdx with the same chapter number would collide.
   Until then, .md chapters still get the auto furniture (TOC/prev-next/lightbox).
 
+## Implementation — Vault→Site Sync (MDX) (2026-06-05)
+- [x] Updated the external sync pipeline `~/.claude/Scheduled/eec-site-publisher/SKILL.md` (step 3) to be MDX-aware:
+      - Writes `ch{NN}.mdx` when the site supports MDX (detects `@astrojs/mdx` in package.json), else legacy `.md`.
+        → capability-gated, so it stays on `.md` until the MDX PR (#8) is merged to master; no premature breakage.
+      - Collision-safe: after writing one extension, deletes the sibling (`.md`/`.mdx`) so a chapter never has both
+        (two entries with the same `chapter:` number break the build).
+      - MDX-safety guidance: escape literal `<`/`{` in prose; keep real component tags + autolinks intact.
+      - Engagement-aware: render the vault's `Ch{NN}_engagement_sidebars.md` as <TriviaCallout>/<ScavengerHunt>/
+        <FamilyActivity>/<FigureImage>/<CrossRef> (provided globally, no imports). Only render authored content.
+- [x] Added repo tool `scripts/migrate-chapters-to-mdx.mjs` — scans chapters for MDX hazards ("<tag", "</", "{"),
+      renames only the MDX-safe ones (--write), flags the rest. Dry-run report: **29 MDX-safe, 14 flagged**
+      (the 14 embed raw HTML `<figure>` blocks → convert to <FigureImage/> before migrating). Confirms a blind
+      bulk rename would have broken the build.
+- Sequencing: (1) merge PR #8 (adds @astrojs/mdx to master); (2) run `node scripts/migrate-chapters-to-mdx.mjs --write`
+      then `npm run build`; (3) convert the 14 flagged chapters' <figure> HTML to <FigureImage/> and migrate those.
+      The publisher then keeps chapters as `.mdx` going forward.
+
 ## Notes
 - Astro 6.1.2, @astrojs/sitemap, @vercel/analytics, pagefind (search), xlsx (census build).
 - Engagement layer exists: ScavengerHunt, TriviaCallout, FamilyActivity — unusual for an encyclopedia, worth assessing.
