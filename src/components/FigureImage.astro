@@ -60,7 +60,7 @@ const { src, alt, caption, credit, annotations = [], width, height } = Astro.pro
   {(caption || credit) && (
     <figcaption class="figure-caption">
       {caption && <span>{caption}</span>}
-      {credit && <span class="figure-credit">Photo: {credit}</span>}
+      {credit && <span class="figure-credit">Source: {credit}</span>}
     </figcaption>
   )}
 </figure>
