@@ -62,3 +62,16 @@
 - Files changed: global.css, BaseLayout, ArticleLayout, Header, Footer, about, resources,
   chapters/index, chapters/[chapter], index, ChapterCard, explore, contact.
 - Verified: build exit 0, no errors.
+
+## Session 2026-06-05 — MDX migration (reconnect orphaned components)
+- Branch: feature/mdx-chapter-furniture (off quick-wins/design-system).
+- Enabled @astrojs/mdx; collection globs accept .md + .mdx.
+- Rebuilt chapters/[chapter].astro: sticky TOC + breadcrumb + .prose + ChapterFooter (prev/next + related)
+  + figure lightbox, all inside BaseLayout. Component map wired so MDX chapters can use CrossRef/FigureImage/
+  TriviaCallout/ScavengerHunt/FamilyActivity. data-pagefind-ignore on chrome.
+- articles/[slug].astro passes the component map too.
+- Converted castle-dale-1880 article to .mdx with a TriviaCallout + CrossRef(16) (also fixed stale Ch18 ref).
+- Deleted superseded ChapterLayout.astro (orphaned, missing site nav, /part/ 404).
+- Reconnected for all 43 chapters with no content edits: TableOfContents, ChapterFooter, figure lightbox.
+- Verified build (exit 0) + dist greps + dev smoke test (chapter + article 200, no overlay).
+- Follow-up: vault->site sync must emit .mdx for inline CrossRef/engagement in chapters (else .md/.mdx collision).

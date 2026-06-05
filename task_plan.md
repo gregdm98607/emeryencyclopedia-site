@@ -59,6 +59,26 @@ Deliver four categorized outputs:
 |-------|---------|------------|
 | Source Sans 3 not applying after first build | 1 | @fontsource-variable registers family "Source Sans 3 Variable"; switched to static @fontsource/source-sans-3 (family "Source Sans 3") so existing refs resolve. |
 
+## Implementation — MDX Migration / reconnect orphaned components (2026-06-05)
+- [x] Installed @astrojs/mdx ^6.0.2; added mdx() to astro.config integrations; collection globs now **/*.{md,mdx}.
+- [x] Rebuilt src/pages/chapters/[chapter].astro into a two-column layout inside BaseLayout (keeps site Header/Footer):
+      sticky TableOfContents (from render() headings), fixed breadcrumb (no /part/ 404), .prose body using the
+      global design system, ChapterFooter (prev/next + related), and a figure lightbox for .prose images.
+      Passes a components map {CrossRef, FigureImage, TriviaCallout, ScavengerHunt, FamilyActivity} to <Content/>
+      so MDX chapters can use them with no per-file imports. Search hygiene: data-pagefind-ignore on breadcrumb/TOC/footer.
+- [x] articles/[slug].astro also passes the components map to <Content/>.
+- [x] Demo: converted castle-dale-1880.md -> .mdx and added a <TriviaCallout/> + <CrossRef chapter={16}/>
+      (the CrossRef also fixed a stale "Chapter 18" reference; companion is Ch16).
+- [x] Deleted superseded orphaned src/layouts/ChapterLayout.astro (it lacked the site Header/Footer and had a /part/ 404).
+- Reconnected for ALL chapters with zero content changes: TableOfContents, ChapterFooter (prev/next+related), figure lightbox.
+  CrossRef + engagement widgets are now usable in any .mdx (proven live on the article).
+- Verified: build exit 0; ch2 shows toc-sidebar + chapter-nav + Related Reading + breadcrumb; TOC anchors match heading ids;
+  prev/next -> /chapters/1 and /chapters/3; article renders trivia-callout + crossref ("Ch16: Mormon Colonization");
+  pagefind 55 pages; dev smoke test /chapters/2 + /articles/castle-dale-1880 -> 200, no overlay.
+- FOLLOW-UP (operational): the vault->site sync writes chNN.md. To use CrossRef/engagement INLINE in the 43 chapters,
+  the sync must emit .mdx (or run a converter); otherwise a .md + .mdx with the same chapter number would collide.
+  Until then, .md chapters still get the auto furniture (TOC/prev-next/lightbox).
+
 ## Notes
 - Astro 6.1.2, @astrojs/sitemap, @vercel/analytics, pagefind (search), xlsx (census build).
 - Engagement layer exists: ScavengerHunt, TriviaCallout, FamilyActivity — unusual for an encyclopedia, worth assessing.
