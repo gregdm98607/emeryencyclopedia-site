@@ -1,80 +1,22 @@
 ---
 // Footer.astro — V9 Rich three-column footer with chapter index and newsletter
+// Chapter index is generated from src/data/chapters.ts (single source of truth).
+import { CHAPTERS } from '../data/chapters';
+import { getAllParts } from '../utils/parts';
 
 const currentYear = new Date().getFullYear();
 
-const parts = [
-  {
-    name: 'Part I: Foundations',
-    color: '#D4A574',
-    chapters: [
-      { num: 1, title: 'Geography & Physiography', available: true },
-      { num: 2, title: 'Deep-Time Geology', available: true },
-      { num: 3, title: 'Hydrology & Springs', available: true },
-      { num: 4, title: 'Climate & Weather', available: true },
-      { num: 5, title: 'Flora Zones', available: true },
-      { num: 6, title: 'Fauna', available: true },
-      { num: 7, title: 'Night Skies & Astronomy', available: true }
-    ]
-  },
-  {
-    name: 'Part II: Peoples',
-    color: '#C85A54',
-    chapters: [
-      { num: 8, title: 'Ancestral Puebloans & Fremont', available: true },
-      { num: 9, title: 'Fremont Culture', available: true },
-      { num: 10, title: 'Numic Expansion', available: true },
-      { num: 11, title: 'Navajo & Puebloan Interactions', available: true },
-      { num: 12, title: 'Rock Art & Sacred Landscapes', available: true },
-      { num: 13, title: 'Archaeological Stewardship', available: true }
-    ]
-  },
-  {
-    name: 'Part III: Settlement',
-    color: '#1A1A2E',
-    chapters: [
-      { num: 14, title: 'Spanish Trails & Fur Trappers', available: true },
-      { num: 15, title: 'Powell Expeditions', available: true },
-      { num: 16, title: 'Mormon Colonization', available: true },
-      { num: 17, title: 'Coal, Copper & Uranium', available: true },
-      { num: 18, title: 'Rails, Roads & Infrastructure', available: true },
-      { num: 19, title: 'Water for the Desert', available: true },
-      { num: 20, title: 'Agriculture & Ranching', available: false },
-      { num: 22, title: 'Communities & Towns', available: false }
-    ]
-  },
-  {
-    name: 'Part IV: Culture & Identity',
-    color: '#4A6741',
-    chapters: [
-      { num: 24, title: 'Arts & Music', available: false },
-      { num: 25, title: 'Food & Foodways', available: false },
-      { num: 26, title: 'Oral Histories & Stories', available: false },
-      { num: 27, title: 'Celebrations & Traditions', available: false },
-      { num: 28, title: 'Notable People & Leaders', available: false }
-    ]
-  },
-  {
-    name: 'Part V: Field Guide',
-    color: '#5B8AC5',
-    chapters: [
-      { num: 36, title: 'Scenic Drives', available: false },
-      { num: 37, title: 'Hiking & Trails', available: false },
-      { num: 38, title: 'Photography Spots', available: false },
-      { num: 39, title: 'Hot Springs & Waterfalls', available: false },
-      { num: 40, title: 'Wildlife Viewing', available: false }
-    ]
-  },
-  {
-    name: 'Part VI: Resources',
-    color: '#8B6F47',
-    chapters: [
-      { num: 41, title: 'Further Reading', available: true },
-      { num: 42, title: 'Glossary', available: true },
-      { num: 43, title: 'Systematic Index', available: true }
-    ]
-  }
-];
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+
+// Every part, every chapter, in order — availability derived from publish status.
+const parts = getAllParts().map((part) => ({
+  name: `Part ${ROMAN[part.number] ?? part.number}: ${part.label}`,
+  color: part.color,
+  chapters: CHAPTERS
+    .filter((ch) => ch.part === part.number)
+    .sort((a, b) => a.number - b.number)
+    .map((ch) => ({ num: ch.number, title: ch.title, available: ch.status !== 'stub' })),
+}));
 ---
 
 <footer class="footer">
@@ -180,15 +122,7 @@ const parts = [
 </footer>
 
 <style>
-  :root {
-    --sandstone: #D4A574;
-    --mesa-red: #C85A54;
-    --coal-seam: #1A1A2E;
-    --sky-wash: #F7F3ED;
-    --forest-green: #4A6741;
-    --sky-blue: #5B8AC5;
-    --canyon-bronze: #8B6F47;
-  }
+  /* Palette + font tokens inherited from global.css :root (single source of truth). */
 
   .footer {
     background: var(--coal-seam);

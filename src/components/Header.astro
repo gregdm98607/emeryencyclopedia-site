@@ -1,70 +1,26 @@
 ---
 // Header.astro — V10 Header with navigation, mega-menu, and mobile hamburger
+// Chapters mega-menu is generated from src/data/chapters.ts (single source of truth).
+import { CHAPTERS } from '../data/chapters';
+import { getAllParts } from '../utils/parts';
 
 const currentPath = Astro.url.pathname;
 
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+
+// Group chapters under their part, in chapter order, straight from the data.
+const chapterSubmenu = getAllParts().map((part) => ({
+  part: `Part ${ROMAN[part.number] ?? part.number}: ${part.label}`,
+  color: part.color,
+  chapters: CHAPTERS
+    .filter((ch) => ch.part === part.number)
+    .sort((a, b) => a.number - b.number)
+    .map((ch) => ({ num: ch.number, title: ch.title })),
+}));
+
 const navItems = [
   { label: 'Home', href: '/', submenu: null },
-  {
-    label: 'Chapters',
-    href: '/chapters',
-    submenu: [
-      {
-        part: 'Part I: Foundations',
-        color: 'var(--sandstone)',
-        chapters: [
-          { num: '1', title: 'Geography & Physiography' },
-          { num: '2', title: 'Deep-Time Geology' },
-          { num: '3', title: 'Hydrology & Springs' }
-        ]
-      },
-      {
-        part: 'Part II: Peoples',
-        color: 'var(--mesa-red)',
-        chapters: [
-          { num: '8', title: 'Ancestral & Fremont Peoples' },
-          { num: '9', title: 'Ute Territory & Culture' },
-          { num: '10', title: 'Paiute & Shoshone Presence' }
-        ]
-      },
-      {
-        part: 'Part III: Settlement',
-        color: 'var(--coal-seam)',
-        chapters: [
-          { num: '16', title: 'Mormon Colonization' },
-          { num: '17', title: 'Coal, Copper & Uranium' },
-          { num: '18', title: 'Rails, Roads & Infrastructure' }
-        ]
-      },
-      {
-        part: 'Part IV: Culture & Identity',
-        color: 'var(--forest-green)',
-        chapters: [
-          { num: '24', title: 'Arts & Music' },
-          { num: '25', title: 'Food & Foodways' },
-          { num: '26', title: 'Oral Histories & Stories' }
-        ]
-      },
-      {
-        part: 'Part V: Field Guide',
-        color: 'var(--sky-blue)',
-        chapters: [
-          { num: '36', title: 'Scenic Drives' },
-          { num: '37', title: 'Hiking & Trails' },
-          { num: '38', title: 'Photography Spots' }
-        ]
-      },
-      {
-        part: 'Part VI: Resources',
-        color: 'var(--canyon-bronze)',
-        chapters: [
-          { num: '41', title: 'Practical Information' },
-          { num: '42', title: 'Glossary' },
-          { num: '43', title: 'Index' }
-        ]
-      }
-    ]
-  },
+  { label: 'Chapters', href: '/chapters', submenu: chapterSubmenu },
   { label: 'Explore', href: '/explore', submenu: null },
   { label: 'About', href: '/about', submenu: null },
   { label: 'Resources', href: '/resources', submenu: null },
@@ -210,15 +166,7 @@ function isActive(href: string): boolean {
 </header>
 
 <style>
-  :root {
-    --sandstone: #D4A574;
-    --mesa-red: #C85A54;
-    --coal-seam: #1A1A2E;
-    --sky-wash: #F7F3ED;
-    --forest-green: #4A6741;
-    --sky-blue: #5B8AC5;
-    --canyon-bronze: #8B6F47;
-  }
+  /* Palette + font tokens inherited from global.css :root (single source of truth). */
 
   .header {
     position: sticky;
@@ -320,6 +268,8 @@ function isActive(href: string): boolean {
     color: var(--sky-wash);
     padding: 2rem;
     margin-top: 0.5rem;
+    max-height: min(75vh, 620px);
+    overflow-y: auto;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.3s ease, opacity 0.3s ease;
