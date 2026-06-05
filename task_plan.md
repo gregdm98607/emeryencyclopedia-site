@@ -59,6 +59,43 @@ Deliver four categorized outputs:
 |-------|---------|------------|
 | Source Sans 3 not applying after first build | 1 | @fontsource-variable registers family "Source Sans 3 Variable"; switched to static @fontsource/source-sans-3 (family "Source Sans 3") so existing refs resolve. |
 
+## Implementation — MDX Migration / reconnect orphaned components (2026-06-05)
+- [x] Installed @astrojs/mdx ^6.0.2; added mdx() to astro.config integrations; collection globs now **/*.{md,mdx}.
+- [x] Rebuilt src/pages/chapters/[chapter].astro into a two-column layout inside BaseLayout (keeps site Header/Footer):
+      sticky TableOfContents (from render() headings), fixed breadcrumb (no /part/ 404), .prose body using the
+      global design system, ChapterFooter (prev/next + related), and a figure lightbox for .prose images.
+      Passes a components map {CrossRef, FigureImage, TriviaCallout, ScavengerHunt, FamilyActivity} to <Content/>
+      so MDX chapters can use them with no per-file imports. Search hygiene: data-pagefind-ignore on breadcrumb/TOC/footer.
+- [x] articles/[slug].astro also passes the components map to <Content/>.
+- [x] Demo: converted castle-dale-1880.md -> .mdx and added a <TriviaCallout/> + <CrossRef chapter={16}/>
+      (the CrossRef also fixed a stale "Chapter 18" reference; companion is Ch16).
+- [x] Deleted superseded orphaned src/layouts/ChapterLayout.astro (it lacked the site Header/Footer and had a /part/ 404).
+- Reconnected for ALL chapters with zero content changes: TableOfContents, ChapterFooter (prev/next+related), figure lightbox.
+  CrossRef + engagement widgets are now usable in any .mdx (proven live on the article).
+- Verified: build exit 0; ch2 shows toc-sidebar + chapter-nav + Related Reading + breadcrumb; TOC anchors match heading ids;
+  prev/next -> /chapters/1 and /chapters/3; article renders trivia-callout + crossref ("Ch16: Mormon Colonization");
+  pagefind 55 pages; dev smoke test /chapters/2 + /articles/castle-dale-1880 -> 200, no overlay.
+- FOLLOW-UP (operational): the vault->site sync writes chNN.md. To use CrossRef/engagement INLINE in the 43 chapters,
+  the sync must emit .mdx (or run a converter); otherwise a .md + .mdx with the same chapter number would collide.
+  Until then, .md chapters still get the auto furniture (TOC/prev-next/lightbox).
+
+## Implementation — Vault→Site Sync (MDX) (2026-06-05)
+- [x] Updated the external sync pipeline `~/.claude/Scheduled/eec-site-publisher/SKILL.md` (step 3) to be MDX-aware:
+      - Writes `ch{NN}.mdx` when the site supports MDX (detects `@astrojs/mdx` in package.json), else legacy `.md`.
+        → capability-gated, so it stays on `.md` until the MDX PR (#8) is merged to master; no premature breakage.
+      - Collision-safe: after writing one extension, deletes the sibling (`.md`/`.mdx`) so a chapter never has both
+        (two entries with the same `chapter:` number break the build).
+      - MDX-safety guidance: escape literal `<`/`{` in prose; keep real component tags + autolinks intact.
+      - Engagement-aware: render the vault's `Ch{NN}_engagement_sidebars.md` as <TriviaCallout>/<ScavengerHunt>/
+        <FamilyActivity>/<FigureImage>/<CrossRef> (provided globally, no imports). Only render authored content.
+- [x] Added repo tool `scripts/migrate-chapters-to-mdx.mjs` — scans chapters for MDX hazards ("<tag", "</", "{"),
+      renames only the MDX-safe ones (--write), flags the rest. Dry-run report: **29 MDX-safe, 14 flagged**
+      (the 14 embed raw HTML `<figure>` blocks → convert to <FigureImage/> before migrating). Confirms a blind
+      bulk rename would have broken the build.
+- Sequencing: (1) merge PR #8 (adds @astrojs/mdx to master); (2) run `node scripts/migrate-chapters-to-mdx.mjs --write`
+      then `npm run build`; (3) convert the 14 flagged chapters' <figure> HTML to <FigureImage/> and migrate those.
+      The publisher then keeps chapters as `.mdx` going forward.
+
 ## Notes
 - Astro 6.1.2, @astrojs/sitemap, @vercel/analytics, pagefind (search), xlsx (census build).
 - Engagement layer exists: ScavengerHunt, TriviaCallout, FamilyActivity — unusual for an encyclopedia, worth assessing.

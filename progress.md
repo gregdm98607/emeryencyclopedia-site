@@ -62,3 +62,27 @@
 - Files changed: global.css, BaseLayout, ArticleLayout, Header, Footer, about, resources,
   chapters/index, chapters/[chapter], index, ChapterCard, explore, contact.
 - Verified: build exit 0, no errors.
+
+## Session 2026-06-05 — MDX migration (reconnect orphaned components)
+- Branch: feature/mdx-chapter-furniture (off quick-wins/design-system).
+- Enabled @astrojs/mdx; collection globs accept .md + .mdx.
+- Rebuilt chapters/[chapter].astro: sticky TOC + breadcrumb + .prose + ChapterFooter (prev/next + related)
+  + figure lightbox, all inside BaseLayout. Component map wired so MDX chapters can use CrossRef/FigureImage/
+  TriviaCallout/ScavengerHunt/FamilyActivity. data-pagefind-ignore on chrome.
+- articles/[slug].astro passes the component map too.
+- Converted castle-dale-1880 article to .mdx with a TriviaCallout + CrossRef(16) (also fixed stale Ch18 ref).
+- Deleted superseded ChapterLayout.astro (orphaned, missing site nav, /part/ 404).
+- Reconnected for all 43 chapters with no content edits: TableOfContents, ChapterFooter, figure lightbox.
+- Verified build (exit 0) + dist greps + dev smoke test (chapter + article 200, no overlay).
+- Follow-up: vault->site sync must emit .mdx for inline CrossRef/engagement in chapters (else .md/.mdx collision).
+
+## Session 2026-06-05 — Vault→site sync update (MDX-aware)
+- Located the sync pipeline: external scheduled skill ~/.claude/Scheduled/eec-site-publisher/SKILL.md
+  (writes ch{NN}.md to the repo; git-auto-push deploys). Updated step 3 to be MDX-aware:
+  capability-detected (.mdx only if @astrojs/mdx present, else .md), collision-safe (never both extensions
+  for a chapter), MDX-safe prose (escape stray <,{), and engagement-aware (render vault Ch{NN}_engagement_sidebars
+  as TriviaCallout/ScavengerHunt/FamilyActivity/FigureImage/CrossRef, no imports).
+- Added scripts/migrate-chapters-to-mdx.mjs (scan + safe rename + flag). Dry-run: 29 MDX-safe, 14 flagged
+  (14 embed raw HTML <figure> blocks — convert to <FigureImage/> first). A blind rename would have broken the build.
+- Did NOT run the bulk rename (master lacks MDX until PR #8 merges; 14 need <figure> conversion first).
+- Sequencing documented in task_plan.md.

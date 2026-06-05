@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const chapters = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/chapters' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/chapters' }),
   schema: z.object({
     title: z.string(),
     chapter: z.number(),
@@ -21,7 +21,7 @@ const chapters = defineCollection({
 // pair with chapters (or stand alone). First use: Castle Dale 1880 teaser,
 // paired with Ch18 "Communities & Towns". Register 4 (EEC-AG — public-facing).
 const articles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

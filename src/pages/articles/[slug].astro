@@ -2,6 +2,13 @@
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { CHAPTERS } from '../../data/chapters';
+import CrossRef from '../../components/CrossRef.astro';
+import FigureImage from '../../components/FigureImage.astro';
+import TriviaCallout from '../../components/engagement/TriviaCallout.astro';
+import ScavengerHunt from '../../components/engagement/ScavengerHunt.astro';
+import FamilyActivity from '../../components/engagement/FamilyActivity.astro';
+
+const mdxComponents = { CrossRef, FigureImage, TriviaCallout, ScavengerHunt, FamilyActivity };
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -34,5 +41,5 @@ const companionChapter = entry.data.companionToChapter
   lastUpdated={entry.data.lastUpdated}
   image={entry.data.heroImage}
 >
-  <Content />
+  <Content components={mdxComponents} />
 </ArticleLayout>
