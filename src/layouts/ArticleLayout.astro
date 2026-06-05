@@ -91,7 +91,7 @@ const computedReadingTime = readingTime ?? (wordCount > 0 ? `~${Math.ceil(wordCo
       <span>{title}</span>
     </nav>
 
-    <article class="article-content">
+    <article class="article-content" data-pagefind-body>
       <header class="article-header">
         <div class="article-kind-label">
           {kindLabel[kind] ?? 'Article'}
