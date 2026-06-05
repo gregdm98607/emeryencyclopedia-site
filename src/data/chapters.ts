@@ -351,9 +351,9 @@ export const CHAPTERS: Chapter[] = [
     number: 40,
     title: 'Citizen Science',
     part: 6,
-    status: 'fact-checked',
+    status: 'revised',
     description: 'Community-driven science in Emery County: iNaturalist biodiversity documentation, eBird migration monitoring, CoCoRaHS precipitation filling a rural data gap, Globe at Night dark-sky measurement, Utah Water Watch stream quality, SKYWARN severe-weather spotting, paleontology and archaeological site stewardship, and the citizen-naturalist programs that extend professional research across one of the most data-sparse landscapes in the American West.',
-    wordCount: 4963
+    wordCount: 4980
   },
 
   // Part VI: Resources (41-43)
@@ -435,6 +435,7 @@ export const chapters = CHAPTERS;
 export const changelog = [
   { date: '2026-05-31', chapter: 38, action: 'Historic Registries advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch38.md body resynced from vault Ch38_draft.md and status synced revised -> final; wordCount 3935 -> 3798 via consistent whitespace body-count; readingTime 21 -> 19 min; lastUpdated 2026-05-31; existing ch38 assets retained, status/content update only, no Part or title change).' },
   { date: '2026-05-31', chapter: 39, action: 'Mapping and GIS advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch39.md body resynced from vault Ch39_draft.md and status synced revised -> final; wordCount 4861 -> 4373 via consistent whitespace body-count; readingTime 22 -> 22 min; lastUpdated 2026-05-31; existing ch39 assets retained, status/content update only).' },
+  { date: '2026-06-04', chapter: 40, action: 'Citizen Science advanced to revised (vault status revised per eec-chapter-pipeline Phase 8 revision 2026-06-04; 4 fact-check corrections applied: iNaturalist independent nonprofit (HIGH), Cleveland-Lloyd bones 15,000→12,000 (MED), CoCoRaHS 1997 hailstorm→flash flood (MED), Globe at Night cite Cinzano & Falchi→Kyba et al. 2013 (LOW); site ch40.md body resynced from vault Ch40_draft.md and status synced fact-checked -> revised; wordCount 4963 -> 4980; lastUpdated 2026-06-04; existing ch40 assets retained, status/content update only, no Part or title change; 6 [needs verification] flags retained in vault).' },
   { date: '2026-05-31', chapter: 40, action: 'Citizen Science advanced to fact-checked (vault status fact-checked per eec-chapter-pipeline fact-check 2026-05-30; site ch40.md body resynced from vault Ch40_draft.md and status synced draft -> fact-checked; wordCount 4200 -> 4963 via consistent whitespace body-count; readingTime 17 -> 25 min; lastUpdated 2026-05-31; existing ch40 assets retained).' },
   { date: '2026-05-30', chapter: 35, action: 'Night Sky Tourism advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch35.md body refreshed from vault Ch35_draft.md and status synced revised -> final; wordCount field set 4300 -> 3873 by a consistent whitespace body-count; readingTime 21 -> 13 min; lastUpdated 2026-05-30; two chapter assets generated this run - ch35 carried no assets from its 2026-05-18 first publication).' },
   { date: '2026-05-30', chapter: 36, action: 'Travel and Logistics advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch36.md body refreshed from vault Ch36_draft.md and status synced revised -> final; wordCount field set 5699 -> 5798 - also reconciles a prior chapters.ts vs ch36.md mismatch where the data file lagged at 5699 while the md frontmatter read 4900; readingTime 24 -> 19 min; lastUpdated 2026-05-30; two chapter assets generated this run - ch36 carried no assets from its 2026-05-18 first publication).' },
