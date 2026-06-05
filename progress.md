@@ -86,3 +86,14 @@
   (14 embed raw HTML <figure> blocks — convert to <FigureImage/> first). A blind rename would have broken the build.
 - Did NOT run the bulk rename (master lacks MDX until PR #8 merges; 14 need <figure> conversion first).
 - Sequencing documented in task_plan.md.
+
+## Session 2026-06-05 — Convert 14 figure chapters + full MDX migration
+- Branch: feature/mdx-figure-chapters (off master, which now has MDX).
+- Converted all 19 <figure> HTML blocks (14 chapters) to <FigureImage/> (script for 18 uniform; ch42 by hand —
+  its figcaption had <a> PDF links, moved to a Markdown line). Fixed backslash src paths + malformed <\strong>.
+- FigureImage credit label "Photo:" -> "Source:".
+- Migrated all 43 chapters .md -> .mdx (29 clean + 14 converted).
+- Build surfaced a scan gap: "<" + digit ("<6,000 ft","<2%") breaks MDX; escaped 4 spots in ch04/ch05/ch42.
+- Verified: build exit 0 (55 pages); figures render (caption + Source credit + lightbox); ch42 PDF links kept;
+  escaped <-digit renders as text; TOC/prev-next intact.
+- Net: every chapter is now MDX and can use inline components; the publisher already writes .mdx going forward.
