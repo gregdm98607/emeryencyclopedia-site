@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getAllStudies } from '../../data/studies';
+
+const studies = getAllStudies();
+const articles = await getCollection('articles');
+
+// Count published articles per study for the card meta line.
+const countForStudy = (slug: string) =>
+  articles.filter((a) => a.data.series === slug).length;
+
+const pageTitle = 'One Place Studies';
+const description =
+  'One Place Studies follow a single Emery County community in depth — its households, records, and families — through articles published as they are written.';
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="studies-index">
+    <header class="studies-hero">
+      <h1>One Place Studies</h1>
+      <p class="lede">{description}</p>
+    </header>
+
+    {studies.length === 0 ? (
+      <p class="empty">No studies yet. Check back soon.</p>
+    ) : (
+      <div class="study-list">
+        {studies.map((study) => {
+          const count = countForStudy(study.slug);
+          return (
+            <a
+              href={`/studies/${study.slug}/`}
+              class="study-card"
+              style={`--study-color: ${study.color}`}
+            >
+              <div class="study-card__border"></div>
+              <div class="study-card__place">{study.place}</div>
+              <h2 class="study-card__title">{study.title}</h2>
+              <p class="study-card__tagline">{study.tagline}</p>
+              <div class="study-card__meta">
+                {count} {count === 1 ? 'article' : 'articles'} published
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    )}
+
+    <p class="studies-footnote">
+      Looking for one-off pieces? Browse <a href="/articles/">all articles &amp; vignettes &rarr;</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .studies-index {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  .studies-hero { margin-bottom: 2.5rem; }
+  .studies-hero h1 {
+    font-family: var(--font-display, 'Libre Baskerville', serif);
+    font-size: 2.5rem;
+    margin: 0 0 0.75rem;
+  }
+  .lede {
+    font-size: 1.125rem;
+    color: var(--color-text-muted, #555);
+    line-height: 1.6;
+    max-width: 65ch;
+    margin: 0;
+  }
+  .empty {
+    padding: 3rem 0;
+    color: var(--color-text-muted, #777);
+    text-align: center;
+  }
+  .study-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .study-card {
+    position: relative;
+    display: block;
+    padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border-light, #e5e5e5);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .study-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  .study-card__border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--study-color, #C85A54);
+  }
+  .study-card__place {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--study-color, #C85A54);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .study-card__title {
+    font-family: var(--font-display, 'Libre Baskerville', serif);
+    font-size: 1.375rem;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+  .study-card__tagline {
+    margin: 0 0 0.75rem;
+    color: var(--color-text-muted, #555);
+    line-height: 1.5;
+  }
+  .study-card__meta {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted, #777);
+  }
+  .studies-footnote {
+    margin-top: 2.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted, #777);
+  }
+  .studies-footnote a {
+    color: var(--color-accent-primary, #C85A54);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .studies-footnote a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .studies-index { padding: 2rem 1rem; }
+    .studies-hero h1 { font-size: 1.75rem; }
+  }
+</style>

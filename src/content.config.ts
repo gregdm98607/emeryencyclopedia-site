@@ -18,8 +18,9 @@ const chapters = defineCollection({
 });
 
 // Articles / vignettes / companion pieces — standalone reader-facing pages that
-// pair with chapters (or stand alone). First use: Castle Dale 1880 teaser,
-// paired with Ch18 "Communities & Towns". Register 4 (EEC-AG — public-facing).
+// pair with chapters and/or belong to a One Place Study series (or stand alone).
+// First use: Castle Dale 1880 teaser, anchored to Ch16 "Mormon Colonization" and
+// the Castle Dale One Place Study. Register 4 (EEC-AG — public-facing).
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
@@ -29,6 +30,10 @@ const articles = defineCollection({
     // Pairing metadata — how this article relates to the encyclopedia proper
     companionToChapter: z.number().optional(),
     companionToSection: z.string().optional(),
+    // Series metadata — One Place Study membership (see src/data/studies.ts).
+    // `series` is a study slug; `seriesOrder` controls ordering within the study.
+    series: z.string().optional(),
+    seriesOrder: z.number().optional(),
     // Dataset link — if the article is an entry-point into a data page
     datasetPath: z.string().optional(),
     // Reader metadata

@@ -8,6 +8,8 @@ interface Props {
   companionToChapter?: number;
   companionToSection?: string;
   companionChapterTitle?: string;
+  seriesSlug?: string;
+  seriesTitle?: string;
   datasetPath?: string;
   datasetLabel?: string;
   wordCount?: number;
@@ -24,6 +26,8 @@ const {
   companionToChapter,
   companionToSection,
   companionChapterTitle,
+  seriesSlug,
+  seriesTitle,
   datasetPath,
   datasetLabel,
   wordCount = 0,
@@ -103,6 +107,11 @@ const computedReadingTime = readingTime ?? (wordCount > 0 ? `~${Math.ceil(wordCo
             </>
           )}
         </div>
+        {seriesSlug && seriesTitle && (
+          <div class="article-series-label">
+            Part of the <a href={`/studies/${seriesSlug}/`}>{seriesTitle}</a>
+          </div>
+        )}
         <h1>{title}</h1>
         <p class="article-description">{description}</p>
         {(computedReadingTime || publishDate) && (
@@ -206,6 +215,22 @@ const computedReadingTime = readingTime ?? (wordCount > 0 ? `~${Math.ceil(wordCo
   }
 
   .article-kind-label a:hover {
+    text-decoration: underline;
+  }
+
+  .article-series-label {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .article-series-label a {
+    color: var(--color-accent-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .article-series-label a:hover {
     text-decoration: underline;
   }
 
