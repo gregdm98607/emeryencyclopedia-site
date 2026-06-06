@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { CHAPTERS } from '../../data/chapters';
+import { getStudy } from '../../data/studies';
 import CrossRef from '../../components/CrossRef.astro';
 import FigureImage from '../../components/FigureImage.astro';
 import TriviaCallout from '../../components/engagement/TriviaCallout.astro';
@@ -25,6 +26,9 @@ const { Content } = await render(entry);
 const companionChapter = entry.data.companionToChapter
   ? CHAPTERS.find(ch => ch.number === entry.data.companionToChapter)
   : null;
+
+// Resolve the One Place Study this article belongs to, if any
+const study = entry.data.series ? getStudy(entry.data.series) : null;
 ---
 
 <ArticleLayout
@@ -34,6 +38,8 @@ const companionChapter = entry.data.companionToChapter
   companionToChapter={entry.data.companionToChapter}
   companionToSection={entry.data.companionToSection}
   companionChapterTitle={companionChapter?.title}
+  seriesSlug={study?.slug}
+  seriesTitle={study?.title}
   datasetPath={entry.data.datasetPath}
   wordCount={entry.data.wordCount}
   readingTime={entry.data.readingTime}
