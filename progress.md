@@ -97,6 +97,18 @@
 - Verified: build exit 0 (55 pages); figures render (caption + Source credit + lightbox); ch42 PDF links kept;
   escaped <-digit renders as text; TOC/prev-next intact.
 - Net: every chapter is now MDX and can use inline components; the publisher already writes .mdx going forward.
+
+## Session 2026-06-05 — Ch19 engagement worked example (reference for publisher)
+- Branch: feature/ch19-engagement (off master).
+- Converted Ch19_engagement_sidebars.md → inline components in ch19.mdx at the sidebar's "Location in Chapter":
+  after 19.3 → 2× TriviaCallout + FamilyActivity (Mini Irrigation); after 19.4 → TriviaCallout (Stewardship
+  historical callout, with §source); after 19.6 → reservoir factbox as a Markdown table + FamilyActivity
+  (Visit a Reservoir); after 19.8 → FamilyActivity (Interview an expert); after 19.11 → FamilyActivity
+  (Water Detectives) + ScavengerHunt (8 items). Factbox → Markdown table (not a component).
+- Left the existing trailing "## Engagement Features" markdown section untouched (different/older content;
+  mild thematic overlap only) — publisher/Greg can reconcile.
+- Clean build (cache cleared) exit 0; ch19 renders 3 trivia-callout, 4 family-activity, 1 scavenger-hunt,
+  the reservoir table, and keeps TOC + prev/next.
 - PR #9 CI catch: GitHub Actions build (clean checkout) failed on ch28.mdx:325 — Markdown autolinks
   `<https://...>` are INVALID in MDX. LOCAL builds passed because Astro's content cache (.astro) masked it.
   Lesson: always clear `node_modules/.astro` for an authoritative MDX build. Fixed: unwrapped ch28's 31
