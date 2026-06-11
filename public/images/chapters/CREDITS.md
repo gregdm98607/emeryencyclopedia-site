@@ -886,3 +886,26 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **Generated** | 2026-05-14 |
 | **Prompt style** | Field-guide gouache illustration, triptych composition, 16:9 aspect ratio, Desert Scholarly palette (#D4A574 / #3B2F2F / #7A8B6F / #A0522D / #F7F3ED / #2C5F7C) |
 | **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
+
+
+### ch42_opensource_geologic_timescale.jpg
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch42_opensource_geologic_timescale.jpg` |
+| **Description** | Divisions of Geologic Time chart (2018) - major chronostratigraphic and geochronologic units approved by the USGS Geologic Names Committee. |
+| **Source agency** | U.S. Geological Survey (USGS), Youth and Education in Science |
+| **URL** | https://www.usgs.gov/media/images/divisions-geologic-time-2018 |
+| **License** | Public Domain (U.S. Government work) |
+| **Date accessed** | 2026-06-10 |
+
+### ch42_generated_glossary_reference.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch42_generated_glossary_reference.png` |
+| **Description** | Information-design illustration of a naturalist's reference collection - index cards, specimen tags, field notebook, magnifying glass, and stylized desert landform icons (mesa, canyon, juniper, night sky). No text overlays. |
+| **Model** | Google Imagen 4 (`imagen-4.0-generate-001`) via Gemini API |
+| **Generated** | 2026-06-10 |
+| **Prompt style** | Information-design flat vector illustration, 16:9 aspect ratio, Desert Scholarly palette (#D4A574 / #3B2F2F / #7A8B6F / #A0522D / #F7F3ED / #2C5F7C). No text overlays. |
+| **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
