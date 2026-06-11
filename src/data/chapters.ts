@@ -361,25 +361,25 @@ export const CHAPTERS: Chapter[] = [
     number: 41,
     title: 'Further Reading',
     part: 6,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Curated bibliography and further reading for deeper exploration of Emery County topics.',
-    wordCount: 1475
+    wordCount: 2709
   },
   {
     number: 42,
     title: 'Glossary',
     part: 6,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Definitions of geological, cultural, historical, and technical terms used throughout the encyclopedia.',
-    wordCount: 2183
+    wordCount: 4398
   },
   {
     number: 43,
     title: 'Systematic Index',
     part: 6,
-    status: 'draft',
+    status: 'fact-checked',
     description: 'Comprehensive index enabling cross-reference navigation through topics, names, places, and concepts.',
-    wordCount: 1280
+    wordCount: 2466
   }
 ];
 
@@ -433,6 +433,9 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-06-10', chapter: 41, action: 'Further Reading synced from vault (fact-checked milestone, Ch01-07 coverage, 112 sources, 2709 words). Replaced stale 2026-04-25 site lineage with canonical vault version per Greg-approved incremental-growth decision (2026-05-31); 2026-06-03 fact-check fixes included (#55 Spencer & Chase journal correction, #64 needs-verification flag). Status draft -> fact-checked.' },
+  { date: '2026-06-10', chapter: 42, action: 'Glossary synced from vault (fact-checked milestone, 132 terms, 4398 words). 2026-06-03 fact-check fix included (SQM/Bortle-1 threshold 21.6 -> ~21.75 with class-boundary note). Status draft -> fact-checked. Broken figure reference (missing ch42 geologic-timescale asset) repaired this run.' },
+  { date: '2026-06-10', chapter: 43, action: 'Systematic Index synced from vault (fact-checked milestone, 273 entries, 2466 words). 2026-06-03 fact-check fix included (IDA cross-ref repointed to DarkSky International). Status draft -> fact-checked.' },
   { date: '2026-05-31', chapter: 38, action: 'Historic Registries advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch38.md body resynced from vault Ch38_draft.md and status synced revised -> final; wordCount 3935 -> 3798 via consistent whitespace body-count; readingTime 21 -> 19 min; lastUpdated 2026-05-31; existing ch38 assets retained, status/content update only, no Part or title change).' },
   { date: '2026-05-31', chapter: 39, action: 'Mapping and GIS advanced to final (vault status final per eec-chapter-pipeline Phase 8 finalization 2026-05-30; site ch39.md body resynced from vault Ch39_draft.md and status synced revised -> final; wordCount 4861 -> 4373 via consistent whitespace body-count; readingTime 22 -> 22 min; lastUpdated 2026-05-31; existing ch39 assets retained, status/content update only).' },
   { date: '2026-06-04', chapter: 40, action: 'Citizen Science advanced to revised (vault status revised per eec-chapter-pipeline Phase 8 revision 2026-06-04; 4 fact-check corrections applied: iNaturalist independent nonprofit (HIGH), Cleveland-Lloyd bones 15,000→12,000 (MED), CoCoRaHS 1997 hailstorm→flash flood (MED), Globe at Night cite Cinzano & Falchi→Kyba et al. 2013 (LOW); site ch40.md body resynced from vault Ch40_draft.md and status synced fact-checked -> revised; wordCount 4963 -> 4980; lastUpdated 2026-06-04; existing ch40 assets retained, status/content update only, no Part or title change; 6 [needs verification] flags retained in vault).' },
