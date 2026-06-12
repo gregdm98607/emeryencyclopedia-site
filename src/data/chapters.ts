@@ -61,7 +61,7 @@ export const CHAPTERS: Chapter[] = [
     part: 1,
     status: 'draft',
     description: 'Plant communities from high-elevation forests to desert shrublands: ecology and species across elevational gradients.',
-    wordCount: 3800
+    wordCount: 3264
   },
   {
     number: 6,
