@@ -1,0 +1,206 @@
+---
+// FieldItinerary.astro — V7 Field itinerary engagement component
+// Props: site, tagline, gettingThere, gps (optional), timeNeeded, bestSeason,
+//        whatToBring, onTheGround, seeAlso (optional string[])
+
+interface Props {
+  site: string;
+  tagline: string;
+  gettingThere: string;
+  gps?: string;
+  timeNeeded: string;
+  bestSeason: string;
+  whatToBring: string;
+  onTheGround: string;
+  seeAlso?: string[];
+}
+
+const { site, tagline, gettingThere, gps, timeNeeded, bestSeason, whatToBring, onTheGround, seeAlso = [] } = Astro.props;
+---
+
+<div class="field-itinerary">
+  <div class="field-header">
+    <svg class="map-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+      <line x1="9" y1="3" x2="9" y2="18"></line>
+      <line x1="15" y1="6" x2="15" y2="21"></line>
+    </svg>
+    <span class="field-label">FIELD GUIDE</span>
+  </div>
+
+  <h3 class="field-site">{site}</h3>
+  <p class="field-tagline">{tagline}</p>
+
+  <div class="field-logistics">
+    <div class="logistic-row">
+      <span class="logistic-icon">🚗</span>
+      <div>
+        <span class="logistic-label">Getting there</span>
+        <span class="logistic-value">{gettingThere}</span>
+      </div>
+    </div>
+    {gps && (
+      <div class="logistic-row">
+        <span class="logistic-icon">📍</span>
+        <div>
+          <span class="logistic-label">GPS</span>
+          <span class="logistic-value logistic-mono">{gps}</span>
+        </div>
+      </div>
+    )}
+    <div class="logistic-row">
+      <span class="logistic-icon">⏱</span>
+      <div>
+        <span class="logistic-label">Time needed</span>
+        <span class="logistic-value">{timeNeeded}</span>
+      </div>
+    </div>
+    <div class="logistic-row">
+      <span class="logistic-icon">🌤</span>
+      <div>
+        <span class="logistic-label">Best season</span>
+        <span class="logistic-value">{bestSeason}</span>
+      </div>
+    </div>
+    <div class="logistic-row">
+      <span class="logistic-icon">🎒</span>
+      <div>
+        <span class="logistic-label">What to bring</span>
+        <span class="logistic-value">{whatToBring}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-ground">
+    <p class="field-ground-label">On the ground</p>
+    <p class="field-ground-text">{onTheGround}</p>
+  </div>
+
+  {seeAlso.length > 0 && (
+    <p class="field-see-also">
+      <strong>See also:</strong> {seeAlso.join(' · ')}
+    </p>
+  )}
+</div>
+
+<style scoped>
+  .field-itinerary {
+    background-color: white;
+    border-left: 4px solid #3d6b5c;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .field-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .map-icon {
+    color: #3d6b5c;
+    flex-shrink: 0;
+  }
+
+  .field-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #3d6b5c;
+  }
+
+  .field-site {
+    margin: 0 0 0.375rem 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.125rem;
+    color: #2c2c2c;
+    font-weight: 600;
+  }
+
+  .field-tagline {
+    margin: 0 0 1.25rem 0;
+    font-size: 0.875rem;
+    color: #5a5a5a;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .field-logistics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    background-color: rgba(61, 107, 92, 0.05);
+    border-radius: 0.375rem;
+  }
+
+  .logistic-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .logistic-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+
+  .logistic-row > div {
+    flex: 1;
+  }
+
+  .logistic-label {
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-right: 0.5rem;
+  }
+
+  .logistic-value {
+    color: #4a4a4a;
+  }
+
+  .logistic-mono {
+    font-family: monospace;
+    font-size: 0.8125rem;
+  }
+
+  .field-ground {
+    margin-bottom: 1rem;
+  }
+
+  .field-ground-label {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #3d6b5c;
+  }
+
+  .field-ground-text {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    line-height: 1.7;
+  }
+
+  .field-see-also {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: #5a5a5a;
+    border-top: 1px solid rgba(61, 107, 92, 0.2);
+    padding-top: 0.75rem;
+  }
+
+  .field-see-also strong {
+    color: #3d6b5c;
+  }
+</style>
