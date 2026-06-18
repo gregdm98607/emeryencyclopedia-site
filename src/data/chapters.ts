@@ -59,9 +59,9 @@ export const CHAPTERS: Chapter[] = [
     number: 5,
     title: 'Flora Zones',
     part: 1,
-    status: 'draft',
+    status: 'final',
     description: 'Plant communities from high-elevation forests to desert shrublands: ecology and species across elevational gradients.',
-    wordCount: 3264
+    wordCount: 3600
   },
   {
     number: 6,
@@ -351,7 +351,7 @@ export const CHAPTERS: Chapter[] = [
     number: 40,
     title: 'Citizen Science',
     part: 6,
-    status: 'revised',
+    status: 'final',
     description: 'Community-driven science in Emery County: iNaturalist biodiversity documentation, eBird migration monitoring, CoCoRaHS precipitation filling a rural data gap, Globe at Night dark-sky measurement, Utah Water Watch stream quality, SKYWARN severe-weather spotting, paleontology and archaeological site stewardship, and the citizen-naturalist programs that extend professional research across one of the most data-sparse landscapes in the American West.',
     wordCount: 4980
   },
