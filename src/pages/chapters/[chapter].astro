@@ -11,6 +11,7 @@ import FamilyActivity from '../../components/engagement/FamilyActivity.astro';
 import Factbox from '../../components/engagement/Factbox.astro';
 import PhotoAssignment from '../../components/engagement/PhotoAssignment.astro';
 import FieldItinerary from '../../components/engagement/FieldItinerary.astro';
+import DataTable from '../../components/DataTable.astro';
 import { getPartLabel, getPartColor } from '../../utils/parts';
 
 export async function getStaticPaths() {
@@ -30,7 +31,7 @@ const partColor = getPartColor(part);
 const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
 // Reconnected components are made available to MDX chapters without per-file imports.
-const mdxComponents = { CrossRef, FigureImage, TriviaCallout, ScavengerHunt, FamilyActivity, Factbox, PhotoAssignment, FieldItinerary };
+const mdxComponents = { CrossRef, FigureImage, TriviaCallout, ScavengerHunt, FamilyActivity, Factbox, PhotoAssignment, FieldItinerary, DataTable };
 
 // Prefer explicit readingTime; otherwise estimate from wordCount (~225 wpm).
 const readMins = readingTime ?? (wordCount > 0 ? `${Math.ceil(wordCount / 225)} min read` : null);

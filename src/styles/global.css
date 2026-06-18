@@ -177,6 +177,55 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(212, 165, 116, 0.05);
 }
 
+/* Prose tables — markdown pipe tables rendered from MDX */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+  color: var(--canyon-shadow);
+  margin: 2em 0;
+}
+.prose table thead tr {
+  background-color: rgba(139, 111, 78, 0.1);
+}
+.prose table th {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--canyon-shadow);
+  white-space: nowrap;
+  border-bottom: 2px solid rgba(139, 111, 78, 0.3);
+}
+.prose table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.4;
+}
+.prose table tbody tr:last-child td {
+  border-bottom: none;
+}
+.prose table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.prose .data-table-caption {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--canyon-shadow);
+  margin-bottom: 0.5em;
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+.prose .data-table-note {
+  font-size: var(--text-xs);
+  color: var(--color-muted-text);
+  font-style: italic;
+  margin-top: 0.5em;
+  border-top: 1px solid rgba(139, 111, 78, 0.2);
+  padding-top: 0.5em;
+}
+
 /* Status badges */
 .badge {
   display: inline-block;

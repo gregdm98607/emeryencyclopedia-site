@@ -1,0 +1,14 @@
+---
+interface Props {
+  caption?: string;
+  note?: string;
+  id?: string;
+}
+const { caption, note, id } = Astro.props;
+---
+
+<figure class="data-table-figure" id={id}>
+  {caption && <p class="data-table-caption">{caption}</p>}
+  <slot />
+  {note && <p class="data-table-note">{note}</p>}
+</figure>
