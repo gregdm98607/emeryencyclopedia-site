@@ -1,77 +1,22 @@
 ---
 // Footer.astro — V9 Rich three-column footer with chapter index and newsletter
+// Chapter index is generated from src/data/chapters.ts (single source of truth).
+import { CHAPTERS } from '../data/chapters';
+import { getAllParts } from '../utils/parts';
 
 const currentYear = new Date().getFullYear();
 
-const parts = [
-  {
-    name: 'Part I: Foundations',
-    color: '#D4A574',
-    chapters: [
-      { num: 1, title: 'Geography & Physiography', available: true },
-      { num: 2, title: 'Deep-Time Geology', available: false },
-      { num: 3, title: 'Hydrology & Springs', available: false },
-      { num: 4, title: 'Climate & Weather', available: false },
-      { num: 5, title: 'Flora Zones', available: false },
-      { num: 6, title: 'Fauna', available: false },
-      { num: 7, title: 'Night Skies & Astronomy', available: false }
-    ]
-  },
-  {
-    name: 'Part II: Peoples',
-    color: '#C85A54',
-    chapters: [
-      { num: 8, title: 'Ancestral & Fremont Peoples', available: false },
-      { num: 9, title: 'Ute Territory & Culture', available: false },
-      { num: 10, title: 'Paiute & Shoshone Presence', available: false },
-      { num: 11, title: 'Navajo & Puebloan Connections', available: false },
-      { num: 12, title: 'Trade Routes & Exchange', available: false },
-      { num: 13, title: 'Contact & Collision', available: false }
-    ]
-  },
-  {
-    name: 'Part III: Settlement',
-    color: '#1A1A2E',
-    chapters: [
-      { num: 16, title: 'Mormon Colonization', available: false },
-      { num: 17, title: 'Coal, Copper & Uranium', available: false },
-      { num: 18, title: 'Communities & Towns', available: false },
-      { num: 19, title: 'Agriculture & Land Use', available: false },
-      { num: 20, title: 'Transportation & Infrastructure', available: false }
-    ]
-  },
-  {
-    name: 'Part IV: Culture & Identity',
-    color: '#4A6741',
-    chapters: [
-      { num: 24, title: 'Arts & Music', available: false },
-      { num: 25, title: 'Food & Foodways', available: false },
-      { num: 26, title: 'Oral Histories & Stories', available: false },
-      { num: 27, title: 'Celebrations & Traditions', available: false },
-      { num: 28, title: 'Notable People & Leaders', available: false }
-    ]
-  },
-  {
-    name: 'Part V: Field Guide',
-    color: '#5B8AC5',
-    chapters: [
-      { num: 36, title: 'Scenic Drives', available: false },
-      { num: 37, title: 'Hiking & Trails', available: false },
-      { num: 38, title: 'Photography Spots', available: false },
-      { num: 39, title: 'Hot Springs & Waterfalls', available: false },
-      { num: 40, title: 'Wildlife Viewing', available: false }
-    ]
-  },
-  {
-    name: 'Part VI: Resources',
-    color: '#8B6F47',
-    chapters: [
-      { num: 41, title: 'Practical Information', available: false },
-      { num: 42, title: 'Glossary', available: false },
-      { num: 43, title: 'Systematic Index', available: false }
-    ]
-  }
-];
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+
+// Every part, every chapter, in order — availability derived from publish status.
+const parts = getAllParts().map((part) => ({
+  name: `Part ${ROMAN[part.number] ?? part.number}: ${part.label}`,
+  color: part.color,
+  chapters: CHAPTERS
+    .filter((ch) => ch.part === part.number)
+    .sort((a, b) => a.number - b.number)
+    .map((ch) => ({ num: ch.number, title: ch.title, available: ch.status !== 'stub' })),
+}));
 ---
 
 <footer class="footer">
@@ -164,7 +109,7 @@ const parts = [
         Built with field notes, archival dust, and Astro.
       </p>
       <div class="footer__bottom-links">
-        <a href="#rss" class="footer__bottom-link">RSS</a>
+        <a href="/rss.xml" class="footer__bottom-link">RSS</a>
         <a href="/sitemap.xml" class="footer__bottom-link">Sitemap</a>
       </div>
     </div>
@@ -177,15 +122,7 @@ const parts = [
 </footer>
 
 <style>
-  :root {
-    --sandstone: #D4A574;
-    --mesa-red: #C85A54;
-    --coal-seam: #1A1A2E;
-    --sky-wash: #F7F3ED;
-    --forest-green: #4A6741;
-    --sky-blue: #5B8AC5;
-    --canyon-bronze: #8B6F47;
-  }
+  /* Palette + font tokens inherited from global.css :root (single source of truth). */
 
   .footer {
     background: var(--coal-seam);

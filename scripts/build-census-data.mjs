@@ -104,7 +104,25 @@ async function buildDataset(dataset) {
 
   // Emit JSON
   const jsonPath = join(DATA_OUT_DIR, `${dataset.slug}.json`);
-  await writeFile(jsonPath, JSON.stringify(payload, null, 2), 'utf8');
+
+  // Keep builds idempotent: when the underlying data hasn't changed, leave the
+  // existing JSON untouched rather than rewriting a fresh `lastBuilt` timestamp.
+  // This stops the generated file from churning in git (timestamp or line endings)
+  // on every build; `lastBuilt` only advances when the data actually changes.
+  let unchanged = false;
+  if (existsSync(jsonPath)) {
+    try {
+      const prev = JSON.parse(await readFile(jsonPath, 'utf8'));
+      const withoutLastBuilt = ({ lastBuilt, ...rest }) => rest;
+      unchanged = JSON.stringify(withoutLastBuilt(prev)) === JSON.stringify(withoutLastBuilt(payload));
+    } catch {
+      // Unreadable or legacy JSON — treat as changed and rewrite.
+    }
+  }
+
+  if (!unchanged) {
+    await writeFile(jsonPath, JSON.stringify(payload, null, 2), 'utf8');
+  }
 
   // Emit downloadable xlsx
   const publicXlsxPath = join(PUBLIC_DOWNLOAD_DIR, dataset.xlsxFile);

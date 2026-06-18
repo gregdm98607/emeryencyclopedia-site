@@ -16,11 +16,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          # Workaround: npm ci silently skips optional platform-specific binaries when the
+          # lockfile was generated on a different OS. Ensure the linux rollup native binary
+          # is present before the build step attempts to use it.
+          # See: https://github.com/npm/cli/issues/4828
+          ls node_modules/@rollup/rollup-linux-x64-gnu 2>/dev/null || \
+            npm install --no-save @rollup/rollup-linux-x64-gnu
 
       - name: Build
         run: npm run build

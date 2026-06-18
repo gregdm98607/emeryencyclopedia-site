@@ -59,13 +59,11 @@ const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
 
   <div class="newsletter-cta">
     <p>Enjoying the encyclopedia? Get chapter previews and field notes delivered to your inbox.</p>
-    <div class="newsletter-form-wrap">
-      <form class="newsletter-form" id="chapter-newsletter-form">
-        <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="newsletter-status" id="chapter-newsletter-status" aria-live="polite"></p>
-    </div>
+    <form class="newsletter-form" id="chapter-newsletter-form">
+      <input type="email" name="email" placeholder="your@email.com" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-status" id="chapter-newsletter-status" aria-live="polite"></p>
   </div>
 </div>
 
@@ -156,12 +154,16 @@ const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
     cursor: pointer;
   }
   .newsletter-status {
-    margin: 0.5rem 0 0;
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
+    margin: 0;
     min-height: 1.2em;
   }
-  .newsletter-status.success { color: #4A8C65; }
-  .newsletter-status.error { color: #C85A54; }
+  .newsletter-status.success {
+    color: #7EC99B;
+  }
+  .newsletter-status.error {
+    color: #E07070;
+  }
   @media (max-width: 768px) {
     .chapter-nav { flex-direction: column; }
     .nav-next { text-align: left; }
@@ -187,7 +189,9 @@ const nextPartInfo = nextChapter ? getPartColor(nextChapter.part) : null;
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        // source: 'chapter' routes this subscriber to the eec-chapters Kit tag
+        // (distinct from the generic eec-swell-report tag used by the footer form)
+        body: JSON.stringify({ email, source: 'chapter' }),
       });
 
       if (res.ok) {

@@ -1,4 +1,4 @@
----
+﻿---
 // index.astro — V5 Homepage with hero, pipeline tracker, featured chapters, about, and newsletter
 
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -81,6 +81,14 @@ const featuredChapters = CHAPTERS.filter(ch =>
           {status.final + status.revised + status['fact-checked']} of 43 chapters completed
         </p>
       </div>
+      <div class="pipeline__newsletter" style="margin-top:2.5rem;padding:1.75rem;border-radius:10px;background:#F7F3ED;border:1px solid #D4A574;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">
+        <p style="margin:0 0 0.9rem;color:#3B2F2F;font-weight:600;">Follow the progress &mdash; get chapter release updates in your inbox.</p>
+        <form id="pipeline-newsletter-form" style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
+          <input type="email" name="email" placeholder="your@email.com" required style="padding:0.6rem 0.8rem;border:1px solid #D4A574;border-radius:6px;min-width:240px;font-size:1rem;" />
+          <button type="submit" style="padding:0.6rem 1.3rem;background:#2C5F7C;color:#F7F3ED;border:none;border-radius:6px;font-weight:600;cursor:pointer;">Subscribe</button>
+        </form>
+        <p id="pipeline-newsletter-status" aria-live="polite" style="margin:0.8rem 0 0;min-height:1.2em;font-size:0.9rem;"></p>
+      </div>
     </div>
   </section>
 
@@ -146,45 +154,10 @@ const featuredChapters = CHAPTERS.filter(ch =>
     </div>
   </section>
 
-  {/* ========== NEWSLETTER SECTION ========== */}
-  <section class="newsletter">
-    <div class="newsletter__container">
-      <h2 class="newsletter__title">Stay in the Field</h2>
-      <p class="newsletter__subtitle">
-        Chapter previews, behind-the-research stories, and Emery County discoveries — delivered to your inbox.
-      </p>
-
-      <form class="newsletter__form" onsubmit="event.preventDefault();">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          class="newsletter__input"
-          required
-          aria-label="Email address"
-        />
-        <button type="submit" class="newsletter__btn">Subscribe</button>
-      </form>
-
-      <p class="newsletter__note">
-        No spam. Unsubscribe anytime. Privacy respected.
-      </p>
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
-  :root {
-    --sandstone: #D4A574;
-    --mesa-red: #C85A54;
-    --coal-seam: #1A1A2E;
-    --sky-wash: #F7F3ED;
-    --forest-green: #4A6741;
-    --sky-blue: #5B8AC5;
-    --canyon-bronze: #8B6F47;
-    --sage-green: #6B9B6F;
-    --font-display: 'Libre Baskerville', serif;
-    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
+  /* Palette + font tokens inherited from global.css :root (single source of truth). */
 
   /* ========== HERO ========== */
   .hero {
@@ -453,6 +426,7 @@ const featuredChapters = CHAPTERS.filter(ch =>
     font-size: 2rem;
     font-weight: 700;
     font-family: var(--font-display);
+    color: var(--sky-wash);
   }
 
   .about__container p {
@@ -506,86 +480,6 @@ const featuredChapters = CHAPTERS.filter(ch =>
     transform: translateX(4px);
   }
 
-  /* ========== NEWSLETTER SECTION ========== */
-  .newsletter {
-    background: var(--sky-wash);
-    padding: 3rem 2rem;
-  }
-
-  .newsletter__container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .newsletter__title {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.75rem;
-    font-weight: 700;
-    font-family: var(--font-display);
-    color: var(--coal-seam);
-  }
-
-  .newsletter__subtitle {
-    margin: 0 0 2rem 0;
-    font-size: 1rem;
-    color: rgba(26, 26, 46, 0.7);
-    font-family: var(--font-body);
-    line-height: 1.6;
-  }
-
-  .newsletter__form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .newsletter__input {
-    padding: 0.875rem 1rem;
-    background: white;
-    border: 2px solid rgba(26, 26, 46, 0.15);
-    border-radius: 6px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .newsletter__input::placeholder {
-    color: rgba(26, 26, 46, 0.5);
-  }
-
-  .newsletter__input:focus {
-    outline: none;
-    border-color: var(--mesa-red);
-    background: white;
-  }
-
-  .newsletter__btn {
-    padding: 0.875rem 1.5rem;
-    background: var(--mesa-red);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .newsletter__btn:hover {
-    background: #b74a44;
-    transform: translateY(-2px);
-  }
-
-  .newsletter__note {
-    margin: 0;
-    font-size: 0.85rem;
-    color: rgba(26, 26, 46, 0.6);
-    font-family: var(--font-body);
-  }
-
   /* ========== RESPONSIVE ========== */
   @media (max-width: 768px) {
     .hero {
@@ -635,3 +529,34 @@ const featuredChapters = CHAPTERS.filter(ch =>
     }
   }
 </style>
+
+<script>
+  const pf = document.getElementById('pipeline-newsletter-form');
+  const ps = document.getElementById('pipeline-newsletter-status');
+  pf?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = pf.querySelector('button[type="submit"]');
+    const input = pf.querySelector('input[name="email"]');
+    const email = input.value.trim();
+    btn.disabled = true; btn.textContent = 'Sending...';
+    if (ps) { ps.textContent = ''; ps.style.color = ''; }
+    try {
+      // source: 'chapter' routes this subscriber to the eec-chapters Kit tag
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'chapter' }),
+      });
+      if (res.ok) {
+        if (ps) { ps.textContent = "You are in! Watch for new chapter announcements."; ps.style.color = '#7A8B6F'; }
+        input.value = '';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        if (ps) { ps.textContent = data.error || 'Something went wrong. Try again.'; ps.style.color = '#A0522D'; }
+      }
+    } catch {
+      if (ps) { ps.textContent = 'Something went wrong. Try again.'; ps.style.color = '#A0522D'; }
+    }
+    btn.disabled = false; btn.textContent = 'Subscribe';
+  });
+</script>
