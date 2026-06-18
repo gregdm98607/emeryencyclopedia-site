@@ -3,9 +3,10 @@ title: "Chapter 4 — Climate & Weather: Engagement Sidebars and Activities"
 chapter: 4
 kind: engagement
 tags: [research, Emery-County, climate, weather, snowpack, drought, dark-sky, flash-flood, ENSO]
-status: draft
+status: implemented
 created: 2026-06-17
 sidebar_count: 11
+implemented_count: 7
 activity_count: 2
 scavenger_hunt_items: 7
 topic: "Chapter 4 — Climate & Weather: Engagement Sidebars and Activities"
