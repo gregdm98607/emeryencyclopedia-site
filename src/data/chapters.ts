@@ -27,8 +27,8 @@ export const CHAPTERS: Chapter[] = [
     number: 1,
     title: 'Geography & Physiography',
     part: 1,
-    status: 'draft',
-    description: 'The physical landscape of Emery County: plateaus, canyons, rivers, and the defining topography of the region. Covers physiographic provinces, drainage basins, elevation gradient, structural geology, soils, karst, and aeolian landforms.',
+    status: 'final',
+    description: "Emery County's physical geography lies principally within the Colorado Plateau, its western highlands rising into the Wasatch Plateau/High Plateaus transition zone. This chapter surveys county boundaries, major landforms, drainage basins, elevation ranges, structural geology, geomorphology, soils, karst features, and aeolian systems that define the region's landscape.",
     wordCount: 12847
   },
   {
@@ -433,6 +433,7 @@ export const chapters = CHAPTERS;
  * Recent changelog entries
  */
 export const changelog = [
+  { date: '2026-06-18', chapter: 1, action: 'Ch01 Geography & Physiography: chapters.ts status synced to final (ch01.mdx was already final after eec-chapter-pipeline run; vault fact_checked 2026-06-18). Description updated to match site frontmatter. No asset generation needed.' },
   { date: '2026-06-10', chapter: 41, action: 'Further Reading synced from vault (fact-checked milestone, Ch01-07 coverage, 112 sources, 2709 words). Replaced stale 2026-04-25 site lineage with canonical vault version per Greg-approved incremental-growth decision (2026-05-31); 2026-06-03 fact-check fixes included (#55 Spencer & Chase journal correction, #64 needs-verification flag). Status draft -> fact-checked.' },
   { date: '2026-06-10', chapter: 42, action: 'Glossary synced from vault (fact-checked milestone, 132 terms, 4398 words). 2026-06-03 fact-check fix included (SQM/Bortle-1 threshold 21.6 -> ~21.75 with class-boundary note). Status draft -> fact-checked. Broken figure reference (missing ch42 geologic-timescale asset) repaired this run.' },
   { date: '2026-06-10', chapter: 43, action: 'Systematic Index synced from vault (fact-checked milestone, 273 entries, 2466 words). 2026-06-03 fact-check fix included (IDA cross-ref repointed to DarkSky International). Status draft -> fact-checked.' },
