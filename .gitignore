@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Claude Code artifacts
 .claude/
+
+# Image curation staging area — local workflow artifact, not a site asset
+public/images/chapters/Approved/

@@ -1,0 +1,162 @@
+---
+title: "Mapping & GIS"
+chapter: 39
+part: 6
+status: final
+description: "Maps and digital tools for a county where four out of five acres are federal: USGS topographic quads (historic and current), statewide UGRC GIS portals, Emery County GIS parcel data, BLM Travel Management Plan maps covering both the San Rafael Swell and San Rafael Desert TMAs, the 2024 statewide sub-meter lidar coverage, the Utah Geological Survey map series, and the field apps (CalTopo, Gaia GPS, onX) that put it all in a researcher's pocket."
+wordCount: 4373
+readingTime: "22 min read"
+related: [1, 17, 36, 38]
+lastUpdated: "2026-05-31"
+---
+
+## 39.1 Why Mapping & GIS Matter for Emery County
+
+About four out of every five acres in Emery County belong to the federal government, and the lines that divide BLM from National Forest from state Trust Land from a private homestead are drawn on maps before they are walked on the ground. A serious researcher into Emery County — whether a genealogist tracing a homestead, a hiker locating a slot canyon, a teacher building a unit on the San Rafael Swell, or a descendant returning to a great-grandfather's coal claim — sooner or later needs maps. Often a lot of them.
+
+This chapter is a directory of those maps and a starter's guide to the digital tools that have made them, in the last thirty years, vastly more useful than the paper they were once printed on. Geographic Information Systems (GIS) — the family of software, datasets, and web services that let anyone overlay one map on another — was once the province of professional cartographers in shielded computer labs. By 2026 it lives on a phone in a hiker's pocket and on a free desktop application that anyone can install in twenty minutes. Emery County's mapping landscape is unusually rich. The County GIS office in Castle Dale publishes parcel data online. The Utah Geospatial Resource Center (UGRC) maintains hundreds of statewide layers covering everything from cadastral boundaries to abandoned coal mines. The U.S. Geological Survey has digitized every 7.5-minute topographic quadrangle ever published of the county, and in 2024 completed statewide aerial lidar coverage at sub-meter resolution. The Bureau of Land Management publishes Travel Management Plans as interactive web maps. The Utah Geological Survey has published a 30'×60' geologic map of the San Rafael Desert and a 1968 USGS bulletin (Bulletin 1239) on the geology of the Swell that is still cited today.
+
+What follows is organized as a working researcher would encounter it: from the foundational paper maps that anchored the twentieth century, through the digital portals that now dominate, to the apps that put a topographic map in your pocket on the day of the hike. Where a tool is paired with another chapter of this encyclopedia — geology with Ch02, mining with Ch17, hydrology with Ch03, travel logistics with Ch36 — the cross-reference is noted so a reader can spiral outward from a single question into the spatial dimension of the answer.
+
+## 39.2 USGS Topographic Maps — Historic and Current
+
+The U.S. Geological Survey 7.5-minute topographic quadrangle, drawn at a scale of 1:24,000 (one inch on the map equals 2,000 feet on the ground), is the foundational paper map of the American West. Each quad covers 7.5 minutes of latitude by 7.5 minutes of longitude — roughly 49 to 70 square miles at Utah's latitude — and shows contours, drainages, roads, structures, place names, and the section/township/range grid of the Public Land Survey System.
+
+Approximately thirty 7.5-minute quads at 1:24,000 are needed to cover Emery County completely. Names familiar to anyone who has worked in the county include Castle Dale, Cleveland, Elmo, Huntington, Orangeville, Ferron, and Emery in the Castle Valley corridor; Green River and Bowknot Bend along the Green River; Mexican Mountain, The Wickiup, Sids Mountain, and Bottleneck Peak within the San Rafael Swell; and Goblin Valley, Temple Mountain, San Rafael Knob, and Old Woman Wash in the southern Swell and San Rafael Desert. (A complete list of quads and current editions per quad is available from USGS topoView; the figures here are representative and not exhaustive.)
+
+The USGS has digitized its entire historical map archive. The **Historical Topographic Map Collection (HTMC)** is the scanned set of all paper quadrangles published between 1884 and 2006, available free as georeferenced PDFs at https://ngmdb.usgs.gov/topoview/. The **Vintage** collection — the older 7.5-, 15-, and 30-minute quads from roughly 1900 to 1966, scanned at 500 dpi by the Utah Geological Survey — gives access to maps from when the Wasatch Plateau coal mines were active and when the original railroad surveys were still on paper. For current maps, **US Topo** has replaced the old paper series since 2009; these are computer-generated from National Map data and updated on a three-year cycle.
+
+The single best entry point for a casual user is the USGS Map Locator at https://store.usgs.gov/ — drop a pin on the map and the tool returns every edition of every quad covering that location, free for download. The UGRC mirrors all of this for Utah users (https://gis.utah.gov/data/usgs-scanned-topographic-maps/) and publishes a quad tile index that makes it easy to know which 7.5-minute quad name applies to any particular spot.
+
+For a researcher who wants to see how a landscape changed across the twentieth century — when the road from Castle Dale to Cleveland was paved, when Joe's Valley Reservoir was built, when Goblin Valley was named — overlaying a 1950s edition of a quad on a current US Topo at the same location often answers the question in five minutes. Several editions of each quad exist for most of Emery County; the HTMC preserves them all.
+
+## 39.3 The National Map and 3DEP Lidar
+
+The USGS **National Map** (https://www.usgs.gov/programs/national-geospatial-program/national-map) is the umbrella platform that consolidates the federal government's free geospatial data: topographic maps, elevation, hydrography, boundaries, transportation, structures, geographic names (GNIS), and orthoimagery (NAIP). The single most useful tool on the platform is the **National Map Downloader** at https://apps.nationalmap.gov/downloader/ — pan to an area, check boxes for the data types you want, and request the download. Most products are available as direct download or in a staged queue; everything is public domain.
+
+Within the National Map, the **3D Elevation Program (3DEP)** is a national lidar acquisition initiative, and it has changed Emery County mapping. Lidar — Light Detection and Ranging — fires laser pulses from aircraft and records the precise time each returns to the sensor, producing a dense three-dimensional point cloud of the ground surface and everything above it. In Utah a 2022 acquisition covering roughly 19,466 square miles of Eastern and Western Utah delivered Quality Level 1 and 2 data (two and eight points per square meter, respectively) with 0.5- and 1-meter bare-earth digital elevation models and 10-centimeter vertical accuracy. The joint funders were UGRC, the Utah Division of Emergency Management, the Natural Resource Conservation Service, the U.S. Forest Service, and FEMA. **In 2024 the USGS announced that statewide 3DEP baseline lidar coverage was complete for Utah.**
+
+What this means for an ordinary Emery County researcher is that the topography of every canyon, every wash, every coal-mine tipple, every irrigation canal, every wagon-road cut is now mapped at sub-meter resolution and is free for the asking. A hiker planning a descent of the Black Box can pull a lidar hillshade in QGIS and see the canyon's depth and constrictions in detail no topographic line could capture. A historian looking for the trace of an abandoned ditch can spot it on the lidar where it has long since vanished from the aerial photo. The viewer is **USGS LidarExplorer** at https://apps.nationalmap.gov/lidar-explorer/; the UGRC publishes a parallel guide at https://gis.utah.gov/products/sgid/elevation/lidar/.
+
+## 39.4 Utah Geospatial Resource Center (UGRC) and the SGID
+
+If the National Map is the federal one-stop shop, the **Utah Geospatial Resource Center (UGRC)** — formerly the Automated Geographic Reference Center (AGRC) — is the state's. UGRC is housed in the Utah Department of Technology Services and is responsible for maintaining the **State Geographic Information Database (SGID)**, a collection of hundreds of GIS data layers organized into 27 categories: Boundaries, Cadastre, Elevation & Terrain, Water, Society, Transportation, Health, Energy, and many more. The web site is https://gis.utah.gov/ and the open data portal is https://opendata.gis.utah.gov/.
+
+Many SGID layers are city- or county-contributed and stewarded statewide, which means UGRC can deliver a uniform statewide cadastral or address dataset rather than asking a user to assemble it county-by-county. **Emery County–specific layers in the SGID include**: Emery County Basic Parcels, Emery County LIR (Land Information Record) Parcels, PLSS Sections (Geographic Coordinate Database v2.0), PLSS Townships, Land Ownership (surface management), Address Points, Roads, Streams, Trails, Geologic Units, Historic Coal Mines, Abandoned Mines, and the Earthquake catalog. All can be downloaded as shapefile, GeoJSON, or file geodatabase, or consumed directly as a web service in QGIS or ArcGIS Online.
+
+UGRC also maintains a friendly parcel viewer at https://parcels.utah.gov/ — pan to Emery County, click on any parcel, and the popup shows owner name, address, acreage, and tax-roll value. For most everyday questions about who owns a particular piece of land, this is the fastest route. (For legal authority, see the County Recorder — see 39.5.)
+
+A working researcher will probably end up bookmarking the UGRC Open Data Portal and consulting it as casually as a library catalog. It is the most direct path into Utah's spatial archive.
+
+## 39.5 Emery County GIS Office and Recorder
+
+The county's own GIS shop is the **Emery County IS/GIS Department**, located in the courthouse complex at 95 East Main Street, Castle Dale (telephone (435) 381-3590). The web site is http://www.emerycounty.com/gis/ with a department page at https://emerycounty.com/home/department-directory/is-gis/. Many of the department's maps are published online for public access, and the staff are accustomed to fielding inquiries from genealogists, real-estate professionals, contractors, and writers.
+
+For property-specific questions — Who owns this 80 acres? When was it last sold? Where exactly is the boundary? — the County Recorder's office maintains the official record. The recorder publishes **plat maps** through an interactive viewer at https://emerycounty.com/home/offices/recorder/plat-map/. The map can be searched by section, township, and range; by incorporated city or town; or by approximate location. Click and zoom on areas until you link to a PDF file of the plat map; from the plat map you can locate the parcel number. A practical guide for first-time users is at https://emerycounty.com/home/offices/recorder/finding-parcel-numbers/.
+
+The relationship between the statewide UGRC parcels layer and the county's own plat record is best understood as one of generalization. The UGRC layer is sufficient for spatial analysis at the statewide or county scale; the County Recorder's plat is the authoritative source for legal boundary, easement, road dedication, and subdivision detail. Cross-reference Ch37 (Archives, Museums & Libraries) for the broader context of the county courthouse complex as a documentary repository, and Ch38 (Historic Registries) for the cluster of registered buildings around the courthouse itself.
+
+## 39.6 Geologic and Mining Maps
+
+Emery County's geology is one of the most studied in Utah, and the maps that record it form a remarkable archive. The **Utah Geological Survey (UGS)**, a division of the Utah Department of Natural Resources, publishes the principal modern series at https://geology.utah.gov/. The **Geologic Map Portal** (https://geology.utah.gov/portfolio-item/geologic-map-portal/) lets a user navigate to any point in the state and download the relevant maps. UGS issues three nested series: 7.5-minute quadrangle geologic maps at 1:24,000; 30'×60' regional maps at 1:100,000; and 1°×2° maps at 1:250,000.
+
+For Emery County the centerpiece publication is the **UGS Map 267 — Geologic Map of the San Rafael Desert 30'×60' quadrangle**, available as a free PDF at https://ugspub.nr.utah.gov/publications/geologicmaps/30x60quadrangles/m-267.pdf. It covers most of the Swell and southern Emery County in a single sheet. Equally important historically is **USGS Bulletin 1239** by Hawley, Robeck, and Dyer (1968), "Geology, Altered Rocks, and Ore Deposits of the San Rafael Swell, Emery County, Utah," available free at https://pubs.usgs.gov/publication/b1239. The bulletin contains geologic strip maps and cross-sections of the Chinle Formation and detailed maps of the Little Susan and Dirty Devil uranium mines — primary documents for any history of mid-twentieth-century mining in the Swell. (See Ch17, Coal, Copper & Uranium.) Three UGS monographs released in 1972 form a statewide compilation of coalfield data including the Wasatch Plateau and Book Cliffs fields.
+
+For coal-mining research specifically, the **UGS Abandoned Coal Mine Maps** database at https://geology.utah.gov/portfolio-item/abandoned-coal-mine-maps/ and the **interactive abandoned-coal-mines map** at https://geology.utah.gov/map-pub/maps/interactive-maps/abandoned-coal-mines/ are essential. They digitize the surface and subsurface workings of mines long closed and provide critical context for understanding subsidence, water-quality, and surface-rights issues that linger after the workings are sealed.
+
+A parallel state resource is the **Utah Office of Oil, Gas, and Mining (OGM) Public Data Site** at https://ogm-public-data-utahdnr.hub.arcgis.com/ — current mine locations across oil/gas, coal, and minerals, with permit boundaries. UGRC and DNR have together published the **Utah Mining Heritage and Tourism Virtual Tour** story map at https://gis.utah.gov/map-spotlight-mining-heritage-story-map-website, a narrative-driven introduction to the state's mining landscapes intended for general audiences.
+
+## 39.7 BLM, USFS, NPS — Public-Land Maps
+
+About 80 percent of Emery County is federal land, and each agency that administers a piece of it publishes its own maps. The **Bureau of Land Management** is the dominant land manager in the Swell and the desert districts; its Utah GIS Data Library (https://www.blm.gov/services/geospatial/GISData/utah) offers downloadable file geodatabases or web services for surface management, wilderness, Travel Management Areas, grazing allotments, and mineral leases. The agency-wide entry point is the **BLM Geospatial Business Platform Hub** at https://gbp-blm-egis.hub.arcgis.com/, with a Utah subset at https://gbp-blm-egis.hub.arcgis.com/pages/utah, and an externally accessible interactive web map at https://www.arcgis.com/apps/instant/sidebar/index.html?appid=e84f92a84afb44b1ad7f65984332b4f2.
+
+The **San Rafael Swell and San Rafael Desert Travel Management Plan maps**, published by the BLM Price Field Office, are the single most-consulted products for off-highway use in the Swell and its southern reaches. It shows designated routes and surface-management overlays reflecting the San Rafael Swell and San Rafael Desert Travel Management Plans; an interactive version has been publicized by the Utah Public Lands Alliance at https://utahpla.com/new-interactive-map-of-the-san-rafael-swell-travel-management-area/. For a print/laminated companion the **National Geographic Trails Illustrated #712, San Rafael Swell [BLM Price Field Office]** (https://www.natgeomaps.com/ti-712-san-rafael-swell-blm-price-field-office) is widely available; it carries a full UTM grid for GPS use.
+
+The **U.S. Forest Service** manages the Wasatch Plateau and Manti-La Sal portions of the county. The Manti-La Sal National Forest GIS portal is at https://www.fs.usda.gov/r04/manti-lasal/data-tools/gis with visitor maps at https://www.fs.usda.gov/r04/manti-lasal/maps-guides. The **Motor Vehicle Use Map (MVUM)** is the official, free, GeoPDF-format map showing designated motorized routes for the forest; download via the Forest Service Map Finder. **National Geographic Trails Illustrated #703** covers the Manti-La Sal National Forest as a print/GeoPDF product at https://www.natgeomaps.com/ti-703-manti-la-sal-national-forest. For specialized GIS requests, the Manti-La Sal GIS Program Manager has historically been Brock Fausett at (435) 650-7097 (verify with the Ferron-Price Ranger District for current staffing).
+
+The **National Park Service** does not directly manage land within Emery County's boundary, but the county is shaped by adjacent NPS units (Capitol Reef NP to the south, Glen Canyon NRA to the far southeast) and by the Old Spanish National Historic Trail, designated in 2002 and jointly managed by NPS and BLM. (See Ch38 §38.10.) The NPS open data portal is at https://public-nps.opendata.arcgis.com/.
+
+## 39.8 SITLA — Trust Lands
+
+The **Utah Trust Lands Administration (SITLA)** holds approximately 3.4 million acres statewide for the benefit of public schools and other beneficiaries. In Emery County SITLA's holdings are scattered through BLM and private land in a checkerboard pattern that goes back to the original federal grants to Utah at statehood (1896). SITLA's spatial portal is at https://gis.trustlands.utah.gov/ with PDF maps at https://trustlands.utah.gov/tools/maps/pdf-maps/ and a Maps Gallery at https://trustlands.utah.gov/tools/maps/maps-gallery/.
+
+For a researcher interested in extractive activity, SITLA publishes a **Competitive Lease Offering** map showing current and historic units offered for oil, gas, coal, and other commodities. The agency holds both surface and split mineral estates; the GIS layers distinguish ownership types. Active and inactive lease records are searchable at https://trustlands.utah.gov/resources/land-lease-records/. For a researcher writing on the history of coal leasing in the Wasatch Plateau, or on uranium claims in the Swell, the SITLA lease record is a primary spatial source.
+
+## 39.9 Hydrography and Watersheds
+
+Water in Emery County drains east to the Colorado River system via the Green River and the San Rafael River, with minor contributions from Muddy Creek to the south. The **National Hydrography Dataset (NHD)** has been the USGS's standard hydrography product for two decades; the **Watershed Boundary Dataset (WBD)** is its companion, mapping the hierarchical hydrologic units that organize the country into 2-, 4-, 6-, 8-, 10-, and 12-digit codes ("HUC2" through "HUC12") representing nested drainage areas. The NHD was officially retired on October 1, 2023, in favor of the modernized **3D Hydrography Program (3DHP)**, which rebuilds the network from 3DEP lidar; both legacy NHD and current 3DHP data remain available at https://www.usgs.gov/national-hydrography/access-national-hydrography-products.
+
+Emery County's primary basins lie within the Upper Colorado region (HUC2 = 14). The Lower Green River subbasin (HUC8 14060005) covers the eastern county; the San Rafael subbasin (HUC8 14060009) covers the central and northern Castle Valley drainages and the Swell; Muddy Creek drains the southwestern county. The dominant streamgage on the signature river is **USGS gage 09328500 — San Rafael River near Green River, UT** (https://waterdata.usgs.gov/ut/nwis/uv?site_no=09328500), with a continuous record going back to the 1940s.
+
+Cross-reference Ch03 (Hydrology & Springs) for the substantive hydrology of the county; Ch39's role is to point to the spatial layer that lets a reader put any spring or perennial reach on the map.
+
+## 39.10 Aerial Imagery — NAIP and Historical Photography
+
+For a vertical view of Emery County the workhorse product is the **National Agriculture Imagery Program (NAIP)**, flown by the USDA Farm Service Agency in the agricultural growing season — typically June through August. Since 2018 NAIP imagery has been at 0.6-meter (60-centimeter) resolution with horizontal positional accuracy of approximately 4 meters. Utah NAIP coverage years to date include 2003, 2004, 2006, 2009, 2011, 2014, 2016, 2018, 2021, and 2024 (most recent statewide recollection).
+
+NAIP is free to download. The simplest path is the USDA Data Gateway at https://datagateway.nrcs.usda.gov/GDGHome_DirectDownLoad.aspx — input state and county, check the year, and an FTP download link arrives by email within hours. USGS EarthExplorer (https://earthexplorer.usgs.gov/) and the National Map Downloader offer parallel paths. UGRC mirrors NAIP for Utah at https://gis.utah.gov/products/sgid/aerial-photography/naip/, and the USDA ArcGIS REST service endpoint is https://gis.apfo.usda.gov/arcgis/rest/services/NAIP for direct consumption in QGIS or ArcGIS Online.
+
+The most rewarding analytical use of NAIP is **change detection**: load 2009 and 2024 imagery as a swipe layer in QGIS and see the new reservoirs, the new dirt roads in the Swell, the new houses on the SR-10 corridor, the abandoned irrigation ditch that filled with sediment between collection dates.
+
+For imagery older than NAIP, the historical record is held by USDA agencies and the National Archives (Record Group 145, USDA aerial photography from the 1930s onward) and by the USGS EROS archive (https://www.usgs.gov/centers/eros). Utah Geological Survey and USU Eastern hold scanned aerial mosaics of selected Emery County areas from the mid-twentieth century. [needs verification: full inventory of pre-NAIP aerial photography held for Emery County, including the 1930s USDA AAA flights and the 1950s USGS EROS holdings.]
+
+## 39.11 Historic Maps — Powell and Beyond
+
+The deepest historic-map record of Emery County belongs to the federal surveys of the 1870s — the so-called Four Great Surveys of the West (Hayden, King, Powell, and Wheeler) that mapped the Colorado Plateau in the decade following the Civil War. USGS Circular 1050 (https://pubs.usgs.gov/circ/c1050/surveys.htm) introduces the four surveys; Utah Historical Quarterly's Spring 2018 issue, "Maps, Mapmakers, and Nineteenth-Century Exploration" (https://history.utah.gov/repository-item/maps-mapmakers-and-nineteenth-century-exploration/), is the most accessible scholarly treatment.
+
+The **Powell Geographic Expedition of 1869** — John Wesley Powell's first descent of the Green and Colorado — was the first thorough cartographic and scientific investigation of long segments of those rivers. Powell and his party departed Green River Station (Wyoming) on May 24, 1869. They named most of the canyons, rapids, and major features along the Green River; no detailed maps from 1869 survived the loss of equipment in the rapids. Powell's **second expedition of 1871–72** carried Captain Francis M. Bishop as map-maker; Bishop had with him a surviving sketch from the 1869 reconnaissance. **Bishop's maps are the first reasonably accurate maps ever drawn of the Green and Colorado rivers.** The final map was drawn in a tent at Kanab by Frederick Dellenbaugh and Almon Harris Thompson during December 1872 and January 1873, triangulated from the Kanab Base Line. The Utah Geological Survey's interpretive treatment of the 1869 journey is at https://geology.utah.gov/map-pub/survey-notes/powell-1869-river-journey/, with a Utah Powell exploration map at https://geology.utah.gov/map-pub/survey-notes/powell-1869-river-journey/utah-powell-exploration-map/.
+
+For the broader nineteenth-century mapping context, two repositories are essential. The **David Rumsey Map Collection** (https://www.davidrumsey.com/) holds more than 150,000 rare maps; the physical collection is housed at the David Rumsey Map Center at Stanford. The collection includes G. W. Colton's 1869 map of California, Nevada, Utah, Colorado, Arizona, and New Mexico — useful baseline cartography for Utah just before Powell. The **Library of Congress Geography and Map Division** (https://loc.gov/maps) holds well over a hundred nineteenth-century Utah maps. USU Library's western surveys research guide (https://libguides.usu.edu/westernsurveys) is the best curated entry point for a serious researcher.
+
+Cross-reference Ch37 (Archives, Museums & Libraries) for the holdings of BYU L. Tom Perry Special Collections, USU Eastern, and the Utah State Archives, all of which include historic-map material relevant to Emery County.
+
+## 39.12 Apps, Tools, and Citizen Mapping
+
+The transformation of mapping from professional discipline to citizens' tool runs through the smartphone. Several apps are now widely used in Emery County:
+
+**Avenza Maps** is the platform of choice for official agency maps published as GeoPDF. BLM, USFS, NPS, and most state agencies publish their authoritative maps to the Avenza Map Store — meaning a hiker can carry the official MVUM for the Manti-La Sal, the official Travel Management map for the Swell, and a Goblin Valley State Park trail map all in the same app, all cached offline, with GPS positioning showing the user's location on the map. The free tier limits the user to three downloaded maps at any time; an annual subscription removes that limit.
+
+**Gaia GPS** offers layered basemaps from USGS topo to USFS to OSM to satellite to terrain shading; the subscription model unlocks offline caching and the full layer library. Strong for hiking, scrambling, and backcountry skiing in the Wasatch Plateau, and for general-purpose desert wayfinding.
+
+**OnX Backcountry**, **OnX Off-Road**, and **OnX Hunt** distinguish themselves with the strongest land-ownership overlay on the market — a critical feature in checkerboard Emery County where a backcountry route can cross BLM, SITLA, and private land within a quarter-mile. Popular with hunters, OHV users, ranchers, and anyone tracing a homestead claim.
+
+**CalTopo** (https://caltopo.com/) is favored by search-and-rescue teams and outfitters for its map-printing tools and the precision of its cross-reference to USGS quads. The free tier is generous; paid tiers add team and tracking features.
+
+For desktop work, the open-source landscape now rivals commercial GIS. **QGIS** (https://qgis.org/) is a free, cross-platform GIS desktop application running on Windows, macOS, Linux, and Android. It is the accessible alternative to ArcGIS Pro for amateur historians, genealogists, and educators; the project's open repository is at https://github.com/qgis/QGIS. **QField** is QGIS's free mobile companion, letting a user load a QGIS project to a phone or tablet and continue the work in the field with GPS support. USU's Open Source GIS tutorials (https://www.usu.edu/geospatial/tutorials/advanced/open-source) provide a Utah-specific entry path.
+
+**OpenStreetMap (OSM)** — the citizen-mapped world database of roads, trails, structures, and place names — is increasingly the substrate that other apps build on. Anyone can contribute. In 2021 a working group formed at OSM US in response to incidents in southern Utah where OSM-derived trail data was leading hikers off-trail into sensitive habitats, protected archaeological sites, and unsafe terrain. The presentation that catalyzed the group was given by Keri Nelson, then NPS Southeast Utah Group Backcountry Coordinator. That working group grew into the **Utah Trails Stewardship Initiative**, launched in 2023 and described at https://openstreetmap.us/our-work/trails/ — a community effort to ensure responsible mapping of trails on Utah recreational lands in collaboration with land managers and outdoor-navigation app developers. For Emery County residents, OSM remains the easiest way to contribute updated trailhead information, sign placements, and corrections to existing road data; the Utah wiki page at https://wiki.openstreetmap.org/wiki/OpenStreetMap_Utah is the entry point.
+
+A short summary of what is **not** authoritative: **AllTrails**, while widely used, is user-contributed and sometimes inaccurate; trail descriptions in southern Utah have at times routed users across private or SITLA land. For Emery County, the BLM Travel Management Plan map and the Manti-La Sal MVUM are the authoritative sources for legal motorized and recreational access.
+
+A practical **five-step workflow for a citizen researcher** wanting to put a question on a map:
+
+1. **Frame the question spatially.** What feature, what extent, what time slice?
+2. **Gather the layers.** UGRC SGID for the base; USGS topo or US Topo for context; NAIP imagery for the visual reality; 3DEP lidar hillshade if terrain matters; UGS geologic map or abandoned coal mine map if subsurface matters; parcels and PLSS for property and survey context.
+3. **Overlay in QGIS** (or ArcGIS Online if the user has access). Build a layered project that answers the question at one zoom level.
+4. **Field-verify if possible.** Export the project to QField or to a GeoPDF for Avenza, walk the ground, and record observations.
+5. **Share the result.** If the result corrects existing trail data, contribute back to OSM; if the result is a story of place, publish to a county history venue (the Emery County Historical Society oral-history program, USU Eastern, or the Emery County Progress).
+
+The democratization of GIS has put each step within reach of an interested resident. Emery County, with its dense layering of federal, state, tribal historical, and private interests across an extraordinary landscape, rewards the work.
+
+---
+
+## Sources
+
+Sources are gathered in the formal source-list file at `sources/Ch39_sources.md` (to be compiled at Phase 5). Full URL references appear inline throughout the chapter and in `research/Ch39_research_notes.md`.
+
+## Proposed Maps / Figures
+
+- **Map 1** (cover): Emery County boundary on USGS hillshade derived from 3DEP lidar.
+- **Map 2:** Emery County 7.5-minute quad index, color-coded by edition year.
+- **Map 3:** Surface management (BLM/USFS/SITLA/private) within Emery County, with acreage by class.
+- **Map 4:** Watershed boundaries (HUC8) for Emery County — San Rafael, Lower Green, Muddy Creek.
+- **Figure 1:** Side-by-side NAIP 2009 vs 2024 of a single Swell location showing change.
+- **Figure 2:** 3DEP lidar hillshade of a slot canyon (Black Box) demonstrating data resolution.
+- **Figure 3:** Reproduction of Bishop 1871 Green River map next to modern USGS 1:24,000 quad of the same reach.
+
+## Proposed Tables
+
+- **Table 1:** Master directory of Emery County mapping resources (URL, format, license, primary use case).
+- **Table 2:** NAIP coverage years for Utah (2003–2024) with resolution per year.
+- **Table 3:** Recommended mobile mapping apps comparison (Avenza, Gaia, OnX, CalTopo) — price, offline support, key strengths.
+- **Table 4:** Authoritative ver

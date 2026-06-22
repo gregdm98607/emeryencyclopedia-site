@@ -3,13 +3,20 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email } = req.body;
+  const { email, source } = req.body;
   if (!email || !email.includes('@')) {
     return res.status(400).json({ error: 'Valid email required' });
   }
 
   const API_SECRET = process.env.CONVERTKIT_API_SECRET;
-  const TAG_ID = process.env.CONVERTKIT_EEC_TAG_ID;
+
+  // Route to per-chapter tag when source === "chapter", otherwise use generic EEC tag.
+  // CONVERTKIT_TAG_ID_CHAPTERS: tag ID for subscribers from chapter pages (eec-chapters).
+  // CONVERTKIT_EEC_TAG_ID: tag ID for general site subscribers (eec-swell-report).
+  const TAG_ID =
+    source === 'chapter'
+      ? process.env.CONVERTKIT_TAG_ID_CHAPTERS
+      : process.env.CONVERTKIT_EEC_TAG_ID;
 
   if (!API_SECRET || !TAG_ID) {
     return res.status(500).json({ error: 'Server configuration error' });

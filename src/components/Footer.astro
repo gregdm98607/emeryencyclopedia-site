@@ -1,25 +1,22 @@
 ---
 // Footer.astro — V9 Rich three-column footer with chapter index and newsletter
+// Chapter index is generated from src/data/chapters.ts (single source of truth).
 import { CHAPTERS } from '../data/chapters';
-import { PARTS } from '../utils/parts';
-
-const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+import { getAllParts } from '../utils/parts';
 
 const currentYear = new Date().getFullYear();
 
-const parts = Object.values(PARTS)
-  .sort((a, b) => a.number - b.number)
-  .map((part) => ({
-    name: `Part ${ROMAN[part.number - 1]}: ${part.label}`,
-    color: part.color,
-    chapters: CHAPTERS
-      .filter((ch) => ch.part === part.number)
-      .map((ch) => ({
-        num: ch.number,
-        title: ch.title,
-        available: ch.status !== 'stub',
-      })),
-  }));
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+
+// Every part, every chapter, in order — availability derived from publish status.
+const parts = getAllParts().map((part) => ({
+  name: `Part ${ROMAN[part.number] ?? part.number}: ${part.label}`,
+  color: part.color,
+  chapters: CHAPTERS
+    .filter((ch) => ch.part === part.number)
+    .sort((a, b) => a.number - b.number)
+    .map((ch) => ({ num: ch.number, title: ch.title, available: ch.status !== 'stub' })),
+}));
 ---
 
 <footer class="footer">
@@ -112,7 +109,7 @@ const parts = Object.values(PARTS)
         Built with field notes, archival dust, and Astro.
       </p>
       <div class="footer__bottom-links">
-        <a href="#rss" class="footer__bottom-link">RSS</a>
+        <a href="/rss.xml" class="footer__bottom-link">RSS</a>
         <a href="/sitemap.xml" class="footer__bottom-link">Sitemap</a>
       </div>
     </div>
@@ -125,15 +122,7 @@ const parts = Object.values(PARTS)
 </footer>
 
 <style>
-  :root {
-    --sandstone: #D4A574;
-    --mesa-red: #C85A54;
-    --coal-seam: #1A1A2E;
-    --sky-wash: #F7F3ED;
-    --forest-green: #4A6741;
-    --sky-blue: #5B8AC5;
-    --canyon-bronze: #8B6F47;
-  }
+  /* Palette + font tokens inherited from global.css :root (single source of truth). */
 
   .footer {
     background: var(--coal-seam);
