@@ -5,13 +5,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ChapterCard from '../components/ChapterCard.astro';
 import { CHAPTERS } from '../data/chapters';
 
-const status = {
-  final: CHAPTERS.filter(ch => ch.status === 'final').length,
-  revised: CHAPTERS.filter(ch => ch.status === 'revised').length,
-  'fact-checked': CHAPTERS.filter(ch => ch.status === 'fact-checked').length,
-  draft: CHAPTERS.filter(ch => ch.status === 'draft').length,
-  stub: CHAPTERS.filter(ch => ch.status === 'stub').length
-};
+// Every chapter is live and free to read. Editorial "status" now tracks the
+// continuous-improvement standard, not publication — so the homepage leads with
+// "published" and frames ongoing enhancement rather than an overstated "final".
+const totalChapters = CHAPTERS.length;
+const publishedCount = totalChapters; // all 43 render and are readable
+const partsCount = 6;
+const enhancingCount = CHAPTERS.filter(ch => ch.status !== 'final').length;
 
 // Get featured chapters: final or revised chapters, or first few high-priority drafts
 const featuredChapters = CHAPTERS.filter(ch => 
@@ -44,29 +44,21 @@ const featuredChapters = CHAPTERS.filter(ch =>
   {/* ========== PROJECT PIPELINE TRACKER ========== */}
   <section class="pipeline">
     <div class="pipeline__container">
-      <h2 class="pipeline__title">Project Pipeline</h2>
-      <p class="pipeline__subtitle">43 chapters across 6 thematic parts</p>
+      <h2 class="pipeline__title">Project Status</h2>
+      <p class="pipeline__subtitle">All 43 chapters published and free to read — now in continuous improvement</p>
 
       <div class="pipeline__grid">
         <div class="pipeline__item">
-          <div class="pipeline__count pipeline__count--final">{status.final}</div>
-          <p class="pipeline__label">Final</p>
+          <div class="pipeline__count pipeline__count--final">{publishedCount}</div>
+          <p class="pipeline__label">Chapters Published</p>
         </div>
         <div class="pipeline__item">
-          <div class="pipeline__count pipeline__count--revised">{status.revised}</div>
-          <p class="pipeline__label">Revised</p>
+          <div class="pipeline__count pipeline__count--revised">{partsCount}</div>
+          <p class="pipeline__label">Thematic Parts</p>
         </div>
         <div class="pipeline__item">
-          <div class="pipeline__count pipeline__count--factchecked">{status['fact-checked']}</div>
-          <p class="pipeline__label">Fact-Checked</p>
-        </div>
-        <div class="pipeline__item">
-          <div class="pipeline__count pipeline__count--draft">{status.draft}</div>
-          <p class="pipeline__label">Draft</p>
-        </div>
-        <div class="pipeline__item">
-          <div class="pipeline__count pipeline__count--stub">{status.stub}</div>
-          <p class="pipeline__label">Stub</p>
+          <div class="pipeline__count pipeline__count--factchecked">{enhancingCount}</div>
+          <p class="pipeline__label">In Active Enhancement</p>
         </div>
       </div>
 
@@ -74,11 +66,11 @@ const featuredChapters = CHAPTERS.filter(ch =>
         <div class="pipeline__progress-bar">
           <div
             class="pipeline__progress-fill"
-            style={`width: ${((status.final + status.revised + status['fact-checked']) / 43) * 100}%`}
+            style={`width: ${(publishedCount / totalChapters) * 100}%`}
           ></div>
         </div>
         <p class="pipeline__progress-text">
-          {status.final + status.revised + status['fact-checked']} of 43 chapters completed
+          {publishedCount} of {totalChapters} chapters published — engagement features, visuals, maps, and deeper sourcing are being added across every chapter.
         </p>
       </div>
       <div class="pipeline__newsletter" style="margin-top:2.5rem;padding:1.75rem;border-radius:10px;background:#F7F3ED;border:1px solid #D4A574;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">
