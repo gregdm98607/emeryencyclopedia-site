@@ -77,3 +77,26 @@ npm run dev        # Dev server (Vite, hot reload)
 ```
 
 Always verify `exit 0` with cache cleared before reporting a clean build. Deployment is via Vercel (auto on merge to master).
+
+---
+
+## Standard Ship Workflow
+
+Every content change follows one publish path (the `eec-ship-chapter` skill):
+
+**edit → preflight (`eec-preflight`) → commit on a branch → PR → Vercel preview (Greg approves) → merge**
+
+- Never open a PR or push without a passing cache-cleared build.
+- A PostToolUse hook (`scripts/claude-content-lint.mjs`) lints every content edit for schema, autolink, image-existence, and component-prop errors — fix its findings immediately, don't defer to CI.
+- Component props: `docs/authoring/mdx-components.md` is the single source of truth. Never write props from memory.
+
+## Images & Assets
+
+- All images must be open-source/licensed with attribution (CREDITS.md + `photo_attribution.json`).
+- Downloads must land inside the active repo root — run `git rev-parse --show-toplevel` first when in a worktree; files written to the main repo from a worktree session do not persist to the commit.
+- `npm run promote-images:dry` reports Approved/ images not yet live and chapters missing figure blocks; resolve before shipping.
+
+## Shell & Editing Conventions
+
+- Bash tool = POSIX syntax with forward-slash paths; PowerShell tool = PowerShell syntax. Never mix (a PreToolUse hook blocks PowerShell-in-Bash).
+- Before any Edit on content files, Read the exact target region and use a unique multi-line anchor — whitespace-ambiguous matches fail.
