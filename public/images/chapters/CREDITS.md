@@ -841,6 +841,18 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 
 ## Ch33 — Climbing, Canyoneering & Rivers (Added 2026-05-14)
 
+### ch33_map_swell-canyoneering.png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch33_map_swell-canyoneering.png` |
+| **Description** | Canyoneering and river-access locator map of the central and southern San Rafael Swell (Map 33-A). Verified access points: Fuller Bottom float put-in (39.1743, -110.7903); San Rafael Swinging Bridge / Black Box gauge and float take-out (39.0789, -110.6647); Upper & Lower Black Box reach downstream; Muddy Creek "The Chute" / Hidden Splendor airstrip exit (38.5850, -110.9256); Little Wild Horse Canyon trailhead (38.5839, -110.8026); Goblin Valley State Park visitor center (38.5647, -110.7076). Annotated San Rafael Reef and I-70. Rendered in the site brand style (Libre Baskerville / Source Sans 3; Desert Scholarly palette). |
+| **Source** | Base map: OpenStreetMap / CARTO Positron tiles. Access-point coordinates: USGS GNIS / BLM recreation place data, cross-checked against published trailhead and river-access descriptions (BLM Utah, American Whitewater), verified July 2026. Map generated for this work from the listed public-domain data using Python (matplotlib + contextily). |
+| **Agency** | U.S. Geological Survey (USGS) / Bureau of Land Management (BLM); OpenStreetMap contributors; CARTO |
+| **URL** | https://www.blm.gov/visit/fullers-bottom-trailhead ; https://www.blm.gov/visit/little-wild-horse-trailhead ; https://www.openstreetmap.org/copyright ; https://carto.com/attribution |
+| **License** | Base map © OpenStreetMap contributors (ODbL), © CARTO (CC BY 3.0). Access data public domain (U.S. government works). Composite map generated for this work. |
+| **Date accessed** | 2026-07-11 |
+
 ### ch33_opensource_san_rafael_streamflow.png
 
 | Field | Value |
