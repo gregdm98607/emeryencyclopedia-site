@@ -3,15 +3,16 @@
  * incorporate-approved-images.mjs
  *
  * Step 3 of the EEC image workflow (the previously-manual part):
- *   1. eec-visual-research proposes images into public/images/chapters/.
- *   2. A human sorts them into Approved/ or Rejected/.
+ *   1. eec-visual-research proposes candidate images.
+ *   2. A human sorts them into image-curation/approved/ or image-curation/rejected/.
  *   3. Approved images that a chapter actually references get INCORPORATED —
  *      copied into the served root so they deploy.  <-- this script
  *
- * `public/images/chapters/Approved/` is gitignored local staging; only images
- * in the tracked root are committed and deployed. This script copies every
- * Approved/ image that a chapter references (via `/images/chapters/<name>`)
- * into the root. Run it locally after approving images, then commit the result.
+ * `image-curation/approved/` is gitignored local staging (outside public/ so
+ * staged images can never deploy); only images in the tracked root are
+ * committed and deployed. This script copies every approved image that a
+ * chapter references (via `/images/chapters/<name>`) into the root. Run it
+ * locally after approving images, then commit the result.
  *
  * Usage:
  *   node scripts/incorporate-approved-images.mjs           # dry-run (report only)
@@ -23,7 +24,7 @@ import { join } from 'node:path';
 const ROOT = process.cwd();
 const SRC = join(ROOT, 'src');
 const IMG_ROOT = join(ROOT, 'public', 'images', 'chapters');
-const APPROVED = join(IMG_ROOT, 'Approved');
+const APPROVED = join(ROOT, 'image-curation', 'approved');
 const write = process.argv.includes('--write');
 
 // Gather every root-level chapter image referenced in source (no subfolder paths).
@@ -63,5 +64,5 @@ console.log(
 );
 if (missing > 0) {
   console.log('\nNOTE: "MISSING" images are referenced by a chapter but not approved yet —');
-  console.log('approve them (move into Approved/) or remove the reference from the chapter.');
+  console.log('approve them (move into image-curation/approved/) or remove the reference from the chapter.');
 }
