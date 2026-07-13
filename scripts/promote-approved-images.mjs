@@ -4,10 +4,10 @@
 // figure block.
 //
 // What this script DOES (the mechanical part):
-//   - Diffs public/images/chapters/Approved/ against public/images/chapters/
-//   - Copies any file present in Approved/ but missing in chapters/
+//   - Diffs image-curation/approved/ against public/images/chapters/
+//   - Copies any file present in approved/ but missing in chapters/
 //   - For each chapter that received new file(s), bumps `lastUpdated:` in
-//     src/content/chapters/chXX.md to today's date.
+//     src/content/chapters/chXX.mdx to today's date.
 //   - Prints a checklist grouped by chapter: which images are already
 //     referenced in the chapter narrative vs. which still need an
 //     <figure>/<figcaption> block.
@@ -34,7 +34,7 @@ import { dirname, join, resolve, basename, extname } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
 
-const APPROVED_DIR = join(REPO_ROOT, 'public', 'images', 'chapters', 'Approved');
+const APPROVED_DIR = join(REPO_ROOT, 'image-curation', 'approved');
 const LIVE_DIR = join(REPO_ROOT, 'public', 'images', 'chapters');
 const CHAPTERS_DIR = join(REPO_ROOT, 'src', 'content', 'chapters');
 
@@ -55,7 +55,7 @@ function chapterNumberFromFilename(name) {
 
 function chapterFilePath(chapterNum) {
   const padded = String(chapterNum).padStart(2, '0');
-  return join(CHAPTERS_DIR, `ch${padded}.md`);
+  return join(CHAPTERS_DIR, `ch${padded}.mdx`);
 }
 
 async function main() {

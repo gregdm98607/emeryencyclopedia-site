@@ -26,5 +26,7 @@ pnpm-debug.log*
 # Claude Code artifacts
 .claude/
 
-# Image curation staging area — local workflow artifact, not a site asset
-public/images/chapters/Approved/
+# Image curation staging area — local workflow artifact, not a site asset.
+# Lives OUTSIDE public/ so staged/rejected images can never be deployed and
+# approved-but-unincorporated images never appear as git deletions.
+image-curation/
