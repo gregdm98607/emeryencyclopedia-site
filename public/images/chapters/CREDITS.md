@@ -921,3 +921,25 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **Generated** | 2026-06-10 |
 | **Prompt style** | Information-design flat vector illustration, 16:9 aspect ratio, Desert Scholarly palette (#D4A574 / #3B2F2F / #7A8B6F / #A0522D / #F7F3ED / #2C5F7C). No text overlays. |
 | **License** | AI-generated original for the Emery County Encyclopedia, 2026. No real persons, brands, or copyrighted artworks depicted. |
+
+### ch34_figure_seasonal-calendar.svg / .png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch34_figure_seasonal-calendar.svg` / `.png` |
+| **Description** | Figure 34-A — Wildlife-Watching Seasonal Calendar: Gantt-style timeline of 11 species-activity windows (Jan–Dec), colored by habitat zone. |
+| **Data source** | Ch34 §34.11 seasonal calendar + species accounts §34.2–34.8; Utah DWR wildlife-viewing guidance; BLM Cleveland-Lloyd Quarry hours |
+| **Tool** | matplotlib (site palette; DejaVu Sans substituted for brand faces) |
+| **License** | Chart generated for this work from the listed public-domain / author-supplied data |
+| **Generated** | 2026-07-19 |
+
+### ch14_figure_exploration-timeline.svg / .png
+
+| Field | Value |
+|---|---|
+| **Filename** | `ch14_figure_exploration-timeline.svg` / `.png` |
+| **Description** | Figure 14-A — Key Exploration & Fur-Trade Events, Emery County region, 1776–1848 (10-event timeline, color-coded by theme). |
+| **Data source** | Ch14 §14.1–14.9 (Utah History Encyclopedia; NPS Old Spanish National Historic Trail; Utah History to Go) |
+| **Tool** | matplotlib (site palette; DejaVu Sans substituted for brand faces) |
+| **License** | Chart generated for this work from cited public-domain / secondary sources |
+| **Generated** | 2026-07-19 |
