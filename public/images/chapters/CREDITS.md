@@ -943,3 +943,8 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 | **Tool** | matplotlib (site palette; DejaVu Sans substituted for brand faces) |
 | **License** | Chart generated for this work from cited public-domain / secondary sources |
 | **Generated** | 2026-07-19 |
+
+## Ch15 / Ch16 figures (generated 2026-07-20, eec-chapter-pipeline)
+- ch15_figure_1869-timeline.svg/.png — Powell's 1869 expedition timeline, Emery County reach highlighted. Generated for this work (matplotlib) from dates in Ch15 §15.2 (sourced: USGS 150th Anniversary; Utah Geological Survey; WyoHistory). License: original work, public-domain data.
+- ch16_figure_population-1880-2020.svg/.png — Emery County population, U.S. Census 1880–2020. Generated for this work (matplotlib) from U.S. Census Bureau decennial figures. License: original work, public-domain data.
+- ch16_figure_founding-timeline.svg/.png — Founding chronology of the Castle Valley colony 1875–1888. Generated for this work (matplotlib) from Ch16 body (Utah History Encyclopedia; Geary 1984; FamilySearch). License: original work, public-domain data.
