@@ -948,3 +948,9 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 - ch15_figure_1869-timeline.svg/.png — Powell's 1869 expedition timeline, Emery County reach highlighted. Generated for this work (matplotlib) from dates in Ch15 §15.2 (sourced: USGS 150th Anniversary; Utah Geological Survey; WyoHistory). License: original work, public-domain data.
 - ch16_figure_population-1880-2020.svg/.png — Emery County population, U.S. Census 1880–2020. Generated for this work (matplotlib) from U.S. Census Bureau decennial figures. License: original work, public-domain data.
 - ch16_figure_founding-timeline.svg/.png — Founding chronology of the Castle Valley colony 1875–1888. Generated for this work (matplotlib) from Ch16 body (Utah History Encyclopedia; Geary 1984; FamilySearch). License: original work, public-domain data.
+
+## Ch17 / Ch18 figures (generated 2026-07-21, eec-chapter-pipeline)
+- ch17_figure_coal-production-benchmarks.svg/.png — Emery County coal production: the 1980 peak against 2020–2023. Generated for this work (matplotlib) from Utah History To Go "Old King Coal" (1980 peak) and Utah Geological Survey Table 2.8 (2020–2023). Only cited benchmark years plotted. License: original work, public-domain data.
+- ch17_figure_extractive-timeline.svg/.png — Emery County's extractive century, 1881–2024 (12-event tiered timeline). Generated for this work (matplotlib) from Ch17 §17.2–§17.12. License: original work, public-domain / secondary cited data.
+- ch18_figure_infrastructure-timeline.svg/.png — Infrastructure milestones, 1876–1990 (11-event tiered timeline). Generated for this work (matplotlib) from Ch18 §18.1–§18.7. License: original work.
+- ch18_figure_i70-service-gap.svg/.png — Interstate 70 across the Swell: the service gap (schematic, one-axis scale only). Generated for this work (matplotlib) from Ch18 §18.7 and §18.11 (Utah History to Go, "Interstate 70"). License: original work.
