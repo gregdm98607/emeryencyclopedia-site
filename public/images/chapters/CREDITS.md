@@ -954,3 +954,7 @@ safety, and emergency-services institutions (1877-2024). Public-record dates com
 - ch17_figure_extractive-timeline.svg/.png — Emery County's extractive century, 1881–2024 (12-event tiered timeline). Generated for this work (matplotlib) from Ch17 §17.2–§17.12. License: original work, public-domain / secondary cited data.
 - ch18_figure_infrastructure-timeline.svg/.png — Infrastructure milestones, 1876–1990 (11-event tiered timeline). Generated for this work (matplotlib) from Ch18 §18.1–§18.7. License: original work.
 - ch18_figure_i70-service-gap.svg/.png — Interstate 70 across the Swell: the service gap (schematic, one-axis scale only). Generated for this work (matplotlib) from Ch18 §18.7 and §18.11 (Utah History to Go, "Interstate 70"). License: original work.
+
+## Ch19 / Ch20 figures (generated 2026-07-22, eec-chapter-pipeline)
+- ch19_figure_water-development-timeline.svg/.png — Water development in Emery County, 1877–2025 (9-event timeline). Generated for this work (matplotlib) from Ch19 §19.1–§19.11 (USBR Emery County Project history; EWCD; Utah Div. of Water Resources; Williams et al. 2022). License: original work, public-domain / secondary cited data.
+- ch20_figure_agriculture-timeline.svg/.png — Agriculture & ranching in Emery County, 1875–2002 (8-event timeline). Generated for this work (matplotlib) from Ch20 §20.3–§20.6 (UEN Utah History Encyclopedia; USBR; USDA Census of Agriculture). License: original work, public-domain / secondary cited data.

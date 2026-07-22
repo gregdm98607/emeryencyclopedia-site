@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="777.028656pt" height="366.348281pt" viewBox="0 0 777.028656 366.348281" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-07-22T00:48:36.866273</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 366.348281 
+L 777.028656 366.348281 
+L 777.028656 0 
+L 0 0 
+z
+" style="fill: #f7f3ed"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.275633 343.437969 
+L 744.735633 343.437969 
+L 744.735633 31.077969 
+L 25.275633 31.077969 
+z
+" style="fill: #f7f3ed"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 25.275633 187.257969 
+L 744.735633 187.257969 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #8b6f47; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_2">
+      <defs>
+       <path id="me8e8000782" d="M 0 0 
+L 0 3.5 
+" style="stroke: #3b2f2f; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#me8e8000782" x="65.745258" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="65.745258" y="357.276562" transform="rotate(-0 65.745258 357.276562)">1880</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#me8e8000782" x="155.677758" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="155.677758" y="357.276562" transform="rotate(-0 155.677758 357.276562)">1900</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#me8e8000782" x="245.610258" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="245.610258" y="357.276562" transform="rotate(-0 245.610258 357.276562)">1920</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#me8e8000782" x="335.542758" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="335.542758" y="357.276562" transform="rotate(-0 335.542758 357.276562)">1940</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#me8e8000782" x="425.475258" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="425.475258" y="357.276562" transform="rotate(-0 425.475258 357.276562)">1960</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#me8e8000782" x="515.407758" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="515.407758" y="357.276562" transform="rotate(-0 515.407758 357.276562)">1980</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#me8e8000782" x="605.340258" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="605.340258" y="357.276562" transform="rotate(-0 605.340258 357.276562)">2000</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#me8e8000782" x="695.272758" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="695.272758" y="357.276562" transform="rotate(-0 695.272758 357.276562)">2020</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_10">
+    <path d="M 52.255383 187.257969 
+L 52.255383 136.729145 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 169.167633 187.257969 
+L 169.167633 237.786792 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 407.488758 187.257969 
+L 407.488758 136.729145 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 438.965133 187.257969 
+L 438.965133 237.786792 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 452.455008 187.257969 
+L 452.455008 136.729145 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 470.441508 187.257969 
+L 470.441508 237.786792 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 483.931383 187.257969 
+L 483.931383 136.729145 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 605.340258 187.257969 
+L 605.340258 237.786792 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 717.755883 187.257969 
+L 717.755883 136.729145 
+" clip-path="url(#p8aedf62241)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 25.275633 343.437969 
+L 744.735633 343.437969 
+" style="fill: none; stroke: #8b6f47; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m7b845cdfee" d="M 0 4.1833 
+C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 
+C 3.742521 2.173559 4.1833 1.109424 4.1833 0 
+C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 
+C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 
+C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 
+C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 
+C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 
+C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 
+z
+" style="stroke: #3b2f2f"/>
+    </defs>
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="52.255383" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="52.255383" y="176.741555" transform="rotate(-0 52.255383 176.741555)">1877</text>
+   </g>
+   <g id="text_10">
+    <g id="patch_4">
+     <path d="M 7.2 134.625616 
+L 97.310766 134.625616 
+Q 99.800766 134.625616 99.800766 132.135616 
+L 99.800766 114.808588 
+Q 99.800766 112.318588 97.310766 112.318588 
+L 7.2 112.318588 
+Q 4.71 112.318588 4.71 114.808588 
+L 4.71 132.135616 
+Q 4.71 134.625616 7.2 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(10.044695 121.115291)">Mormon settlement;</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(7.2 130.409475)">pioneer ditches begin</text>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="169.167633" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="169.167633" y="202.46532" transform="rotate(-0 169.167633 202.46532)">1903</text>
+   </g>
+   <g id="text_12">
+    <g id="patch_5">
+     <path d="M 113.822844 262.19735 
+L 224.512422 262.19735 
+Q 227.002422 262.19735 227.002422 259.70735 
+L 227.002422 242.380322 
+Q 227.002422 239.890322 224.512422 239.890322 
+L 113.822844 239.890322 
+Q 111.332844 239.890322 111.332844 242.380322 
+L 111.332844 259.70735 
+Q 111.332844 262.19735 113.822844 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(122.804352 248.687025)">USDA report: &gt;30% of</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(113.822844 257.981209)">farmland abandoned (salt)</text>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="407.488758" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="407.488758" y="176.741555" transform="rotate(-0 407.488758 176.741555)">1956</text>
+   </g>
+   <g id="text_14">
+    <g id="patch_6">
+     <path d="M 359.307906 134.625616 
+L 455.669609 134.625616 
+Q 458.159609 134.625616 458.159609 132.135616 
+L 458.159609 105.514403 
+Q 458.159609 103.024403 455.669609 103.024403 
+L 359.307906 103.024403 
+Q 356.817906 103.024403 356.817906 105.514403 
+L 356.817906 132.135616 
+Q 356.817906 134.625616 359.307906 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(359.307906 111.821106)">Colorado River Storage</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(362.257 121.115291)">Project Act authorizes</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(362.493031 130.409475)">Emery County Project</text>
+   </g>
+   <g id="PathCollection_4">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="438.965133" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="438.965133" y="202.46532" transform="rotate(-0 438.965133 202.46532)">1963</text>
+   </g>
+   <g id="text_16">
+    <g id="patch_7">
+     <path d="M 397.455406 262.19735 
+L 480.474859 262.19735 
+Q 482.964859 262.19735 482.964859 259.70735 
+L 482.964859 242.380322 
+Q 482.964859 239.890322 480.474859 239.890322 
+L 397.455406 239.890322 
+Q 394.965406 239.890322 394.965406 242.380322 
+L 394.965406 259.70735 
+Q 394.965406 262.19735 397.455406 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(397.455406 248.687025)">Construction begins</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(420.089117 257.981209)">(June 20)</text>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="452.455008" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="452.455008" y="176.741555" transform="rotate(-0 452.455008 176.741555)">1966</text>
+   </g>
+   <g id="text_18">
+    <g id="patch_8">
+     <path d="M 401.185 134.625616 
+L 503.725016 134.625616 
+Q 506.215016 134.625616 506.215016 132.135616 
+L 506.215016 105.514403 
+Q 506.215016 103.024403 503.725016 103.024403 
+L 401.185 103.024403 
+Q 398.695 103.024403 398.695 105.514403 
+L 398.695 132.135616 
+Q 398.695 134.625616 401.185 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(409.089453 111.821106)">First irrigation water;</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(401.185 121.115291)">Joes Valley &amp; Huntington</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(407.44307 130.409475)">North dams complete</text>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="470.441508" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="470.441508" y="202.46532" transform="rotate(-0 470.441508 202.46532)">1970</text>
+   </g>
+   <g id="text_20">
+    <g id="patch_9">
+     <path d="M 422.328094 262.19735 
+L 518.554922 262.19735 
+Q 521.044922 262.19735 521.044922 259.70735 
+L 521.044922 242.380322 
+Q 521.044922 239.890322 518.554922 239.890322 
+L 422.328094 239.890322 
+Q 419.838094 239.890322 419.838094 242.380322 
+L 419.838094 259.70735 
+Q 419.838094 262.19735 422.328094 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(422.328094 248.687025)">EWCD assumes project</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(433.439719 257.981209)">operations (Jan 1)</text>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="483.931383" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="483.931383" y="176.741555" transform="rotate(-0 483.931383 176.741555)">1973</text>
+   </g>
+   <g id="text_22">
+    <g id="patch_10">
+     <path d="M 436.868437 134.625616 
+L 530.994328 134.625616 
+Q 533.484328 134.625616 533.484328 132.135616 
+L 533.484328 114.808588 
+Q 533.484328 112.318588 530.994328 112.318588 
+L 436.868437 112.318588 
+Q 434.378437 112.318588 434.378437 114.808588 
+L 434.378437 132.135616 
+Q 434.378437 134.625616 436.868437 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(441.297914 121.115291)">M&amp;I water available;</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(436.868437 130.409475)">Electric Lake complete</text>
+   </g>
+   <g id="PathCollection_8">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="605.340258" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="605.340258" y="202.46532" transform="rotate(-0 605.340258 202.46532)">2000</text>
+   </g>
+   <g id="text_24">
+    <g id="patch_11">
+     <path d="M 554.142227 262.19735 
+L 656.538289 262.19735 
+Q 659.028289 262.19735 659.028289 259.70735 
+L 659.028289 242.380322 
+Q 659.028289 239.890322 656.538289 239.890322 
+L 554.142227 239.890322 
+Q 551.652227 239.890322 551.652227 242.380322 
+L 551.652227 259.70735 
+Q 551.652227 262.19735 554.142227 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(554.142227 248.687025)">Southwest megadrought</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(591.572633 257.981209)">begins</text>
+   </g>
+   <g id="PathCollection_9">
+    <g clip-path="url(#p8aedf62241)">
+     <use xlink:href="#m7b845cdfee" x="717.755883" y="187.257969" style="fill: #c85a54; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="717.755883" y="176.741555" transform="rotate(-0 717.755883 176.741555)">2025</text>
+   </g>
+   <g id="text_26">
+    <g id="patch_12">
+     <path d="M 665.683109 134.625616 
+L 769.828656 134.625616 
+Q 772.318656 134.625616 772.318656 132.135616 
+L 772.318656 114.808588 
+Q 772.318656 112.318588 769.828656 112.318588 
+L 665.683109 112.318588 
+Q 663.193109 112.318588 663.193109 114.808588 
+L 663.193109 132.135616 
+Q 663.193109 134.625616 665.683109 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(673.140789 121.115291)">Utah drought state of</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(665.683109 130.409475)">emergency (17 counties)</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="385.005633" y="17.077969" transform="rotate(-0 385.005633 17.077969)">Figure 19-A. Water development in Emery County, 1877–2025</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8aedf62241">
+   <rect x="25.275633" y="31.077969" width="719.46" height="312.36"/>
+  </clipPath>
+ </defs>
+</svg>
