@@ -33,3 +33,8 @@ image-curation/
 
 # auto-sync / PR coordination sentinel — never commit (see Git Auto Push + Auto Deploy Monitor)
 .autosync-pause
+
+# Local figure staging — original graphics awaiting review.
+# Mirrors image-curation/. Only copies incorporated into
+# public/images/chapters/ are tracked and deployed.
+figure-curation/
