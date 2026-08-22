@@ -21,6 +21,11 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 - **Ch06** has no `## Proposed Tables` section at all (it has "Proposed Maps & Figures" and "Proposed Photographs" only). Not a gap: the chapter already carries 3 fully-built tables (6-A, 6-B, 6-C) in its in-body "Figures & Tables" section. Excluded from the row list — nothing to inventory.
 - **Ch07, Ch08** each have a real `## Proposed Tables` section, but in both chapters every listed item is already fully rendered and placed in-body (Table 7-A/7-B; Table 8-A/8-B) — the proposal text and the shipped table cover the same subject 1:1. Logged as `done`-equivalent below (status `todo` intentionally not used, since the work exists; this job does not self-assign `done` per the status vocabulary, so these are noted `fulfilled-in-chapter` in the Notes column instead and excluded from the todo/needs-data/in-review counts).
 - **Ch10** has 2 proposed-table items, both already fully rendered and placed in-body as Table 10-A and Table 10-B, matching the proposals 1:1. Same `fulfilled-in-chapter` treatment as Ch07/Ch08.
+- **Ch16** heading is split across lines in the source (`## Proposed` / `Tables`) but is functionally the `## Proposed Tables` section. All 4 items (Table 16.1–16.4) are already fully rendered in-body as Tables 16-A/B/C/D — `fulfilled-in-chapter`.
+- **Ch17** has 4 proposed-table items; 3 map 1:1 to existing in-body Tables 17-A/17-B/17-C. The 4th (annual coal production 2015–2024) is only partly covered by Table 17-D, which tabulates the 1980 peak plus 2020–2023 — the years the chapter actually cites. Marked `needs-data`.
+- **Ch18** has 3 proposed-table items. Items 2 and 3 map 1:1 to existing in-body Tables 18-B and 18-C. Item 1 (infrastructure-events timeline 1876–2024) was rendered only as *Figure* 18-A (and only through 1990) — a genuine table gap, same pattern as Ch11-T1. Rendered below.
+- **Ch19** has no `## Proposed Tables` section at all (only prose §§, engagement features, See Also, Further Reading). Not a gap — nothing to inventory. Same treatment as Ch06/Ch12.
+- **Ch20** has 3 proposed-table items, all three already fully rendered in-body as Tables 20-A, 20-B, 20-C — `fulfilled-in-chapter`.
 - **Ch09** has 3 proposed-table items and, unlike Ch07/08/10, none are pre-built in-body (this chapter's visuals are deferred to `research/Ch09_visual_brief.md`). T1 ("Fremont-period chronology with regional variant timelines") substantially overlaps the chapter's existing in-body Table 9-A (Fremont Subregional Variants Comparison) — rendered below as a chronology-focused companion table sourced from §9.1 prose dates. T2 (site types) and T3 (ceramic typology) lack cited granular data in the draft prose to build responsibly.
 
 ---
@@ -61,6 +66,21 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch15 | T1 | Table 15.1 — Chronology of Powell's 1869 expedition with Emery County river-days highlighted | fulfilled-in-chapter | Matches existing in-body Table 15-A ("Figures & Tables (Done v2 — stages 8–9)" section) exactly; no further action needed. |
 | ch15 | T2 | Table 15.2 — The Great Surveys quartet at a glance | fulfilled-in-chapter | Matches existing in-body Table 15-B exactly; no further action needed. |
 | ch15 | T3 | Table 15.3 — Place-names in Emery County and adjacent Colorado Plateau attributable to 1853–1879 surveys | fulfilled-in-chapter | Matches existing in-body Table 15-C exactly; no further action needed. |
+| ch16 | T1 | Table 16.1 — Founding wave chronology: 1875 (Lemmon), 1876 (first cabin), 1877 (call), 1878 (ditches), 1880 (county organized) | fulfilled-in-chapter | Matches existing in-body Table 16-A exactly; no further action needed. |
+| ch16 | T2 | Table 16.2 — Founding settlements with date, founding families, creek drainage | fulfilled-in-chapter | Matches existing in-body Table 16-B exactly; no further action needed. |
+| ch16 | T3 | Table 16.3 — Emery County population, U.S. Census 1880–2020 (with boundary-change notes 1890/1894) | fulfilled-in-chapter | Matches existing in-body Table 16-C exactly, including the boundary-change note; no further action needed. |
+| ch16 | T4 | Table 16.4 — LDS ward and stake organization dates, 1879–1890 | fulfilled-in-chapter | Matches existing in-body Table 16-D exactly; no further action needed. |
+| ch17 | T1 | Table 17.1 — Selected Emery County coal mines: name, field, operator, years of operation, peak production | fulfilled-in-chapter | Matches existing in-body Table 17-A; no further action needed. |
+| ch17 | T2 | Table 17.2 — Wilberg and Crandall Canyon: dates, casualties, cause, federal action taken | fulfilled-in-chapter | Matches existing in-body Table 17-B exactly; no further action needed. |
+| ch17 | T3 | Table 17.3 — Temple Mountain mining-district cumulative production 1948–1956 (U₃O₈ and V₂O₅) | fulfilled-in-chapter | Matches existing in-body Table 17-C exactly; no further action needed. |
+| ch17 | T4 | Table 17.4 — Emery County annual coal production, 2015–2024 (short tons) | needs-data | Existing Table 17-D covers only the cited years: 1980 peak (6,320,000 st, Utah History To Go) and 2020–2023 (UGS Table 2.8). 2015–2019 and 2024 are not cited anywhere in Ch17_draft.md or Ch17_sources.md; completing the 2015–2024 series requires pulling UGS Table 2.8 back-years. Logged to `_Planning/BACKLOG.md`. |
+| ch18 | T1(auto) | Timeline of Major Infrastructure Events in Emery County (1876–2024) — year, event, significance | in-review | Rendered below (§ Rendered Tables Awaiting Placement). Figure 18-A covers the same subject visually but stops at 1990; no table existed. All rows traced to §18.1–§18.11 prose. The 1938 Moon Lake Electric row carries the chapter's own caveat that the co-op did not serve Emery County proper. Approval pending. |
+| ch18 | T2(auto) | Railroad Coal Branch Lines: Overview — branch, operator, endpoint, miles, opened, mines served, status | fulfilled-in-chapter | Matches existing in-body Table 18-B ("Rail lines serving the coalfields"); the proposal's Mohrland Branch is covered by 18-B's Utah Railway Hiawatha–Castle Gate row (Mohrland toward Helper). No further action needed. |
+| ch18 | T3(auto) | Federal Highway Routes Through Emery County — route, designation, established, function, notable segments | fulfilled-in-chapter | Matches existing in-body Table 18-C exactly; no further action needed. |
+| ch19 | — | No `## Proposed Tables` section exists in this chapter. | n/a | Not a gap — nothing to inventory. Same pattern as Ch06 and Ch12. |
+| ch20 | T1(auto) | Table: Emery County Project Key Statistics — dam name, stream, height, capacity, service area | fulfilled-in-chapter | Matches existing in-body Table 20-A exactly, including the Ch19 §19.5 reconciliation note; no further action needed. |
+| ch20 | T2(auto) | Table: Emery County Agricultural Census Snapshot (2002) — farm count by livestock type; crop acreages | fulfilled-in-chapter | Matches existing in-body Table 20-B exactly; no further action needed. |
+| ch20 | T3(auto) | Table: Pioneer Irrigation Works — ditch name, year begun, settlement served, approximate length | fulfilled-in-chapter | Matches existing in-body Table 20-C ("Selected pioneer canals of Emery County"); the proposal's "approximate length" column is not carried in 20-C because lengths are not cited, but the subject is covered 1:1. No further action needed. |
 
 ---
 
@@ -141,3 +161,27 @@ Pattern 1, placement suggested near the chapter opening (companion to Figure 11-
 | Present | Bears Ears Inter-Tribal Coalition (Navajo Nation, Hopi, Ute Mountain Ute, Ute Indian Tribe, Zuni) advocates for shared stewardship (§11.11) |
 ```
 *Source: Ch11_draft.md §§11.1, 11.3, 11.6, 11.7, 11.9–11.11 (History to Go; Utah Diné Bikéyah; Bears Ears Coalition, as cited in Ch11_sources.md).*
+
+
+### ch18-T1(auto) — Major Infrastructure Events in Emery County, 1876–2024
+
+Pattern 1, placement suggested near §18.1 as the chapter's opening orientation table, or beside Figure 18-A (which covers the same span visually but stops at 1990):
+
+```markdown
+| Year | Event | Significance |
+|---|---|---|
+| 1876 | Blake's Ferry established on the Green River | First documented crossing; the town's first commerce point, seven years ahead of the railroad (§18.6) |
+| 1883 | D&RGW main line completed through Price River Canyon; railroad bridge opens | Utah–Colorado connection 30 March, revenue traffic 1 April; regional economic transformation begins (§18.2, §18.6) |
+| 1899 | Sunnyside Branch completed — 17 miles, Mounds to Sunnyside | Coal branch network expands to reach Utah Fuel Co. mines (§18.3) |
+| 1910 | Wagon bridge replaces Blake's Ferry | Road traffic finally freed from ferry service after ~30 years of coexistence with the rail bridge (§18.6) |
+| 1926 | US-6 and US-50 established | Federal highway system arrives; trucks begin competing with trains (§18.5) |
+| 1938 | Moon Lake Electric formed under the REA | Rural electrification era begins in the region — though the co-op served the Altamont area, not Emery County proper (§18.9) |
+| 1946 | Wagon bridge collapses after 36 years | Travel and commerce disrupted on both banks; emergency reconstruction follows (§18.6) |
+| 1950 | Emery County Farmers Union Telephone Association formed with REA assistance | First systematic effort to wire the county for telephone service (§18.9) |
+| 1963 | I-70 construction begins across the San Rafael Swell | Interstate era construction opens (§18.7) |
+| 1970 | I-70 first section opens 5 November; Ghost Rocks dedication 5 December | Interstate era begins; the 110-mile service gap emerges (§18.7) |
+| 1977 | Huntington Power Plant Unit No. 2 comes online (Unit No. 1, July 1974) | Modern coal-to-power infrastructure peak; 944 MW combined capacity (§18.10) |
+| 1990 | I-70 four-lane widening complete; Eagle Canyon bridge dedicated October | Interstate modernization complete — 20 years after opening, 27 after construction began (§18.7) |
+| 2023–2024 | PacifiCorp announces long-term coal retirement for Huntington; broadband expansion ongoing | Contemporary infrastructure uncertainty; retirement date moved 2036 → 2032 → 2036 (§18.10, §18.11) |
+```
+*Source: Ch18_draft.md §§18.1–18.11, drawing on utahrails.net ("Rio Grande in Utah, Sunnyside Branch"); FHWA, "U.S. 6 — The Grand Army of the Republic Highway"; Utah History to Go, "Interstate 70"; Utah Stories from the Beehive Archive, "Division & Connection: The Green River Crossing"; ETV News, Emery County Farmers Union Telephone Association; Global Energy Monitor.*
