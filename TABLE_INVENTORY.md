@@ -81,6 +81,21 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch20 | T1(auto) | Table: Emery County Project Key Statistics — dam name, stream, height, capacity, service area | fulfilled-in-chapter | Matches existing in-body Table 20-A exactly, including the Ch19 §19.5 reconciliation note; no further action needed. |
 | ch20 | T2(auto) | Table: Emery County Agricultural Census Snapshot (2002) — farm count by livestock type; crop acreages | fulfilled-in-chapter | Matches existing in-body Table 20-B exactly; no further action needed. |
 | ch20 | T3(auto) | Table: Pioneer Irrigation Works — ditch name, year begun, settlement served, approximate length | fulfilled-in-chapter | Matches existing in-body Table 20-C ("Selected pioneer canals of Emery County"); the proposal's "approximate length" column is not carried in 20-C because lengths are not cited, but the subject is covered 1:1. No further action needed. |
+| ch21 | T1(auto) | Energy Facilities Summary Table — Facility, Type, Capacity, Owner, Date Active, Employment, Status (2026) | fulfilled-in-chapter | Matches existing in-body Table 21-A exactly; no further action needed. |
+| ch21 | T2(auto) | Emery County Economic Indicators — population, income, poverty, top employment sectors | fulfilled-in-chapter | Matches existing in-body Table 21-C (Economic Indicators, 2023) exactly; no further action needed. |
+| ch22 | T1(auto) | Decennial census population totals for Emery County, 1880–2020 | fulfilled-in-chapter | Matches existing in-body Table 22-A exactly, including gap-year verify flags; no further action needed. |
+| ch22 | T2(auto) | Educational attainment breakdown (adult population, 2023 ACS) | fulfilled-in-chapter | Matches existing in-body Table 22-B exactly; no further action needed. |
+| ch22 | T3(auto) | Key demographic indicators compared: Emery County, rural Utah average, Utah statewide | fulfilled-in-chapter | Matches existing in-body Table 22-C exactly (rural-Utah-average column not carried — only Emery vs. statewide cited in draft prose); no further action needed. |
+| ch23 | T1(auto) | Current Emery County elected offices — office, current holder, function | in-review | Rendered below (§ Rendered Tables Awaiting Placement). "Current holder" column omitted — chapter's own §23.3 flags the commission roster as `[needs verification: confirm full 2026 commission roster against county-clerk records]`, so office/function only, not fabricated names. Approval pending. |
+| ch23 | T2(auto) | Dingell Act wilderness areas — name, acreage, key features | in-review | Rendered below. Sourced to §23.8: Muddy Creek (208,000 ac) is the only area with a cited acreage; Mexican Mountain, San Rafael Reef, Red's Canyon are named without individual acreages in the draft prose — table notes this rather than inventing figures. Approval pending. |
+| ch23 | T3(auto) | Seven County Infrastructure Coalition — member counties, commissioners seated | in-review | Rendered below. All 7 member counties cited in §23.9/§23.11; "one commissioner per county" structure cited, individual commissioner names not given in chapter prose. Approval pending. |
+| ch24 | T1 | Schools operating in Emery County, by community and year of founding (1880–2026) | needs-data | Chapter prose (§24.2–§24.6) names schools and eras narratively but does not give a consistent per-school founding year for the full 1880–2026 span (e.g. individual elementary founding dates in Cleveland, Orangeville, Green River are not stated) — building the table as scoped would require fabricating dates. |
+| ch24 | T2 | Three-high-school enrollments 1922–1962 (North Emery, Central, South Emery) | needs-data | Chapter's own §24.4 text states enrollment figures for this era are not available in ECSD archival records ("precise year-by-year figures... vary... incomplete for the 1930s and 1940s") and flags `[needs additional sources: ECSD enrollment records 1922–1962]` inline — this is the chapter's own acknowledged gap, not a table-building oversight. |
+| ch24 | T3 | Emery County School District today: schools, levels, enrollment, headquarters | in-review | Rendered below. All 10 schools, levels, and total enrollment (~2,248) cited in §24.6. Approval pending. |
+| ch24 | T4 | Emery School District performance indicators, 2018–2024 (math proficiency, reading proficiency, graduation rate) | needs-data | §24.10 gives only single-point-in-time figures (current graduation rate 87%, math 42%, reading 35%, plus a 5-level breakdown) and a prior-five-year graduation range (90–94%) — no continuous 2018–2024 annual series is cited, so a year-by-year table would require fabricating intermediate values. |
+| ch25 | T1 | 2020 religious adherent count in Emery County by denomination (ARDA data) | in-review | Rendered below. All figures cited in §25.1 (LDS 5,526/18 congregations; Catholic 300/2 congregations; non-denominational ~200/1 congregation; unaffiliated ~38% of total population). Approval pending. |
+| ch25 | T2 | Original 1930 Emery Stake wards and branches (FamilySearch enumeration) | needs-data | §25.3 names the founding-era wards (Castle Dale, Huntington, Ferron, Orangeville, Cleveland, Emery) and outlying branches (Lawrence, Mohrland, Rochester, Victor) and states the stake reached "twelve wards and branches" by 1930, but does not enumerate all twelve by name — building a complete 1930 roster would require inventing the missing names. |
+| ch25 | T3 | Comparison: Emery County LDS share of religious adherents vs. statewide Utah, 1990 / 2000 / 2010 / 2020 | needs-data | §25.1/§25.10 cite only 2020 (Emery 91.5%, statewide ~60.7%) and a single statewide 2014 Pew figure — no 1990/2000/2010 data points are cited anywhere in Ch25_draft.md or Ch25_sources.md for either geography. |
 
 ---
 
@@ -185,3 +200,52 @@ Pattern 1, placement suggested near §18.1 as the chapter's opening orientation 
 | 2023–2024 | PacifiCorp announces long-term coal retirement for Huntington; broadband expansion ongoing | Contemporary infrastructure uncertainty; retirement date moved 2036 → 2032 → 2036 (§18.10, §18.11) |
 ```
 *Source: Ch18_draft.md §§18.1–18.11, drawing on utahrails.net ("Rio Grande in Utah, Sunnyside Branch"); FHWA, "U.S. 6 — The Grand Army of the Republic Highway"; Utah History to Go, "Interstate 70"; Utah Stories from the Beehive Archive, "Division & Connection: The Green River Crossing"; ETV News, Emery County Farmers Union Telephone Association; Global Energy Monitor.*
+
+### ch23-T1(auto) — Current Emery County Elected Offices
+
+Pattern 1, placement suggested near §23.4:
+
+```markdown
+| Office | Function |
+|---|---|
+| Board of County Commissioners (3 seats) | Legislative, executive, and administrative authority; budget, tax levies, ordinances, land use in unincorporated areas |
+| County Assessor | Values real and personal property for ad valorem tax purposes, including industrial and mineral-rights property |
+| County Clerk/Auditor | Administers elections, maintains official records, prepares county budget documents |
+| County Recorder | Maintains property ownership records, deeds, liens, and encumbrances |
+| County Treasurer | Collects property taxes, manages county funds and tax roll administration |
+| County Sheriff | Primary law enforcement for unincorporated Emery County; patrol, investigations, search and rescue |
+| County Attorney | Prosecutes criminal matters in Justice Court, Seventh Judicial District Court, and Juvenile Court |
+```
+*Source: Ch23_draft.md §§23.3–23.5. Individual current officeholders omitted per the chapter's own §23.3 flag: "[needs verification: confirm full 2026 commission roster against county-clerk records]." Only Commission Chair Lynn Sitterud is named in the draft prose.*
+
+### ch23-T2(auto) — Dingell Act Wilderness Areas (2019)
+
+Pattern 1, placement suggested near §23.8:
+
+```markdown
+| Wilderness area | Acreage | Note |
+|---|---:|---|
+| Muddy Creek | 208,000 | Largest of the Emery County units cited |
+| Mexican Mountain | — | Acreage not stated in Ch23_draft.md; part of the 663,000-acre statewide total |
+| San Rafael Reef | — | Acreage not stated in Ch23_draft.md; part of the 663,000-acre statewide total |
+| Red's Canyon | — | Acreage not stated in Ch23_draft.md; part of the 663,000-acre statewide total |
+| *(10 additional units)* | — | Chapter states "fourteen new wilderness area units were established in and around the San Rafael Swell" total; only 4 are named individually in the draft prose |
+```
+*Source: Ch23_draft.md §23.8 (John D. Dingell, Jr. Conservation, Management, and Recreation Act, signed March 12, 2019). Statewide total: ~663,000 acres across Emery, Carbon, Sanpete, and Sevier counties, with Emery County constituting "the dominant portion." Individual acreages for 10 of the 14 named units are not cited in the chapter draft — flagged rather than estimated.*
+
+### ch23-T3(auto) — Seven County Infrastructure Coalition (SCIC), Formed 2014
+
+Pattern 1, placement suggested near §23.11:
+
+```markdown
+| Member county | Commissioners seated |
+|---|---:|
+| Carbon | 1 |
+| Daggett | 1 |
+| Duchesne | 1 |
+| Emery | 1 |
+| San Juan | 1 |
+| Sevier | 1 |
+| Uintah | 1 |
+```
+*Source: Ch23_draft.md §§23.9, 23.11 ("Each county seats one commissioner on the Coalition's board"). Individual commissioner names not cited in chapter draft.*
