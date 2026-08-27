@@ -27,6 +27,11 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 - **Ch19** has no `## Proposed Tables` section at all (only prose §§, engagement features, See Also, Further Reading). Not a gap — nothing to inventory. Same treatment as Ch06/Ch12.
 - **Ch20** has 3 proposed-table items, all three already fully rendered in-body as Tables 20-A, 20-B, 20-C — `fulfilled-in-chapter`.
 - **Ch09** has 3 proposed-table items and, unlike Ch07/08/10, none are pre-built in-body (this chapter's visuals are deferred to `research/Ch09_visual_brief.md`). T1 ("Fremont-period chronology with regional variant timelines") substantially overlaps the chapter's existing in-body Table 9-A (Fremont Subregional Variants Comparison) — rendered below as a chronology-focused companion table sourced from §9.1 prose dates. T2 (site types) and T3 (ceramic typology) lack cited granular data in the draft prose to build responsibly.
+- **Ch26** has 3 proposed-table items (26.1–26.3), none pre-built in-body. All three are eventually renderable but each has an uncited column or a conflict to resolve first — see row notes. In particular, Ch26 §26.5 dates Geary's *A History of Emery County* to **1981** (UHS Centennial series) while Ch28 §28.9 dates the same title to **1996** — a cross-chapter conflict that must be resolved (post-Ch12, the citation-caution bar is high) before Table 26.3 is rendered.
+- **Ch27** has 5 proposed-table items in its own numbered table (27.1–27.5), none pre-built in-body. Chapter's own prose documents the Peach Days founding-date dispute (1901 vs. 1906) and the Fair's undocumented founding — renderable tables must carry those caveats, not resolve them.
+- **Ch28** has 5 proposed-table items (28-A–28-E). Three are the chapter's *own* acknowledged archival gaps (stake-president roster, commissioner roster "skeleton; needs archival fill", *Progress* masthead 1965–2025) — marked `needs-data`. 28-C (fatal mining incidents) is fully cited in §28.5 **and is already cross-referenced as existing by Ch29's stage-9 notes** ("duplicates Ch28's Table 28-C") — a dangling reference until rendered; built this run. 28-E (oral-history collections) is fully renderable from §28.11 — rolled to next run, budget spent.
+- **Ch29** has no `## Proposed Tables` section. Its stage-9 "Figures and Tables" section (complete 2026-07-27) already carries in-body Tables 29-A/29-B/29-C plus documented declined candidates. Joins the Ch06/Ch12/Ch19 no-section cohort; left **unstamped** pending Greg's BL-018 ruling on whether no-section chapters get the `tables:` flag.
+- **Ch30** has a split heading (`Proposed` / `Tables`, functionally the section — same as Ch16). Items 1–2 are fulfilled in-body (§30.12 summary table; Table 30-B in §30.7). Item 3 (seasonal temperature by terrain zone, month-by-month) is the chapter's own flagged dependency on Ch04 climate data — and Ch04-T1 (monthly normals) is already `needs-data` for exactly the same missing monthly series, so 30-C inherits that status.
 
 ---
 
@@ -96,6 +101,23 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch25 | T1 | 2020 religious adherent count in Emery County by denomination (ARDA data) | in-review | Rendered below. All figures cited in §25.1 (LDS 5,526/18 congregations; Catholic 300/2 congregations; non-denominational ~200/1 congregation; unaffiliated ~38% of total population). Approval pending. |
 | ch25 | T2 | Original 1930 Emery Stake wards and branches (FamilySearch enumeration) | needs-data | §25.3 names the founding-era wards (Castle Dale, Huntington, Ferron, Orangeville, Cleveland, Emery) and outlying branches (Lawrence, Mohrland, Rochester, Victor) and states the stake reached "twelve wards and branches" by 1930, but does not enumerate all twelve by name — building a complete 1930 roster would require inventing the missing names. |
 | ch25 | T3 | Comparison: Emery County LDS share of religious adherents vs. statewide Utah, 1990 / 2000 / 2010 / 2020 | needs-data | §25.1/§25.10 cite only 2020 (Emery 91.5%, statewide ~60.7%) and a single statewide 2014 Pew figure — no 1990/2000/2010 data points are cited anywhere in Ch25_draft.md or Ch25_sources.md for either geography. |
+| ch26 | T1 | Table 26.1 — Castle Country Museums at a Glance: location, primary collection focus, founding date, governance, free-or-fee, annual visitation | todo | Renderable from §26.9 with location / collection-focus / governance columns only — founding dates and annual visitation are not cited in the draft; admission is stated only for the Museum of the San Rafael (free). |
+| ch26 | T2 | Table 26.2 — Active radio and broadcast outlets serving Emery County (callsign, frequency, format, broadcasting from, owner) | todo | §26.7 cites outlets and frequencies (Kickin' Country 750 AM/98.3 FM; KSLL 1080 AM; KUSA 100.9 FM; ETV News/Channel 26) and Carbon County licensing; format and owner columns are only partly cited (Emery Telcom owns ETV/Channel 26; radio-station owners not stated). Renderable with reduced columns. |
+| ch26 | T3 | Table 26.3 — Selected works by or about Emery County: title, author, publisher, year, primary subject | todo | Works and dates cited across §26.4–26.5, but Ch26 dates Geary's *A History of Emery County* to 1981 while Ch28 §28.9 says 1996 — cross-chapter conflict flagged in scope notes; resolve before rendering rather than propagate either date unverified. |
+| ch27 | T1 | Table 27.1 — Emery County festival calendar: name, location, founding year, season, programming | todo | Renderable from §§27.2–27.6 carrying the chapter's own caveats (Peach Days 1901-vs-1906 dispute; Fair founding "not well documented," oral tradition pre-1920). |
+| ch27 | T2 | Table 27.2 — Pioneer Day programming by town (Castle Dale / Huntington / Emery / Orangeville / Ferron) | todo | Fully cited in §27.2; renderable next run. |
+| ch27 | T3 | Table 27.3 — Foodways layers: pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | todo | Qualitative but fully grounded in §§27.7–27.9. |
+| ch27 | T4 | Table 27.4 — Folk arts traditions: cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | todo | Grounded in §27.10. |
+| ch27 | T5 | Table 27.5 — Castle Valley Pageant chronology: selected editions, themes, notable years | needs-data | §27.6 cites only milestones (1978 founding, 2003 pageant history, 2008 Seely death, continuous run through 2019, disrupted since 2020, 36th iteration 2023) — no per-edition themes or edition-by-edition record is cited, so the table as scoped ("selected editions, themes") cannot be built without new sources. |
+| ch28 | T1 | Table 28-A — Emery Stake presidents 1880–present (cross-ref Ch25) | needs-data | Only Christian G. Larsen (first president, 1880) is named in Ch28/Ch25 prose; Ch25 §25.3 names one later Ferron-stake president (Jerry D. Mangum, 1982). No 1880–present roster exists in either chapter's cited sources. |
+| ch28 | T2 | Table 28-B — Emery County Commissioners by decade | needs-data | The chapter's own proposal says "skeleton; needs archival fill," and §28.6 states a comprehensive roster "remains to be compiled from archival minutes" — only the 2024 seats (Sitterud, Leonard, Jensen) are cited. The chapter's own acknowledged gap, not a build oversight. |
+| ch28 | T3 | Table 28-C — Major fatal mining incidents in Emery County, with dates and counts | in-review | Rendered below (§ Rendered Tables Awaiting Placement). Fully cited in §28.5; also repairs the dangling cross-reference from Ch29's stage-9 notes, which decline a duplicate table on the grounds that 28-C exists. No individuals named, per the VOICE_GUIDE named-mortality policy. Approval pending. |
+| ch28 | T4 | Table 28-D — *Emery County Progress* editors / publishers timeline 1900–present | needs-data | §28.10 names only H.T. Haines (1900) and Kimble Larsen (undated) plus masthead-merger dates (1963, 1977, 2018); Olsen's 1965 BYU thesis is cited as the only systematic masthead account and the chapter itself flags 1965–2025 as an un-researched gap. |
+| ch28 | T5 | Table 28-E — Oral-history collections holding Emery County material, with catalogue links | todo | Fully renderable from §28.11 (five institutions, each with URL); rolled to next run — this run's 3-table budget was spent on ch24-T3, ch25-T1, and ch28-T3. |
+| ch29 | — | No `## Proposed Tables` section exists in this chapter; stage-9 in-body Tables 29-A/29-B/29-C already built (complete 2026-07-27) with declined candidates documented in `research/Ch29_figures_brief.md`. | n/a | No-section cohort (Ch06/Ch12/Ch19 pattern). Left unstamped pending the BL-018 ruling. |
+| ch30 | T1 | Table 30.12 — Field-Guide Summary (destination, type, access, vehicle req., season, permit) | fulfilled-in-chapter | Exists in-body as the §30.12 summary table; the proposal's own text says "See §30.12 above." Print-layout note (facing-page spread, QR card) is a design decision for the publishing phase, not a table gap. |
+| ch30 | T2 | Table 30-B — Green River Trip Comparison: Labyrinth Canyon vs. Desolation/Gray Canyons | fulfilled-in-chapter | Built and placed in-body at §30.7 with source note; matches the proposal 1:1. |
+| ch30 | T3 | Table 30-C — Seasonal Temperature and Conditions, month-by-month by terrain zone (Plateau, Swell, River corridor) | needs-data | The proposal's own bracket says it "[r]equires data from Ch04" — and Ch04-T1 (monthly climate normals) is already `needs-data` because no cited monthly series exists in Ch04's draft. §30.11's qualitative seasonal guide covers the ground the chapter can currently support. |
 
 ---
 
@@ -249,3 +271,51 @@ Pattern 1, placement suggested near §23.11:
 | Uintah | 1 |
 ```
 *Source: Ch23_draft.md §§23.9, 23.11 ("Each county seats one commissioner on the Coalition's board"). Individual commissioner names not cited in chapter draft.*
+
+### ch24-T3 — Emery County School District Today
+
+Pattern 1, placement suggested near §24.6. (Row was marked `in-review` on 2026-08-25 but the render block was omitted when that run's budget ran out — completed 2026-08-26.)
+
+```markdown
+| School | Community | Level |
+|---|---|---|
+| Castle Dale Elementary | Castle Dale | Elementary |
+| Cottonwood Elementary | Orangeville | Elementary |
+| Ferron Elementary | Ferron | Elementary |
+| Huntington Elementary | Huntington | Elementary |
+| Cleveland Elementary | Cleveland | Elementary |
+| Book Cliff Elementary | Green River | Elementary |
+| Canyon View Junior High | Huntington | Junior high |
+| San Rafael Junior High | Ferron | Junior high |
+| Emery High School | Castle Dale | High school |
+| Green River High School | Green River | High school |
+```
+*Source: Ch24_draft.md §24.6 (ECSD 2026 directory; NCES; Niche). District headquartered in Huntington; ten schools serving approximately 2,248 students. The chapter's own bracketed note applies: some federal datasets count eight schools by excluding pre-K sites or counting only standard K–12 campuses — the figure of ten reflects all K–12-serving buildings on the district's 2026 roster.*
+
+### ch25-T1 — 2020 Religious Adherents in Emery County, by Denomination
+
+Pattern 1, placement suggested near §25.1. (Same 2026-08-25 omission as ch24-T3 — completed 2026-08-26.)
+
+```markdown
+| Body | Adherents (2020) | Congregations |
+|---|---:|---:|
+| The Church of Jesus Christ of Latter-day Saints | 5,526 | 18 |
+| Roman Catholic | 300 | 2 |
+| Non-denominational Christian | ~200 | 1 |
+| Southern Baptist Convention | small ("a handful more") | — |
+| **Total religious adherents** | **6,039** | — |
+```
+*Source: Ch25_draft.md §25.1 (2020 U.S. Religion Census / ARDA). Total county population ~9,825; adherents were ~61.5% of residents, LDS members 91.5% of adherents; roughly 38% of the population claimed no religious affiliation. SBC adherent count is not stated numerically in the draft — flagged rather than estimated.*
+
+### ch28-T3 — Table 28-C: Major Fatal Mining Incidents in Emery County
+
+Pattern 1, placement suggested near §28.5. Repairs Ch29's dangling cross-reference (its stage-9 notes decline a duplicate on the grounds that "Ch28's Table 28-C" exists). Per the VOICE_GUIDE named-mortality policy, no individual is named.
+
+```markdown
+| Date | Incident | Deaths | Note |
+|---|---|---:|---|
+| 19 Dec 1984 | Wilberg Mine fire | 27 | Worst coal-mine fire in Utah history; federal action detailed in Ch17 §17.7 |
+| 6 Aug 2007 | Crandall Canyon Mine collapse | 6 | Miners trapped by the initial collapse; bodies never recovered |
+| 16 Aug 2007 | Crandall Canyon rescue-tunnel collapse | 3 | Rescuers killed attempting to reach the trapped miners |
+```
+*Source: Ch28_draft.md §28.5 (KSL News; Deseret News; Salt Lake Tribune; Mining Connection, as cited in the chapter's Sources). Memorial context, per the same section: the Crandall Canyon Memorial (Huntington, dedicated 14 Sept 2008) holds nine bronze portraits; the Emery County Miners Memorial (Museum of the San Rafael, Castle Dale, 2016) names 123 men and 1 woman lost to mining accidents across Carbon and Emery counties. Cross-ref Ch17 §17.7 and Ch29 Table 29-A.*
