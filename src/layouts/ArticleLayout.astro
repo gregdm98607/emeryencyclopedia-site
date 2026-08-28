@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -84,11 +85,7 @@ const computedReadingTime = readingTime ?? (wordCount > 0 ? `~${Math.ceil(wordCo
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Vercel Web Analytics -->
-  <script>
-    import { inject } from '@vercel/analytics';
-    inject();
-  </script>
+  <Analytics />
 </head>
 <body>
   <div class="article-wrapper">
