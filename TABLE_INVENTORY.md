@@ -32,6 +32,11 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 - **Ch28** has 5 proposed-table items (28-A–28-E). Three are the chapter's *own* acknowledged archival gaps (stake-president roster, commissioner roster "skeleton; needs archival fill", *Progress* masthead 1965–2025) — marked `needs-data`. 28-C (fatal mining incidents) is fully cited in §28.5 **and is already cross-referenced as existing by Ch29's stage-9 notes** ("duplicates Ch28's Table 28-C") — a dangling reference until rendered; built this run. 28-E (oral-history collections) is fully renderable from §28.11 — rolled to next run, budget spent.
 - **Ch29** has no `## Proposed Tables` section. Its stage-9 "Figures and Tables" section (complete 2026-07-27) already carries in-body Tables 29-A/29-B/29-C plus documented declined candidates. Joins the Ch06/Ch12/Ch19 no-section cohort; left **unstamped** pending Greg's BL-018 ruling on whether no-section chapters get the `tables:` flag.
 - **Ch30** has a split heading (`Proposed` / `Tables`, functionally the section — same as Ch16). Items 1–2 are fulfilled in-body (§30.12 summary table; Table 30-B in §30.7). Item 3 (seasonal temperature by terrain zone, month-by-month) is the chapter's own flagged dependency on Ch04 climate data — and Ch04-T1 (monthly normals) is already `needs-data` for exactly the same missing monthly series, so 30-C inherits that status.
+- **Ch31** has one proposed-table item (Table 31.1), fully superseded in-body by Table 31-A in the chapter's stage-9 "Figures and Tables" section — same acreage subject, corrected per the BUG-004 Goblin Valley fix. `fulfilled-in-chapter`.
+- **Ch32** has 2 proposed-table items, neither pre-built in-body. T2 (Green River route comparison) substantially overlaps Ch30's already-fulfilled Table 30-B and Ch33's proposed T2 — flagged for cross-chapter reconciliation before any of the three are built, to avoid three near-duplicate river-comparison tables shipping across the Field Guide part.
+- **Ch33** has 4 proposed-table items, none pre-built in-body. T1 is a clean build candidate. T2 overlaps the Ch30/Ch32 river-comparison cluster (see Ch32 note). T3 and T4 lack cited data for the schema as scoped (no month-by-month activity matrix or agency contact directory in the chapter's own sources).
+- **Ch34** has 5 proposed-table items, all already fully drafted in-body (§34.8, §34.10, §34.11, §34.12) — `fulfilled-in-chapter` across the board, same pattern as Ch07/08/10/13/16/20/22.
+- **Ch35 — anomaly, not inventoried this run.** `Ch35_draft.md` (`Part_V_Field_Guide/Ch35_Night_Sky_Tourism/`) is truncated mid-sentence at line 391 of 392 — the file cuts off inside item 2 of its own `## Proposed Tables` list ("2. **Tabl"). This is a source-file corruption/truncation, not a parsing gap in this job. Logged to `_Planning/BUGS.md` rather than guessed at; Ch35 rolls to next run once the draft file is repaired. Item 1 (Table 35-A, Dark-Sky Hotspots) is visible and reads `fulfilled-in-chapter` ("Already drafted in §35.10") but is being held back as a whole-chapter unit pending the file-integrity fix, rather than partially inventoried.
 
 ---
 
@@ -118,6 +123,19 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch30 | T1 | Table 30.12 — Field-Guide Summary (destination, type, access, vehicle req., season, permit) | fulfilled-in-chapter | Exists in-body as the §30.12 summary table; the proposal's own text says "See §30.12 above." Print-layout note (facing-page spread, QR card) is a design decision for the publishing phase, not a table gap. |
 | ch30 | T2 | Table 30-B — Green River Trip Comparison: Labyrinth Canyon vs. Desolation/Gray Canyons | fulfilled-in-chapter | Built and placed in-body at §30.7 with source note; matches the proposal 1:1. |
 | ch30 | T3 | Table 30-C — Seasonal Temperature and Conditions, month-by-month by terrain zone (Plateau, Swell, River corridor) | needs-data | The proposal's own bracket says it "[r]equires data from Ch04" — and Ch04-T1 (monthly climate normals) is already `needs-data` because no cited monthly series exists in Ch04's draft. §30.11's qualitative seasonal guide covers the ground the chapter can currently support. |
+| ch28 | T5 | Table 28-E — Oral-history collections holding Emery County material, with catalogue links | in-review | Rendered below (§ Rendered Tables Awaiting Placement). All five institutions (Emery County Archives, BYU L. Tom Perry Special Collections, USU Fife Folklore Archives, Utah State Historical Society Oral History Program, FamilySearch) fully cited with URLs in §28.11. Approval pending. |
+| ch31 | T1 | Table 31.1 — Formal Designations in Emery County (Name, Type, Managing Agency, Year Designated, Size) | fulfilled-in-chapter | Superseded 1:1 by in-body Table 31-A ("Figures and Tables, stage 9" section), which corrects the Goblin Valley acreage per the BUG-004 fix (9,915 acres, not the ~10,000 estimate in this proposal). No further action needed. |
+| ch32 | T1(auto) | Trail quick-reference table — Trail name, Type, Distance, Difficulty, Season, Permit, Trailhead access | todo |  |
+| ch32 | T2(auto) | River route comparison — Labyrinth Canyon vs. Desolation/Gray Canyon: length, class, permit, season, shuttle options | todo | Near-duplicate of Ch30-T2 (Green River Trip Comparison), which is already `fulfilled-in-chapter` at Ch30 §30.7 — check whether this row is satisfied by cross-reference to Ch30's Table 30-B before building a second version. |
+| ch33 | T1 | Table 33-A — Canyon Route Comparison: Canyon, length, technical rating, permit required, season, key hazards, access road type | todo |  |
+| ch33 | T2 | Table 33-B — River Run Comparison: River, section, miles, class, permit, season, put-in/take-out, outfitter options | todo | Overlaps Ch32-T2 and Ch30-T2 in subject (Green River / San Rafael runs) — reconcile scope across Ch30/32/33 before building either. |
+| ch33 | T3 | Table 33-C — Monthly Activity Calendar: month-by-month go/no-go matrix for all major activities | needs-data | Chapter prose gives seasonal guidance narratively (flash-flood season, temperature windows) but no per-activity month-by-month go/no-go matrix is tabulated in the cited sources — would require synthesizing a schema not directly cited. |
+| ch33 | T4 | Table 33-D — Agency Contact Information: BLM offices, state park, EMSAR, outfitters | needs-data | Agency names (BLM, EMSAR) appear in chapter prose but specific contact information (phone/address) is not cited in Ch33_draft.md or Ch33_sources.md — building the table would require sourcing contact details not present in the chapter's own citations. |
+| ch34 | T1 | Table 34-A — Wildlife Hotspots | fulfilled-in-chapter | Drafted in-body at §34.10; no further action needed. |
+| ch34 | T2 | Table 34-B — Seasonal Calendar | fulfilled-in-chapter | Drafted in-body at §34.11, also rendered as Figure 34-A; no further action needed. |
+| ch34 | T3 | Table 34-C — Watching Distances and Ethics | fulfilled-in-chapter | Drafted in-body at §34.12; no further action needed. |
+| ch34 | T4 | Table 34-D — Federally Protected & Recovered Wildlife | fulfilled-in-chapter | Drafted in-body at §34.12; no further action needed. |
+| ch34 | T5 | Table 34-E — Reservoir Fisheries Summary | fulfilled-in-chapter | Drafted in-body at §34.8; no further action needed. |
 
 ---
 
@@ -319,3 +337,19 @@ Pattern 1, placement suggested near §28.5. Repairs Ch29's dangling cross-refere
 | 16 Aug 2007 | Crandall Canyon rescue-tunnel collapse | 3 | Rescuers killed attempting to reach the trapped miners |
 ```
 *Source: Ch28_draft.md §28.5 (KSL News; Deseret News; Salt Lake Tribune; Mining Connection, as cited in the chapter's Sources). Memorial context, per the same section: the Crandall Canyon Memorial (Huntington, dedicated 14 Sept 2008) holds nine bronze portraits; the Emery County Miners Memorial (Museum of the San Rafael, Castle Dale, 2016) names 123 men and 1 woman lost to mining accidents across Carbon and Emery counties. Cross-ref Ch17 §17.7 and Ch29 Table 29-A.*
+
+
+### ch28-T5 — Table 28-E: Oral-History Collections Holding Emery County Material
+
+Pattern 1, placement suggested near §28.11.
+
+```markdown
+| Institution | Holdings | Access |
+|---|---|---|
+| Emery County Archives (Castle Dale) | Rare books, photograph collections, donated family papers, county records | Public reading room |
+| BYU L. Tom Perry Special Collections | Largest manuscript holdings; indexed under "Emery County (Utah) — History"; pioneer diaries, Geary's working papers, stake-history files | archives.lib.byu.edu/subjects/5022 |
+| USU Fife Folklore Archives (est. 1972) | Student fieldwork from Castle Valley and the coal counties; one of the largest American folklore repositories | digital.lib.usu.edu |
+| Utah State Historical Society Oral History Program | Partners with county historical societies, including Emery, to record and transcribe interviews | history.utah.gov/utah-state-historical-society/oral-history-program |
+| FamilySearch — Emery County, Utah Genealogy wiki | Gateway to vital records, ward records, cemetery indices; companion Genealogy Trails biographies page | familysearch.org/en/wiki/Emery_County,_Utah_Genealogy |
+```
+*Source: Ch28_draft.md §28.11. All five institutions and URLs cited directly in chapter prose.*
