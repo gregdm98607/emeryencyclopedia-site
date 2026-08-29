@@ -49,12 +49,12 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch02 | T3 | Economic mineral resources by host formation | todo |  |
 | ch02 | T4 | Geologic hazards by formation and geographic area | todo |  |
 | ch03 | T1(auto) | Reservoir Capacities & Key Statistics — Joes Valley, Huntington North, Millsite, and other significant impoundments: capacity (acre-feet), surface area, dam type, year completed, managing entity | needs-data | Joes Valley (62,460 af, 1,170 ac) and Huntington North (5,420 af, 242 ac) figures are cited in Ch03 §3.8; Millsite Reservoir is named but no capacity/acreage figure is stated in the draft prose — building the full table would mean either fabricating Millsite's numbers or silently dropping a named reservoir. |
-| ch03 | T2(auto) | Water Chemistry Comparison — Upstream diversion points vs. downstream return flows: dissolved solids, sulfate, selenium, strontium concentrations at representative sites (data from USGS SIR 2006/5186) | in-review | Rendered below (§ Rendered Tables Awaiting Placement). Cited figures limited to dissolved solids (upstream/downstream) and strontium threshold — sulfate/selenium concentrations not stated numerically in Ch03_draft.md prose, so those columns omitted rather than estimated. Approval pending: `00_Inbox/EEC_Tables_Approval_2026-08-20.md`. |
-| ch03 | T3(auto) | Canal Seepage Losses — May–October seepage volumes for Thayn Canal, East Side Canal, Green River Canal, and other measured conveyances | in-review | Rendered below (§ Rendered Tables Awaiting Placement). All three figures cited to USGS SIR 2006/5186 via Ch03 §3.6. Approval pending: `00_Inbox/EEC_Tables_Approval_2026-08-20.md`. |
+| ch03 | T2(auto) | Water Chemistry Comparison — Upstream diversion points vs. downstream return flows: dissolved solids, sulfate, selenium, strontium concentrations at representative sites (data from USGS SIR 2006/5186) | done | Approved via `00_Inbox/EEC_Tables_Approval_2026-08-20.md` (✅ 2026-08-19) and placed as Table 3-B in `src/content/chapters/ch03.mdx` near §3.6. Verified placed 2026-08-29 (Cowork session) — row was still showing `in-review`/`Approval pending` despite the table being live in the chapter; corrected to match reality. Cited figures limited to dissolved solids (upstream/downstream) and strontium threshold — sulfate/selenium concentrations not stated numerically in Ch03_draft.md prose, so those columns omitted rather than estimated. |
+| ch03 | T3(auto) | Canal Seepage Losses — May–October seepage volumes for Thayn Canal, East Side Canal, Green River Canal, and other measured conveyances | done | Approved via `00_Inbox/EEC_Tables_Approval_2026-08-20.md` (✅ 2026-08-19) and placed as Table 3-C in `src/content/chapters/ch03.mdx` near §3.6. Verified placed 2026-08-29 (Cowork session) — row was still showing `in-review`/`Approval pending` despite the table being live in the chapter; corrected to match reality. All three figures cited to USGS SIR 2006/5186 via Ch03 §3.6. |
 | ch03 | T4(auto) | USGS Gaging Stations in Emery County — Station number, name, location, period of record, key statistics (mean annual discharge, peak of record) | needs-data | Chapter prose and Ch03_sources.md name 3 stations (09315000, 09328500, 09328910) but do not state period-of-record or peak-of-record figures — building the table as scoped would require fabricating those columns. |
 | ch04 | T1(auto) | Monthly Climate Normals — Castle Dale and Green River — Temperature (mean, max, min), precipitation, snowfall for each month. Based on 1991–2020 NOAA normals | needs-data | Chapter prose (§4.1–4.3) gives only annual/seasonal summary figures (e.g. Castle Dale ~8 in/yr precip, 19 in/yr snow; Green River 91°F/71°F July highs/lows) attributed to Climate-Data.org/USClimateData/BestPlaces/Weather Spark — no full 12-month breakdown is cited in the draft, so a complete monthly table would require fabricating values. |
 | ch04 | T2(auto) | SNOTEL Stations Relevant to Emery County — Station name, elevation, parameters measured, period of record | todo |  |
-| ch04 | T3(auto) | 20th-Century Precipitation Regimes — Start year, end year, characterization (wet/dry), mean annual precipitation departure from long-term average | in-review | Rendered below (§ Rendered Tables Awaiting Placement). Three regimes (1905–1941 wetter, 1942–1977 drier, 1978–1998 wetter) cited to USGS FS-119-02 via Ch04 §4.7; no numeric "departure from average" figure is stated in the draft prose, so that column is omitted rather than estimated. Approval pending: `00_Inbox/EEC_Tables_Approval_2026-08-20.md`. |
+| ch04 | T3(auto) | 20th-Century Precipitation Regimes — Start year, end year, characterization (wet/dry), mean annual precipitation departure from long-term average | done | Approved via `00_Inbox/EEC_Tables_Approval_2026-08-20.md` (✅ 2026-08-19) and placed as Table 4-B in `src/content/chapters/ch04.mdx` near §4.7. Verified placed 2026-08-29 (Cowork session) — row was still showing `in-review`/`Approval pending` despite the table being live in the chapter; corrected to match reality. Three regimes (1905–1941 wetter, 1942–1977 drier, 1978–1998 wetter) cited to USGS FS-119-02 via Ch04 §4.7; no numeric "departure from average" figure is stated in the draft prose, so that column is omitted rather than estimated. |
 | ch04 | T4(auto) | Projected Climate Changes for the Colorado Plateau — Time horizon (2040s, 2060s, 2100), temperature change range, SWE change range, Colorado River flow change range, by emissions scenario | todo |  |
 | ch07 | T1(auto) | 2026 Meteor Shower Calendar — Shower name, peak date, ZHR, moon phase, viewing conditions rating | fulfilled-in-chapter | Matches existing in-body Table 7-A exactly; no further action needed. |
 | ch07 | T2(auto) | Seasonal Constellation Highlights — Season, key constellations, notable deep-sky objects, best viewing time | fulfilled-in-chapter | Matches existing in-body Table 7-B exactly; no further action needed. |
@@ -143,9 +143,9 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 
 These are rendered per `docs/authoring/table-standards.md` but **not yet wired into any `.mdx` file** — that step requires Greg's placement sign-off. Copy the block into the target chapter's `.mdx` at the appropriate section once approved, then flip the inventory row to `done`.
 
-### ch03-T2(auto) — Water Chemistry Comparison
+### ch03-T2(auto) — Water Chemistry Comparison — **PLACED, status: done** (verified 2026-08-29)
 
-Pattern 1 (plain markdown pipe table), placement suggested near §3.6:
+Pattern 1 (plain markdown pipe table), placed as Table 3-B near §3.6:
 
 ```markdown
 | Measurement point | Dissolved solids (mg/L) | Strontium (µg/L) |
@@ -156,9 +156,9 @@ Pattern 1 (plain markdown pipe table), placement suggested near §3.6:
 ```
 *Source: USGS Scientific Investigations Report 2006-5186 (Blanchard 2006), via Ch03 §3.6.*
 
-### ch03-T3(auto) — Canal Seepage Losses (May–October)
+### ch03-T3(auto) — Canal Seepage Losses (May–October) — **PLACED, status: done** (verified 2026-08-29)
 
-Pattern 1, placement suggested near §3.6 or §3.8:
+Pattern 1, placed as Table 3-C near §3.6:
 
 ```markdown
 | Canal | Seepage loss (acre-feet, May–Oct) |
@@ -169,9 +169,9 @@ Pattern 1, placement suggested near §3.6 or §3.8:
 ```
 *Source: USGS Scientific Investigations Report 2006-5186 (Blanchard 2006), via Ch03 §3.6.*
 
-### ch04-T3(auto) — 20th-Century Precipitation Regimes
+### ch04-T3(auto) — 20th-Century Precipitation Regimes — **PLACED, status: done** (verified 2026-08-29)
 
-Pattern 1, placement suggested near §4.7:
+Pattern 1, placed as Table 4-B near §4.7:
 
 ```markdown
 | Period | Characterization |
