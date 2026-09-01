@@ -28,7 +28,7 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 - **Ch20** has 3 proposed-table items, all three already fully rendered in-body as Tables 20-A, 20-B, 20-C — `fulfilled-in-chapter`.
 - **Ch09** has 3 proposed-table items and, unlike Ch07/08/10, none are pre-built in-body (this chapter's visuals are deferred to `research/Ch09_visual_brief.md`). T1 ("Fremont-period chronology with regional variant timelines") substantially overlaps the chapter's existing in-body Table 9-A (Fremont Subregional Variants Comparison) — rendered below as a chronology-focused companion table sourced from §9.1 prose dates. T2 (site types) and T3 (ceramic typology) lack cited granular data in the draft prose to build responsibly.
 - **Ch26** has 3 proposed-table items (26.1–26.3), none pre-built in-body. All three are eventually renderable but each has an uncited column or a conflict to resolve first — see row notes. In particular, Ch26 §26.5 dates Geary's *A History of Emery County* to **1981** (UHS Centennial series) while Ch28 §28.9 dates the same title to **1996** — a cross-chapter conflict that must be resolved (post-Ch12, the citation-caution bar is high) before Table 26.3 is rendered.
-- **Ch27** has 5 proposed-table items in its own numbered table (27.1–27.5), none pre-built in-body. Chapter's own prose documents the Peach Days founding-date dispute (1901 vs. 1906) and the Fair's undocumented founding — renderable tables must carry those caveats, not resolve them.
+- **Ch27** has 5 proposed-table items in its own numbered table (27.1–27.5), none pre-built in-body. Chapter's own prose documents the Peach Days founding-date dispute (1901 vs. 1906) and the Fair's undocumented founding — renderable tables must carry those caveats, not resolve them. Ch27-T2/T3/T4 rendered 2026-08-31. **Note on the Ch26/Ch28 Geary-date conflict flagged at Ch26-T3:** Ch27's own Sources list independently cites Geary's *A History of Emery County* as **1996** (Salt Lake City: Utah State Historical Society and Emery County Commission), matching Ch28's date — this is now two chapters citing 1996 against Ch26's 1981, which strengthens the case that Ch26's date is the outlier requiring correction, not a genuine three-way conflict. Still not resolved here (out of this job's scope), but the Ch26-T3 row's blocking note is worth a stronger prior next time it's assessed.
 - **Ch28** has 5 proposed-table items (28-A–28-E). Three are the chapter's *own* acknowledged archival gaps (stake-president roster, commissioner roster "skeleton; needs archival fill", *Progress* masthead 1965–2025) — marked `needs-data`. 28-C (fatal mining incidents) is fully cited in §28.5 **and is already cross-referenced as existing by Ch29's stage-9 notes** ("duplicates Ch28's Table 28-C") — a dangling reference until rendered; built this run. 28-E (oral-history collections) is fully renderable from §28.11 — rolled to next run, budget spent.
 - **Ch29** has no `## Proposed Tables` section. Its stage-9 "Figures and Tables" section (complete 2026-07-27) already carries in-body Tables 29-A/29-B/29-C plus documented declined candidates. Joins the Ch06/Ch12/Ch19 no-section cohort; left **unstamped** pending Greg's BL-018 ruling on whether no-section chapters get the `tables:` flag.
 - **Ch30** has a split heading (`Proposed` / `Tables`, functionally the section — same as Ch16). Items 1–2 are fulfilled in-body (§30.12 summary table; Table 30-B in §30.7). Item 3 (seasonal temperature by terrain zone, month-by-month) is the chapter's own flagged dependency on Ch04 climate data — and Ch04-T1 (monthly normals) is already `needs-data` for exactly the same missing monthly series, so 30-C inherits that status.
@@ -110,20 +110,19 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch26 | T2 | Table 26.2 — Active radio and broadcast outlets serving Emery County (callsign, frequency, format, broadcasting from, owner) | todo | §26.7 cites outlets and frequencies (Kickin' Country 750 AM/98.3 FM; KSLL 1080 AM; KUSA 100.9 FM; ETV News/Channel 26) and Carbon County licensing; format and owner columns are only partly cited (Emery Telcom owns ETV/Channel 26; radio-station owners not stated). Renderable with reduced columns. |
 | ch26 | T3 | Table 26.3 — Selected works by or about Emery County: title, author, publisher, year, primary subject | todo | Works and dates cited across §26.4–26.5, but Ch26 dates Geary's *A History of Emery County* to 1981 while Ch28 §28.9 says 1996 — cross-chapter conflict flagged in scope notes; resolve before rendering rather than propagate either date unverified. |
 | ch27 | T1 | Table 27.1 — Emery County festival calendar: name, location, founding year, season, programming | todo | Renderable from §§27.2–27.6 carrying the chapter's own caveats (Peach Days 1901-vs-1906 dispute; Fair founding "not well documented," oral tradition pre-1920). |
-| ch27 | T2 | Table 27.2 — Pioneer Day programming by town (Castle Dale / Huntington / Emery / Orangeville / Ferron) | todo | Fully cited in §27.2; renderable next run. |
-| ch27 | T3 | Table 27.3 — Foodways layers: pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | todo | Qualitative but fully grounded in §§27.7–27.9. |
-| ch27 | T4 | Table 27.4 — Folk arts traditions: cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | todo | Grounded in §27.10. |
+| ch27 | T2 | Table 27.2 — Pioneer Day programming by town (Castle Dale / Huntington / Emery / Orangeville / Ferron) | in-review | Rendered below (§ Rendered Tables Awaiting Placement). Fully cited in §27.2. Approval pending. |
+| ch27 | T3 | Table 27.3 — Foodways layers: pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | in-review | Rendered below. Fully grounded in §§27.7–27.9. Approval pending. |
+| ch27 | T4 | Table 27.4 — Folk arts traditions: cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | in-review | Rendered below. Grounded in §27.10. Approval pending. |
 | ch27 | T5 | Table 27.5 — Castle Valley Pageant chronology: selected editions, themes, notable years | needs-data | §27.6 cites only milestones (1978 founding, 2003 pageant history, 2008 Seely death, continuous run through 2019, disrupted since 2020, 36th iteration 2023) — no per-edition themes or edition-by-edition record is cited, so the table as scoped ("selected editions, themes") cannot be built without new sources. |
 | ch28 | T1 | Table 28-A — Emery Stake presidents 1880–present (cross-ref Ch25) | needs-data | Only Christian G. Larsen (first president, 1880) is named in Ch28/Ch25 prose; Ch25 §25.3 names one later Ferron-stake president (Jerry D. Mangum, 1982). No 1880–present roster exists in either chapter's cited sources. |
 | ch28 | T2 | Table 28-B — Emery County Commissioners by decade | needs-data | The chapter's own proposal says "skeleton; needs archival fill," and §28.6 states a comprehensive roster "remains to be compiled from archival minutes" — only the 2024 seats (Sitterud, Leonard, Jensen) are cited. The chapter's own acknowledged gap, not a build oversight. |
 | ch28 | T3 | Table 28-C — Major fatal mining incidents in Emery County, with dates and counts | in-review | Rendered below (§ Rendered Tables Awaiting Placement). Fully cited in §28.5; also repairs the dangling cross-reference from Ch29's stage-9 notes, which decline a duplicate table on the grounds that 28-C exists. No individuals named, per the VOICE_GUIDE named-mortality policy. Approval pending. |
 | ch28 | T4 | Table 28-D — *Emery County Progress* editors / publishers timeline 1900–present | needs-data | §28.10 names only H.T. Haines (1900) and Kimble Larsen (undated) plus masthead-merger dates (1963, 1977, 2018); Olsen's 1965 BYU thesis is cited as the only systematic masthead account and the chapter itself flags 1965–2025 as an un-researched gap. |
-| ch28 | T5 | Table 28-E — Oral-history collections holding Emery County material, with catalogue links | todo | Fully renderable from §28.11 (five institutions, each with URL); rolled to next run — this run's 3-table budget was spent on ch24-T3, ch25-T1, and ch28-T3. |
 | ch29 | — | No `## Proposed Tables` section exists in this chapter; stage-9 in-body Tables 29-A/29-B/29-C already built (complete 2026-07-27) with declined candidates documented in `research/Ch29_figures_brief.md`. | n/a | No-section cohort (Ch06/Ch12/Ch19 pattern). Left unstamped pending the BL-018 ruling. |
 | ch30 | T1 | Table 30.12 — Field-Guide Summary (destination, type, access, vehicle req., season, permit) | fulfilled-in-chapter | Exists in-body as the §30.12 summary table; the proposal's own text says "See §30.12 above." Print-layout note (facing-page spread, QR card) is a design decision for the publishing phase, not a table gap. |
 | ch30 | T2 | Table 30-B — Green River Trip Comparison: Labyrinth Canyon vs. Desolation/Gray Canyons | fulfilled-in-chapter | Built and placed in-body at §30.7 with source note; matches the proposal 1:1. |
 | ch30 | T3 | Table 30-C — Seasonal Temperature and Conditions, month-by-month by terrain zone (Plateau, Swell, River corridor) | needs-data | The proposal's own bracket says it "[r]equires data from Ch04" — and Ch04-T1 (monthly climate normals) is already `needs-data` because no cited monthly series exists in Ch04's draft. §30.11's qualitative seasonal guide covers the ground the chapter can currently support. |
-| ch28 | T5 | Table 28-E — Oral-history collections holding Emery County material, with catalogue links | in-review | Rendered below (§ Rendered Tables Awaiting Placement). All five institutions (Emery County Archives, BYU L. Tom Perry Special Collections, USU Fife Folklore Archives, Utah State Historical Society Oral History Program, FamilySearch) fully cited with URLs in §28.11. Approval pending. |
+| ch28 | T5 | Table 28-E — Oral-history collections holding Emery County material, with catalogue links | in-review | Rendered below (§ Rendered Tables Awaiting Placement). All five institutions (Emery County Archives, BYU L. Tom Perry Special Collections, USU Fife Folklore Archives, Utah State Historical Society Oral History Program, FamilySearch) fully cited with URLs in §28.11. Approval pending. (2026-08-31: removed a stale duplicate `todo` row for this same T5 that had been left behind from an earlier run — this in-review row plus its rendered block below is the correct, current state.) |
 | ch31 | T1 | Table 31.1 — Formal Designations in Emery County (Name, Type, Managing Agency, Year Designated, Size) | fulfilled-in-chapter | Superseded 1:1 by in-body Table 31-A ("Figures and Tables, stage 9" section), which corrects the Goblin Valley acreage per the BUG-004 fix (9,915 acres, not the ~10,000 estimate in this proposal). No further action needed. |
 | ch32 | T1(auto) | Trail quick-reference table — Trail name, Type, Distance, Difficulty, Season, Permit, Trailhead access | todo |  |
 | ch32 | T2(auto) | River route comparison — Labyrinth Canyon vs. Desolation/Gray Canyon: length, class, permit, season, shuttle options | todo | Near-duplicate of Ch30-T2 (Green River Trip Comparison), which is already `fulfilled-in-chapter` at Ch30 §30.7 — check whether this row is satisfied by cross-reference to Ch30's Table 30-B before building a second version. |
@@ -136,6 +135,12 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch34 | T3 | Table 34-C — Watching Distances and Ethics | fulfilled-in-chapter | Drafted in-body at §34.12; no further action needed. |
 | ch34 | T4 | Table 34-D — Federally Protected & Recovered Wildlife | fulfilled-in-chapter | Drafted in-body at §34.12; no further action needed. |
 | ch34 | T5 | Table 34-E — Reservoir Fisheries Summary | fulfilled-in-chapter | Drafted in-body at §34.8; no further action needed. |
+| ch36 | — | `## Proposed Tables` section present but file truncates mid-item-4 at line 296 ("4"). Items 1–3 legible: Lodging Directory by Community, Campground Directory, Permits and Fees Reference (each cross-referenced to a Proposed Figures entry). Item 4 (per Proposed Figures item 12: Emergency and information phone numbers table) is cut off before its own bullet text. | n/a | See BUG-007 (widened 2026-08-31) — `Ch36_draft.md` truncation, same pattern as Ch35/37/38/39. Not inventoried as todo/needs-data rows this run; file needs restoration first. |
+| ch37 | — | `## Proposed Tables` section present but file truncates mid-item-1 at line 284 ("hours,"). Only a fragment of Table 37.1 (master institution directory) is legible; no further items visible. | n/a | See BUG-007 — `Ch37_draft.md` truncation. Not inventoried this run. |
+| ch38 | — | `## Proposed Tables` section present but file truncates mid-item-3 at line 297 ("Nomin"). Items 1–2 legible: Table 38.1 (complete 22-listing NRHP inventory), Table 38.2 (federal designation summary counts). Item 3 ("Nomin...", likely nomination-process or nomination-timeline table per §38.11) is cut off. | n/a | See BUG-007 — `Ch38_draft.md` truncation. Items 1–2 look renderable from cited §38.2–§38.9 prose once the file is restored and item 3's full text is known; not inventoried as todo this run since item 3's scope can't be confirmed. |
+| ch39 | — | `## Proposed Tables` section present but file truncates mid-item-4 at line 272 ("Authoritative ver"). Items 1–3 legible: Table 1 (master mapping-resources directory), Table 2 (NAIP coverage years 2003–2024), Table 3 (mobile mapping apps comparison: Avenza/Gaia/OnX/CalTopo). Item 4 ("Authoritative ver...", likely "authoritative versions/sources" reference table) is cut off. | n/a | See BUG-007 — `Ch39_draft.md` truncation. Items 1–3 look renderable from cited §39.1–§39.12 prose once the file is restored; not inventoried as todo this run pending full file recovery (partial inventorying of a corrupted section risks missing context for the cut items). |
+| ch40 | T1 | Table 40.1 — Citizen Science Programs at a Glance: program, platform, time commitment, data type, Emery County relevance | fulfilled-in-chapter | Matches existing in-body table at §40.12 exactly (10 programs); no further action needed. |
+| ch40 | T2 | Table 40.2 — Emery County Waterways Suitable for Utah Water Watch Monitoring: stream name, HUC8 watershed, approximate access point, notes | needs-data | Chapter's own proposal text states this "would require UWW program coordinator consultation" — no per-waterway list is cited in Ch40_draft.md or Ch40_sources.md. The chapter's own acknowledged gap, not a build oversight. |
 
 ---
 
@@ -353,3 +358,47 @@ Pattern 1, placement suggested near §28.11.
 | FamilySearch — Emery County, Utah Genealogy wiki | Gateway to vital records, ward records, cemetery indices; companion Genealogy Trails biographies page | familysearch.org/en/wiki/Emery_County,_Utah_Genealogy |
 ```
 *Source: Ch28_draft.md §28.11. All five institutions and URLs cited directly in chapter prose.*
+
+
+### ch27-T2 — Pioneer Day Programming by Town
+
+Pattern 1, placement suggested near §27.2:
+
+```markdown
+| Town | Signature event | Key programming |
+|---|---|---|
+| Castle Dale | Cowboys Memorial Rodeo (RMPRA circuit season-opener) | Nightly 7:30 p.m. performances across Pioneer Day weekend; free closing concert Saturday night |
+| Huntington | Huntington Heritage Days (late June–July 4) | Community breakfast, 10 a.m. parade, rodeo with hide races, volleyball tournament, lawn-mower races, fireworks |
+| Emery | Town Pioneer Day (recent theme: "Together We Shine") | Softball tournaments, ATV/UTV poker ride, 5k run, drive-in movie |
+| Orangeville | Family-scale Pioneer Day | Smaller events coordinated through LDS ward auxiliaries and the city park |
+| Ferron | Pioneer Day folded into a longer summer arc | Leads into Peach Days each September |
+```
+*Source: Ch27_draft.md §27.2.*
+
+### ch27-T3 — Foodways Layers of Emery County
+
+Pattern 1, placement suggested near §§27.7–27.9:
+
+```markdown
+| Layer | Era / origin | Signature dishes |
+|---|---|---|
+| Pioneer Mormon | 1877 settlement; Word of Wisdom dietary code | Scones with honey or jam; funeral potatoes; Dutch-oven breads, roasts, and stews; home-canned peaches and apricots |
+| Coal-camp ethnic | 1880s–1920s European (and smaller Asian) immigration to the coalfields | Welsh Sunday lamb dinners, cawl, and bara brith; Italian sausage and bread; Greek lamb roasts and phyllo pastries; Slavic cabbage rolls and pickled vegetables; Cornish pasties |
+| Ranching and hunting | Late 19th century forward | Ranch breakfasts (eggs, biscuits, gravy, fried potatoes, ham); Dutch-oven beef stew; smoked mutton; jerky; venison sausage, elk roast, and dove pie from the fall hunt |
+| Modern table | 20th–21st century | Green River melons as a local table marker; fast food and chain groceries via the US-6/I-70 corridor and Price, alongside persistent home canning and food storage |
+```
+*Source: Ch27_draft.md §§27.7–27.9.*
+
+### ch27-T4 — Folk Arts Traditions
+
+Pattern 1, placement suggested near §27.10:
+
+```markdown
+| Tradition | Description | Principal venues |
+|---|---|---|
+| Cowboy poetry | Catalyzed nationally by Elko's 1985 National Cowboy Poetry Gathering | San Rafael Folk Art Festival; community programs; Heber Valley Western Music and Cowboy Poetry Gathering (founded 1994) |
+| Folk music and dance | Pioneer fiddling, square dancing, and hymn-singing; Welsh choral singing from the coal-camp era; cowboy ballads and country-western forms | Folk Art Festival; church and community-pageant choirs; Emery High extracurriculars |
+| Quilting | Pieced, embroidered, and signature quilts | Huntington Emery Piecemakers guild; Utah Folk Arts Collection (Utah State University) |
+| Storytelling | Family-history narration, ghost-town legends (Sego, Woodside, Mohrland), trail and canyon yarns, Mormon settlement stories | Family reunions and Sunday dinners; preserved in print by McElprang's *Castle Valley* (1949) and Geary's *Goodbye to Poplarhaven* (1985), *A History of Emery County* (1996), and *The Proper Edge of the Sky* (1992) |
+```
+*Source: Ch27_draft.md §27.10.*
