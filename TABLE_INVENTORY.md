@@ -36,7 +36,8 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 - **Ch32** has 2 proposed-table items, neither pre-built in-body. T2 (Green River route comparison) substantially overlaps Ch30's already-fulfilled Table 30-B and Ch33's proposed T2 — flagged for cross-chapter reconciliation before any of the three are built, to avoid three near-duplicate river-comparison tables shipping across the Field Guide part.
 - **Ch33** has 4 proposed-table items, none pre-built in-body. T1 is a clean build candidate. T2 overlaps the Ch30/Ch32 river-comparison cluster (see Ch32 note). T3 and T4 lack cited data for the schema as scoped (no month-by-month activity matrix or agency contact directory in the chapter's own sources).
 - **Ch34** has 5 proposed-table items, all already fully drafted in-body (§34.8, §34.10, §34.11, §34.12) — `fulfilled-in-chapter` across the board, same pattern as Ch07/08/10/13/16/20/22.
-- **Ch35 — anomaly, not inventoried this run.** `Ch35_draft.md` (`Part_V_Field_Guide/Ch35_Night_Sky_Tourism/`) is truncated mid-sentence at line 391 of 392 — the file cuts off inside item 2 of its own `## Proposed Tables` list ("2. **Tabl"). This is a source-file corruption/truncation, not a parsing gap in this job. Logged to `_Planning/BUGS.md` rather than guessed at; Ch35 rolls to next run once the draft file is repaired. Item 1 (Table 35-A, Dark-Sky Hotspots) is visible and reads `fulfilled-in-chapter` ("Already drafted in §35.10") but is being held back as a whole-chapter unit pending the file-integrity fix, rather than partially inventoried.
+- **Ch35, Ch36, Ch37 — repaired 2026-08-31, re-inventoried 2026-09-02.** The BUG-007 truncation in these three files was fixed 2026-08-31, but the repaired files no longer carry a `## Proposed Tables` section at all (each now ends cleanly at Sources / See Also / Further Reading). They therefore join the no-section cohort (Ch06/Ch12/Ch19/Ch29) and stay **unstamped** pending BL-018. Because the pre-repair files' partially legible proposals were recorded in this inventory on 2026-08-28/31, those items are preserved as rows below rather than lost: Ch35 item 1 (Dark-Sky Hotspots, in-body at §35.10 → `fulfilled-in-chapter`; item 2 was never legible); Ch36 items 1–3 (Lodging Directory, Campground Directory, Permits & Fees Reference — none built in-body; `todo`); Ch37 item 1 fragment (master institution directory — partly covered by the in-body library-branch table at §37.7 but not as a master directory; `todo`). The Planning IDs for these rows come from the pre-repair proposal text, not from anything in the current draft files.
+- **Ch38, Ch39 — still truncated (BUG-007), partially inventoried 2026-09-02.** Both `## Proposed Tables` sections still cut off mid-item (Ch38 item 3 "Nomin"; Ch39 item 4 "Authoritative ver"); the `.mdx` mirrors carry the identical truncation, so there is no fuller copy to fall back on. The legible items are inventoried below; the truncated final item in each chapter is carried as `needs-data` (the missing data is the proposal text itself), which keeps both chapters unstamped until the files are restored. Ch38-T1/T2 and Ch39-T3 rendered this run.
 
 ---
 
@@ -135,10 +136,18 @@ Carried over verbatim where the chapter uses its own tag (`T1`–`T4`, Ch02). Au
 | ch34 | T3 | Table 34-C — Watching Distances and Ethics | fulfilled-in-chapter | Drafted in-body at §34.12; no further action needed. |
 | ch34 | T4 | Table 34-D — Federally Protected & Recovered Wildlife | fulfilled-in-chapter | Drafted in-body at §34.12; no further action needed. |
 | ch34 | T5 | Table 34-E — Reservoir Fisheries Summary | fulfilled-in-chapter | Drafted in-body at §34.8; no further action needed. |
-| ch36 | — | `## Proposed Tables` section present but file truncates mid-item-4 at line 296 ("4"). Items 1–3 legible: Lodging Directory by Community, Campground Directory, Permits and Fees Reference (each cross-referenced to a Proposed Figures entry). Item 4 (per Proposed Figures item 12: Emergency and information phone numbers table) is cut off before its own bullet text. | n/a | See BUG-007 (widened 2026-08-31) — `Ch36_draft.md` truncation, same pattern as Ch35/37/38/39. Not inventoried as todo/needs-data rows this run; file needs restoration first. |
-| ch37 | — | `## Proposed Tables` section present but file truncates mid-item-1 at line 284 ("hours,"). Only a fragment of Table 37.1 (master institution directory) is legible; no further items visible. | n/a | See BUG-007 — `Ch37_draft.md` truncation. Not inventoried this run. |
-| ch38 | — | `## Proposed Tables` section present but file truncates mid-item-3 at line 297 ("Nomin"). Items 1–2 legible: Table 38.1 (complete 22-listing NRHP inventory), Table 38.2 (federal designation summary counts). Item 3 ("Nomin...", likely nomination-process or nomination-timeline table per §38.11) is cut off. | n/a | See BUG-007 — `Ch38_draft.md` truncation. Items 1–2 look renderable from cited §38.2–§38.9 prose once the file is restored and item 3's full text is known; not inventoried as todo this run since item 3's scope can't be confirmed. |
-| ch39 | — | `## Proposed Tables` section present but file truncates mid-item-4 at line 272 ("Authoritative ver"). Items 1–3 legible: Table 1 (master mapping-resources directory), Table 2 (NAIP coverage years 2003–2024), Table 3 (mobile mapping apps comparison: Avenza/Gaia/OnX/CalTopo). Item 4 ("Authoritative ver...", likely "authoritative versions/sources" reference table) is cut off. | n/a | See BUG-007 — `Ch39_draft.md` truncation. Items 1–3 look renderable from cited §39.1–§39.12 prose once the file is restored; not inventoried as todo this run pending full file recovery (partial inventorying of a corrupted section risks missing context for the cut items). |
+| ch35 | T1(auto) | Table 35-A — Dark-Sky Hotspots: site, Bortle class (est.), access, best for | fulfilled-in-chapter | Recorded from the pre-repair proposal text (2026-08-28), which read "Already drafted in §35.10." The repaired `Ch35_draft.md` (2026-08-31) has no `## Proposed Tables` section; the in-body §35.10 hotspots table (8 sites) exists. Item 2 of the original list was never legible and is not carried. Chapter left unstamped (no-section cohort, BL-018). |
+| ch36 | T1(auto) | Lodging Directory by Community — lodging options in Green River, Castle Dale, Huntington, Ferron, Price, Hanksville | todo | Recorded from the pre-repair proposal text (2026-08-31); repaired `Ch36_draft.md` has no `## Proposed Tables` section. Not built in-body (§36.4 is prose; the only in-body table is the gateway-towns engagement table at §36.3). Assess §36.4 for a cited per-property list before rendering — if the section names properties only generically, this becomes `needs-data`. |
+| ch36 | T2(auto) | Campground Directory — developed and dispersed campgrounds: name, managing agency, sites, fee, season | todo | Recorded from the pre-repair proposal text (2026-08-31); repaired file has no proposal section. Not built in-body (§36.5 is prose). Assess §36.5 for cited fee/site-count figures before rendering. |
+| ch36 | T3(auto) | Permits and Fees Reference — activity, permit required, issuing agency, fee, where to obtain | todo | Recorded from the pre-repair proposal text (2026-08-31); repaired file has no proposal section. Not built in-body (§36.9 is prose). Assess §36.9 for cited fee figures before rendering. |
+| ch37 | T1(auto) | Table 37.1 — Master institution directory: archives, museums, libraries with location, hours, contact | todo | Recorded from the pre-repair fragment (2026-08-31: "...hours,"); repaired `Ch37_draft.md` has no proposal section, so the full column list is unknown. Partly covered in-body by the §37.7 library-branch table (4 branches: address, phone) but no master directory spans the museums/archives/repositories of §§37.4–37.9. Render only with columns actually cited in those sections. |
+| ch38 | T1 | Table 38.1 — Complete inventory of Emery County's 22 NRHP listings: name, NRIS reference number, date listed, community, type, address status | in-review | Rendered below (§ Rendered Tables Awaiting Placement). All 22 listings with NRIS numbers, communities, and address status traced to §38.2–§38.8 prose. "Date listed" column omitted — only Desolation Canyon (1968) and the Leander Lemmon House (2002) carry a cited listing year in the draft, and inferring years from NRIS number prefixes would be an uncited derivation. Approval pending. |
+| ch38 | T2 | Table 38.2 — Federal designation summary: NRHP (22), NHL (1), NNL (1), National Historic Trail crossings (1), National Monument (1 — Jurassic) | in-review | Rendered below. Counts, examples, administering agencies, and designation dates all cited in §38.2, §38.8, §38.9, §38.10. Approval pending. |
+| ch38 | T3 | Table 38.3 — "Nomin…" (proposal text truncated; presumably a nomination-process or nomination-timeline table per §38.11) | needs-data | BUG-007: `Ch38_draft.md` and `ch38.mdx` both cut off mid-item at "Nomin". Scope cannot be confirmed, so not rendered. Clears once the file is restored. |
+| ch39 | T1 | Table 1 — Master directory of Emery County mapping resources: URL, format, license, primary use case | todo | Not built in-body (the §39.12 engagement table covers 6 free tools by use case, not the full directory). URLs and use cases are cited throughout §§39.2–39.12; "format" and "license" columns are only partly cited — render with those columns limited to what the prose states, or drop them. |
+| ch39 | T2 | Table 2 — NAIP coverage years for Utah (2003–2024) with resolution per year | needs-data | §39.10 cites the coverage years (2003, 2004, 2006, 2009, 2011, 2014, 2016, 2018, 2021, 2024) and a resolution of 0.6 m only for 2018 onward; per-year resolution for 2003–2016 is not cited anywhere in Ch39_draft.md or its Sources, so the "resolution per year" column cannot be filled without fabrication. |
+| ch39 | T3 | Table 3 — Recommended mobile mapping apps comparison (Avenza, Gaia, OnX, CalTopo): price, offline support, key strengths | in-review | Rendered below. Key strengths and pricing *model* (free tier / subscription) traced to §39.12; no dollar prices are cited, so the price column carries the cited pricing model only, and OnX's offline support and pricing are marked "not stated in chapter" rather than filled in. Approval pending. |
+| ch39 | T4 | Table 4 — "Authoritative ver…" (proposal text truncated; presumably an authoritative-versions/sources reference table) | needs-data | BUG-007: `Ch39_draft.md` and `ch39.mdx` both cut off mid-item at "Authoritative ver". Scope cannot be confirmed, so not rendered. Clears once the file is restored. |
 | ch40 | T1 | Table 40.1 — Citizen Science Programs at a Glance: program, platform, time commitment, data type, Emery County relevance | fulfilled-in-chapter | Matches existing in-body table at §40.12 exactly (10 programs); no further action needed. |
 | ch40 | T2 | Table 40.2 — Emery County Waterways Suitable for Utah Water Watch Monitoring: stream name, HUC8 watershed, approximate access point, notes | needs-data | Chapter's own proposal text states this "would require UWW program coordinator consultation" — no per-waterway list is cited in Ch40_draft.md or Ch40_sources.md. The chapter's own acknowledged gap, not a build oversight. |
 
@@ -402,3 +411,79 @@ Pattern 1, placement suggested near §27.10:
 | Storytelling | Family-history narration, ghost-town legends (Sego, Woodside, Mohrland), trail and canyon yarns, Mormon settlement stories | Family reunions and Sunday dinners; preserved in print by McElprang's *Castle Valley* (1949) and Geary's *Goodbye to Poplarhaven* (1985), *A History of Emery County* (1996), and *The Proper Edge of the Sky* (1992) |
 ```
 *Source: Ch27_draft.md §27.10.*
+
+
+### ch38-T1 — Table 38.1: National Register of Historic Places Listings in Emery County
+
+Pattern 2 (`<DataTable>`) — numbered caption plus a source note. Suggested placement: end of §38.2 (after the "What's on the List?" engagement feature) or as the chapter's stage-9 Figures and Tables block. Theme column follows the section in which the chapter treats each listing (§38.3–§38.8); Castle Dale Bridge is treated under both §38.4 and §38.6 in the prose but appears once here.
+
+```mdx
+<DataTable
+  caption="Table 38.1 — National Register of Historic Places listings in Emery County (22 listings)"
+  note="Source: Ch38 §38.2–§38.8, citing the National Register Information System (NRIS) via the NPS listings current to January 17, 2025. Listing dates are given only where the chapter cites them; the six rock-art sites are address-restricted in the public registry."
+>
+
+| Listing | NRIS # | Community / location | Theme (chapter section) | Address status |
+|---|---|---|---|---|
+| Black Dragon Canyon Pictographs | 80003905 | Green River vicinity | Rock art (§38.3) | Restricted |
+| Buckhorn Wash Rock Art Sites | 80003898 | Castle Dale vicinity | Rock art (§38.3) | Restricted |
+| Ferron Box Pictographs and Petroglyphs | 80003904 | Ferron | Rock art (§38.3) | Restricted |
+| Rochester-Muddy Creek Petroglyph Site | 75001803 | Emery | Rock art (§38.3) | Restricted |
+| Temple Mountain Wash Pictographs | 76001814 | Hanksville vicinity | Rock art (§38.3) | Restricted |
+| Castle Dale School | 78002657 | Castle Dale, 65 E 100 North | Castle Dale built environment (§38.4) | Published |
+| Castle Dale High School Shop | 85000804 | Castle Dale, 300 N Center St | Castle Dale built environment (§38.4) | Published |
+| Paul C. Christensen House | 80003899 | Castle Dale, 15 E 100 North | Castle Dale built environment (§38.4) | Published |
+| Peter Johansen House | 80003900 | Castle Dale, 830 N Center St | Castle Dale built environment (§38.4) | Published |
+| Justus Wellington Seeley II House | 79002493 | Castle Dale, Center & 100 South | Castle Dale built environment (§38.4) | Published |
+| Castle Dale Bridge | 100004394 | Castle Dale, approx. 200 S Center St (Cottonwood Creek) | Castle Dale built environment / infrastructure (§38.4, §38.6) | Published |
+| Emery LDS Church | 80003903 | Emery, off SR-10 | Religious architecture (§38.5) | Published |
+| Huntington Tithing Granary | 85000261 | Huntington, 45 W 300 North (rear) | Religious architecture (§38.5) | Published |
+| Ferron Presbyterian Church and Cottage | 78002658 | Ferron, Mill Rd & 3rd West | Religious architecture (§38.5) | Published |
+| Green River Presbyterian Church | 88002998 | Green River, 134 W 3rd Ave | Religious architecture (§38.5) | Published |
+| Denver and Rio Grande Lime Kiln | 80003901 | Southeast of Cleveland, County Road 335 | Industrial and infrastructure (§38.6) | Published |
+| Huntington Roller Mill and Miller's House | 79002495 | Huntington, 400 North & 550 West | Industrial and infrastructure (§38.6) | Published |
+| San Rafael Bridge | 96000617 | County Road 3-32 over the San Rafael River, approx. 23 mi south of Castle Dale | Industrial and infrastructure (§38.6) | Published |
+| Lars Peter Larson House | 80003902 | Cleveland, 210 E 100 South | Pioneer residences (§38.7) | Published |
+| Leander Lemmon House | 02001040 | Huntington, 45 W Center St | Pioneer residences (§38.7) — listed 2002 | Published |
+| Samuel Singleton House | 79002494 | South of Ferron on SR-10 | Pioneer residences (§38.7) | Published |
+| Desolation Canyon | 68000057 | Green River corridor; shared with Grand, Carbon, and Uintah counties | National Historic Landmark (§38.8) — listed Nov. 24, 1968 | Published |
+
+</DataTable>
+```
+*Sources: Ch38_draft.md §38.2 (count and themes), §38.3–§38.8 (individual listings, NRIS numbers, addresses); Ch38 Sources list — NRHP listings in Emery County (NRIS via Wikipedia, current through NPS weekly listings Sept. 26, 2025).*
+
+### ch38-T2 — Table 38.2: Federal Designations in Emery County
+
+Pattern 2 (`<DataTable>`) — numbered caption plus source note. Suggested placement: §38.1 or §38.2, as the chapter's one-glance summary of the five federal programs it discusses.
+
+```mdx
+<DataTable
+  caption="Table 38.2 — Federal historic and natural designations in Emery County"
+  note="Source: Ch38 §38.2, §38.8, §38.9, §38.10. Desolation Canyon is counted once as an NRHP listing and once as the county's sole National Historic Landmark."
+>
+
+| Designation | Program administrator | Emery County count | Emery County example | Designation date cited |
+|---|---|---|---|---|
+| National Register of Historic Places (NRHP) | National Park Service | 22 | See Table 38.1 | 1968–2002 range cited; full list in NRIS |
+| National Historic Landmark (NHL) | National Park Service | 1 | Desolation Canyon | November 24, 1968 |
+| National Natural Landmark (NNL) | National Park Service | 1 | Cleveland-Lloyd Dinosaur Quarry | 1965 |
+| National Historic Trail (crossing) | National Park Service and Bureau of Land Management (joint) | 1 | Old Spanish National Historic Trail | December 4, 2002 |
+| National Monument | Bureau of Land Management | 1 | Jurassic National Monument (incorporating Cleveland-Lloyd) | 2019 |
+
+</DataTable>
+```
+*Sources: Ch38_draft.md §38.2 (22 NRHP listings, 1 NHL), §38.8 (NHL date), §38.9 (NNL 1965; Jurassic National Monument 2019), §38.10 (Old Spanish NHT, Dec. 4, 2002, NPS/BLM joint administration).*
+
+### ch39-T3 — Table 3: Mobile Mapping Apps Compared
+
+Pattern 1 (plain markdown pipe table) — no numbered caption in the chapter's own proposal; source line below. Suggested placement: §39.12, immediately after the four app paragraphs and before the QGIS/QField desktop paragraph. Cells read "not stated in chapter" where §39.12 does not cite the item; no dollar prices are cited anywhere in Ch39, so the price column records the pricing model only.
+
+```markdown
+| App | Key strengths (as cited) | Offline support (as cited) | Pricing model (as cited) |
+|---|---|---|---|
+| Avenza Maps | Official agency GeoPDF maps (BLM, USFS, NPS, most state agencies) in one app — e.g. Manti-La Sal MVUM, Swell Travel Management map, Goblin Valley trail map | Yes — maps cached offline with GPS positioning | Free tier limited to three downloaded maps at a time; annual subscription removes the limit |
+| Gaia GPS | Layered basemaps (USGS topo, USFS, OSM, satellite, terrain shading); hiking, scrambling, backcountry skiing on the Wasatch Plateau; general desert wayfinding | Offline caching unlocked by subscription | Subscription unlocks offline caching and the full layer library |
+| OnX (Backcountry / Off-Road / Hunt) | Strongest land-ownership overlay on the market — BLM / SITLA / private checkerboard; hunters, OHV users, ranchers, homestead-claim tracing | Not stated in chapter | Not stated in chapter |
+| CalTopo | Map-printing tools and precise cross-reference to USGS quads; favored by search-and-rescue teams and outfitters | Not stated in chapter | Free tier "generous"; paid tiers add team and tracking features |
+```
+*Source: Ch39_draft.md §39.12.*
