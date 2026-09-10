@@ -6,9 +6,9 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 `FIGURE_INVENTORY.md`'s structure and status vocabulary where applicable.
 
 > **Rebuild in progress.** This file was found missing at the 2026-09-04 preflight and is being
-> rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07). Prior
-> coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being re-derived from the
-> vault drafts, not restored from memory. Ch11–43 still to re-inventory.
+> rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07; Ch11–15 on
+> 09-09). Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being
+> re-derived from the vault drafts, not restored from memory. Ch16–43 still to re-inventory.
 
 ## Status vocabulary
 
@@ -30,6 +30,7 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch01 | Table 1-A, 1-B | 2026-09-04 |
 | ch05 | Table 5-A, 5-B, 5-C (plus 12 non-standard inline "*Suggested for 5.N*" bullets — BL-013) | 2026-09-04 |
 | ch06 | Table 6-A (Green River native/ESA fishes), 6-B (Utah SGCN by taxon), 6-C (big-game herds) | 2026-09-07 |
+| ch12 | No "Proposed Tables" list at all — the chapter's proposed-visuals list (Map 12.1–Diagram 12.8) is entirely maps, figures, charts, and diagrams; no table items proposed | 2026-09-09 |
 
 ## Full inventory
 
@@ -56,6 +57,16 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch09 | ch09-T3 | Fremont ceramic typology: grayware, corrugated, neck-banded, anomalous types | needs-data | §9.2 names Emery Gray and Snake Valley Gray with temper and decoration modes, but no corrugated, neck-banded, or anomalous types appear anywhere in `Ch09_draft.md` or `Ch09_sources.md`. Needs a ceramic-typology source (e.g., Madsen's Fremont ceramics work) verified and added to `Ch09_sources.md` before rendering. Checked 2026-09-07; do not re-attempt before 2026-09-14. BL-036. |
 | ch10 | ch10-T1 | Major Ute Bands and Their Territories | already-covered | Table 10-A already in chapter (§10.7); `tables:` stamped 2026-08-20. |
 | ch10 | ch10-T2 | Key Treaty and Policy Events | already-covered | Table 10-B "Key Treaty and Policy Events Affecting Utah Utes" already in chapter; `tables:` stamped 2026-08-20. |
+| ch11 | ch11-T1 | Timeline: Key events in Navajo–Puebloan–Ute interactions (1300–present) | already-covered | Rendered as **Figure 11-A** (not a table) per the chapter's own "Proposed Maps & Figures" item 1 and the inline figure note after §11.1 — a chronology from Athabaskan arrival through the 1984 Navajo-language mandate. The chapter itself classifies this as a figure, not a table; same resolution as ch14-T1. |
+| ch11 | ch11-T2 | Comparison: Architectural traditions — Puebloan stone masonry, Navajo hogan, Fremont pit house, Ute wickiup | already-covered | Table 11-A "Architectural Traditions of the Colorado Plateau" already in chapter (§11.8) — identical subject and structure (tradition/form/permanence/culture), sourced to Britannica, Nizhoni Ranch Gallery, NHMU Range Creek. |
+| ch13 | ch13-T1 | Table: Federal and state laws protecting archaeological resources (law, year, key provisions, penalties) | already-covered | Table 13-A "Federal and state laws protecting archaeological resources in Emery County" already in chapter (§13.2, lines 59–68) — identical subject/columns. |
+| ch13 | ch13-T2 | Table: UCSSP program statistics (2024) — volunteers, sites monitored, hours, miles, reports | already-covered | Table 13-B "Utah Cultural Site Stewardship Program statistics, 2024" already in chapter (§13.4), sourced to Utah SHPO's 2022 UCSS Program Report. |
+| ch13 | ch13-T3 | Table: Major archaeological repositories serving Emery County (institution, location, collection size, specialization) | already-covered | Unlabeled table already in chapter (§13.5, lines 118–122) with exact columns (Institution/Location/Collection Size/Specialization) covering USU Eastern Prehistoric Museum and Edge of the Cedars State Park Museum. Recommend Greg confirm a table number (13-C) be added when placement is reviewed. |
+| ch14 | ch14-T1 | Timeline: Key Exploration & Fur Trade Events (1776–1848) | already-covered | Chapter's own Proposed Tables note states this was rendered as Figure 14-A (`ch14_figure_exploration-timeline.svg`), placed after the chapter opening, 2026-07-19 — resolved as a figure, not a table. |
+| ch14 | ch14-T2 | Table 14-A — Old Spanish Trail Route Through Emery County | already-covered | Chapter's own Proposed Tables note states this was drafted in §14.3, 2026-07-19. |
+| ch15 | ch15-T1 | Chronology of Powell's 1869 expedition with Emery County river-days highlighted | already-covered | Table 15-A "Chronology of Powell's 1869 expedition (Emery County river-days in bold)" already in chapter's "Figures & Tables (Done v2)" section, sourced to USGS 150th Anniversary, Utah Geological Survey, WyoHistory. |
+| ch15 | ch15-T2 | The Great Surveys quartet at a glance (director, agency, dates, primary region, successor) | already-covered | Table 15-B "The four Great Surveys of the West at a glance" already in chapter, sourced to USGS Circular 1050. |
+| ch15 | ch15-T3 | Place-names in Emery County and adjacent Colorado Plateau attributable to 1853–1879 surveys | already-covered | Table 15-C "Powell-era place-names in and near Emery County" already in chapter, sourced to §15.10, USGS, Utah Geological Survey. |
 
 ---
 
