@@ -7,8 +7,8 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 
 > **Rebuild in progress.** This file was found missing at the 2026-09-04 preflight and is being
 > rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07; Ch11–15 on
-> 09-09). Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being
-> re-derived from the vault drafts, not restored from memory. Ch16–43 still to re-inventory.
+> 09-09; Ch16–20 on 09-11). Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being
+> re-derived from the vault drafts, not restored from memory. Ch21–43 still to re-inventory.
 
 ## Status vocabulary
 
@@ -31,6 +31,7 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch05 | Table 5-A, 5-B, 5-C (plus 12 non-standard inline "*Suggested for 5.N*" bullets — BL-013) | 2026-09-04 |
 | ch06 | Table 6-A (Green River native/ESA fishes), 6-B (Utah SGCN by taxon), 6-C (big-game herds) | 2026-09-07 |
 | ch12 | No "Proposed Tables" list at all — the chapter's proposed-visuals list (Map 12.1–Diagram 12.8) is entirely maps, figures, charts, and diagrams; no table items proposed | 2026-09-09 |
+| ch19 | No "Proposed Tables" list at all — the "Proposed Maps and Figures" section is entirely maps and photographs; body already ships 4 inline tables (reservoir capacities, water-right decrees, groundwater/springs, megadrought benchmarks) with no separate backlog list | 2026-09-11 |
 
 ## Full inventory
 
@@ -67,6 +68,20 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch15 | ch15-T1 | Chronology of Powell's 1869 expedition with Emery County river-days highlighted | already-covered | Table 15-A "Chronology of Powell's 1869 expedition (Emery County river-days in bold)" already in chapter's "Figures & Tables (Done v2)" section, sourced to USGS 150th Anniversary, Utah Geological Survey, WyoHistory. |
 | ch15 | ch15-T2 | The Great Surveys quartet at a glance (director, agency, dates, primary region, successor) | already-covered | Table 15-B "The four Great Surveys of the West at a glance" already in chapter, sourced to USGS Circular 1050. |
 | ch15 | ch15-T3 | Place-names in Emery County and adjacent Colorado Plateau attributable to 1853–1879 surveys | already-covered | Table 15-C "Powell-era place-names in and near Emery County" already in chapter, sourced to §15.10, USGS, Utah Geological Survey. |
+| ch16 | ch16-T1 | Founding wave chronology: 1875 (Lemmon) through 1888 (Manti Temple) | already-covered | Table 16-A "Founding-wave chronology" already in chapter, sourced to Utah History Encyclopedia; Geary 1984; FamilySearch. `tables:` stamped 2026-08-21 by a prior run. |
+| ch16 | ch16-T2 | Founding settlements with date, founding families, creek drainage | already-covered | Table 16-B "Founding settlements" already in chapter, same sourcing. |
+| ch16 | ch16-T3 | Emery County population, U.S. Census 1880–2020 (with boundary-change notes) | already-covered | Table 16-C "Emery County population, U.S. Census 1880–2020" already in chapter, sourced to U.S. Census Bureau, with the 1890/1894 Grand/Carbon boundary-change note the proposal called for. |
+| ch16 | ch16-T4 | LDS ward and stake organization dates, 1879–1890 | already-covered | Table 16-D "LDS ward & stake organization, 1879–1890" already in chapter, sourced to FamilySearch; Geary. |
+| ch17 | ch17-T1 | Selected Emery County coal mines: name, field, operator, years of operation, peak production | already-covered | Table 17-A "Selected mines and operations" already in chapter, sourced to utahrails.net and Utah DOGM Deer Creek filings. |
+| ch17 | ch17-T2 | Wilberg and Crandall Canyon — dates, casualties, cause, federal action taken | already-covered | Table 17-B "Wilberg and Crandall Canyon compared" already in chapter, sourced to Utah History Encyclopedia, MSHA findings, KSL retrospective. |
+| ch17 | ch17-T3 | Temple Mountain mining-district cumulative production 1948–1956 (U₃O₈ and V₂O₅) | already-covered | Table 17-C "Temple Mountain district production, 1948–1956" already in chapter, sourced to mindat.org. |
+| ch17 | ch17-T4 | Emery County annual coal production, 2015–2024 (short tons) | already-covered | Table 17-D "Coal production benchmarks" already in chapter — described in its own note as the tabular twin of Figure 17-A; intervening years not tabulated because not cited. Chapter also ships an uncalled-for Table 17-E (the two generating stations) as a bonus. `tables:` was not yet stamped — set today. |
+| ch18 | ch18-T1 | Timeline of Major Infrastructure Events in Emery County (1876–2024) | already-covered | Rendered as **Figure 18-A** (`ch18_figure_i70-service-gap.svg` covers the I-70 service-gap portion; the full 1876–2024 timeline is carried in prose across §18.2–§18.11) rather than a standalone table — the chapter's built Table 18-A/B/C/D set covers the same events split by mode (river crossings, rail, highways, I-70) instead of one combined timeline. Flagged for Greg to confirm the split-table treatment satisfies this item. |
+| ch18 | ch18-T2 | Railroad Coal Branch Lines: Overview | already-covered | Table 18-B "Rail lines serving the coalfields" already in chapter, sourced to utahrails.net. |
+| ch18 | ch18-T3 | Federal Highway Routes Through Emery County | already-covered | Table 18-C "Federal highways serving Emery County" already in chapter, sourced to FHWA. Chapter also ships uncalled-for Tables 18-A (Green River crossings) and 18-D/18-E (I-70; airports) as bonus coverage beyond the three proposed items. `tables:` was not yet stamped — set today. |
+| ch20 | ch20-T1 | Emery County Project Key Statistics — dam name, stream, height, capacity, service area | already-covered | Table 20-A "Emery County Project — principal structures" already in chapter, sourced to USBR/EWCD. `tables:` stamped 2026-08-21 by a prior run. |
+| ch20 | ch20-T2 | Emery County Agricultural Census Snapshot (2002) — farm count by livestock type, crop acreages, total sales | already-covered | Table 20-B "Emery County agriculture — 2002 Census of Agriculture snapshot" already in chapter, sourced to USDA NASS, with a note comparing to the 2022 Census. |
+| ch20 | ch20-T3 | Pioneer Irrigation Works — ditch name, year begun, settlement served, approximate length | already-covered | Table 20-C "Selected pioneer canals of Emery County" already in chapter, sourced to Geary and county/ward histories. |
 
 ---
 
