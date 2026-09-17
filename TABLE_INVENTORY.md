@@ -7,8 +7,10 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 
 > **Rebuild in progress.** This file was found missing at the 2026-09-04 preflight and is being
 > rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07; Ch11–15 on
-> 09-09; Ch16–20 on 09-11). Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being
-> re-derived from the vault drafts, not restored from memory. Ch21–43 still to re-inventory.
+> 09-09; Ch16–20 on 09-11; Ch23–27 on 09-16 — Ch21–22 skipped as already fully stamped
+> `tables:` complete from a prior run, confirmed against frontmatter). Prior coverage through
+> Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being re-derived from the vault drafts, not
+> restored from memory. Ch28–43 still to re-inventory.
 
 ## Status vocabulary
 
@@ -32,6 +34,7 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch06 | Table 6-A (Green River native/ESA fishes), 6-B (Utah SGCN by taxon), 6-C (big-game herds) | 2026-09-07 |
 | ch12 | No "Proposed Tables" list at all — the chapter's proposed-visuals list (Map 12.1–Diagram 12.8) is entirely maps, figures, charts, and diagrams; no table items proposed | 2026-09-09 |
 | ch19 | No "Proposed Tables" list at all — the "Proposed Maps and Figures" section is entirely maps and photographs; body already ships 4 inline tables (reservoir capacities, water-right decrees, groundwater/springs, megadrought benchmarks) with no separate backlog list | 2026-09-11 |
+| ch26 | No standalone `## Proposed Tables` heading — its three table proposals (26.1 Castle Country Museums, 26.2 broadcast outlets, 26.3 selected works) are listed as a sub-list inside the "Proposed Maps and Figures" section instead. Not parsed into the inventory this run per the spec's exact-heading match; flagged for Greg to confirm whether the heading should be split out or this chapter should be treated as in-scope despite the merged section. | 2026-09-16 |
 
 ## Full inventory
 
@@ -82,6 +85,21 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch20 | ch20-T1 | Emery County Project Key Statistics — dam name, stream, height, capacity, service area | already-covered | Table 20-A "Emery County Project — principal structures" already in chapter, sourced to USBR/EWCD. `tables:` stamped 2026-08-21 by a prior run. |
 | ch20 | ch20-T2 | Emery County Agricultural Census Snapshot (2002) — farm count by livestock type, crop acreages, total sales | already-covered | Table 20-B "Emery County agriculture — 2002 Census of Agriculture snapshot" already in chapter, sourced to USDA NASS, with a note comparing to the 2022 Census. |
 | ch20 | ch20-T3 | Pioneer Irrigation Works — ditch name, year begun, settlement served, approximate length | already-covered | Table 20-C "Selected pioneer canals of Emery County" already in chapter, sourced to Geary and county/ward histories. |
+| ch23 | ch23-T1 | Current Emery County elected offices — office, current holder, function | needs-data | Chapter's own §23.3 flags this explicitly: "the precise roster should be confirmed against the live Emery County Commission page... [*needs verification: confirm full 2026 commission roster against county-clerk records*]." Only the chair (Lynn Sitterud) is named; the other two commissioners and the non-commission elected offices are not enumerated in the draft. Rendering a roster now would mean fabricating names. Needs the current 2026 roster pulled from emery.utah.gov and added to `Ch23_sources.md` first. Checked 2026-09-16. BL-036. |
+| ch23 | ch23-T2 | Dingell Act wilderness areas — name, acreage, key features | needs-data | §23.8 gives only the aggregate 663,000-acre wilderness figure and the separate 217,000-acre San Rafael Swell Recreation Area; no per-area breakdown (individual wilderness unit names and acreages) appears in the draft or `Ch23_sources.md`. Needs the itemized Dingell Act wilderness-unit list (BLM or SUWA) added to sources before rendering. Checked 2026-09-16. BL-036. |
+| ch23 | ch23-T3 | Seven County Infrastructure Coalition — member counties, commissioners seated | needs-data | §23.11 describes the Coalition's structure ("each county seats one commissioner") but never lists the seven member counties by name, and `Ch23_sources.md` cites only the Coalition's homepage (now Rural Utah Infrastructure Coalition), not a membership roster. Needs the current RUIC member-county list verified and added to sources. Checked 2026-09-16. BL-036. |
+| ch24 | ch24-T1 | Schools operating in Emery County, by community and year of founding (1880–2026) | needs-data | Draft names all ten current schools (§24.6) and dates two historical milestones (Emery Stake Academy 1888/1889; 1962 consolidation), but does not give individual founding years for the six elementary schools, two junior highs, or Green River High — a genuine 1880–2026 chronology can't be built without fabricating dates. Needs per-school founding years (ECSD or NRHP records) added to `Ch24_sources.md`. Checked 2026-09-16. BL-036. |
+| ch24 | ch24-T2 | Three-high-school enrollments 1922–1962 (North Emery, Central, South Emery) | needs-data | Chapter's own proposal line already flags this "*needs additional sources*" (line 182); no enrollment figures for any of the three schools appear anywhere in `Ch24_draft.md` or `Ch24_sources.md`. Checked 2026-09-16; do not re-attempt before 2026-09-23. BL-036. |
+| ch24 | ch24-T3 | Emery County School District today: schools, levels, enrollment, headquarters | in-review | Rendered 2026-09-16 as Pattern 1 (plain table) from §24.6–24.7 (ten schools with level and location; district-wide enrollment ~2,248 from NCES/Niche 2026; Green River High enrollment ~40–70 separately noted) and district headquarters (Huntington, Emery County School District 2026). See render block below. |
+| ch24 | ch24-T4 | Emery School District performance indicators, 2018–2024 (math proficiency, reading proficiency, graduation rate) | in-review | Rendered 2026-09-16 as Pattern 2 (`<DataTable>`) from §24.10 — graduation rate, math and reading proficiency, both district-wide and state-average comparators, cited to Public School Review (2026) and the USBE report card. Chapter gives current-year figures and a 5-year graduation trend, not a full 2018–2024 annual series, so the note says so rather than inventing intervening years — same treatment as ch17-T4/ch18-T1. See render block below. |
+| ch25 | ch25-T1 | 2020 religious adherent count in Emery County by denomination (ARDA data) | in-review | Rendered 2026-09-16 as Pattern 2 (`<DataTable>`) from §25.1/25.8/25.10/25.11 (LDS 91.5%; Catholic 300 adherents in two congregations; non-denominational Christian 200 adherents; unaffiliated ~38%), cited to ARDA 2020 (independently re-verified per `Ch25_sources.md` note: population 9,825, adherents 6,039 = 61.5%). See render block below. |
+| ch25 | ch25-T2 | Original 1930 Emery Stake wards and branches (FamilySearch enumeration) | needs-data | §25.3 names the original wards (Castle Dale, Huntington, Ferron, Orangeville, Cleveland, Emery) and outlying branches (Lawrence, Mohrland, Rochester, Victor) and states the 1930 total was "twelve wards and branches," but does not give the full itemized list reconciling to twelve — two or three units are unnamed. Needs the complete FamilySearch enumeration pulled before rendering rather than guessing which units fill the gap. Checked 2026-09-16. BL-036. |
+| ch25 | ch25-T3 | Comparison: Emery County LDS share of religious adherents vs. statewide Utah, 1990 / 2000 / 2010 / 2020 | needs-data | Draft and `Ch25_sources.md` only carry two data points — Emery County 91.5% (2020, of adherents) / 61.5% (2020, of total population) and statewide ~60.7% (Pew 2014, not 2020) — not a four-decade time series for either geography. Needs 1990/2000/2010 ARDA county and state religion-census figures added to sources before rendering. Checked 2026-09-16. BL-036. |
+| ch27 | ch27-T1 | Emery County festival calendar — name, location, founding year, season, programming | needs-data | Draft describes festivals (Pioneer Day per-town programming, Peach Days, per §27.2–27.3) but the founding-year column is contested even for the one date-flagged event: "the county tourism office dates [Peach Days] to 1901 and other local histories to 1906." A calendar with unresolved founding years for its flagship entry risks presenting a disputed number as fact. Needs the per-festival founding-year column reconciled (or explicitly flagged as disputed per-row) before rendering. Checked 2026-09-16. BL-036. |
+| ch27 | ch27-T2 | Pioneer Day programming by town (Castle Dale / Huntington / Emery / Orangeville / Ferron) | needs-data | §27.2 describes Emery and Orangeville and Ferron's programming in prose but Castle Dale's and Huntington's Pioneer Day programming is not described in the excerpted draft sections read this run — needs a full per-town pass before a five-row table can be built without gaps. Checked 2026-09-16. BL-036. |
+| ch27 | ch27-T3 | Foodways layers — pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
+| ch27 | ch27-T4 | Folk arts traditions — cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
+| ch27 | ch27-T5 | Castle Valley Pageant chronology — selected editions, themes, notable years | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
 
 ---
 
@@ -161,3 +179,78 @@ Proposed placement: Ch09 §9.11 (Site Distribution & Landscape Use), after the f
 
 </DataTable>
 ```
+
+### ch24-T3 — Table 24-A. Emery County School District today
+
+Proposed placement: Ch24 §24.6, immediately after the ten-school bulleted list. Pattern 1
+(plain markdown table) — no table number was requested by the chapter's own proposal text and
+no source note is needed beyond the inline attribution already in prose.
+
+```markdown
+| School | Level | Community | Enrollment | Headquarters |
+|---|---|---|---|---|
+| Castle Dale Elementary | Elementary | Castle Dale | — | Emery County School District, Huntington |
+| Cottonwood Elementary | Elementary | Orangeville | — | Emery County School District, Huntington |
+| Ferron Elementary | Elementary | Ferron | — | Emery County School District, Huntington |
+| Huntington Elementary | Elementary | Huntington | — | Emery County School District, Huntington |
+| Cleveland Elementary | Elementary | Cleveland | — | Emery County School District, Huntington |
+| Book Cliff Elementary | Elementary | Green River | — | Emery County School District, Huntington |
+| Canyon View Junior High | Junior High | Huntington | — | Emery County School District, Huntington |
+| San Rafael Junior High | Junior High | Ferron | — | Emery County School District, Huntington |
+| Emery High School | High School | Castle Dale | ~636 | Emery County School District, Huntington |
+| Green River High School | High School | Green River | ~40–70 | Emery County School District, Huntington |
+```
+
+Note for Greg: per-school enrollment is only cited in the draft for Emery High (~636, Public School
+Review 2026) and Green River High (~40–70, described as varying by year); the other eight schools'
+individual enrollments are not given in `Ch24_draft.md` or `Ch24_sources.md`, so those cells are left
+blank (—) rather than estimated. District-wide total is ~2,248 (NCES; Niche 2026).
+
+### ch24-T4 — Table 24-B. Emery School District performance indicators
+
+Proposed placement: Ch24 §24.10, replacing or alongside the existing bulleted list. Pattern 2
+because it needs a source note distinguishing the two-year comparison window the chapter actually
+supports from the five-year span named in the proposal.
+
+```mdx
+<DataTable
+  caption="Table 24-B — Emery School District performance indicators"
+  note="Figures are the most recent published year (Public School Review, 2026; USBE report card) compared against the Utah statewide average and, for graduation rate, the prior five-year range. The chapter does not cite an annual 2018–2024 series, so intervening years are not tabulated here rather than estimated."
+>
+
+| Indicator | Emery County (most recent) | Utah statewide | Prior 5-year range (Emery) |
+|---|---|---|---|
+| Graduation rate | 87% | — | 90–94% |
+| Math proficiency | 42% | 40% | — |
+| Reading proficiency | 35% | 43% | — |
+
+</DataTable>
+```
+
+### ch25-T1 — Table 25-A. 2020 religious adherent count in Emery County by denomination
+
+Proposed placement: Ch25 §25.1 or §25.10, near the first mention of the ARDA 2020 figures.
+Pattern 2 for the table number and the source/verification note.
+
+```mdx
+<DataTable
+  caption="Table 25-A — Religious adherents in Emery County, 2020"
+  note="Source: Association of Religion Data Archives, U.S. Religion Census: County Membership Report — Emery County, Utah (2020). Per Ch25_sources.md, independently re-verified: county population 9,825, total adherents 6,039 (61.5% of population). The 'unaffiliated' row is derived (100% minus the 61.5% adherent share) and is not itself an ARDA category."
+>
+
+| Group | Share of adherents | Adherent count | Share of total population |
+|---|---|---|---|
+| Latter-day Saint | 91.5% | — | ~56.3% (derived) |
+| Roman Catholic | — | 300 (2 congregations) | ~3.1% (derived) |
+| Non-denominational Christian | — | 200 (1 congregation) | ~2.0% (derived) |
+| All religious adherents | 100% | 6,039 | 61.5% |
+| Unaffiliated ("nones") | — | — | ~38% |
+
+</DataTable>
+```
+
+Note for Greg: the chapter states percentages and raw counts inconsistently across sections (91.5%
+of adherents are LDS; 300 and 200 are raw counts for Catholic and non-denominational Christian
+respectively). The "derived" population-share figures above are arithmetic from those two source
+figures, not independently cited — flagged so this isn't mistaken for a fifth ARDA-reported line
+item.
