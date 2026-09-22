@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="578.63125pt" height="362.226861pt" viewBox="0 0 578.63125 362.226861" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-07-24T00:47:59.135031</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 362.226861 
+L 578.63125 362.226861 
+L 578.63125 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 69.23125 282.101969 
+L 571.43125 282.101969 
+L 571.43125 27.077969 
+L 69.23125 27.077969 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 92.058523 282.101969 
+L 170.251391 282.101969 
+L 170.251391 47.267369 
+L 92.058523 47.267369 
+z
+" clip-path="url(#p55f3547fcc)" style="fill: #6b9b6f; stroke: #3b2f2f; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 218.176052 282.101969 
+L 296.36892 282.101969 
+L 296.36892 205.240569 
+L 218.176052 205.240569 
+z
+" clip-path="url(#p55f3547fcc)" style="fill: #2c5f7c; stroke: #3b2f2f; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 344.29358 282.101969 
+L 422.486448 282.101969 
+L 422.486448 241.014769 
+L 344.29358 241.014769 
+z
+" clip-path="url(#p55f3547fcc)" style="fill: #d4a574; stroke: #3b2f2f; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 470.411109 282.101969 
+L 548.603977 282.101969 
+L 548.603977 247.213269 
+L 470.411109 247.213269 
+z
+" clip-path="url(#p55f3547fcc)" style="fill: #a0522d; stroke: #3b2f2f; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="mf82933340e" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mf82933340e" x="131.154957" y="282.101969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(107.964566 295.560641)">Wilderness</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(107.471832 305.078781)">designated</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(93.364488 314.596922)">(total, 4 counties)</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#mf82933340e" x="257.272486" y="282.101969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(222.066548 295.560641)">San Rafael Swell</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(223.417915 305.078781)">Recreation Area</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#mf82933340e" x="383.390014" y="282.101969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(350.27521 295.560641)">State trust land</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(369.527046 305.078781)">→ BLM</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(359.450561 314.596922)">(exchange)</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mf82933340e" x="509.507543" y="282.101969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(483.30895 295.560641)">Federal land</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(480.377114 305.078781)">→ Trust Lands</text>
+      <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(485.56809 314.596922)">(exchange)</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5">
+      <defs>
+       <path id="me307755870" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="282.101969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="285.901187" transform="rotate(-0 62.23125 285.901187)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="246.681969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="250.481187" transform="rotate(-0 62.23125 250.481187)">100,000</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="211.261969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="215.061187" transform="rotate(-0 62.23125 215.061187)">200,000</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="175.841969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="179.641187" transform="rotate(-0 62.23125 179.641187)">300,000</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="140.421969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="144.221187" transform="rotate(-0 62.23125 144.221187)">400,000</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="105.001969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="108.801187" transform="rotate(-0 62.23125 108.801187)">500,000</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="69.581969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="73.381187" transform="rotate(-0 62.23125 73.381187)">600,000</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#me307755870" x="69.23125" y="34.161969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="62.23125" y="37.961187" transform="rotate(-0 62.23125 37.961187)">700,000</text>
+     </g>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="14.798437" y="154.589969" transform="rotate(-90 14.798437 154.589969)">Acres</text>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 69.23125 282.101969 
+L 69.23125 27.077969 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 69.23125 282.101969 
+L 571.43125 282.101969 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="131.154957" y="42.103866" transform="rotate(-0 131.154957 42.103866)">663,000</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="257.272486" y="200.077066" transform="rotate(-0 257.272486 200.077066)">217,000</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="383.390014" y="235.851266" transform="rotate(-0 383.390014 235.851266)">116,000</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="509.507543" y="242.049766" transform="rotate(-0 509.507543 242.049766)">98,500</text>
+   </g>
+   <g id="text_18">
+    <text style="font-style: italic; font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(136.782445 345.334286)">Wilderness total spans Emery, Carbon, Sanpete &amp; Sevier counties; Emery holds the dominant share.</text>
+    <text style="font-style: italic; font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(126.606359 353.508689)">Exchange figures are the negotiated totals (over 109,000 of the 116,000 trust acres lie in Emery County).</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="320.33125" y="17.077969" transform="rotate(-0 320.33125 17.077969)">The 2019 Dingell Act in Emery County — Acreage by Provision</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p55f3547fcc">
+   <rect x="69.23125" y="27.077969" width="502.2" height="255.024"/>
+  </clipPath>
+ </defs>
+</svg>

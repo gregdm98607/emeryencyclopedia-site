@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="684pt" height="278.213969pt" viewBox="0 0 684 278.213969" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-07-24T00:48:25.847804</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 278.213969 
+L 684 278.213969 
+L 684 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 7.2 149.045969 
+L 676.8 149.045969 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #3b2f2f; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 63 149.045969 
+L 63 116.949127 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 156 149.045969 
+L 156 181.142811 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 249 149.045969 
+L 249 116.949127 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 342 149.045969 
+L 342 181.142811 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 435 149.045969 
+L 435 116.949127 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 528 149.045969 
+L 528 181.142811 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 621 149.045969 
+L 621 116.949127 
+" clip-path="url(#pdef644a713)" style="fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="md492f23404" d="M 0 4.1833 
+C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 
+C 3.742521 2.173559 4.1833 1.109424 4.1833 0 
+C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 
+C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 
+C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 
+C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 
+C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 
+C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 
+z
+" style="stroke: #ffffff; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="63" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_1">
+    <g id="patch_2">
+     <path d="M 26.650891 112.255885 
+L 99.349109 112.255885 
+Q 102.359109 112.255885 102.359109 109.245885 
+L 102.359109 81.66246 
+Q 102.359109 78.65246 99.349109 78.65246 
+L 26.650891 78.65246 
+Q 23.640891 78.65246 23.640891 81.66246 
+L 23.640891 109.245885 
+Q 23.640891 112.255885 26.650891 112.255885 
+z
+" style="fill: #d4a574; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(52.0565 88.197116)">1877</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(27.152781 97.827235)">Brigham Young's</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(26.650891 107.457353)">Castle Valley call</text>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="156" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_2">
+    <g id="patch_3">
+     <path d="M 107.397234 219.439478 
+L 204.602766 219.439478 
+Q 207.612766 219.439478 207.612766 216.429478 
+L 207.612766 188.846053 
+Q 207.612766 185.836053 204.602766 185.836053 
+L 107.397234 185.836053 
+Q 104.387234 185.836053 104.387234 188.846053 
+L 104.387234 216.429478 
+Q 104.387234 219.439478 107.397234 219.439478 
+z
+" style="fill: #6b9b6f; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(145.0565 195.380709)">1889</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(107.397234 205.010828)">Emery Stake Academy</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(117.429 214.640947)">instruction begins</text>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="249" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_3">
+    <g id="patch_4">
+     <path d="M 206.450828 112.255885 
+L 291.549172 112.255885 
+Q 294.559172 112.255885 294.559172 109.245885 
+L 294.559172 81.66246 
+Q 294.559172 78.65246 291.549172 78.65246 
+L 206.450828 78.65246 
+Q 203.440828 78.65246 203.440828 81.66246 
+L 203.440828 109.245885 
+Q 203.440828 112.255885 206.450828 112.255885 
+z
+" style="fill: #d4a574; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(238.0565 88.197116)">1922</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(206.875453 97.827235)">Academy → county:</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(206.450828 107.457353)">Central High School</text>
+   </g>
+   <g id="PathCollection_4">
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="342" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_4">
+    <g id="patch_5">
+     <path d="M 309.087531 219.439478 
+L 374.912469 219.439478 
+Q 377.922469 219.439478 377.922469 216.429478 
+L 377.922469 188.846053 
+Q 377.922469 185.836053 374.912469 185.836053 
+L 309.087531 185.836053 
+Q 306.077531 185.836053 306.077531 188.846053 
+L 306.077531 216.429478 
+Q 306.077531 219.439478 309.087531 219.439478 
+z
+" style="fill: #6b9b6f; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(331.0565 195.380709)">1937</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(309.097609 205.010828)">Carbon College</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(309.087531 214.640947)">founded (Price)</text>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="435" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_5">
+    <g id="patch_6">
+     <path d="M 406.417766 112.255885 
+L 463.582234 112.255885 
+Q 466.592234 112.255885 466.592234 109.245885 
+L 466.592234 81.66246 
+Q 466.592234 78.65246 463.582234 78.65246 
+L 406.417766 78.65246 
+Q 403.407766 78.65246 403.407766 81.66246 
+L 403.407766 109.245885 
+Q 403.407766 112.255885 406.417766 112.255885 
+z
+" style="fill: #d4a574; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(424.0565 88.197116)">1962</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(409.885984 97.827235)">Emery High</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(406.417766 107.457353)">consolidation</text>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="528" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_6">
+    <g id="patch_7">
+     <path d="M 500.099047 219.439478 
+L 555.900953 219.439478 
+Q 558.910953 219.439478 558.910953 216.429478 
+L 558.910953 188.846053 
+Q 558.910953 185.836053 555.900953 185.836053 
+L 500.099047 185.836053 
+Q 497.089047 185.836053 497.089047 188.846053 
+L 497.089047 216.429478 
+Q 497.089047 219.439478 500.099047 219.439478 
+z
+" style="fill: #6b9b6f; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(517.0565 195.380709)">1965</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(506.444234 205.010828)">College of</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(500.099047 214.640947)">Eastern Utah</text>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#pdef644a713)">
+     <use xlink:href="#md492f23404" x="621" y="149.045969" style="fill: #2c5f7c; stroke: #ffffff; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_7">
+    <g id="patch_8">
+     <path d="M 594.268109 112.255885 
+L 647.731891 112.255885 
+Q 650.741891 112.255885 650.741891 109.245885 
+L 650.741891 81.66246 
+Q 650.741891 78.65246 647.731891 78.65246 
+L 594.268109 78.65246 
+Q 591.258109 78.65246 591.258109 81.66246 
+L 591.258109 109.245885 
+Q 591.258109 112.255885 594.268109 112.255885 
+z
+" style="fill: #d4a574; opacity: 0.9; stroke: #3b2f2f; stroke-width: 0.6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(610.0565 88.197116)">2010</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(594.268109 97.827235)">USU Eastern</text>
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(605.329859 107.457353)">merger</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="342" y="17.077969" transform="rotate(-0 342 17.077969)">Education in Castle Valley — Institutional Milestones, 1877–2010</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdef644a713">
+   <rect x="7.2" y="27.077969" width="669.6" height="243.936"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -8,9 +8,10 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 > **Rebuild in progress.** This file was found missing at the 2026-09-04 preflight and is being
 > rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07; Ch11–15 on
 > 09-09; Ch16–20 on 09-11; Ch23–27 on 09-16 — Ch21–22 skipped as already fully stamped
-> `tables:` complete from a prior run, confirmed against frontmatter). Prior coverage through
-> Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log) is being re-derived from the vault drafts, not
-> restored from memory. Ch28–43 still to re-inventory.
+> `tables:` complete from a prior run, confirmed against frontmatter; Ch28–32 on 09-18, Ch29
+> confirmed no-section). Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log)
+> is being re-derived from the vault drafts, not restored from memory. Ch33–43 still to
+> re-inventory.
 
 ## Status vocabulary
 
@@ -35,6 +36,7 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch12 | No "Proposed Tables" list at all — the chapter's proposed-visuals list (Map 12.1–Diagram 12.8) is entirely maps, figures, charts, and diagrams; no table items proposed | 2026-09-09 |
 | ch19 | No "Proposed Tables" list at all — the "Proposed Maps and Figures" section is entirely maps and photographs; body already ships 4 inline tables (reservoir capacities, water-right decrees, groundwater/springs, megadrought benchmarks) with no separate backlog list | 2026-09-11 |
 | ch26 | No standalone `## Proposed Tables` heading — its three table proposals (26.1 Castle Country Museums, 26.2 broadcast outlets, 26.3 selected works) are listed as a sub-list inside the "Proposed Maps and Figures" section instead. Not parsed into the inventory this run per the spec's exact-heading match; flagged for Greg to confirm whether the heading should be split out or this chapter should be treated as in-scope despite the merged section. | 2026-09-16 |
+| ch29 | No "Proposed Tables" list at all — the chapter's proposed-visuals list (per `FIGURE_INVENTORY.md`: 3 maps, 4 photos) is entirely maps and photographs; no table items proposed | 2026-09-18 |
 
 ## Full inventory
 
@@ -100,6 +102,17 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch27 | ch27-T3 | Foodways layers — pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
 | ch27 | ch27-T4 | Folk arts traditions — cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
 | ch27 | ch27-T5 | Castle Valley Pageant chronology — selected editions, themes, notable years | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
+| ch28 | ch28-T1 | Emery Stake presidents 1880–present (cross-ref Ch25) | needs-data | Draft names only Orange Seely (first counselor, 1880–1899, §28.1 Did You Know) — no complete presidents roster appears in `Ch28_draft.md` or `Ch28_sources.md`. Needs the full stake-presidency succession pulled from Ch25/FamilySearch/LDS Church records before rendering. Logged as needs-data in `_Planning/BACKLOG.md` BL-028 (2026-08-26); not previously written as an inventory row. Checked 2026-09-18. BL-036. |
+| ch28 | ch28-T2 | Emery County Commissioners by decade (skeleton; needs archival fill) | needs-data | Chapter's own proposal text calls this a "skeleton; needs archival fill" — §28.6 names individual county builders in prose but no decade-by-decade commissioner roster exists in the draft or sources file. Needs county-clerk/archival commissioner records added to `Ch28_sources.md` first. Logged in BL-028; not previously written as an inventory row. Checked 2026-09-18. BL-036. |
+| ch28 | ch28-T3 | Major fatal mining incidents in Emery County, with dates and counts | in-review | Rendered 2026-09-18 as Pattern 1 (plain table) from §28.5 — Wilberg Mine fire (19 Dec 1984, 27 killed) and Crandall Canyon Mine collapse (6 Aug 2007, 6 trapped + 3 rescuers killed 16 Aug 2007), both cited to KSL News, Deseret News, Salt Lake Tribune, Mining Connection (cross-ref Ch17 §17.7, which already carries the same two incidents in Table 17-B). Only these two incidents are dated with casualty counts in the draft — the broader "major fatal mining incidents" framing in the proposal is not fulfilled by earlier coal-camp deaths, which the chapter itself says "live now in coal-camp cemeteries and family recollection rather than published biography" (§28.5) and are not enumerable without fabrication. See render block below. |
+| ch28 | ch28-T4 | *Emery County Progress* editors / publishers timeline 1900–present | needs-data | Chapter cites only Bruce L. Olsen's 1965 BYU thesis on the paper's history (§28.1) and the paper's 1 September 1900 founding date; no editor/publisher succession list appears in `Ch28_draft.md` or `Ch28_sources.md`. Logged in BL-028; not previously written as an inventory row. Checked 2026-09-18. BL-036. |
+| ch28 | ch28-T5 | Oral-history collections holding Emery County material, with catalogue links | needs-data | §28.1 names four repositories in prose (Emery County Archives, BYU L. Tom Perry Special Collections, USU Fife Folklore Archives, Utah State Historical Society Oral History Program) but no catalogue links or holdings-level detail — the "with catalogue links" part of the proposal needs each repository's finding-aid URL added to `Ch28_sources.md` before a table can be built without inventing links. Not previously written as an inventory row. Checked 2026-09-18. BL-036. |
+| ch30 | ch30-T1 | Field-Guide Summary Table (cross-ref §30.12) | already-covered | Chapter already ships the full Field-Guide Summary Table at §30.12 (line 297), exactly as the chapter's own proposal note describes ("See §30.12 above... primary reference table"). |
+| ch30 | ch30-T2 | Green River Trip Comparison — Labyrinth Canyon vs. Desolation/Gray Canyons | already-covered | Chapter already ships Table 30-B "Green River trip comparison" (line 210) with the exact columns requested (distance, difficulty/class, permit, season), sourced to BLM Labyrinth Canyon River and Desolation/Gray Green River Permit pages per §30.7. |
+| ch30 | ch30-T3 | Seasonal Temperature and Conditions by terrain zone (Plateau/Swell/River) | needs-data | Chapter's own proposal text flags this explicitly: "[Requires data from Ch04 — Climate & Weather; coordinate with that chapter during revision.]" Blocked on the same missing Ch04 monthly-normals data as ch04-T1 (BL-036) and ch30-T3's own prior BL-028 entry. Checked 2026-09-18; not re-attempted before 2026-09-25 per the once-per-week guardrail. |
+| ch31 | ch31-T1 | Formal Designations in Emery County — name, type, managing agency, year designated, size | already-covered | Chapter already ships Table 31.1 "Formal Designations in Emery County" (line 282) with exactly these five columns, covering all state parks, the national monument, and the Dingell Act recreation area. |
+| ch32 | ch32-T1 | Trail quick-reference table — name, type, distance, difficulty, season, permit, trailhead access | in-review | Rendered 2026-09-18 as Pattern 1 (plain table) from §32.3–§32.10 (Buckhorn Wash Scenic Backway, Little Wild Horse/Bell Canyon Loop, Crack/Chute Canyon Loop, Muddy Creek/The Chute, Black Box Canyon, Joe's Valley/Josephite Point Trail, Arapeen OHV System, Labyrinth Canyon float) cross-checked against §32.12's own seasons/permits summary. Difficulty is stated qualitatively (as the chapter itself does — AllTrails rating, "non-technical," "technically demanding") rather than a numeric grade the chapter doesn't cite. See render block below. |
+| ch32 | ch32-T2 | River route comparison — Labyrinth Canyon vs. Desolation/Gray Canyon — length, class, permit, season, shuttle options | in-review | Rendered 2026-09-18 as Pattern 1 (plain table) from §32.9, same underlying data as Ch30's Table 30-B but scoped to Ch32's own five requested columns (length, class, permit, season, shuttle). See render block below. |
 
 ---
 
@@ -254,3 +267,61 @@ of adherents are LDS; 300 and 200 are raw counts for Catholic and non-denominati
 respectively). The "derived" population-share figures above are arithmetic from those two source
 figures, not independently cited — flagged so this isn't mistaken for a fifth ARDA-reported line
 item.
+
+### ch28-T3 — Major fatal mining incidents in Emery County
+
+Proposed placement: Ch28 §28.5, after the paragraph naming the Wilberg fire and Crandall Canyon
+collapse. Pattern 1 (plain table) — no table number requested by the chapter's own proposal text.
+
+```markdown
+| Incident | Date | Casualties | Notes |
+|---|---|---|---|
+| Wilberg Mine fire | 19 December 1984 | 27 miners killed | Worst coal-mine fire in Utah history |
+| Crandall Canyon Mine collapse | 6 August 2007 (initial collapse); 16 August 2007 (rescue-tunnel collapse) | 6 miners trapped; 3 rescuers killed in the rescue attempt | Memorial dedicated 14 September 2008 in Huntington, nine bronze portraits by Karen Jobe Templeton |
+```
+
+Note for Greg: this is the same pair of incidents already tabulated in Ch17's Table 17-B
+("Wilberg and Crandall Canyon compared"); a cross-reference to Ch17 §17.7 may be preferable to a
+duplicate table, since the draft does not name any earlier fatal incidents with dates and counts
+to broaden this beyond a two-row duplicate.
+
+### ch32-T1 — Trail quick-reference table
+
+Proposed placement: Ch32 §32.12, alongside the existing Seasons/Permits/Maps summary. Pattern 1
+(plain table) — no table number requested by the chapter's own proposal text.
+
+```markdown
+| Trail / Route | Type | Distance | Difficulty | Season | Permit | Trailhead Access |
+|---|---|---|---|---|---|---|
+| Buckhorn Wash Scenic Backway | Scenic drive (gravel) | 32 miles | Easy — standard passenger vehicles in dry conditions | Year-round when dry | None | 1 mi north of Castle Dale on SR-10 |
+| Little Wild Horse / Bell Canyon Loop | Slot canyon hike | 8 miles | Non-technical; AllTrails 4.8 stars; 787 ft elevation gain | March–May, September–November | None | 30 min from SR-24/Temple Mountain Rd via Goblin Valley Rd |
+| Crack Canyon / Chute Canyon Loop | Slot canyon hike | 8.5–10.5 miles | Non-technical with minor scrambling | March–May, September–November | None | BLM Crack Canyon Trailhead via Behind the Reef Road (high clearance) |
+| Muddy Creek / The Chute | Backcountry canyon backpacking | ~20 miles round trip (15 miles one-way with shuttle) | Requires GPS/map navigation competence; wading and swimming | Late March–May, mid-September–November | None | Tomsich Butte (upper) / lower trailhead via shuttle |
+| Black Box Canyon (Upper/Lower) | Technical canyoneering | Not specified in chapter | Technically demanding (Upper); less committing but still requires wading/swimming (Lower) | Not specified | None | San Rafael River, Swell interior |
+| Joe's Valley — Josephite Point Trail | Mountain biking singletrack | 6.8 miles | Not specified | July–September (elevation), May–October (lower) | None | Joe's Valley Recreation Area, 14 mi NW of Orangeville |
+| Arapeen OHV Trail System (Emery County flagship ride) | OHV / 4WD | 70-mile loop (600+ miles system-wide) | Four designated rides, 41–58 miles each | July–September at elevation | Utah OHV Education Course required | Emery town, SR-10, SR-31 (Huntington Canyon summit), SR-29 (Joe's Valley) |
+| Labyrinth Canyon (Green River float) | Flat-water paddling | 68 miles (Green River to Mineral Bottom); 45-mile Ruby Ranch option | Non-technical, suitable for all skill levels | Late March–October | Free BLM permit (online, unlimited) | Green River State Park launch |
+```
+
+Note for Greg: difficulty is reported qualitatively because the chapter itself does not assign a
+numeric grade to most routes (it cites AllTrails' star rating for one trail and descriptive terms
+for the rest). Black Box Canyon's distance is not given anywhere in `Ch32_draft.md` and is left
+unspecified rather than estimated.
+
+### ch32-T2 — River route comparison: Labyrinth Canyon vs. Desolation/Gray Canyon
+
+Proposed placement: Ch32 §32.9, after the two river-route paragraphs. Pattern 1 (plain table).
+
+```markdown
+| | Labyrinth Canyon | Desolation & Gray Canyon |
+|---|---|---|
+| Length | 68 miles (Green River to Mineral Bottom); 49.2-mile BLM Scenic River segment | 84 miles |
+| Class | Flat water, non-technical | Class II–IV whitewater (Class IV in lower Desolation) |
+| Permit | Free, unlimited BLM permit (online) | BLM lottery permit (summer); first-come allocation (spring/fall) |
+| Season | Late March–October | Not fully specified beyond permit season in §32.9; commercial trips run in-season |
+| Shuttle / access | Green River State Park launch; Mineral Bottom take-out via Highway 313 + ~16–17 mi dirt road | Sand Wash put-in (Carbon County) to Swasey Beach take-out (Emery County); commercial outfitters available out of Green River |
+```
+
+Note for Greg: this duplicates the underlying data already in Ch30's Table 30-B (same two river
+segments); Ch32's proposal asks for a narrower five-column version, rendered here as requested,
+but Greg may prefer a CrossRef to Ch30 instead of a second table with overlapping content.

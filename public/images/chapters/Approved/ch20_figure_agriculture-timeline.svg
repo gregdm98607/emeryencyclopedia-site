@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="775.976224pt" height="366.348281pt" viewBox="0 0 775.976224 366.348281" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-07-22T00:48:37.153146</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 366.348281 
+L 775.976224 366.348281 
+L 775.976224 0 
+L 0 0 
+z
+" style="fill: #f7f3ed"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 26.941062 343.437969 
+L 746.74099 343.437969 
+L 746.74099 31.077969 
+L 26.941062 31.077969 
+z
+" style="fill: #f7f3ed"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 26.941062 187.257969 
+L 746.74099 187.257969 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #8b6f47; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_2">
+      <defs>
+       <path id="m63959c906a" d="M 0 0 
+L 0 3.5 
+" style="stroke: #3b2f2f; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m63959c906a" x="83.903646" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="83.903646" y="357.276562" transform="rotate(-0 83.903646 357.276562)">1880</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m63959c906a" x="187.471981" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="187.471981" y="357.276562" transform="rotate(-0 187.471981 357.276562)">1900</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m63959c906a" x="291.040316" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="291.040316" y="357.276562" transform="rotate(-0 291.040316 357.276562)">1920</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m63959c906a" x="394.608651" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="394.608651" y="357.276562" transform="rotate(-0 394.608651 357.276562)">1940</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m63959c906a" x="498.176986" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="498.176986" y="357.276562" transform="rotate(-0 498.176986 357.276562)">1960</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m63959c906a" x="601.745321" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="601.745321" y="357.276562" transform="rotate(-0 601.745321 357.276562)">1980</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m63959c906a" x="705.313656" y="343.437969" style="fill: #3b2f2f; stroke: #3b2f2f; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="705.313656" y="357.276562" transform="rotate(-0 705.313656 357.276562)">2000</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_9">
+    <path d="M 58.011562 187.257969 
+L 58.011562 136.729145 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 68.368396 187.257969 
+L 68.368396 237.786792 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 99.438896 187.257969 
+L 99.438896 136.729145 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 203.007231 187.257969 
+L 203.007231 237.786792 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 368.716567 187.257969 
+L 368.716567 136.729145 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 529.247487 187.257969 
+L 529.247487 237.786792 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 555.13957 187.257969 
+L 555.13957 136.729145 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 715.67049 187.257969 
+L 715.67049 237.786792 
+" clip-path="url(#pe9bd34c2f6)" style="fill: none; stroke: #3b2f2f; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 26.941062 343.437969 
+L 746.74099 343.437969 
+" style="fill: none; stroke: #8b6f47; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m7cb05e8728" d="M 0 4.1833 
+C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 
+C 3.742521 2.173559 4.1833 1.109424 4.1833 0 
+C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 
+C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 
+C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 
+C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 
+C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 
+C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 
+z
+" style="stroke: #3b2f2f"/>
+    </defs>
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="58.011562" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="58.011562" y="176.741555" transform="rotate(-0 58.011562 176.741555)">1875</text>
+   </g>
+   <g id="text_9">
+    <g id="patch_4">
+     <path d="M 7.2 134.625616 
+L 108.823125 134.625616 
+Q 111.313125 134.625616 111.313125 132.135616 
+L 111.313125 114.808588 
+Q 111.313125 112.318588 108.823125 112.318588 
+L 7.2 112.318588 
+Q 4.71 112.318588 4.71 114.808588 
+L 4.71 132.135616 
+Q 4.71 134.625616 7.2 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(7.2 121.115291)">Sanpete stockmen bring</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(9.17968 130.409475)">herds into Castle Valley</text>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="68.368396" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="68.368396" y="202.46532" transform="rotate(-0 68.368396 202.46532)">1877</text>
+   </g>
+   <g id="text_11">
+    <g id="patch_5">
+     <path d="M 17.992583 262.19735 
+L 118.744208 262.19735 
+Q 121.234208 262.19735 121.234208 259.70735 
+L 121.234208 242.380322 
+Q 121.234208 239.890322 118.744208 239.890322 
+L 17.992583 239.890322 
+Q 15.502583 239.890322 15.502583 242.380322 
+L 15.502583 259.70735 
+Q 15.502583 262.19735 17.992583 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(26.478037 248.687025)">Farming settlement;</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(17.992583 257.981209)">first cooperative ditches</text>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="99.438896" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="99.438896" y="176.741555" transform="rotate(-0 99.438896 176.741555)">1883</text>
+   </g>
+   <g id="text_13">
+    <g id="patch_6">
+     <path d="M 51.762529 134.625616 
+L 147.115264 134.625616 
+Q 149.605264 134.625616 149.605264 132.135616 
+L 149.605264 114.808588 
+Q 149.605264 112.318588 147.115264 112.318588 
+L 51.762529 112.318588 
+Q 49.272529 112.318588 49.272529 114.808588 
+L 49.272529 132.135616 
+Q 49.272529 134.625616 51.762529 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(51.762529 121.115291)">D&amp;RGW railroad opens</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(62.904631 130.409475)">livestock markets</text>
+   </g>
+   <g id="PathCollection_4">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="203.007231" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="203.007231" y="202.46532" transform="rotate(-0 203.007231 202.46532)">1903</text>
+   </g>
+   <g id="text_15">
+    <g id="patch_7">
+     <path d="M 149.395716 262.19735 
+L 256.618747 262.19735 
+Q 259.108747 262.19735 259.108747 259.70735 
+L 259.108747 242.380322 
+Q 259.108747 239.890322 256.618747 239.890322 
+L 149.395716 239.890322 
+Q 146.905716 239.890322 146.905716 242.380322 
+L 146.905716 259.70735 
+Q 146.905716 262.19735 149.395716 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(150.749005 248.687025)">USDA: &gt;30% of farmland</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(149.395716 257.981209)">abandoned to salinization</text>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="368.716567" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="368.716567" y="176.741555" transform="rotate(-0 368.716567 176.741555)">1935</text>
+   </g>
+   <g id="text_17">
+    <g id="patch_8">
+     <path d="M 319.796497 134.625616 
+L 417.636638 134.625616 
+Q 420.126638 134.625616 420.126638 132.135616 
+L 420.126638 114.808588 
+Q 420.126638 112.318588 417.636638 112.318588 
+L 319.796497 112.318588 
+Q 317.306497 112.318588 317.306497 114.808588 
+L 317.306497 132.135616 
+Q 317.306497 134.625616 319.796497 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(319.796497 121.115291)">Taylor Grazing Act ends</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(327.995989 130.409475)">open-range grazing</text>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="529.247487" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="529.247487" y="202.46532" transform="rotate(-0 529.247487 202.46532)">1966</text>
+   </g>
+   <g id="text_19">
+    <g id="patch_9">
+     <path d="M 484.25176 262.19735 
+L 574.243213 262.19735 
+Q 576.733213 262.19735 576.733213 259.70735 
+L 576.733213 242.380322 
+Q 576.733213 239.890322 574.243213 239.890322 
+L 484.25176 239.890322 
+Q 481.76176 239.890322 481.76176 242.380322 
+L 481.76176 259.70735 
+Q 481.76176 262.19735 484.25176 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(484.25176 248.687025)">Emery County Project</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(490.305573 257.981209)">delivers first water</text>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="555.13957" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="555.13957" y="176.741555" transform="rotate(-0 555.13957 176.741555)">1971</text>
+   </g>
+   <g id="text_21">
+    <g id="patch_10">
+     <path d="M 514.328859 134.625616 
+L 595.950281 134.625616 
+Q 598.440281 134.625616 598.440281 132.135616 
+L 598.440281 114.808588 
+Q 598.440281 112.318588 595.950281 112.318588 
+L 514.328859 112.318588 
+Q 511.838859 112.318588 511.838859 114.808588 
+L 511.838859 132.135616 
+Q 511.838859 134.625616 514.328859 134.625616 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(519.759523 121.115291)">Millsite Reservoir</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(514.328859 130.409475)">dedicated (June 11)</text>
+   </g>
+   <g id="PathCollection_8">
+    <g clip-path="url(#pe9bd34c2f6)">
+     <use xlink:href="#m7cb05e8728" x="715.67049" y="187.257969" style="fill: #6b9b6f; stroke: #3b2f2f"/>
+    </g>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="715.67049" y="202.46532" transform="rotate(-0 715.67049 202.46532)">2002</text>
+   </g>
+   <g id="text_23">
+    <g id="patch_11">
+     <path d="M 662.564755 262.19735 
+L 768.776224 262.19735 
+Q 771.266224 262.19735 771.266224 259.70735 
+L 771.266224 242.380322 
+Q 771.266224 239.890322 768.776224 239.890322 
+L 662.564755 239.890322 
+Q 660.074755 239.890322 660.074755 242.380322 
+L 660.074755 259.70735 
+Q 660.074755 262.19735 662.564755 262.19735 
+z
+" style="fill: #ffffff; stroke: #6b9b6f; stroke-width: 0.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(662.564755 248.687025)">USDA Census: 459 farms,</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(669.720263 257.981209)">33,099 irrigated acres</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2c5f7c" x="386.841026" y="17.077969" transform="rotate(-0 386.841026 17.077969)">Figure 20-A. Agriculture &amp; ranching in Emery County, 1875–2002</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe9bd34c2f6">
+   <rect x="26.941062" y="31.077969" width="719.799928" height="312.36"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="522.885625pt" height="352.469421pt" viewBox="0 0 522.885625 352.469421" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-07-24T00:47:59.411121</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 352.469421 
+L 522.885625 352.469421 
+L 522.885625 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 46.965625 293.189969 
+L 515.685625 293.189969 
+L 515.685625 27.077969 
+L 46.965625 27.077969 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 68.27108 293.189969 
+L 124.667871 293.189969 
+L 124.667871 61.672529 
+L 68.27108 61.672529 
+z
+" clip-path="url(#p87eeceebda)" style="fill: #c85a54; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 224.928834 293.189969 
+L 281.325625 293.189969 
+L 281.325625 181.422929 
+L 224.928834 181.422929 
+z
+" clip-path="url(#p87eeceebda)" style="fill: #c85a54; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 381.586588 293.189969 
+L 437.983379 293.189969 
+L 437.983379 200.050769 
+L 381.586588 200.050769 
+z
+" clip-path="url(#p87eeceebda)" style="fill: #c85a54; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 124.667871 293.189969 
+L 181.064662 293.189969 
+L 181.064662 293.189969 
+L 124.667871 293.189969 
+z
+" clip-path="url(#p87eeceebda)" style="fill: #2c5f7c; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 281.325625 293.189969 
+L 337.722416 293.189969 
+L 337.722416 186.745169 
+L 281.325625 186.745169 
+z
+" clip-path="url(#p87eeceebda)" style="fill: #2c5f7c; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 437.983379 293.189969 
+L 494.38017 293.189969 
+L 494.38017 178.761809 
+L 437.983379 178.761809 
+z
+" clip-path="url(#p87eeceebda)" style="fill: #2c5f7c; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="ma97d6d90e5" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#ma97d6d90e5" x="124.667871" y="293.189969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(98.088652 307.408484)">Graduation</text>
+      <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(115.019433 318.046406)">rate</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#ma97d6d90e5" x="281.325625" y="293.189969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(269.443945 307.408484)">Math</text>
+      <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(255.278555 318.046406)">proficiency</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#ma97d6d90e5" x="437.983379" y="293.189969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(418.70209 307.408484)">Reading</text>
+      <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #3b2f2f" transform="translate(411.936309 318.046406)">proficiency</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="m00fd999e55" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m00fd999e55" x="46.965625" y="293.189969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="39.965625" y="296.989187" transform="rotate(-0 39.965625 296.989187)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m00fd999e55" x="46.965625" y="239.967569" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="39.965625" y="243.766787" transform="rotate(-0 39.965625 243.766787)">20</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m00fd999e55" x="46.965625" y="186.745169" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="39.965625" y="190.544387" transform="rotate(-0 39.965625 190.544387)">40</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m00fd999e55" x="46.965625" y="133.522769" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="39.965625" y="137.321987" transform="rotate(-0 39.965625 137.321987)">60</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m00fd999e55" x="46.965625" y="80.300369" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="39.965625" y="84.099587" transform="rotate(-0 39.965625 84.099587)">80</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m00fd999e55" x="46.965625" y="27.077969" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="39.965625" y="30.877187" transform="rotate(-0 39.965625 30.877187)">100</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="14.798438" y="160.133969" transform="rotate(-90 14.798438 160.133969)">Percent</text>
+    </g>
+   </g>
+   <g id="patch_9">
+    <path d="M 46.965625 293.189969 
+L 46.965625 27.077969 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 46.965625 293.189969 
+L 515.685625 293.189969 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="96.469475" y="57.035706" transform="rotate(-0 96.469475 57.035706)">87%</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="253.127229" y="176.786106" transform="rotate(-0 253.127229 176.786106)">42%</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="409.784983" y="195.413946" transform="rotate(-0 409.784983 195.413946)">35%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-style: italic; font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="152.866267" y="286.099994" transform="rotate(-0 152.866267 286.099994)">n/a</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="309.524021" y="182.108346" transform="rotate(-0 309.524021 182.108346)">40%</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="466.181775" y="174.124986" transform="rotate(-0 466.181775 174.124986)">43%</text>
+   </g>
+   <g id="text_17">
+    <text style="font-style: italic; font-size: 7.3px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="281.325625" y="343.751249" transform="rotate(-0 281.325625 343.751249)">Graduation-rate statewide comparator not cited in chapter body (shown n/a).</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #3b2f2f" x="281.325625" y="17.077969" transform="rotate(-0 281.325625 17.077969)">Emery School District Outcomes vs. Utah, 2022–2026</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_11">
+     <path d="M 408.647344 42.846484 
+L 427.647344 42.846484 
+L 427.647344 36.196484 
+L 408.647344 36.196484 
+z
+" style="fill: #c85a54; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="435.247344" y="42.846484" transform="rotate(-0 435.247344 42.846484)">Emery County</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 408.647344 56.790703 
+L 427.647344 56.790703 
+L 427.647344 50.140703 
+L 408.647344 50.140703 
+z
+" style="fill: #2c5f7c; stroke: #3b2f2f; stroke-width: 0.7; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_20">
+     <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="435.247344" y="56.790703" transform="rotate(-0 435.247344 56.790703)">Utah statewide</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p87eeceebda">
+   <rect x="46.965625" y="27.077969" width="468.72" height="266.112"/>
+  </clipPath>
+ </defs>
+</svg>
