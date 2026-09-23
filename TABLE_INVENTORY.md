@@ -9,8 +9,9 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 > rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07; Ch11–15 on
 > 09-09; Ch16–20 on 09-11; Ch23–27 on 09-16 — Ch21–22 skipped as already fully stamped
 > `tables:` complete from a prior run, confirmed against frontmatter; Ch28–32 on 09-18, Ch29
-> confirmed no-section). Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log)
-> is being re-derived from the vault drafts, not restored from memory. Ch33–43 still to
+> confirmed no-section; Ch33–37 on 09-22, Ch35/36/37 confirmed no-section post-BUG-007 repair).
+> Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log)
+> is being re-derived from the vault drafts, not restored from memory. Ch38–43 still to
 > re-inventory.
 
 ## Status vocabulary
@@ -37,6 +38,9 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch19 | No "Proposed Tables" list at all — the "Proposed Maps and Figures" section is entirely maps and photographs; body already ships 4 inline tables (reservoir capacities, water-right decrees, groundwater/springs, megadrought benchmarks) with no separate backlog list | 2026-09-11 |
 | ch26 | No standalone `## Proposed Tables` heading — its three table proposals (26.1 Castle Country Museums, 26.2 broadcast outlets, 26.3 selected works) are listed as a sub-list inside the "Proposed Maps and Figures" section instead. Not parsed into the inventory this run per the spec's exact-heading match; flagged for Greg to confirm whether the heading should be split out or this chapter should be treated as in-scope despite the merged section. | 2026-09-16 |
 | ch29 | No "Proposed Tables" list at all — the chapter's proposed-visuals list (per `FIGURE_INVENTORY.md`: 3 maps, 4 photos) is entirely maps and photographs; no table items proposed | 2026-09-18 |
+| ch35 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — dropped by the 2026-08-31 BUG-007 file repair, per the TD-011 log entry of 09-02. Body ships 2 inline tables (meteor-shower calendar; dark-sky sites by Bortle class/access). The pre-loss record listed a Ch35-T1 as fulfilled-in-chapter; not restored from memory per the rebuild rule. Flagged for Greg: restore the section to the draft if the pre-repair proposals should be tracked. | 2026-09-22 |
+| ch36 | No `## Proposed Tables` section — same BUG-007 repair loss as ch35. Body ships no inline tables. The pre-loss record (09-02) listed Ch36-T1..T3 as `todo`; their subjects are not recoverable from the current draft and are not restored from memory. Flagged for Greg as above. | 2026-09-22 |
+| ch37 | No `## Proposed Tables` section — same BUG-007 repair loss as ch35/36. Body ships 1 inline table (Emery County Library branches: address/phone). Pre-loss record listed a Ch37-T1 `todo`; not restored from memory. Flagged for Greg as above. | 2026-09-22 |
 
 ## Full inventory
 
@@ -113,6 +117,15 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch31 | ch31-T1 | Formal Designations in Emery County — name, type, managing agency, year designated, size | already-covered | Chapter already ships Table 31.1 "Formal Designations in Emery County" (line 282) with exactly these five columns, covering all state parks, the national monument, and the Dingell Act recreation area. |
 | ch32 | ch32-T1 | Trail quick-reference table — name, type, distance, difficulty, season, permit, trailhead access | in-review | Rendered 2026-09-18 as Pattern 1 (plain table) from §32.3–§32.10 (Buckhorn Wash Scenic Backway, Little Wild Horse/Bell Canyon Loop, Crack/Chute Canyon Loop, Muddy Creek/The Chute, Black Box Canyon, Joe's Valley/Josephite Point Trail, Arapeen OHV System, Labyrinth Canyon float) cross-checked against §32.12's own seasons/permits summary. Difficulty is stated qualitatively (as the chapter itself does — AllTrails rating, "non-technical," "technically demanding") rather than a numeric grade the chapter doesn't cite. See render block below. |
 | ch32 | ch32-T2 | River route comparison — Labyrinth Canyon vs. Desolation/Gray Canyon — length, class, permit, season, shuttle options | in-review | Rendered 2026-09-18 as Pattern 1 (plain table) from §32.9, same underlying data as Ch30's Table 30-B but scoped to Ch32's own five requested columns (length, class, permit, season, shuttle). See render block below. |
+| ch33 | ch33-T1 | Table 33-A — Canyon Route Comparison: canyon, length, technical rating, permit, season, key hazards, access road type | in-review | Rendered 2026-09-22 as Pattern 2 (Table 33-A) from §33.4–§33.6 and the §33.11 permits/access-roads text and §33.12 seasonal calendar. Four routes the chapter documents (Upper Black Box, Lower Black Box, Muddy Creek/The Chute, Little Wild Horse–Bell Canyon loop); Ding and Dang Canyons omitted because the chapter itself flags them "[Needs additional sources]". Lower Black Box length and access road are not given in the draft and are left unspecified rather than estimated. See render block below. |
+| ch33 | ch33-T2 | Table 33-B — River Run Comparison: river, section, miles, class, permit, season, put-in/take-out, outfitter options | already-covered | Table 33-B "River Runs of Emery County: A Comparison" already in chapter (§33.9) with distance/class/permit/season/put-in→take-out columns; the proposal's "outfitter options" column is absent, but §33.12 states Emery County-based outfitters are still "[Needs additional sources]", so the column could not be populated anyway. Substantively satisfied. |
+| ch33 | ch33-T3 | Table 33-C — Monthly Activity Calendar: month-by-month go/no-go matrix for all major activities | already-covered | §33.12 already ships an unlabeled "Seasonal Calendar" table (Joe's Valley / Canyon Routes / San Rafael Float / Green–Labyrinth by two-month bands). Bimonthly rather than month-by-month, but the chapter cites no finer-grained seasonal data, so a 12-row version would only split the same cells. Recommend Greg confirm a 33-C label be attached to the existing table when placement is reviewed. |
+| ch33 | ch33-T4 | Table 33-D — Agency Contact Information: BLM offices, state park, EMSAR, outfitters | in-review | Rendered 2026-09-22 as Pattern 2 (Table 33-D) from §33.10–§33.12 and the Further Reading block. Only the contact details the chapter actually cites are filled (BLM Price FO and Green River District addresses/phones; EMSAR web/911; Recreation.gov permit routes; UGOA and Joe's Valley Fest URLs); BLM Moab FO, Utah FFSL, Goblin Valley SP, and Green River SP have no phone/address in the draft and are left "—". Emery County-based outfitters row omitted per the chapter's own "[Needs additional sources]" flag. See render block below. |
+| ch34 | ch34-T1 | Table 34-A — Wildlife Hotspots | already-covered | Chapter's own proposal note: "Drafted in §34.10." Confirmed — the ten-row Location/Habitat/Primary Targets/Access table sits at §34.10 (unlabeled in the draft; recommend Greg confirm the 34-A label is attached at placement). |
+| ch34 | ch34-T2 | Table 34-B — Seasonal Calendar | already-covered | Chapter's own note: "Drafted in §34.11; also rendered as Figure 34-A (`ch34_figure_seasonal-calendar.svg`)." §34.11 carries the calendar as four seasonal prose blocks plus the Figure 34-A pointer, not a pipe table — resolved as a figure, same pattern as ch11-T1/ch14-T1. Flagged for Greg to confirm the figure treatment closes this item. |
+| ch34 | ch34-T3 | Table 34-C — Watching Distances and Ethics | already-covered | Table 34-C "Recommended Minimum Watching Distances" already in chapter (§34.12), sourced to Utah DWR viewing ethics. |
+| ch34 | ch34-T4 | Table 34-D — Federally Protected & Recovered Wildlife | already-covered | Table 34-D already in chapter (§34.12), sourced to USFWS listing records / Utah DWR. |
+| ch34 | ch34-T5 | Table 34-E — Reservoir Fisheries Summary | already-covered | Table 34-E already in chapter (§34.8), sourced to Utah DWR Fish Utah / Blue Ribbon fisheries. Ch34 stamped `tables: 2026-09-22` — all five proposals resolved in-chapter, zero todo/needs-data rows. |
 
 ---
 
@@ -325,3 +338,61 @@ Proposed placement: Ch32 §32.9, after the two river-route paragraphs. Pattern 1
 Note for Greg: this duplicates the underlying data already in Ch30's Table 30-B (same two river
 segments); Ch32's proposal asks for a narrower five-column version, rendered here as requested,
 but Greg may prefer a CrossRef to Ch30 instead of a second table with overlapping content.
+
+### ch33-T1 — Table 33-A. Canyon route comparison
+
+Proposed placement: Ch33 §33.6, after the Little Wild Horse flash-flood warning paragraph (closing
+the canyon sections before the river sections begin). Pattern 2 because it carries a table number
+and needs a source note. Every cell is drawn from §33.4–§33.6, §33.11, and §33.12; nothing is
+asserted that the chapter does not already state.
+
+```mdx
+<DataTable
+  caption="Table 33-A — Canyon routes of the San Rafael Swell: a comparison"
+  note="Compiled from §§33.4–33.6, the §33.11 permit and access-road summaries, and the §33.12 seasonal calendar. Technical rating for Muddy Creek is the ACA canyon rating cited in §33.5; other routes are described qualitatively as the chapter does. Black Box entry thresholds (2.5 ft at the San Rafael swinging bridge; ~50 cfs) are BLM guidance per §33.4. Ding and Dang Canyons are omitted pending additional sources (§33.6). Sources: climb-utah.com (Upper/Lower Black Box; The Chute); canyonslimit.com; Utah Geological Survey GeoSights (Duncan 2025); Utah.com and AllTrails (Little Wild Horse); BLM Utah San Rafael Swell Recreation Area."
+>
+
+| Canyon | Length | Technical rating | Permit | Season | Key hazards | Access road |
+|---|---|---|---|---|---|---|
+| Upper Black Box (San Rafael River) | ~4.1 mi (5–7 hours) | Full technical canyoneering — constant wading and swimming, chockstone scrambling, at least one rappel (drops to ~30 m); wetsuit in most seasons | None (day use) | Mar–Apr and Sep–Oct best; Jul–Aug is flash-flood season | Very-high flash-flood danger (fatalities on record); cold water; do not enter if bridge gauge > 2.5 ft or flow > ~50 cfs | Mexican Mountain Road — rough dirt, high-clearance 4WD, impassable when wet |
+| Lower Black Box (San Rafael River) | Not specified in chapter | Less technical — no rappels at normal water levels; wading and swimming | None (day use) | As above | Notorious flash-flood potential (fatalities at elevated flows); same bridge-gauge thresholds apply | Not specified in chapter (San Rafael Campground area) |
+| Muddy Creek — The Chute | 15 mi, incl. 3 mi of true narrows (8–14 hours; overnight optional) | 2B IV — basic canyoneering, intermittent water, long and committing; no rappels or rope skills | None | Mar–Apr and Sep–Oct best; Jul–Aug is flash-flood season | Deep clay mud; parties routinely underestimate time; hypothermia from prolonged immersion in spring; silty water must be treated; flash flood | Muddy Creek access points — high-clearance 4WD in dry conditions only; exit at Hidden Splendor airstrip |
+| Little Wild Horse – Bell Canyon loop | 8.1 mi loop (4–6 hours); ~3 mi of narrows | Non-technical; moderately strenuous; scrambling over car-sized boulders; suitable for children comfortable on uneven terrain | None (BLM land; adjacent Goblin Valley SP charges its own entry fee) | Mar–Apr and Sep–Oct best; avoid any day with rain forecast | Extreme flash-flood potential despite family-friendly reputation; limited trailhead parking | Paved-then-gravel road ~6 mi west of Goblin Valley SP visitor center — no high clearance required |
+
+</DataTable>
+```
+
+Note for Greg: the §33.12 seasonal calendar gives canyon-route conditions in two-month bands
+("Good (pre-monsoon)", "Prime", "Flash flood season", "Weather-dependent"); the Season column
+above summarizes those bands rather than adding month-level detail the chapter does not cite.
+
+### ch33-T4 — Table 33-D. Agency and resource contacts
+
+Proposed placement: Ch33 §33.12, replacing the two closing "For all BLM land…" paragraphs (or
+immediately after them). Pattern 2 because it carries a table number and needs a note explaining
+which rows have no cited contact details.
+
+```mdx
+<DataTable
+  caption="Table 33-D — Agency and resource contacts for Emery County climbing, canyoneering, and river travel"
+  note="Contact details are limited to those stated in §§33.10–33.12 and the chapter's Further Reading block; cells marked — are not given in the chapter and should be confirmed before publication. Emery County-based guide services are not listed pending additional sources (§33.12). Sources: BLM Utah (Joe's Valley; Labyrinth Canyon River; Desolation/Gray permit system); EMSAR (emsar.org); Utah Guides and Outfitters Association; Joe's Valley Fest."
+>
+
+| Agency / resource | Role | Address | Phone / web |
+|---|---|---|---|
+| BLM Price Field Office | San Rafael Swell Recreation Area (day use, Black Boxes, Muddy Creek, San Rafael float); road conditions after rain; Desolation/Gray Canyon permits | 125 South 600 West, Price, UT 84501 | 435-636-3600 |
+| BLM Green River District Office | San Rafael Swell co-management; Green River corridor | 170 South 500 East, Green River, UT 84525 | 435-564-3170 |
+| BLM Moab Field Office | Labyrinth Canyon overnight permits (free, via Recreation.gov), jointly with Utah Division of Forestry, Fire & State Lands | — | Recreation.gov |
+| Recreation.gov | Labyrinth Canyon free permit; Desolation Canyon lottery (apply Dec 1–Jan 31; results mid-Feb; walk-up dates from Mar 15) | — | recreation.gov |
+| Emery County Search and Rescue (EMSAR) | Volunteer SAR for the San Rafael Swell and Manti-La Sal terrain | — | emsar.org; emergencies: 911, request Emery County SAR |
+| Goblin Valley State Park (Utah State Parks) | Entry-fee park adjacent to the Little Wild Horse trailhead | — | — |
+| Green River State Park | Paved boat launch; official Labyrinth Canyon launch point; camping | Town of Green River | — |
+| Utah Guides and Outfitters Association | Current list of licensed commercial operators (river trips, guided canyoneering) | — | utah-adventures.com |
+| Joe's Valley Fest / BLM | Joe's Valley bouldering stewardship; campground information | — | joesvalley.org |
+
+</DataTable>
+```
+
+Note for Greg: the chapter cites addresses and phone numbers only for the two BLM offices; every
+other row carries a URL or nothing. If placement is approved, the "—" cells should be filled from
+the agencies' own pages and the new details added to `Ch33_sources.md` first.
