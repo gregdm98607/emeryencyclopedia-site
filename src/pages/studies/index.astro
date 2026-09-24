@@ -40,6 +40,7 @@ const description =
               <p class="study-card__tagline">{study.tagline}</p>
               <div class="study-card__meta">
                 {count} {count === 1 ? 'article' : 'articles'} published
+                {study.features?.map((f) => <> &middot; {f.kicker.split('·')[0].trim()}</>)}
               </div>
             </a>
           );

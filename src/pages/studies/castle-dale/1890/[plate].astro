@@ -1,0 +1,247 @@
+---
+/**
+ * Full-viewport viewer for one Castle Dale 1890 reconstruction.
+ * The model runs in an iframe beneath a slim encyclopedia bar so readers
+ * always have a way back to the plates and the rest of the site.
+ */
+import '../../../../styles/global.css';
+import { RECONSTRUCTIONS, STYLE_LABEL } from '../../../../data/castle-dale-1890';
+
+export function getStaticPaths() {
+  return RECONSTRUCTIONS.map((r, i) => ({
+    params: { plate: r.slug },
+    props: {
+      r,
+      prev: RECONSTRUCTIONS[(i - 1 + RECONSTRUCTIONS.length) % RECONSTRUCTIONS.length],
+      next: RECONSTRUCTIONS[(i + 1) % RECONSTRUCTIONS.length],
+    },
+  }));
+}
+
+const { r, prev, next } = Astro.props;
+const base = '/studies/castle-dale/1890/';
+const src = `/maps/castle-dale-1890/${r.slug}.html`;
+const pageTitle = `Plate ${r.plate}: ${r.title} — Castle Dale, 1890 | Encyclopedia of Emery County`;
+const description = `${STYLE_LABEL[r.style]} 3-D reconstruction of Castle Dale, Utah, ca. 1890. ${r.description}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(`/images/studies/castle-dale-1890/${r.slug}.webp`, Astro.site);
+---
+
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHV1KEBHXS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QHV1KEBHXS');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:site_name" content="Encyclopedia of Emery County" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script>
+    import { inject } from '@vercel/analytics';
+    inject();
+  </script>
+</head>
+<body class="viewer">
+  <header class="bar">
+    <a class="bar__back" href={base}>
+      <span aria-hidden="true">&larr;</span>
+      <span class="bar__back-long">All four plates</span>
+      <span class="bar__back-short">Plates</span>
+    </a>
+
+    <div class="bar__title">
+      <span class="bar__plate">Plate {r.plate}</span>
+      <span class="bar__name">{r.title}</span>
+      <span class="bar__tags">{STYLE_LABEL[r.style]} &middot; {r.model}</span>
+    </div>
+
+    <nav class="bar__nav" aria-label="Other plates">
+      <a href={`${base}${prev.slug}/`} title={`Plate ${prev.plate}: ${prev.title}`} aria-label={`Previous: Plate ${prev.plate}`}>&lsaquo;</a>
+      <ol class="bar__dots">
+        {RECONSTRUCTIONS.map((p) => (
+          <li>
+            <a
+              href={`${base}${p.slug}/`}
+              class={p.slug === r.slug ? 'is-current' : ''}
+              aria-current={p.slug === r.slug ? 'page' : undefined}
+              title={`Plate ${p.plate}: ${p.title}`}
+            >{p.plate}</a>
+          </li>
+        ))}
+      </ol>
+      <a href={`${base}${next.slug}/`} title={`Plate ${next.plate}: ${next.title}`} aria-label={`Next: Plate ${next.plate}`}>&rsaquo;</a>
+    </nav>
+
+    <a class="bar__full" href={src} target="_blank" rel="noopener">
+      Full screen <span aria-hidden="true">&#8599;</span>
+    </a>
+  </header>
+
+  <main class="stage">
+    <div class="stage__loading" aria-hidden="true">
+      <span>Surveying Castle Dale, 1890&hellip;</span>
+    </div>
+    <iframe
+      src={src}
+      title={`Interactive 3-D model: Castle Dale, 1890 — Plate ${r.plate}, ${r.title}`}
+      allow="fullscreen"
+      allowfullscreen
+    ></iframe>
+  </main>
+</body>
+</html>
+
+<style>
+  :global(html), :global(body.viewer) {
+    height: 100%;
+    overflow: hidden;
+  }
+  :global(body.viewer) {
+    display: flex;
+    flex-direction: column;
+    background: var(--coal-seam);
+  }
+
+  .bar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    height: 3.25rem;
+    padding: 0 1rem;
+    background: var(--coal-seam);
+    color: var(--sky-wash);
+    border-bottom: 1px solid color-mix(in srgb, var(--sandstone) 35%, transparent);
+    font-size: var(--text-xs);
+  }
+  .bar a { color: inherit; text-decoration: none; }
+
+  .bar__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 600;
+    color: var(--sandstone) !important;
+    white-space: nowrap;
+  }
+  .bar__back:hover .bar__back-long { text-decoration: underline; }
+  .bar__back-short { display: none; }
+
+  .bar__title {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 1.25rem;
+    border-left: 1px solid color-mix(in srgb, var(--sandstone) 25%, transparent);
+  }
+  .bar__plate {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mesa-red);
+  }
+  .bar__name {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bar__tags {
+    color: color-mix(in srgb, var(--sky-wash) 55%, transparent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bar__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .bar__nav > a {
+    display: grid;
+    place-items: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    border: 1px solid color-mix(in srgb, var(--sandstone) 35%, transparent);
+    border-radius: 2px;
+  }
+  .bar__nav > a:hover { background: var(--sandstone); color: var(--coal-seam); }
+  .bar__dots {
+    list-style: none;
+    display: flex;
+    gap: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+  }
+  .bar__dots a {
+    display: block;
+    min-width: 1.6rem;
+    text-align: center;
+    padding: 0.15rem 0.2rem;
+    color: color-mix(in srgb, var(--sky-wash) 45%, transparent) !important;
+  }
+  .bar__dots a:hover { color: var(--sky-wash) !important; }
+  .bar__dots a.is-current {
+    color: var(--coal-seam) !important;
+    background: var(--sandstone);
+    border-radius: 2px;
+  }
+
+  .bar__full {
+    white-space: nowrap;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid color-mix(in srgb, var(--sandstone) 35%, transparent);
+    border-radius: 2px;
+  }
+  .bar__full:hover { border-color: var(--sandstone); }
+
+  .stage {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+  }
+  .stage iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .stage__loading {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: color-mix(in srgb, var(--sandstone) 70%, transparent);
+  }
+
+  @media (max-width: 760px) {
+    .bar { gap: 0.6rem; padding: 0 0.6rem; }
+    .bar__back-long, .bar__tags, .bar__dots, .bar__full { display: none; }
+    .bar__back-short { display: inline; }
+    .bar__title { padding-left: 0.6rem; }
+  }
+</style>
