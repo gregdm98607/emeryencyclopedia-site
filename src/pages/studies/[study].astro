@@ -48,6 +48,28 @@ const kindLabel: Record<string, string> = {
       <p class="study-hero__intro">{study.intro}</p>
     </header>
 
+    {study.features && study.features.length > 0 && (
+      <section class="study-features" aria-label="Maps and features">
+        {study.features.map((f) => (
+          <a href={f.href} class="study-feature">
+            {f.image && (
+              <span class="study-feature__img">
+                <img src={f.image} alt="" width="960" height="600" loading="lazy" decoding="async" />
+              </span>
+            )}
+            <span class="study-feature__body">
+              <span class="study-feature__kicker">{f.kicker}</span>
+              <span class="study-feature__title">{f.title}</span>
+              <span class="study-feature__desc">{f.description}</span>
+              <span class="study-feature__cta">{f.cta} <span aria-hidden="true">&rarr;</span></span>
+            </span>
+          </a>
+        ))}
+      </section>
+    )}
+
+    {studyArticles.length > 0 && <h2 class="study-section-h">Articles</h2>}
+
     {studyArticles.length === 0 ? (
       <p class="empty">No articles published in this study yet. Check back soon.</p>
     ) : (
@@ -127,6 +149,73 @@ const kindLabel: Record<string, string> = {
     margin: 0;
   }
 
+  .study-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .study-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    background: var(--coal-seam);
+    color: var(--sky-wash);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .study-feature:hover {
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--coal-seam) 25%, transparent);
+    transform: translateY(-2px);
+  }
+  .study-feature__img { display: block; overflow: hidden; min-height: 100%; }
+  .study-feature__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .study-feature:hover .study-feature__img img { transform: scale(1.04); }
+  .study-feature__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 1.75rem;
+  }
+  .study-feature__kicker {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sandstone);
+  }
+  .study-feature__title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    line-height: 1.3;
+  }
+  .study-feature__desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--sky-wash) 80%, transparent);
+  }
+  .study-feature__cta {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--sandstone);
+  }
+  .study-section-h {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+  }
+
   .empty {
     padding: 2rem 0;
     color: var(--color-text-muted, #777);
@@ -180,6 +269,8 @@ const kindLabel: Record<string, string> = {
   }
   @media (max-width: 640px) {
     .study { padding: 1.5rem 1rem 2rem; }
+    .study-feature { grid-template-columns: 1fr; }
+    .study-feature__img { aspect-ratio: 16 / 10; }
     .study-hero h1 { font-size: 1.75rem; }
   }
 </style>

@@ -1,0 +1,873 @@
+<title>Castle Dale 1890</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ink:#f1ead8;
+  --ink-2:#c9c6b5;
+  --muted:#9aa396;
+  --panel:rgba(27,35,33,.9);
+  --panel-solid:#1b2321;
+  --line:rgba(241,234,216,.14);
+  --line-strong:rgba(241,234,216,.28);
+  --accent:#e3b34c;
+  --water:#63c1d3;
+  --brick:#c65a3b;
+  --sky-top:#9fc7d6;
+  --sky-mid:#d3e2dc;
+  --sky-low:#e8dcc2;
+  --display:"Zilla Slab",Rockwell,"Roboto Slab",Georgia,serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--panel-solid);color:var(--ink);font:15px/1.45 var(--body);overflow:hidden}
+#app{position:fixed;inset:0;background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-mid) 58%,var(--sky-low) 100%)}
+#stage{position:absolute;inset:0}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#stage canvas:active{cursor:grabbing}
+
+/* overlays */
+.plate{position:absolute;left:16px;top:calc(16px + env(safe-area-inset-top,0px));max-width:min(340px,calc(100% - 32px));background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:14px 16px 12px;backdrop-filter:blur(6px)}
+.eyebrow{font:600 11px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.plate h1{margin:4px 0 0;font:700 34px/1 var(--display);letter-spacing:.01em;text-wrap:balance}
+.plate .sub{margin:4px 0 10px;color:var(--ink-2);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(4,auto);gap:4px 14px;margin:0;border-top:1px solid var(--line);padding-top:9px}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font:600 10px/1.2 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:2px 0 0;font:500 12px/1.2 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+#compass{position:absolute;right:16px;top:calc(16px + env(safe-area-inset-top,0px));width:64px;height:64px;border-radius:50%;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer}
+#compass svg{width:52px;height:52px;transition:transform .08s linear}
+#compass:focus-visible,.pad button:focus-visible,.chk input:focus-visible+span,#aboutBtn:focus-visible,#panelToggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+#panel{position:absolute;right:16px;top:calc(92px + env(safe-area-inset-top,0px));width:292px;max-height:calc(100% - 200px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:4px;backdrop-filter:blur(6px)}
+#panelToggle{display:none}
+#panel section{padding:12px 14px;border-bottom:1px solid var(--line)}
+#panel section:last-child{border-bottom:0}
+#panel h2{margin:0 0 8px;font:600 11px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chk{display:flex;align-items:center;gap:9px;padding:3px 0;cursor:pointer;font-size:14px;user-select:none}
+.chk input{position:absolute;opacity:0;width:1px;height:1px}
+.chk span.box{width:16px;height:16px;border-radius:3px;border:1.5px solid var(--line-strong);display:grid;place-items:center;flex:none}
+.chk input:checked+span.box{background:var(--accent);border-color:var(--accent)}
+.chk input:checked+span.box::after{content:"";width:8px;height:4px;border:2px solid #1b2321;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:5px 10px;font-size:12.5px;color:var(--ink-2)}
+.legend div{display:flex;align-items:center;gap:7px;line-height:1.2}
+.sw{width:13px;height:13px;border-radius:2px;flex:none;border:1px solid rgba(0,0,0,.35)}
+#info .kind{font:600 10.5px/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+#info h3{margin:4px 0 2px;font:600 20px/1.15 var(--display);text-wrap:balance}
+#info .where{font:500 11.5px/1.35 var(--mono);color:var(--muted);margin-bottom:8px}
+#info p{margin:0 0 6px;font-size:14px;color:var(--ink-2)}
+.tag{display:inline-block;font:600 10.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;margin-top:4px}
+.tag.doc{background:rgba(99,193,211,.16);color:var(--water);border:1px solid rgba(99,193,211,.4)}
+.tag.rep{background:rgba(227,179,76,.13);color:var(--accent);border:1px solid rgba(227,179,76,.38)}
+.tag.est{background:rgba(198,90,59,.15);color:#e59479;border:1px solid rgba(198,90,59,.45)}
+
+.pad{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;justify-content:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px;max-width:calc(100% - 32px);backdrop-filter:blur(6px)}
+.pad .grp{display:flex;gap:4px}
+.pad .sep{width:1px;background:var(--line);margin:2px 2px}
+.pad button{font:600 13px/1 var(--body);color:var(--ink);background:rgba(241,234,216,.06);border:1px solid var(--line);border-radius:4px;min-width:36px;height:34px;padding:0 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.pad button:hover{background:rgba(241,234,216,.13)}
+.pad button[aria-pressed="true"]{background:var(--accent);color:#1b2321;border-color:var(--accent)}
+.pad svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+#aboutBtn{position:absolute;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));font:600 13px/1 var(--body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;height:36px;padding:0 12px;cursor:pointer}
+#about{position:absolute;inset:0;background:rgba(10,14,13,.55);display:grid;place-items:center;padding:16px;z-index:20}
+#about .card{background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:6px;max-width:680px;width:100%;max-height:calc(100% - 32px);overflow:auto;padding:22px 24px}
+#about h2{margin:0 0 4px;font:700 26px/1.1 var(--display)}
+#about h3{margin:18px 0 6px;font:600 11px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+#about p,#about li{color:var(--ink-2);font-size:14.5px;max-width:65ch}
+#about ul{padding-left:18px;margin:6px 0}
+#about a{color:var(--water)}
+#about .close{float:right;font:600 13px/1 var(--body);background:transparent;color:var(--ink);border:1px solid var(--line-strong);border-radius:4px;height:32px;padding:0 12px;cursor:pointer}
+
+#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.lbl{position:absolute;left:0;top:0;white-space:nowrap;transform-origin:0 0;will-change:transform}
+.lbl .t{display:inline-block;transform:translate(-50%,-100%);font:600 12.5px/1.15 var(--display);color:#1f1a14;background:rgba(246,240,224,.93);border:1px solid rgba(40,30,20,.35);border-radius:3px;padding:3px 7px 3px;box-shadow:0 2px 6px rgba(0,0,0,.18);text-align:center}
+.lbl .t small{display:block;font:500 10px/1.2 var(--body);color:#5b5244;letter-spacing:.02em}
+.lbl .t::after{content:"";position:absolute;left:50%;bottom:-6px;width:1px;height:6px;background:rgba(40,30,20,.55)}
+.lbl.water .t{background:rgba(222,242,247,.94);color:#0f4659;border-color:rgba(20,90,120,.4)}
+.lbl.road .t{background:rgba(58,44,30,.88);color:#f3e7c9;border-color:transparent;font-size:11.5px}
+#loading{position:absolute;inset:0;display:grid;place-items:center;font:600 18px/1.3 var(--display);color:#2a2419;pointer-events:none}
+
+@media (max-width:760px){
+  .plate{padding:10px 12px;max-width:calc(100% - 112px)}
+  .plate h1{font-size:26px}
+  .facts{grid-template-columns:repeat(2,auto)}
+  .plate .sub{margin-bottom:6px;font-size:13px}
+  #panel{left:16px;right:16px;width:auto;top:auto;bottom:calc(112px + env(safe-area-inset-bottom,0px));max-height:45%}
+  #panel.collapsed section{display:none}
+  #panelToggle{display:flex;width:100%;justify-content:space-between;align-items:center;font:600 13px/1 var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:11px 14px;cursor:pointer}
+  #panel.collapsed #panelToggle{border-bottom:0}
+  #panel.collapsed #info{display:block}
+  #aboutBtn{bottom:auto;top:calc(88px + env(safe-area-inset-top,0px));right:16px;left:auto;height:32px;font-size:12px}
+  .pad .lbltxt{display:none}
+}
+@media (prefers-reduced-motion:reduce){#compass svg{transition:none}}
+</style>
+
+<div id="app">
+  <div id="stage"></div>
+  <div id="labels"></div>
+  <div id="loading">Surveying the townsite…</div>
+
+  <header class="plate">
+    <div class="eyebrow">Emery County · Utah Territory</div>
+    <h1>Castle Dale</h1>
+    <p class="sub">The townsite as it may have looked about 1890</p>
+    <dl class="facts">
+      <div><dt>Plat</dt><dd>Shelton 1880</dd></div>
+      <div><dt>Blocks</dt><dd>26 rods sq.</dd></div>
+      <div><dt>Streets</dt><dd>6 rods · 99 ft</dd></div>
+      <div><dt>Elev.</dt><dd>≈ 5,660 ft</dd></div>
+    </dl>
+  </header>
+
+  <button id="compass" title="Face north" aria-label="Compass. Click to face north.">
+    <svg viewBox="-30 -30 60 60" aria-hidden="true">
+      <circle r="27" fill="none" stroke="rgba(241,234,216,.25)" stroke-width="1"/>
+      <path d="M0,-24 L6,0 L0,-4 L-6,0 Z" fill="#e3b34c"/>
+      <path d="M0,24 L6,0 L0,4 L-6,0 Z" fill="rgba(241,234,216,.55)"/>
+      <text x="0" y="-11" text-anchor="middle" font-family="Zilla Slab,Georgia,serif" font-weight="700" font-size="9" fill="#1b2321">N</text>
+    </svg>
+  </button>
+
+  <aside id="panel" class="collapsed">
+    <button id="panelToggle" aria-expanded="false"><span>Layers &amp; legend</span><span aria-hidden="true">▾</span></button>
+    <section id="info" aria-live="polite"></section>
+    <section>
+      <h2>Layers</h2>
+      <label class="chk"><input type="checkbox" id="lyStreets" checked><span class="box"></span>Street names</label>
+      <label class="chk"><input type="checkbox" id="lyLandmarks" checked><span class="box"></span>Landmark labels</label>
+      <label class="chk"><input type="checkbox" id="lyBlocks"><span class="box"></span>1880 plat block numbers</label>
+      <label class="chk"><input type="checkbox" id="lyPlants" checked><span class="box"></span>Trees &amp; plants</label>
+      <label class="chk"><input type="checkbox" id="lyWater"><span class="box"></span>Highlight waterways</label>
+      <label class="chk"><input type="checkbox" id="lyWagons" checked><span class="box"></span>Wagons on the road</label>
+      <label class="chk"><input type="checkbox" id="lyShadows" checked><span class="box"></span>Shadows</label>
+    </section>
+    <section>
+      <h2>Legend</h2>
+      <div class="legend">
+        <div><span class="sw" style="background:#7a5b3d"></span>Log cabin</div>
+        <div><span class="sw" style="background:#c6a676"></span>Rock house</div>
+        <div><span class="sw" style="background:#e6dcc6"></span>Adobe, plastered</div>
+        <div><span class="sw" style="background:#b88f66"></span>Adobe, bare</div>
+        <div><span class="sw" style="background:#ebe6d8"></span>Frame</div>
+        <div><span class="sw" style="background:#a8492f"></span>Brick</div>
+        <div><span class="sw" style="background:#d8bc5f"></span>Wheat, oats</div>
+        <div><span class="sw" style="background:#7ea24d"></span>Lucerne</div>
+        <div><span class="sw" style="background:#3f93b5"></span>Creek &amp; ditches</div>
+        <div><span class="sw" style="background:#9a9c95"></span>Mancos shale</div>
+        <div><span class="sw" style="background:#b7ae88"></span>Sagebrush flat</div>
+        <div><span class="sw" style="background:#5f8a3a"></span>Planted trees</div>
+      </div>
+    </section>
+  </aside>
+
+  <nav class="pad" aria-label="Map controls">
+    <div class="grp">
+      <button id="bRotL" title="Rotate left (←)" aria-label="Rotate left"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg></button>
+      <button id="bRotR" title="Rotate right (→)" aria-label="Rotate right"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg></button>
+      <button id="bTiltU" title="Tilt toward overhead (↑)" aria-label="Tilt up"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+      <button id="bTiltD" title="Tilt toward horizon (↓)" aria-label="Tilt down"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <button id="bZoomI" title="Zoom in (+)" aria-label="Zoom in"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button id="bZoomO" title="Zoom out (−)" aria-label="Zoom out"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
+    </div>
+    <span class="sep"></span>
+    <div class="grp">
+      <button id="vBird" title="Bird's-eye view">Bird's-eye</button>
+      <button id="vPlan" title="Overhead plan view">Plan</button>
+      <button id="vStreet" title="Street-level view of Main Street">Street</button>
+      <button id="vTour" aria-pressed="false" title="Slow orbit"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><span class="lbltxt">Orbit</span></button>
+    </div>
+  </nav>
+
+  <button id="aboutBtn">About &amp; sources</button>
+
+  <div id="about" hidden role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <div class="card">
+      <button class="close" id="aboutClose">Close</button>
+      <h2 id="aboutTitle">How this map was built</h2>
+      <p>A reconstruction, not a survey. The street grid and block layout come from the 1880 plat; the ground, water and buildings are placed from later maps and period evidence, then filled in with house types that were common in Castle Valley around 1890.</p>
+      <h3>From Greg's map folder</h3>
+      <ul>
+        <li><b>Plat of Castle Dale</b>, surveyed by M. J. Shelton, Dec. 28, 1880; filed Dec. 19, 1889; recorded Oct. 7, 1891. It sets out blocks 1–43, the Academy and Public Block (20), the courthouse quarter (12), the school site north of Block 19, and the wash that crosses Block 17.</li>
+        <li><b>1986–87 reconnaissance architectural survey.</b> Its A-block numbers match the plat, which fixes each block against modern street names and places Cottonwood Creek.</li>
+        <li><b>Sanborn fire insurance map, April 1917.</b> Confirms First North is 99 feet wide and shows the footprints and materials of early houses.</li>
+        <li><b>USGS topographic map (TopoZone print).</b> The source for the bench and bluffs north of town, the dry wash, the cemetery on the bench, and the fall of ground toward the creek.</li>
+      </ul>
+      <h3>From outside research</h3>
+      <ul>
+        <li>Settlement 1877–79, dugouts under a cottonwood, first bishop Jasper Peterson: DUP marker no. 152 (<a href="https://www.hmdb.org/m.asp?m=147917" target="_blank" rel="noopener">HMdb</a>).</li>
+        <li>Stake Academy founded 1889; brick courthouse 1892: <a href="https://onlineutah.us/castledalehistory.shtml" target="_blank" rel="noopener">Utah History Encyclopedia via OnlineUtah</a>.</li>
+        <li>Mammoth Canal (begun c. 1884) served the townsite and north benchlands; Blue Cut Canal watered land west and south of town: Edward A. Geary, <a href="https://www.waterhistory.org/histories/emery2/emery2.pdf" target="_blank" rel="noopener">A History of Water Development in Emery County</a>.</li>
+        <li>Justus Wellington Seeley II house, 1889: adobe faced with brick hauled from the railroad at Price (<a href="https://jacobbarlow.com/tag/castle-dale/" target="_blank" rel="noopener">JacobBarlow.com</a>; <a href="https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Emery_County,_Utah" target="_blank" rel="noopener">NRHP listing</a>).</li>
+        <li>Log construction with mud-and-willow plaster, whitewash, and cedar shingles: the 1879 <a href="https://en.wikipedia.org/wiki/Emery_County_Cabin" target="_blank" rel="noopener">Emery County Cabin</a>.</li>
+        <li>Later Main Street commerce, including James Peterson's store in his home at 225 E. 100 North: <a href="https://etvnews.com/articles/progress/co-op-building-hunter-drug-pieces-of-castle-dale-history/" target="_blank" rel="noopener">ETV News</a>.</li>
+      </ul>
+      <h3>How to read the tags</h3>
+      <p><span class="tag doc">Documented</span> The place or building appears in a source above. <span class="tag est">Approximate</span> The feature is real but its exact line or size is estimated. <span class="tag rep">Representative</span> The house or crop is typical of the period, but no source puts that exact one on that lot.</p>
+      <p>Plat notes “N.H.”, “C.R.M.” and “K.H.” on Block 19 are shown as public buildings, but what the initials stand for has not been confirmed. Terrain height is exaggerated 2.2× so the bench reads clearly; buildings are drawn about 1.4× life size for legibility.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(async function(){
+"use strict";
+const $=s=>document.querySelector(s);
+
+/* ============ constants & geography ============ */
+const VE=2.2;                 // vertical exaggeration of terrain
+const P=52.8, HS=4.95, BL=42.9, Q=21.45;  // 1 unit = 10 ft; block pitch 528 ft
+const F=0.14;                  // building scale: units per foot (1.4x)
+const X0=-575,X1=535,Z0=-430,Z1=440, SX=370, SZ=290;
+
+function smooth(a,b,x){let t=(x-a)/(b-a);t=t<0?0:t>1?1:t;return t*t*(3-2*t);}
+function interpX(pts,x){if(x<=pts[0][0])return pts[0][1];for(let i=1;i<pts.length;i++){if(x<=pts[i][0]){const a=pts[i-1],b=pts[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}}return pts[pts.length-1][1];}
+function segD(px,pz,ax,az,bx,bz){const dx=bx-ax,dz=bz-az;let t=((px-ax)*dx+(pz-az)*dz)/(dx*dx+dz*dz);t=t<0?0:t>1?1:t;const x=ax+dx*t-px,z=az+dz*t-pz;return Math.sqrt(x*x+z*z);}
+function distPoly(pts,x,z){let b=1e9;for(let i=1;i<pts.length;i++){const d=segD(x,z,pts[i-1][0],pts[i-1][1],pts[i][0],pts[i][1]);if(d<b)b=d;}return b;}
+function hash2(i,j){let h=Math.imul(i|0,374761393)+Math.imul(j|0,668265263);h=Math.imul(h^(h>>>13),1274126177);return ((h^(h>>>16))>>>0)/4294967296;}
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const R=rng(1890);
+
+// Cottonwood Creek (from the 1986-87 survey map), monotonic in x
+const CREEK=[[-575,-125],[-520,-120],[-420,-95],[-308,-67],[-257,-53],[-236,-23],[-211,2],[-186,15],[-169,44],[-160,70],[-131,86],[-97,95],[-55,91],[-34,99],[-13,112],[13,124],[38,137],[55,154],[63,180],[68,212],[75,250],[95,295],[130,335],[200,365],[300,380],[400,398],[535,418]];
+// foot of the bench / bluff line (from USGS topo)
+const ZE=[[-575,-222],[-560,-220],[-300,-188],[-100,-156],[-20,-147],[60,-165],[140,-210],[170,-290],[225,-230],[260,-110],[300,-56],[400,-15],[535,27]];
+// dry wash descending from the bench (plat shows it crossing Block 17)
+const WASH=[[100,-430],[115,-370],[150,-290],[180,-180],[190,-90],[196,-45],[205,0],[215,50]];
+// Blue Cut Canal (approximate), irrigating land south of town
+const BLUE=[[-575,15],[-420,95],[-300,160],[-150,215],[0,265],[100,355],[200,395],[300,412],[400,425],[535,432]];
+const ze=x=>interpX(ZE,x), zc=x=>interpX(CREEK,x), zb=x=>interpX(BLUE,x);
+const MAMMOTH=[];for(let x=-575;x<=128;x+=6)MAMMOTH.push([x,ze(x)-95]);
+
+// dense meandering creek line for channel + water
+const CREEK_D=[];(function(){let s=0;for(let i=1;i<CREEK.length;i++){const a=CREEK[i-1],b=CREEK[i];const L=Math.hypot(b[0]-a[0],b[1]-a[1]);const n=Math.max(1,Math.ceil(L/1.5));const tx=(b[0]-a[0])/L,tz=(b[1]-a[1])/L;for(let k=0;k<n;k++){const t=k/n;const x=a[0]+(b[0]-a[0])*t,z=a[1]+(b[1]-a[1])*t;const off=3.2*Math.sin(s*0.14)+1.4*Math.sin(s*0.37+1);CREEK_D.push([x-tz*off,z+tx*off]);s+=L/n;}}CREEK_D.push(CREEK[CREEK.length-1]);})();
+const bucket=new Map();for(let i=1;i<CREEK_D.length;i++){const k=Math.floor((CREEK_D[i][0]+CREEK_D[i-1][0])/2/20);if(!bucket.has(k))bucket.set(k,[]);bucket.get(k).push(i);}
+function distDense(x,z){const k=Math.floor(x/20);let b=1e9;for(let q=k-1;q<=k+1;q++){const l=bucket.get(q);if(!l)continue;for(const i of l){const a=CREEK_D[i-1],c=CREEK_D[i];const d=segD(x,z,a[0],a[1],c[0],c[1]);if(d<b)b=d;}}return b;}
+
+function heightFt(x,z){
+  let h=5662-0.10*z-0.03*x;
+  const d=ze(x)-z, s=smooth(-15,25,d);
+  h+=115*s+0.25*Math.max(0,d-25);
+  const g=4*s*(1-s);
+  h+=g*(9*Math.sin(x*0.35+z*0.12)*Math.sin(x*0.11-z*0.3)+5*Math.sin(x*0.9+z*0.2));
+  h+=3*Math.sin(x*0.031+1.3)*Math.cos(z*0.027)+2*Math.sin(x*0.07+z*0.05);
+  h+=45*Math.exp(-((x-235)*(x-235)+(z+100)*(z+100))/900);
+  const fade=smooth(5,-60,z);
+  if(fade>0){const dw=distPoly(WASH,x,z);h-=(10*(1-smooth(1.5,7,dw))+3*(1-smooth(5,18,dw)))*fade;}
+  const dc=distPoly(CREEK,x,z);
+  h-=9*(1-smooth(10,38,dc));
+  if(dc<16){const dd=distDense(x,z);h-=12*(1-smooth(1.3,4.5,dd));}
+  return h;
+}
+const heightAt=(x,z)=>(heightFt(x,z)-5600)/10*VE;
+
+/* ============ plat: blocks & streets ============ */
+const BLOCKS=[
+ [42,-5,-4,[1,2]],[43,-4,-4,[1,2]],
+ [39,-5,-3],[38,-4,-3],[37,-3,-3],
+ [25,-5,-2,[4]],[26,-4,-2],[27,-3,-2],[28,-2,-2],[29,-1,-2],
+ [24,-4,-1,[4]],[23,-3,-1],[22,-2,-1],[21,-1,-1],[20,0,-1],[19,1,-1],[18,2,-1],[17,3,-1],[16,4,-1],
+ [10,-1,0],[11,0,0],[12,1,0],[13,2,0],[14,3,0],[15,4,0],
+ [9,0,1,[4]],[8,1,1],[7,2,1],[6,3,1],[5,4,1],
+ [2,2,2],[3,3,2],[4,4,2],[1,4,3]
+].map(b=>({num:b[0],c:b[1],k:b[2],quads:b[3]||[1,2,3,4]}));
+const blockMap=new Map();BLOCKS.forEach(b=>blockMap.set(b.c+','+b.k,b));
+function blockAt(x,z){const c=Math.floor(x/P),k=Math.floor(z/P);const lx=x-c*P,lz=z-k*P;if(lx<HS||lx>HS+BL||lz<HS||lz>HS+BL)return null;const b=blockMap.get(c+','+k);if(!b)return null;const e=lx>HS+Q,s=lz>HS+Q;const q=e?(s?1:4):(s?2:3);return{b,q,platted:b.quads.includes(q)};}
+const ORD=['','First','Second','Third','Fourth','Fifth','Sixth'];
+const ewName=k=>k===0?'Main Street':`${ORD[Math.abs(k)]} ${k<0?'North':'South'}`;
+const nsName=c=>c===0?'Center Street':`${ORD[Math.abs(c)]} ${c>0?'East':'West'}`;
+const ewModern=k=>k===0?'Main St.':`${Math.abs(k)*100} ${k<0?'N':'S'}`;
+const nsModern=c=>c===0?'Center St.':`${Math.abs(c)*100} ${c>0?'E':'W'}`;
+const QN={1:'southeast',2:'southwest',3:'northwest',4:'northeast'};
+
+const STREETS=[
+ {ax:'x',k:-3,a0:-264,a1:-105.6},{ax:'x',k:-2,a0:-264,a1:0},{ax:'x',k:-1,a0:-211.2,a1:264},{ax:'x',k:0,a0:-158.4,a1:264},
+ {ax:'x',k:1,a0:-52.8,a1:264},{ax:'x',k:2,a0:0,a1:264},{ax:'x',k:3,a0:105.6,a1:264},{ax:'x',k:4,a0:211.2,a1:264},
+ {ax:'z',c:-5,a0:-158.4,a1:-105.6},{ax:'z',c:-4,a0:-158.4,a1:-52.8},{ax:'z',c:-3,a0:-158.4,a1:0},{ax:'z',c:-2,a0:-158.4,a1:0},
+ {ax:'z',c:-1,a0:-105.6,a1:52.8},{ax:'z',c:0,a0:-158.4,a1:105.6},{ax:'z',c:1,a0:-52.8,a1:105.6},{ax:'z',c:2,a0:-52.8,a1:158.4},
+ {ax:'z',c:3,a0:-52.8,a1:158.4},{ax:'z',c:4,a0:-52.8,a1:211.2},{ax:'z',c:5,a0:-52.8,a1:211.2}
+];
+STREETS.forEach(s=>{if(s.ax==='x'){s.z=s.k*P;s.name=ewName(s.k);s.pts=[[s.a0,s.z],[s.a1,s.z]];}else{s.x=s.c*P;s.name=nsName(s.c);s.pts=[[s.x,s.a0],[s.x,s.a1]];}});
+function onStreet(x,z){for(const s of STREETS){if(s.ax==='x'){if(Math.abs(z-s.z)<HS&&x>s.a0-HS&&x<s.a1+HS)return s;}else{if(Math.abs(x-s.x)<HS&&z>s.a0-HS&&z<s.a1+HS)return s;}}return null;}
+const ROADS=[
+ {name:'Orangeville road',pts:[[-264,-105.6],[-340,-118],[-440,-140],[-575,-166]]},
+ {name:'Ferron road',pts:[[0,105.6],[0,150],[4,200],[10,260],[14,330],[16,440]]},
+ {name:'Road east to Wilsonville & Huntington',pts:[[264,0],[330,2],[420,4],[535,6]]},
+ {name:'Bench road',pts:[[0,-158.4],[0,-220],[-4,-300],[-8,-430]]}
+];
+
+/* ============ classification & color ============ */
+const hex=h=>{const n=parseInt(h.slice(1),16);return[(n>>16&255)/255,(n>>8&255)/255,(n&255)/255];};
+const mix=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
+const noise=(x,z)=>0.5+0.5*Math.sin(x*1.7+z*0.9)*Math.sin(x*0.63-z*1.31);
+const CROPS=[
+ {n:'Wheat',c:hex('#d8bc5f'),w:.26,t:'Wheat was the staple grain of Castle Valley farms, ground at local mills for the year’s flour.'},
+ {n:'Oats',c:hex('#cdbf82'),w:.12,t:'Oats fed the work horses that pulled plows, wagons and freight to the railroad at Price.'},
+ {n:'Lucerne (alfalfa)',c:hex('#7ea24d'),w:.24,t:'Lucerne, as Utah farmers called alfalfa, was the main hay crop for winter feed. It depends on steady irrigation.'},
+ {n:'Lucerne, fresh cut',c:hex('#a5b766'),w:.1,t:'A lucerne field after cutting, with hay curing in windrows before stacking.'},
+ {n:'Fallow ground',c:hex('#a38d64'),w:.1,t:'Plowed or resting ground. Alkali soils on the Mancos shale made some land hard to farm.'},
+ {n:'Potatoes & garden truck',c:hex('#6f8f4a'),w:.08,t:'Potatoes, squash and root crops for the family cellar.'},
+ {n:'Pasture',c:hex('#a4b06c'),w:.1,t:'Fenced pasture for milk cows and horses kept close to town.'}
+];
+function fieldAt(x,z){const ix=Math.floor((x+1000)/26),iz=Math.floor((z+1000)/17);const r=hash2(ix,iz);let a=0,crop=CROPS[0];for(const c of CROPS){a+=c.w;if(r<a){crop=c;break;}}const fx=((x+1000)%26)/26,fz=((z+1000)%17)/17;return{crop,border:fx<.06||fz<.09};}
+function inFieldZone(x,z,d){
+  if(z>zc(x)+10&&z<zb(x)-2)return 'south';
+  if(x>272&&d<-8&&z<zc(x)-10&&Math.abs(z)>5)return 'east';
+  if(x<-272&&d<-8&&z<zc(x)-10)return 'west';
+  if(d>32&&d<92&&(x<128||x>245))return 'bench';
+  return null;
+}
+function classify(x,z){
+  const d=ze(x)-z, s=smooth(-15,25,d);
+  const dc=distPoly(CREEK,x,z);
+  if(dc<3.2)return{zone:'creek',dc,s,d};
+  const st=onStreet(x,z);if(st)return{zone:'street',st,dc,s,d};
+  const ba=blockAt(x,z);if(ba&&ba.platted)return{zone:'lot',ba,dc,s,d};
+  if(s>0.08&&s<0.9)return{zone:'scarp',dc,s,d};
+  if(z<5){const dw=distPoly(WASH,x,z);if(dw<6)return{zone:'wash',dc,s,d};}
+  if(dc<30)return{zone:'flood',dc,s,d,ba};
+  const fz=inFieldZone(x,z,d);if(fz)return{zone:'field',fz,dc,s,d};
+  if(x>-272&&x<272&&z<zc(x)-10&&d<-8)return{zone:'commons',ba,dc,s,d};
+  if(s>=0.9)return{zone:'bench',dc,s,d};
+  return{zone:'desert',dc,s,d};
+}
+const COL={
+  creek:hex('#7a7156'),street:hex('#cbb98d'),lot1:hex('#b4aa79'),lot2:hex('#a4a86c'),
+  shale1:hex('#8e918c'),shale2:hex('#b3ad9c'),wash:hex('#a8a676'),flood1:hex('#8fae5f'),flood2:hex('#7a9750'),
+  border:hex('#8b805c'),commons1:hex('#aeae78'),commons2:hex('#bdb385'),bench1:hex('#c0b58f'),bench2:hex('#aca683'),
+  des1:hex('#bdb38c'),des2:hex('#a7a580')
+};
+function colorFor(x,z,hft,slope){
+  const c=classify(x,z), n=noise(x,z);
+  switch(c.zone){
+    case 'creek':return COL.creek;
+    case 'street':return mix(COL.street,COL.lot1,n*.25);
+    case 'lot':return mix(COL.lot1,COL.lot2,n);
+    case 'scarp':{const band=0.5+0.5*Math.sin(hft*0.45+Math.sin(x*0.05)*1.5);let col=mix(COL.shale1,COL.shale2,band);if(slope<0.12)col=mix(col,COL.des1,0.45);return col;}
+    case 'wash':return mix(COL.wash,COL.flood2,n*.4);
+    case 'flood':{const t=smooth(30,12,c.dc);return mix(mix(COL.commons1,COL.flood1,t),COL.flood2,n*.5);}
+    case 'field':{const f=fieldAt(x,z);return f.border?COL.border:mix(f.crop.c,[f.crop.c[0]*.9,f.crop.c[1]*.9,f.crop.c[2]*.9],n*.6);}
+    case 'commons':return mix(COL.commons1,COL.commons2,n);
+    case 'bench':return mix(COL.bench1,COL.bench2,n);
+    default:return mix(COL.des1,COL.des2,n);
+  }
+}
+
+/* ============ renderer ============ */
+await Promise.race([Promise.all([document.fonts.load('700 64px "Zilla Slab"'),document.fonts.load('600 12px "Source Sans 3"')]).catch(()=>{}),new Promise(r=>setTimeout(r,1800))]);
+await new Promise(r=>setTimeout(r,30));
+
+const stage=$('#stage');
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+stage.appendChild(renderer.domElement);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(30,1,2,6000);
+const controls=new THREE.OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true;controls.dampingFactor=0.08;
+controls.minPolarAngle=0.02;controls.maxPolarAngle=Math.PI-0.02;
+controls.minDistance=18;controls.maxDistance=1700;
+controls.screenSpacePanning=false;controls.zoomSpeed=0.9;controls.rotateSpeed=0.6;
+controls.autoRotateSpeed=0.55;
+
+scene.add(new THREE.HemisphereLight(0xe3eef5,0xa89170,0.62));
+const sun=new THREE.DirectionalLight(0xfff0d6,0.95);
+sun.position.set(-320,430,300);sun.castShadow=true;
+const isSmall=Math.min(innerWidth,innerHeight)<700;
+sun.shadow.mapSize.set(isSmall?2048:4096,isSmall?2048:4096);
+Object.assign(sun.shadow.camera,{left:-620,right:620,top:520,bottom:-520,near:50,far:1600});
+sun.shadow.bias=-0.0006;sun.shadow.normalBias=0.4;
+scene.add(sun);scene.add(sun.target);
+scene.add(new THREE.AmbientLight(0xffffff,0.12));
+
+/* ============ geometry accumulator ============ */
+class Acc{constructor(){this.p=[];this.n=[];this.c=[];}
+  get count(){return this.p.length/3;}
+  tri(a,b,c,col){const ux=b[0]-a[0],uy=b[1]-a[1],uz=b[2]-a[2],vx=c[0]-a[0],vy=c[1]-a[1],vz=c[2]-a[2];let nx=uy*vz-uz*vy,ny=uz*vx-ux*vz,nz=ux*vy-uy*vx;const l=Math.hypot(nx,ny,nz)||1;nx/=l;ny/=l;nz/=l;
+    this.p.push(a[0],a[1],a[2],b[0],b[1],b[2],c[0],c[1],c[2]);this.n.push(nx,ny,nz,nx,ny,nz,nx,ny,nz);this.c.push(col[0],col[1],col[2],col[0],col[1],col[2],col[0],col[1],col[2]);}
+  quad(a,b,c,d,col){this.tri(a,b,c,col);this.tri(a,c,d,col);}
+  geo(){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(this.p,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(this.n,3));g.setAttribute('color',new THREE.Float32BufferAttribute(this.c,3));g.computeBoundingSphere();return g;}
+}
+function XF(ox,oy,oz,rot){const c=Math.cos(rot),s=Math.sin(rot);const f=(lx,ly,lz)=>[ox+lx*c+lz*s,oy+ly,oz-lx*s+lz*c];f.rot=rot;return f;}
+const sub=(xf,cx,cz,dr)=>{const p=xf(cx,0,cz);return XF(p[0],p[1],p[2],xf.rot+dr);};
+function box(A,xf,cx,y0,cz,w,h,d,col,top){const x0=cx-w/2,x1=cx+w/2,z0=cz-d/2,z1=cz+d/2,y1=y0+h;
+  const a=xf(x0,y0,z1),b=xf(x1,y0,z1),c=xf(x1,y1,z1),e=xf(x0,y1,z1),f=xf(x0,y0,z0),g=xf(x1,y0,z0),k=xf(x1,y1,z0),m=xf(x0,y1,z0);
+  A.quad(a,b,c,e,col);A.quad(g,f,m,k,col);A.quad(b,g,k,c,col);A.quad(f,a,e,m,col);A.quad(e,c,k,m,top||col);A.quad(f,g,b,a,col);}
+function gable(A,xf,cx,y0,cz,w,d,rh,roof,wall,oh=0.14){const x0=cx-w/2,x1=cx+w/2,z0=cz-d/2,z1=cz+d/2,yr=y0+rh;
+  A.tri(xf(x0,y0,z1),xf(x0,y0,z0),xf(x0,yr,cz),wall);A.tri(xf(x1,y0,z0),xf(x1,y0,z1),xf(x1,yr,cz),wall);
+  const ox0=x0-oh,ox1=x1+oh,ez1=z1+oh,ez0=z0-oh,ey=y0-oh*rh/(d/2);
+  A.quad(xf(ox0,ey,ez1),xf(ox1,ey,ez1),xf(ox1,yr+0.02,cz),xf(ox0,yr+0.02,cz),roof);
+  A.quad(xf(ox1,ey,ez0),xf(ox0,ey,ez0),xf(ox0,yr+0.02,cz),xf(ox1,yr+0.02,cz),roof);}
+function shed(A,xf,cx,y0,cz,w,d,hHi,hLo,col,wall){const x0=cx-w/2,x1=cx+w/2,z0=cz-d/2,z1=cz+d/2;
+  A.quad(xf(x0-.08,y0+hLo,z1+.08),xf(x1+.08,y0+hLo,z1+.08),xf(x1+.08,y0+hHi,z0),xf(x0-.08,y0+hHi,z0),col);
+  if(wall){A.tri(xf(x0,y0+hLo,z1),xf(x0,y0+hHi,z0),xf(x0,y0+hLo,z0),wall);A.tri(xf(x1,y0+hLo,z1),xf(x1,y0+hLo,z0),xf(x1,y0+hHi,z0),wall);}}
+
+const C=Object.fromEntries(Object.entries({
+  log1:'#7d5c3d',log2:'#6a4d33',ww1:'#e8e2d2',ww2:'#d7d0bd',dirtRoof:'#8a7a55',shingle:'#6b625a',shingle2:'#5a524b',
+  stone:'#8f8474',found:'#7d7466',rock:'#c6a676',rock2:'#b99a6a',adobeW:'#e6dcc6',adobeR:'#b88f66',frame:'#ebe6d8',frame2:'#d9ccb0',
+  brick:'#a8492f',chimB:'#96452f',glass:'#2d3b43',sash:'#efe8d6',door:'#553a26',doorG:'#3f5a45',sign:'#6b3b2a',
+  barn1:'#6f5338',barn2:'#5f462f',board:'#8a7457',straw:'#d9b95c',straw2:'#c9a84b',rail:'#8b7458',post:'#6c5943',picket:'#ebe5d6',
+  row1:'#6b8e3f',row2:'#8a7350',luc:'#8fae58',orch:'#a3b36b',wood:'#9a7a55',wheel:'#3b2f25',horse:'#6b4a2f',horse2:'#3f2f22',
+  cow1:'#7a4a2c',cow2:'#e9e3d6',hat:'#3a3028',coat:'#3f4a5a',skin:'#dcb592',mound:'#8d7b58',grave:'#d8d4ca',bridge:'#7a6146'
+}).map(([k,v])=>[k,hex(v)]));
+
+/* ============ terrain ============ */
+const loadEl=$('#loading');
+const nV=(SX+1)*(SZ+1);
+const tPos=new Float32Array(nV*3),tCol=new Float32Array(nV*3),hF=new Float32Array(nV);
+const dxu=(X1-X0)/SX,dzu=(Z1-Z0)/SZ;
+for(let j=0;j<=SZ;j++)for(let i=0;i<=SX;i++){const id=j*(SX+1)+i,x=X0+dxu*i,z=Z0+dzu*j,h=heightFt(x,z);hF[id]=h;tPos[id*3]=x;tPos[id*3+1]=(h-5600)/10*VE;tPos[id*3+2]=z;}
+for(let j=0;j<=SZ;j++)for(let i=0;i<=SX;i++){const id=j*(SX+1)+i,x=X0+dxu*i,z=Z0+dzu*j;
+  const hx=hF[j*(SX+1)+Math.min(SX,i+1)]-hF[j*(SX+1)+Math.max(0,i-1)],hz=hF[Math.min(SZ,j+1)*(SX+1)+i]-hF[Math.max(0,j-1)*(SX+1)+i];
+  const slope=Math.hypot(hx/(2*dxu*10),hz/(2*dzu*10));const c=colorFor(x,z,hF[id],slope);tCol[id*3]=c[0];tCol[id*3+1]=c[1];tCol[id*3+2]=c[2];}
+const tIdx=[];for(let j=0;j<SZ;j++)for(let i=0;i<SX;i++){const a=j*(SX+1)+i,b=a+1,c=a+SX+1,d=c+1;tIdx.push(a,c,b,b,c,d);}
+const tGeo=new THREE.BufferGeometry();tGeo.setAttribute('position',new THREE.BufferAttribute(tPos,3));tGeo.setAttribute('color',new THREE.BufferAttribute(tCol,3));tGeo.setIndex(tIdx);tGeo.computeVertexNormals();
+const terrain=new THREE.Mesh(tGeo,new THREE.MeshLambertMaterial({vertexColors:true}));terrain.receiveShadow=true;terrain.name='terrain';scene.add(terrain);
+
+// diorama skirt with strata
+(function(){const A=new Acc();const ring=[];for(let i=0;i<=SX;i++)ring.push([i,0]);for(let j=1;j<=SZ;j++)ring.push([SX,j]);for(let i=SX-1;i>=0;i--)ring.push([i,SZ]);for(let j=SZ-1;j>=0;j--)ring.push([0,j]);
+  const layers=[[null,-1.0,hex('#6e5238')],[-1.0,6,hex('#a89478')],[6,2.5,hex('#c9a56c')],[2.5,-4,hex('#8b8e88')],[-4,-10,hex('#6f716c')]];
+  for(let r=1;r<ring.length;r++){const [i0,j0]=ring[r-1],[i1,j1]=ring[r];const p0=j0*(SX+1)+i0,p1=j1*(SX+1)+i1;const x0=tPos[p0*3],z0=tPos[p0*3+2],y0=tPos[p0*3+1],x1=tPos[p1*3],z1=tPos[p1*3+2],y1=tPos[p1*3+1];
+    for(const [top,bot,col] of layers){const ta=top===null?y0:(top<0?y0+top:Math.min(top,y0-1.0)),tb=top===null?y1:(top<0?y1+top:Math.min(top,y1-1.0));const ba=bot<0&&top===null?y0+bot:Math.min(bot,ta),bb=bot<0&&top===null?y1+bot:Math.min(bot,tb);
+      if(ta-ba<0.01&&tb-bb<0.01)continue;A.quad([x0,ba,z0],[x1,bb,z1],[x1,tb,z1],[x0,ta,z0],col);}}
+  const yb=-10;A.quad([X0,yb,Z0],[X1,yb,Z0],[X1,yb,Z1],[X0,yb,Z1],hex('#4a4a45'));
+  const m=new THREE.Mesh(A.geo(),new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide}));scene.add(m);})();
+
+/* ============ ribbons: roads, water ============ */
+function resample(pts,step){const out=[];for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i];const L=Math.hypot(b[0]-a[0],b[1]-a[1]);const n=Math.max(1,Math.ceil(L/step));for(let k=0;k<n;k++){const t=k/n;out.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]);}}out.push(pts[pts.length-1]);return out;}
+function ribbon(A,pts,width,lift,col,opt={}){const rs=opt.raw?pts:resample(pts,opt.step||1.6);let prev=null;
+  for(let i=0;i<rs.length;i++){const p=rs[i],q=rs[Math.min(i+1,rs.length-1)],o=rs[Math.max(i-1,0)];let tx=q[0]-o[0],tz=q[1]-o[1];const l=Math.hypot(tx,tz)||1;tx/=l;tz/=l;const nx=-tz,nz=tx,off=opt.offset||0;
+    const cx=p[0]+nx*off,cz=p[1]+nz*off;const lx=cx+nx*width/2,lz=cz+nz*width/2,rx=cx-nx*width/2,rz=cz-nz*width/2;
+    let yl,yr;if(opt.level){const y=heightAt(cx,cz)+lift;yl=yr=y;}else{yl=heightAt(lx,lz)+lift;yr=heightAt(rx,rz)+lift;}
+    const cur={l:[lx,yl,lz],r:[rx,yr,rz]};const skip=opt.skip&&opt.skip(cx,cz);
+    if(prev&&!skip)A.quad(prev.l,prev.r,cur.r,cur.l,col);prev=skip?null:cur;}}
+
+const groundA=new Acc(), waterA=new Acc();
+const ROADC=hex('#d3c197'),RUT=hex('#b39f76');
+const bridgeSkip=(x,z)=>distDense(x,z)<5.5;
+for(const s of STREETS){ribbon(groundA,s.pts,3.8,0.12,ROADC,{step:3});ribbon(groundA,s.pts,0.32,0.16,RUT,{step:3,offset:0.85});ribbon(groundA,s.pts,0.32,0.16,RUT,{step:3,offset:-0.85});}
+for(const r of ROADS){ribbon(groundA,r.pts,3.4,0.12,ROADC,{skip:bridgeSkip});ribbon(groundA,r.pts,0.3,0.16,RUT,{offset:0.8,skip:bridgeSkip});ribbon(groundA,r.pts,0.3,0.16,RUT,{offset:-0.8,skip:bridgeSkip});}
+const WATER=hex('#3f93b5'),WATER2=hex('#4fa6c4');
+ribbon(waterA,CREEK_D,2.5,0.6,WATER,{raw:true,level:true});
+ribbon(waterA,MAMMOTH,1.1,0.25,WATER2,{level:true});
+ribbon(waterA,BLUE,1.1,0.25,WATER2,{level:true});
+ribbon(waterA,[[0,ze(0)-95],[0,-161]],0.55,0.2,WATER2,{level:true,offset:4.2});
+for(const s of STREETS){ribbon(waterA,s.pts,0.45,0.16,WATER2,{step:3,offset:4.25,level:true});ribbon(waterA,s.pts,0.45,0.16,WATER2,{step:3,offset:-4.25,level:true});}
+const groundMesh=new THREE.Mesh(groundA.geo(),new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:-2}));groundMesh.receiveShadow=true;scene.add(groundMesh);
+const waterMat=new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide,emissive:0x0c2f3d,polygonOffset:true,polygonOffsetFactor:-3});
+const waterMesh=new THREE.Mesh(waterA.geo(),waterMat);waterMesh.receiveShadow=true;waterMesh.name='water';scene.add(waterMesh);
+
+/* ============ buildings ============ */
+const B=new Acc();const RECS=[];
+function rec(start,info){RECS.push({start,end:B.count,...info});}
+function win(A,xf,x,y,z,w,h){box(A,xf,x,y,z,w+0.1,h+0.1,0.05,C.sash);box(A,xf,x,y+0.05,z+0.03,w,h,0.05,C.glass);}
+function sideWin(A,xf,x,y,z,w,h){box(A,xf,x,y,z,0.05,h+0.1,w+0.1,C.sash);box(A,xf,x+(x>0?0.03:-0.03),y+0.05,z,0.05,h,w,C.glass);}
+
+function logWalls(A,xf,w,h,d,cols){const n=6;for(let i=0;i<n;i++)box(A,xf,0,i*h/n,0,w,h/n+0.004,d,cols[i%2]);}
+function logCabin(A,xf,o){const w=20*F,d=16*F,h=8*F;box(A,xf,0,-1,0,w+.06,1.02,d+.06,C.found);
+  const cols=o.ww?[C.ww1,C.ww2]:[C.log1,C.log2];logWalls(A,xf,w,h,d,cols);
+  if(o.dirt)gable(A,xf,0,h,0,w,d,0.42,C.dirtRoof,cols[0],0.2);else gable(A,xf,0,h,0,w,d,0.85,C.shingle,cols[0]);
+  box(A,xf,w/2+0.14,0,0,0.36,h+(o.dirt?0.9:1.3),0.55,C.stone);
+  box(A,xf,-0.35,0,d/2+0.02,0.45,0.82,0.06,C.door);win(A,xf,0.6,0.42,d/2+0.02,0.4,0.36);
+  if(o.lean){box(A,xf,0,0,-d/2-0.55,w*0.75,0.8,1.1,cols[1]);shed(A,sub(xf,0,-d/2-0.55,Math.PI),0,0,0,w*0.75,1.1,1.05,0.8,C.shingle2,cols[1]);}
+  return{w,d,h:h+1};}
+function hallParlor(A,xf,o){const w=32*F,d=16*F,h=13*F,rh=0.95;const wall=o.wall;box(A,xf,0,-1,0,w+.08,1.08,d+.08,C.found);
+  box(A,xf,0,0,0,w,h,d,wall);gable(A,xf,0,h,0,w,d,rh,o.roof||C.shingle,wall);
+  const ch=o.chim||C.chimB;box(A,xf,-w/2+0.3,h-0.3,0,0.32,rh+0.75,0.38,ch);box(A,xf,w/2-0.3,h-0.3,0,0.32,rh+0.75,0.38,ch);
+  box(A,xf,0,0,d/2+0.02,0.48,0.95,0.06,o.doorC||C.door);
+  for(const x of[-1.35,1.35])win(A,xf,x,0.42,d/2+0.02,0.42,0.62);for(const x of[-1.35,1.35])win(A,xf,x,1.38,d/2+0.02,0.36,0.26);
+  sideWin(A,xf,w/2+0.02,1.3,0,0.36,0.42);sideWin(A,xf,-w/2-0.02,1.3,0,0.36,0.42);
+  if(o.lean){const lw=w*0.72,ld=1.3;box(A,xf,0,0,-d/2-ld/2,lw,1.0,ld,o.leanWall||wall);shed(A,sub(xf,0,-d/2-ld/2,Math.PI),0,0,0,lw,ld,1.42,1.0,C.shingle2,o.leanWall||wall);}
+  if(o.porch){box(A,xf,0,0,d/2+0.48,w*0.55,0.1,0.95,C.board);for(const x of[-w*0.26,w*0.26,-0.4,0.4])box(A,xf,x,0.1,d/2+0.9,0.08,1.0,0.08,C.picket);shed(A,xf,0,0,d/2+0.48,w*0.58,0.95,1.3,1.1,C.shingle2);}
+  return{w,d,h:h+rh};}
+function tPlan(A,xf,o){const w=30*F,d=18*F,h=14*F,rh=1.0,wall=o.wall||C.brick;box(A,xf,0,-1,0,w+.08,1.08,d+.08,C.found);
+  box(A,xf,-0.3,0,0,w,h,d,wall);gable(A,xf,-0.3,h,0,w,d,rh,C.shingle2,wall);
+  const ww=16*F,wl=2.5,wz=d/2+wl/2-0.7;box(A,xf,1.05,0,wz,ww,h,wl,wall);gable(A,sub(xf,1.05,wz,Math.PI/2),0,h,0,wl,ww,1.05,C.shingle2,wall);
+  box(A,xf,-1.9,h-0.3,0,0.32,rh+0.8,0.38,C.chimB);box(A,xf,1.05,h-0.3,wz-0.6,0.3,rh+0.9,0.34,C.chimB);
+  win(A,xf,0.6,0.42,wz+wl/2+0.02,0.4,0.72);win(A,xf,1.5,0.42,wz+wl/2+0.02,0.4,0.72);win(A,xf,1.05,1.45,wz+wl/2+0.02,0.34,0.3);
+  box(A,xf,-0.7,0,d/2+0.02,0.48,1.0,0.06,C.doorG);win(A,xf,-1.6,0.42,d/2+0.02,0.42,0.72);
+  box(A,xf,-1.15,0,d/2+0.5,1.9,0.1,1.0,C.board);for(const x of[-2.0,-0.3])box(A,xf,x,0.1,d/2+0.95,0.08,1.05,0.08,C.picket);shed(A,xf,-1.15,0,d/2+0.5,2.0,1.0,1.35,1.12,C.shingle2);
+  return{w,d:d+1.8,h:h+rh};}
+function falseFront(A,xf,o){const w=24*F,L=40*F,h=12*F,wall=o.wall||C.frame2;box(A,xf,0,-1,0,w+.08,1.08,L+.08,C.found);
+  box(A,xf,0,0,0,w,h,L,wall);gable(A,sub(xf,0,0,Math.PI/2),0,h,0,L,w,0.7,C.shingle,wall);
+  box(A,xf,0,0,L/2+0.02,w+0.12,2.65,0.14,o.front||wall);box(A,xf,0,2.65,L/2+0.05,w+0.34,0.12,0.3,C.sign);
+  box(A,xf,0,1.9,L/2+0.1,w*0.8,0.42,0.05,C.sign);
+  win(A,xf,-1.05,0.3,L/2+0.1,0.75,1.0);win(A,xf,1.05,0.3,L/2+0.1,0.75,1.0);box(A,xf,0,0,L/2+0.11,0.62,1.2,0.05,C.door);
+  box(A,xf,0,0,L/2+0.7,w+0.4,0.08,1.2,C.board);for(const x of[-w/2,w/2])box(A,xf,x,0.08,L/2+1.25,0.08,1.2,0.08,C.post);shed(A,xf,0,0,L/2+0.7,w+0.45,1.2,1.45,1.25,C.shingle2);
+  box(A,xf,-w/2-0.6,0,L/2+0.2,0.08,0.7,1.6,C.rail);
+  return{w,d:L,h:2.8};}
+function smithy(A,xf){const w=26*F,L=30*F,h=10*F;box(A,xf,0,-1,0,w+.08,1.08,L+.08,C.found);logWalls(A,xf,w,h,L,[C.barn1,C.barn2]);
+  gable(A,sub(xf,0,0,Math.PI/2),0,h,0,L,w,1.0,C.shingle2,C.barn1);box(A,xf,0,0,L/2+0.02,1.4,1.2,0.06,hex('#231a13'));
+  box(A,xf,w/2-0.4,h-0.2,-0.8,0.5,1.8,0.5,C.stone);box(A,xf,-1.0,0,L/2+1.2,0.5,0.35,0.3,hex('#3a3a3a'));
+  return{w,d:L,h:h+1};}
+function meeting(A,xf){const w=36*F,L=60*F,h=16*F,wall=C.rock;box(A,xf,0,-1,0,w+.1,1.1,L+.1,C.found);
+  box(A,xf,0,0,0,w,h,L,wall);gable(A,sub(xf,0,0,Math.PI/2),0,h,0,L,w,1.5,C.shingle,wall,0.2);
+  for(const z of[-2.8,-0.9,1.0,2.9]){sideWin(A,xf,w/2+0.02,0.55,z,0.5,1.2);sideWin(A,xf,-w/2-0.02,0.55,z,0.5,1.2);}
+  box(A,xf,0,0,L/2+0.02,0.9,1.3,0.06,C.door);win(A,xf,-1.5,0.55,L/2+0.02,0.5,1.2);win(A,xf,1.5,0.55,L/2+0.02,0.5,1.2);win(A,xf,0,1.9,L/2+0.02,0.45,0.45);
+  box(A,xf,0,h+0.9,L/2-0.9,0.8,0.9,0.8,C.frame);gable(A,sub(xf,0,L/2-0.9,Math.PI/2),0,h+1.8,0,0.8,0.8,0.7,C.shingle2,C.frame);
+  box(A,xf,0,0,-L/2-0.3,0.9,1.4,0.6,C.frame);
+  return{w,d:L,h:h+2.6};}
+function school(A,xf){const w=24*F,L=34*F,h=10*F;box(A,xf,0,-1,0,w+.08,1.08,L+.08,C.found);logWalls(A,xf,w,h,L,[C.ww1,C.ww2]);
+  gable(A,sub(xf,0,0,Math.PI/2),0,h,0,L,w,1.1,C.shingle,C.ww1);for(const z of[-1.2,0.6]){sideWin(A,xf,w/2+.02,0.45,z,0.45,0.65);sideWin(A,xf,-w/2-.02,0.45,z,0.45,0.65);}
+  box(A,xf,0,0,L/2+0.02,0.5,0.9,0.06,C.door);box(A,xf,0,h+0.8,L/2-0.5,0.5,0.55,0.5,C.frame);gable(A,sub(xf,0,L/2-0.5,Math.PI/2),0,h+1.35,0,0.5,0.5,0.45,C.shingle2,C.frame);
+  box(A,xf,w/2+0.15,0,-L/2+0.6,0.34,h+1.2,0.4,C.stone);
+  return{w,d:L,h:h+2};}
+function hall(A,xf,o){const w=o.w*F,L=o.L*F,h=o.h*F,wall=o.wall;box(A,xf,0,-1,0,w+.08,1.08,L+.08,C.found);box(A,xf,0,0,0,w,h,L,wall);
+  gable(A,sub(xf,0,0,Math.PI/2),0,h,0,L,w,1.1,C.shingle,wall);box(A,xf,0,0,L/2+0.02,0.6,1.0,0.06,C.door);
+  for(const x of[-1,1])win(A,xf,x*w*0.28,0.45,L/2+0.02,0.42,0.75);for(let z=-L/2+1;z<L/2-0.6;z+=1.5){sideWin(A,xf,w/2+.02,0.5,z,0.42,0.8);sideWin(A,xf,-w/2-.02,0.5,z,0.42,0.8);}
+  return{w,d:L,h:h+1.1};}
+function barn(A,xf,o){const w=26*F,d=22*F,h=11*F;box(A,xf,0,-0.6,0,w,0.62,d,C.found);logWalls(A,xf,w,h,d,[C.barn1,C.barn2]);gable(A,xf,0,h,0,w,d,1.25,C.shingle2,C.barn1);
+  box(A,xf,0,0,d/2+0.02,1.2,1.25,0.06,hex('#3d2c1f'));box(A,xf,0,h+0.35,d/2+0.02,0.5,0.4,0.06,hex('#3d2c1f'));
+  if(o&&o.shed){box(A,xf,w/2+0.7,0,0,1.4,0.95,d,C.board);shed(A,sub(xf,w/2+0.7,0,-Math.PI/2),0,0,0,d,1.4,1.3,0.95,C.shingle2,C.board);}}
+function granary(A,xf){const w=12*F,d=10*F,h=8*F;box(A,xf,0,-0.5,0,w,0.62,d,C.found);logWalls(A,xf,w,h,d,[C.log1,C.log2]);gable(A,xf,0,h,0,w,d,0.6,C.shingle,C.log1);box(A,xf,0,0.2,d/2+0.02,0.4,0.6,0.05,C.door);}
+function privy(A,xf){box(A,xf,0,-0.3,0,0.58,1.3,0.58,C.board);shed(A,xf,0,0,0,0.6,0.62,1.1,0.95,C.shingle2);}
+function haystack(A,xf,s=1){box(A,xf,0,-0.1,0,1.9*s,0.85*s,1.4*s,C.straw);gable(A,xf,0,0.75*s,0,1.9*s,1.4*s,0.7*s,C.straw2,C.straw,0.06);}
+function woodpile(A,xf){box(A,xf,0,-0.1,0,1.3,0.45,0.5,C.wood);box(A,xf,0.1,0.35,0,1.0,0.25,0.45,hex('#8a6a47'));}
+function cellar(A,xf){gable(A,xf,0,-0.2,0,1.8,1.6,0.75,C.mound,C.mound,0.05);box(A,xf,0,-0.2,0.82,0.45,0.55,0.06,C.door);}
+function wagon(A,xf,o={}){box(A,xf,0,0.42,0,1.05,0.36,2.3,hex('#8a6a45'));for(const sx of[-.58,.58])for(const sz of[-.8,.8])box(A,xf,sx,0.05,sz,0.08,0.72,0.72,C.wheel);
+  if(o.hay)box(A,xf,0,0.78,0,1.2,0.55,2.2,C.straw);
+  if(o.team){box(A,xf,0,0.4,1.75,0.08,0.08,1.3,C.wood);for(const sx of[-.32,.32]){box(A,xf,sx,0.55,2.75,0.36,0.46,1.15,o.dark?C.horse2:C.horse);box(A,xf,sx,0.85,3.35,0.2,0.34,0.5,o.dark?C.horse2:C.horse);for(const lz of[2.35,3.1])box(A,xf,sx,0,lz,0.1,0.58,0.1,C.horse2);}
+    box(A,xf,0,0.78,0.8,0.36,0.5,0.3,C.coat);box(A,xf,0,1.28,0.8,0.22,0.22,0.22,C.skin);box(A,xf,0,1.46,0.8,0.36,0.07,0.36,C.hat);}}
+function cow(A,xf,dark){const col=dark?C.cow1:(Math.random()<.5?C.cow2:C.cow1);box(A,xf,0,0.45,0,0.55,0.5,1.25,col);box(A,xf,0,0.72,0.72,0.3,0.32,0.38,col);for(const sx of[-.18,.18])for(const sz of[-.45,.45])box(A,xf,sx,0,sz,0.1,0.47,0.1,C.horse2);}
+
+function fence(A,x0,z0,x1,z1,style){const L=Math.hypot(x1-x0,z1-z0);if(L<0.5)return;const n=Math.max(1,Math.round(L/3));const rot=Math.atan2(x1-x0,z1-z0);
+  for(let i=0;i<n;i++){const ta=i/n,tb=(i+1)/n,tm=(ta+tb)/2;const mx=x0+(x1-x0)*tm,mz=z0+(z1-z0)*tm,len=L/n;const xf=XF(mx,heightAt(mx,mz),mz,rot);
+    if(style==='picket'){box(A,xf,0,0,0,0.07,0.6,len,C.picket);}else{box(A,xf,0,0.42,0,0.09,0.09,len,C.rail);box(A,xf,0,0.82,0,0.09,0.09,len,C.rail);}
+    box(A,xf,0,-0.2,-len/2,0.14,1.2,0.14,style==='picket'?C.picket:C.post);}}
+function patchRows(A,xf,cx,cz,w,d,c1,c2,rowW=0.55){const n=Math.max(1,Math.floor(d/rowW));for(let i=0;i<n;i++)box(A,xf,cx,-0.3,cz-d/2+rowW*(i+.5),w,0.42,rowW*0.92,i%2?c2:c1);}
+
+/* ============ instanced plants ============ */
+const PL={poplar:[],cotton:[],orch:[],shade:[],willow:[],sage:[],rabbit:[],shad:[],juniper:[]};
+function plant(kind,x,z,s=1){PL[kind].push([x,z,s,R()*Math.PI*2,0.86+R()*0.24]);}
+
+/* ============ lots ============ */
+function lotFrame(b,q,frontEW){const x0=b.c*P+HS,z0=b.k*P+HS;const east=q===1||q===4,south=q===1||q===2;const cx=east?x0+BL:x0,cz=south?z0+BL:z0,sx=east?1:-1,sz=south?1:-1;
+  const a=frontEW?[-sx,0]:[0,-sz],n=frontEW?[0,-sz]:[-sx,0];const rot=Math.atan2(-n[0],-n[1]);
+  return{pt:(u,v)=>[cx+a[0]*u+n[0]*v,cz+a[1]*u+n[1]*v],rot,a,n,cx,cz,frontEW};}
+function place(lf,u,v,dr=0,dy=-0.12){const [x,z]=lf.pt(u,v);return XF(x,heightAt(x,z)+dy,z,lf.rot+dr);}
+function lotDesc(b,q){const st=[];const kN=b.k,kS=b.k+1,cW=b.c,cE=b.c+1;
+  return `Block ${b.num}, ${QN[q]} quarter · ${ewModern(q===1||q===2?kS:kN)} & ${nsModern(q===1||q===4?cE:cW)}`;}
+
+const HOUSE_TYPES=[
+  {id:'log',w:.24,title:'Hewn-log cabin',text:'Logs hauled from the canyons of the Wasatch Plateau, notched at the corners and chinked with mud. Many were plastered inside over willow lath and whitewashed. Early roofs were poles covered with dirt; by 1890 many had cedar shingles. The first proper house on most Castle Valley lots.'},
+  {id:'logww',w:.1,title:'Whitewashed log cabin',text:'A log cabin finished with lime whitewash, as on the 1879 Emery County Cabin from Muddy Creek. Whitewash sealed the mud chinking and brightened the rooms.'},
+  {id:'rock',w:.2,title:'Rock hall-and-parlor house',text:'The signature Mormon village house: one room deep, two rooms wide, a story and a half, with a chimney at each gable end. Built of local sandstone laid by masons trained in Sanpete County, where most Castle Dale settlers came from.'},
+  {id:'adobeW',w:.16,title:'Adobe hall-and-parlor house',text:'Sun-dried adobe brick made from local clay, plastered and limewashed to protect it from rain. Adobe was cheap, warm, and familiar to families from Sanpete Valley.'},
+  {id:'adobeR',w:.1,title:'Bare adobe house',text:'An adobe house not yet plastered, showing the warm brown of the mud brick. Plaster usually came a season or two after the walls went up.'},
+  {id:'frame',w:.07,title:'Frame hall-and-parlor house',text:'Sawn lumber became easier to get after the railroad reached Price in 1883 and canyon sawmills opened. A painted frame house with a porch was a sign of a family doing well.'},
+  {id:'brickT',w:.03,title:'Brick cross-wing house',text:'The T-plan or cross-wing house, with a front-facing gable wing, was the newest style in 1890. Brick was scarce in Castle Valley and was usually freighted in from the railroad.'}
+];
+function pickType(){let r=R(),a=0;for(const t of HOUSE_TYPES){a+=t.w;if(r<a)return t;}return HOUSE_TYPES[0];}
+function buildHouse(xf,t){switch(t.id){
+  case 'log':return logCabin(B,xf,{dirt:R()<.35,lean:R()<.35});
+  case 'logww':return logCabin(B,xf,{ww:true,lean:R()<.3});
+  case 'rock':return hallParlor(B,xf,{wall:R()<.5?C.rock:C.rock2,lean:R()<.55,porch:R()<.25,chim:C.stone});
+  case 'adobeW':return hallParlor(B,xf,{wall:C.adobeW,lean:R()<.5,porch:R()<.3,doorC:R()<.4?C.doorG:C.door});
+  case 'adobeR':return hallParlor(B,xf,{wall:C.adobeR,lean:R()<.4});
+  case 'frame':return hallParlor(B,xf,{wall:C.frame,lean:R()<.4,porch:R()<.7,doorC:C.doorG,roof:C.shingle2});
+  case 'brickT':return tPlan(B,xf,{});
+}}
+
+const SPECIAL={};
+const setSpecial=(n,q,fn)=>{SPECIAL[n+':'+q]=fn;};
+const LANDMARK_POS={};
+
+function farmstead(b,q,lf,opts={}){
+  const s=B.count;
+  // fences along street edges
+  const style=opts.picket||R()<.3?'picket':'pole';
+  const f1=lf.pt(0.7,0.7),f2=lf.pt(20.9,0.7),f3=lf.pt(0.7,20.9);
+  const gate=lf.pt(opts.gateU||8,0.7),gate2=lf.pt((opts.gateU||8)+2.2,0.7);
+  fence(B,f1[0],f1[1],gate[0],gate[1],style);fence(B,gate2[0],gate2[1],f2[0],f2[1],style);fence(B,f1[0],f1[1],f3[0],f3[1],'pole');
+  if(!opts.noShade&&R()<.6)plant('shade',...lf.pt(2.6,3.2),0.85+R()*.4);
+  if(!opts.noShade&&R()<.35)plant('shade',...lf.pt(12.2,2.6),0.7+R()*.3);
+  // orchard or lucerne
+  if(!opts.noOrchard){if(R()<.62){const xf=place(lf,16.6,6.2,0,-0.15);box(B,xf,0,-0.3,0,8.2,0.42,6.6,C.orch);for(let u=13.4;u<=20.2;u+=2.25)for(let v=3.6;v<=9;v+=2.3)plant('orch',...lf.pt(u+(R()-.5)*.3,v+(R()-.5)*.3),0.8+R()*.35);}
+    else{const xf=place(lf,16.6,6.2,0,-0.15);patchRows(B,xf,0,0,8.2,6.6,C.luc,hex('#9dba64'),0.9);}}
+  // garden
+  if(!opts.noGarden){const xf=place(lf,4.2,10.8,0,-0.15);patchRows(B,xf,0,0,5,5,C.row1,C.row2);}
+  // barn & corral
+  if(R()<.82){barn(B,place(lf,16.5,16.4,Math.PI),{shed:R()<.35});
+    const c0=lf.pt(3.8,14.2),c1=lf.pt(11.8,14.2),c2=lf.pt(11.8,20.6),c3=lf.pt(3.8,20.6);fence(B,c0[0],c0[1],c1[0],c1[1],'pole');fence(B,c1[0],c1[1],c2[0],c2[1],'pole');fence(B,c2[0],c2[1],c3[0],c3[1],'pole');fence(B,c3[0],c3[1],c0[0],c0[1],'pole');
+    if(R()<.55){cow(B,place(lf,6+R()*3,16+R()*3,R()*6,0),R()<.5);}if(R()<.4)cow(B,place(lf,8+R()*2,18,R()*6,0),false);}
+  if(R()<.8)haystack(B,place(lf,13.8,11.6,0,-0.05),0.9+R()*.4);
+  if(R()<.35)haystack(B,place(lf,19.4,11.4,0.2,-0.05),0.8+R()*.3);
+  if(R()<.55)granary(B,place(lf,20.1,19.6,Math.PI));
+  privy(B,place(lf,10.6,12.2,Math.PI));
+  if(R()<.7)woodpile(B,place(lf,11.6,9.3,R()));
+  if(R()<.25)cellar(B,place(lf,1.8,7.4,Math.PI/2));
+  if(R()<.22)wagon(B,place(lf,19.2,15.2,0.2),{hay:R()<.5});
+  rec(s,{kind:'Farmstead lot',title:'Farmstead yard',where:lotDesc(b,q),text:'Each quarter-block lot of about an acre held a family’s house, garden, fruit trees, barn, corral and haystacks, the Mormon village pattern of living in town and farming the fields outside it. Street ditches carried irrigation water into the lot.',tag:'rep'});
+}
+
+function regularLot(b,q){const frontEW=R()<.55;const lf=lotFrame(b,q,frontEW);const t=pickType();
+  const u=7.4+R()*2.2;const s=B.count;const dims=buildHouse(place(lf,u,4.5+1.2,0,-0.1),t);
+  rec(s,{kind:'House',title:t.title,where:lotDesc(b,q),text:t.text,tag:'rep',top:dims.h});farmstead(b,q,lf,{gateU:u-1.1});}
+
+// ---- special lots ----
+setSpecial(20,3,(b,q)=>{const lf=lotFrame(b,q,true);const xf=place(lf,10.7,3.2+4.2,0,-0.1);const s=B.count;meeting(B,xf);
+  const p=lf.pt(10.7,7.4);LANDMARK_POS.meeting=[p[0],p[1]];
+  rec(s,{kind:'Public building',title:'Meetinghouse & Emery Stake Academy',where:'Block 20, the Public Block · 100 N & Center St.',text:'The 1880 plat marks the Academy on the northwest quarter of Block 20, which it calls the Public Block. The Emery Stake Academy was founded in 1889 and held classes in church buildings until its brick building went up in 1899. The rock meetinghouse shown here is representative; its exact form is not recorded.',tag:'doc',top:5});
+  for(let u=2;u<20;u+=4)plant('shade',...lf.pt(u,1.8),1);});
+const publicSquare=(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;for(let i=0;i<6;i++)plant('shade',...lf.pt(3+R()*16,3+R()*16),0.9+R()*.4);
+  if(q===1){haystack(B,place(lf,12,12,0),1.2);haystack(B,place(lf,15,9,0.3),1.1);const c0=lf.pt(5,5),c1=lf.pt(18,5),c2=lf.pt(18,17),c3=lf.pt(5,17);fence(B,c0[0],c0[1],c1[0],c1[1],'pole');fence(B,c1[0],c1[1],c2[0],c2[1],'pole');fence(B,c2[0],c2[1],c3[0],c3[1],'pole');fence(B,c3[0],c3[1],c0[0],c0[1],'pole');}
+  if(q===2){for(let u=3;u<19;u+=5.2)box(B,place(lf,u,2.2,0,-0.05),0,0,0,2.4,0.9,0.12,C.rail);wagon(B,place(lf,6,5,1.2),{team:true});}
+  rec(s,{kind:'Open ground',title:'The Public Block',where:`Block 20, ${QN[q]} quarter`,text:q===1?'Common ground on the Public Block. The fenced yard and haystacks suggest the ward tithing yard, where members paid tithes in hay, grain and livestock. That use is typical of Mormon towns but not documented here.':'Common ground on the Public Block, used for meetings, celebrations and hitching teams on Sundays.',tag:'rep'});};
+setSpecial(20,1,publicSquare);setSpecial(20,2,publicSquare);setSpecial(20,4,publicSquare);
+setSpecial(19,3,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;const d=hall(B,place(lf,10.7,3+3.4),{w:28,L:48,h:14,wall:C.frame2});
+  rec(s,{kind:'Public building',title:'Building marked “N.H.”',where:'Block 19, northwest quarter · 100 N & 100 E',text:'The 1880 plat carries the initials “N.H.” on this quarter. The meaning is not confirmed. A public or meeting hall is one possibility, so it is drawn as a frame hall.',tag:'est',top:d.h});
+  const p=lf.pt(10.7,6);LANDMARK_POS.b19=[p[0],p[1]];for(let u=15;u<20;u+=2.4)plant('shade',...lf.pt(u,12),0.9);});
+setSpecial(19,4,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;falseFront(B,place(lf,10.7,3+2.8),{wall:C.frame2,front:hex('#d9cba8')});
+  rec(s,{kind:'Public building',title:'Building marked “C.R.M.”',where:'Block 19, northeast quarter · 100 N & 200 E',text:'The plat marks this quarter “C.R.M.”. The initials are not confirmed. A co-operative store is a likely candidate in a Mormon town of this date, so it is drawn with the false front typical of 1890 Utah stores.',tag:'est',top:3});
+  haystack(B,place(lf,15,15,0),1);wagon(B,place(lf,5,7,0.4),{team:true,dark:true});});
+setSpecial(19,2,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;const d=hall(B,place(lf,10.7,3+2),{w:20,L:28,h:11,wall:hex('#cbb89a')});
+  rec(s,{kind:'Public building',title:'Building marked “K.H.”',where:'Block 19, southwest quarter · Main St. & 100 E',text:'The plat marks this quarter “K.H.”. Its meaning is not confirmed, so it is drawn as a plain frame building.',tag:'est',top:d.h});
+  for(let u=14;u<20;u+=2.3)for(let v=6;v<14;v+=2.3)plant('orch',...lf.pt(u,v),0.9);});
+setSpecial(12,1,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;const c=[lf.pt(1,1),lf.pt(20.4,1),lf.pt(20.4,20.4),lf.pt(1,20.4)];for(let i=0;i<4;i++)fence(B,c[i][0],c[i][1],c[(i+1)%4][0],c[(i+1)%4][1],i===0?'picket':'pole');
+  const xf=place(lf,10.7,9,0,-0.1);const w=40*F,d=36*F;box(B,xf,0,-0.4,-d/2,w,0.62,0.4,C.stone);box(B,xf,0,-0.4,d/2,w,0.62,0.4,C.stone);box(B,xf,-w/2,-0.4,0,0.4,0.62,d,C.stone);box(B,xf,w/2,-0.4,0,0.4,0.62,d,C.stone);
+  for(let i=0;i<5;i++)box(B,place(lf,15+R()*3,15+R()*3,R(),-0.05),0,0,0,1.1,0.55,0.8,C.brick);box(B,place(lf,4,15,0.4,-0.05),0,0,0,1.8,0.4,1.2,hex('#d8d2c2'));
+  const p=lf.pt(10.7,9);LANDMARK_POS.court=[p[0],p[1]];
+  rec(s,{kind:'Civic site',title:'Courthouse lot',where:'Block 12, southeast quarter · 100 S & 200 E',text:'The plat marks the courthouse on this quarter. Emery County’s two-story brick courthouse went up in 1892, two years after this scene, so the lot is shown fenced with footings laid and brick stacked, ready to build.',tag:'est',top:1.5});});
+setSpecial(11,2,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;const d=tPlan(B,place(lf,8.6,4.2+1.4),{});const p=lf.pt(8.6,5.5);LANDMARK_POS.seeley=[p[0],p[1]];
+  rec(s,{kind:'House',title:'Justus Wellington Seeley II house',where:'Block 11, southwest quarter · Center & 100 South',text:'Built in 1889: a 1½-story T-plan house with 8-inch adobe walls faced in red brick. The brick was shipped in and hauled by wagon from the railroad at Price. It is on the National Register of Historic Places.',tag:'doc',top:d.h});
+  farmstead(b,q,lf,{picket:true,gateU:7});});
+setSpecial(21,1,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;falseFront(B,place(lf,11,3+2.8),{});
+  rec(s,{kind:'Business',title:'General store',where:'Block 21, southeast quarter · Main & Center',text:'A false-front store of the kind that lined small Utah main streets. Castle Dale merchants of this period stocked mostly necessities: flour, sugar, coffee, cloth, hardware. The building and lot are representative.',tag:'rep',top:3});
+  farmstead(b,q,lf,{noOrchard:true,noShade:true,gateU:4});});
+setSpecial(10,4,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;smithy(B,place(lf,10,3+2.1));wagon(B,place(lf,15,4,0.8),{});wagon(B,place(lf,4.5,5,-0.4),{team:true});
+  rec(s,{kind:'Business',title:'Blacksmith & wagon shop',where:'Block 10, northeast quarter · Main & Center',text:'Every farm town needed a smith to shoe horses, set wagon tires and mend plows. The building and its location are representative.',tag:'rep',top:2.4});
+  farmstead(b,q,lf,{noOrchard:true,gateU:3});});
+setSpecial(11,3,(b,q)=>{const lf=lotFrame(b,q,true);const s=B.count;falseFront(B,place(lf,11,3+2.8),{wall:hex('#c9b690'),front:hex('#e1d4b1')});
+  rec(s,{kind:'Business',title:'Store',where:'Block 11, northwest quarter · Main & Center',text:'A second false-front store at the Main and Center crossroads. Representative of the small commercial buildings of the period.',tag:'rep',top:3});
+  farmstead(b,q,lf,{noOrchard:true,gateU:4});});
+
+// settle the blocks
+for(const b of BLOCKS){const cx=b.c*P+P/2,cz=b.k*P+P/2;const dist=Math.hypot(cx,cz+10);const p=dist<130?0.9:dist<210?0.72:0.52;
+  for(const q of b.quads){const key=b.num+':'+q;if(SPECIAL[key]){SPECIAL[key](b,q);continue;}if(R()<p)regularLot(b,q);else{const lf=lotFrame(b,q,true);if(R()<.5){const xf=place(lf,10.7,10.7,0,-0.15);patchRows(B,xf,0,0,18,18,C.luc,hex('#9dba64'),1.2);}else{for(let i=0;i<3;i++)plant('orch',...lf.pt(3+R()*15,3+R()*15),0.8);}}}}
+
+// schoolhouse north of Block 19
+(function(){const x=74,z=-66.2;const xf=XF(x,heightAt(x,z)-0.1,z,Math.PI);const s=B.count;school(B,xf);
+  const c=[[66,-60],[84,-60],[84,-74],[66,-74]];for(let i=0;i<4;i++)fence(B,c[i][0],c[i][1],c[(i+1)%4][0],c[(i+1)%4][1],'pole');privy(B,XF(80,heightAt(80,-72),-72,0));
+  LANDMARK_POS.school=[x,z];rec(s,{kind:'Public building',title:'Schoolhouse',where:'North side of First North (100 N), above Block 19',text:'The 1880 plat writes “SCHOOL” on the north side of the street above Block 19. A local history places the early schoolhouse near 200 East and 100 North, later traded to the Relief Society and lost to fire in 1932. Drawn as a whitewashed log school with a bell cupola.',tag:'doc',top:3.5});
+  for(let i=0;i<4;i++)plant('shade',68+i*4.5,-61.5,0.9);})();
+
+// dugouts on the creek bank
+(function(){const s=B.count;for(const [x,z,r] of [[-118,66,Math.PI*0.95],[-108,71,Math.PI*1.05]]){const xf=XF(x,heightAt(x,z)-0.3,z,r);box(B,xf,0,-0.4,0,2.6,0.75,2.2,C.mound);gable(B,xf,0,0.35,0,2.6,2.2,0.45,hex('#7c8a55'),C.mound,0.1);box(B,xf,0,-0.1,1.12,0.45,0.7,0.05,C.door);box(B,xf,0.9,0.2,-0.4,0.3,0.8,0.3,C.stone);}
+  LANDMARK_POS.dug=[-113,68.5];rec(s,{kind:'Historic site',title:'Dugouts on the creek bank',where:'Cottonwood Creek, south of Main west of Center',text:'The first families spent the winters of 1877–79 in dugouts cut into the creek bank beneath a large cottonwood, before the townsite was laid out. The DUP marker records that first bishop Jasper Peterson was sustained here in October 1879. By 1890 these would have been abandoned or used for storage; their exact site is approximate.',tag:'est',top:1.2});
+  plant('cotton',-114,62,1.45);})();
+
+// cemetery on the bench
+(function(){const s=B.count;const cx=-18,cz=-362;const c=[[cx-8,cz-6],[cx+8,cz-6],[cx+8,cz+6],[cx-8,cz+6]];for(let i=0;i<4;i++)fence(B,c[i][0],c[i][1],c[(i+1)%4][0],c[(i+1)%4][1],'picket');
+  for(let i=0;i<16;i++){const x=cx-6+(i%6)*2.3+R()*.4,z=cz-4+Math.floor(i/6)*3+R()*.4;const xf=XF(x,heightAt(x,z),z,0);box(B,xf,0,-0.1,0,0.45,0.55+R()*.3,0.14,R()<.6?C.grave:hex('#a79b86'));}
+  plant('juniper',cx-10,cz+2,1.1);plant('juniper',cx+9,cz-5,1);LANDMARK_POS.cem=[cx,cz];
+  rec(s,{kind:'Historic site',title:'Town cemetery',where:'On the bench north of town, off Center Street',text:'The cemetery sits on the bench above town, where the USGS topographic map places it. Early burials date from the settlement years; its 1890 extent is estimated.',tag:'est',top:1});})();
+
+// log bridge where the Ferron road crosses the creek
+(function(){let best=null;for(const p of CREEK_D){if(!best||Math.abs(p[0]-0.5)<Math.abs(best[0]-0.5))best=p;}const bz=best[1],bx=0.5+(best[0]-0.5)*0+0;const x=bx;
+  const y=Math.max(heightAt(x,bz-6),heightAt(x,bz+6))+0.25;const s=B.count;const xf=XF(x,y,bz,0);box(B,xf,0,-0.25,0,4.2,0.3,12.4,C.bridge);
+  for(const sx of[-2.1,2.1]){box(B,xf,sx,0.05,0,0.14,0.14,12.4,C.rail);for(let z=-6;z<=6;z+=3)box(B,xf,sx,-0.2,z,0.16,0.9,0.16,C.post);}
+  for(const z of[-3.5,3.5])for(const sx of[-1.6,1.6])box(B,xf,sx,-3.5,z,0.4,3.3,0.4,C.post);
+  LANDMARK_POS.bridge=[x,bz];rec(s,{kind:'Crossing',title:'Log bridge on the Ferron road',where:'Center Street south, over Cottonwood Creek',text:'Center Street continued south across Cottonwood Creek toward Ferron. A later bridge at about 200 South and Center is on the National Register. This log crossing stands in for its predecessors.',tag:'est',top:1});})();
+
+// livestock in the bottoms
+for(let i=0;i<16;i++){const x=-240+R()*200,z=zc(-240+i*12)+14+R()*8;const cls=classify(x,z);if(cls.zone==='flood'||cls.zone==='commons')cow(B,XF(x,heightAt(x,z),z,R()*6),R()<.5);}
+for(let i=0;i<10;i++){const x=300+R()*180,z=-6-R()*25;if(classify(x,z).zone==='field')cow(B,XF(x,heightAt(x,z),z,R()*6),R()<.5);}
+// haystacks out in the fields
+for(let i=0;i<60;i++){const x=X0+20+R()*(X1-X0-40),z=Z0+20+R()*(Z1-Z0-40);const c=classify(x,z);if(c.zone==='field'&&!fieldAt(x,z).border){const f=fieldAt(x,z).crop.n;if(f.startsWith('Lucerne')||f==='Pasture')haystack(B,XF(x,heightAt(x,z),z,R()),1.1+R()*.4);}}
+// field fences along canals & roads edge (a few)
+const bmesh=new THREE.Mesh(B.geo(),new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide}));bmesh.castShadow=true;bmesh.receiveShadow=true;bmesh.name='buildings';scene.add(bmesh);
+
+/* ============ natural plants ============ */
+for(const s of STREETS){const along=s.ax==='x';for(let a=s.a0;a<=s.a1;a+=5){const m=((a%P)+P)%P;if(m<7||m>P-7)continue;for(const sd of[-1,1]){if(R()>0.62)continue;const off=sd*4.9;const x=along?a:s.x+off,z=along?s.z+off:a;const ba=blockAt(along?x:x+sd*2,along?z+sd*2:z);if(!ba||!ba.platted)continue;plant('poplar',x+(R()-.5)*.4,z+(R()-.5)*.4,0.85+R()*.35);}}}
+for(let i=0;i<CREEK_D.length;i+=2){const [x,z]=CREEK_D[i];for(const sd of[-1,1]){if(R()<.75)plant('willow',x+sd*(2.2+R()*2.2)*(R()<.5?1:-1)*0+sd*(2.4+R()*2),z+sd*(R()-.5)*3,0.8+R()*.5);}
+  if(R()<.28){const o=(R()<.5?-1:1)*(4+R()*16);plant('cotton',x+(R()-.5)*6,z+o,0.9+R()*.6);}}
+for(let i=0;i<WASH.length-1;i++){const a=WASH[i],b=WASH[i+1];for(let t=0;t<1;t+=0.06){const x=a[0]+(b[0]-a[0])*t,z=a[1]+(b[1]-a[1])*t;if(z>0)continue;if(R()<.5)plant('willow',x+(R()-.5)*5,z+(R()-.5)*5,0.6+R()*.4);if(R()<.12)plant('cotton',x+(R()-.5)*8,z+(R()-.5)*8,0.7+R()*.4);if(R()<.5)plant('rabbit',x+(R()-.5)*10,z+(R()-.5)*10,1);}}
+for(const pts of[MAMMOTH,BLUE])for(let i=0;i<pts.length-1;i+=1){if(R()<.35){const [x,z]=pts[i];plant(R()<.6?'poplar':'willow',x+(R()-.5)*2,z+(R()<.5?-1.6:1.6),0.8+R()*.3);}}
+for(let i=0;i<22000;i++){const x=X0+2+R()*(X1-X0-4),z=Z0+2+R()*(Z1-Z0-4);const c=classify(x,z);
+  if(c.zone==='desert'||c.zone==='bench'){const r=R();if(r<.34)plant('sage',x,z,0.8+R()*.6);else if(r<.37)plant('rabbit',x,z,0.8+R()*.5);else if(r<.385&&c.zone==='bench')plant('juniper',x,z,0.8+R()*.5);}
+  else if(c.zone==='scarp'){const r=R();if(r<.2)plant('shad',x,z,0.8+R()*.6);else if(r<.235)plant('juniper',x,z,0.7+R()*.5);}
+  else if(c.zone==='commons'&&R()<.05)plant('rabbit',x,z,0.8);
+  else if(c.zone==='flood'&&R()<.012&&c.dc>8)plant('cotton',x,z,0.8+R()*.5);}
+
+function mergeParts(parts){const A=new Acc();for(const [g,col] of parts){const ng=g.index?g.toNonIndexed():g;const p=ng.attributes.position;for(let i=0;i<p.count;i+=3){A.tri([p.getX(i),p.getY(i),p.getZ(i)],[p.getX(i+1),p.getY(i+1),p.getZ(i+1)],[p.getX(i+2),p.getY(i+2),p.getZ(i+2)],hex(col));}}return A.geo();}
+const cyl=(r,h,y)=>new THREE.CylinderGeometry(r*.8,r,h,6).translate(0,y+h/2,0);
+const TG={
+  poplar:mergeParts([[cyl(.14,.9,0),'#6b5a48'],[new THREE.ConeGeometry(.78,6.4,7).translate(0,.8+3.2,0),'#5f8a3a']]),
+  cotton:mergeParts([[cyl(.32,2.4,0),'#6b5a48'],[new THREE.DodecahedronGeometry(2.3).translate(0,3.8,0),'#6e9a45'],[new THREE.DodecahedronGeometry(1.8).translate(1.5,3.1,.6),'#7aa34e'],[new THREE.DodecahedronGeometry(1.7).translate(-1.3,3.3,-.8),'#679341']]),
+  orch:mergeParts([[cyl(.1,.65,0),'#6b5a48'],[new THREE.IcosahedronGeometry(.95).translate(0,1.35,0),'#5f8f3e']]),
+  shade:mergeParts([[cyl(.16,1.3,0),'#6b5a48'],[new THREE.IcosahedronGeometry(1.6).translate(0,2.5,0),'#5a893c'],[new THREE.IcosahedronGeometry(1.1).translate(.8,2.1,.3),'#669444']]),
+  willow:mergeParts([[new THREE.IcosahedronGeometry(.9).scale(1,.8,1).translate(0,.6,0),'#93a84f'],[new THREE.IcosahedronGeometry(.7).translate(.7,.5,.3),'#a1b35a'],[new THREE.IcosahedronGeometry(.65).translate(-.6,.45,-.3),'#879d48']]),
+  sage:mergeParts([[new THREE.IcosahedronGeometry(.55).scale(1,.7,1).translate(0,.3,0),'#9aa38a']]),
+  rabbit:mergeParts([[new THREE.IcosahedronGeometry(.48).scale(1,.8,1).translate(0,.32,0),'#cdb54a']]),
+  shad:mergeParts([[new THREE.IcosahedronGeometry(.38).scale(1,.7,1).translate(0,.2,0),'#8f9270']]),
+  juniper:mergeParts([[cyl(.1,.45,0),'#5b4a3a'],[new THREE.IcosahedronGeometry(.85).scale(1,1.45,1).translate(0,1.35,0),'#3f5e3a']])
+};
+const PLANT_INFO={
+  poplar:{title:'Lombardy poplar',tag:'rep',kind:'Planted tree',text:'Tall, narrow poplars were planted along the ditch banks of nearly every Mormon town street. They grew fast on ditch water, marked property lines and broke the wind. Introduced from Europe; seedlings planted in the 1880s would be 25 to 40 feet tall by 1890.'},
+  cotton:{title:'Fremont cottonwood',tag:'doc',kind:'Native tree',text:'The big native tree of Cottonwood Creek, which is named for it. The first settlers dug their homes into the bank beneath one. Cottonwoods also supplied fuel and rough timber.'},
+  orch:{title:'Fruit orchard',tag:'rep',kind:'Planted trees',text:'Apple, plum, peach and apricot trees were among the first things planted on a town lot. Fruit was dried for winter. Orchards needed the town ditch water to survive the dry summers.'},
+  shade:{title:'Box elder or black locust',tag:'rep',kind:'Planted shade tree',text:'Shade trees planted by the house. Box elder is native to Utah’s stream banks; black locust was introduced and prized for fence posts.'},
+  willow:{title:'Coyote willow',tag:'doc',kind:'Native shrub',text:'Dense willow thickets lined the creek and wash. Settlers cut them for lath in plaster walls, for corral fencing and for baskets.'},
+  sage:{title:'Big sagebrush',tag:'doc',kind:'Native shrub',text:'The dominant plant of the unwatered flats. Its size told settlers where the soil was deep enough to farm. Clearing sage was the first job on new ground.'},
+  rabbit:{title:'Rubber rabbitbrush',tag:'doc',kind:'Native shrub',text:'A gray-green shrub that turns bright yellow in late summer, common along roadsides, washes and disturbed ground.'},
+  shad:{title:'Shadscale & greasewood',tag:'doc',kind:'Native shrubs',text:'Salt-tolerant shrubs of the gray Mancos shale slopes that ring Castle Valley. They grow where little else will.'},
+  juniper:{title:'Utah juniper',tag:'doc',kind:'Native tree',text:'Called “cedar” by settlers. Scattered on the rocky bench and bluffs. The main source of fence posts and firewood.'}
+};
+const plantGroup=new THREE.Group();scene.add(plantGroup);
+const plantMat=new THREE.MeshLambertMaterial({vertexColors:true,flatShading:true});
+const IMESH=[];
+for(const k of Object.keys(PL)){const list=PL[k];if(!list.length)continue;const im=new THREE.InstancedMesh(TG[k],plantMat,list.length);const m=new THREE.Matrix4(),q=new THREE.Quaternion(),e=new THREE.Euler(),sv=new THREE.Vector3(),pv=new THREE.Vector3(),col=new THREE.Color();
+  list.forEach((t,i)=>{const [x,z,s,r,f]=t;e.set(0,r,0);q.setFromEuler(e);sv.set(s,s*(k==='poplar'?0.9+f*.25:1),s);pv.set(x,heightAt(x,z)-0.08,z);m.compose(pv,q,sv);im.setMatrixAt(i,m);col.setRGB(f,f,f*0.97);im.setColorAt(i,col);});
+  im.castShadow=!['sage','rabbit','shad'].includes(k);im.receiveShadow=true;im.userData.kind=k;plantGroup.add(im);IMESH.push(im);}
+
+/* ============ street labels on the ground ============ */
+const texCache=new Map();
+function textTex(txt,opt={}){const key=txt+(opt.fill||'');if(texCache.has(key))return texCache.get(key);const c=document.createElement('canvas'),g=c.getContext('2d');const fs=opt.fs||64;const font=`700 ${fs}px "Zilla Slab", Georgia, serif`;g.font=font;try{g.letterSpacing=(opt.ls||6)+'px';}catch(e){}
+  const w=Math.ceil(g.measureText(txt).width)+48,h=Math.ceil(fs*1.45);c.width=w;c.height=h;g.font=font;try{g.letterSpacing=(opt.ls||6)+'px';}catch(e){}g.textAlign='center';g.textBaseline='middle';
+  g.lineJoin='round';g.lineWidth=opt.halo||12;g.strokeStyle=opt.stroke||'rgba(245,236,212,0.92)';g.strokeText(txt,w/2,h/2+2);g.fillStyle=opt.fill||'#3a2a1a';g.fillText(txt,w/2,h/2+2);
+  const t=new THREE.CanvasTexture(c);t.anisotropy=renderer.capabilities.getMaxAnisotropy();const r={t,aspect:w/h};texCache.set(key,r);return r;}
+const streetLabels=new THREE.Group();scene.add(streetLabels);const flatLabels=[];
+function flatLabel(group,txt,x,z,axis,h,opt={}){const {t,aspect}=textTex(txt,opt);const geo=new THREE.PlaneGeometry(h*aspect,h).rotateX(-Math.PI/2);
+  const m=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({map:t,transparent:true,depthWrite:false,opacity:opt.opacity||1,polygonOffset:true,polygonOffsetFactor:-6}));
+  let y=-1e9;for(const dx of[-h*aspect/2,0,h*aspect/2]){const px=axis==='x'?x+dx:x,pz=axis==='x'?z:z+dx;y=Math.max(y,heightAt(px,pz));}
+  m.position.set(x,y+(opt.lift||0.34),z);m.renderOrder=5;m.userData.axis=axis;group.add(m);flatLabels.push(m);return m;}
+for(const s of STREETS){const txt=s.name.toUpperCase();const len=s.a1-s.a0;const n=Math.max(1,Math.floor(len/P));for(let i=0;i<n;i+=2){const a=s.a0+P*(i+0.5);if(a>s.a1)break;if(s.ax==='x')flatLabel(streetLabels,txt,a,s.z,'x',2.3);else flatLabel(streetLabels,txt,s.x,a,'z',2.3);}}
+const blockLabels=new THREE.Group();blockLabels.visible=false;scene.add(blockLabels);
+for(const b of BLOCKS){let x=b.c*P+HS+BL/2,z=b.k*P+HS+BL/2;if(b.quads.length===1){const q=b.quads[0];x+=(q===1||q===4?1:-1)*Q/2;z+=(q===1||q===2?1:-1)*Q/2;}else if(b.quads.length===2){z+=Q/2;}
+  flatLabel(blockLabels,'B'+b.num,x,z,'x',b.quads.length<4?4.5:7,{fill:'#7a2e1d',stroke:'rgba(250,244,228,0.85)',lift:3.2,ls:2});}
+let lastFlip=null;
+function flipLabels(){const f=new THREE.Vector3().subVectors(controls.target,camera.position);const az=Math.atan2(f.x,f.z);if(lastFlip!==null&&Math.abs(az-lastFlip)<0.02)return;lastFlip=az;
+  for(const m of flatLabels){const opts=m.userData.axis==='x'?[0,Math.PI]:[Math.PI/2,-Math.PI/2];let best=opts[0],bd=-2;for(const phi of opts){const tx=-Math.sin(phi),tz=-Math.cos(phi);const d=tx*f.x+tz*f.z;if(d>bd){bd=d;best=phi;}}m.rotation.y=best;}}
+
+/* ============ wagons ============ */
+const wagons=[];
+function makeWagon(path,speed,opt){const A=new Acc();wagon(A,XF(0,0,0,0),{team:true,...opt});const m=new THREE.Mesh(A.geo(),new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide}));m.castShadow=true;scene.add(m);
+  const pts=resample(path,1);const lens=[0];for(let i=1;i<pts.length;i++)lens.push(lens[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]));wagons.push({m,pts,lens,total:lens[lens.length-1],s:R()*lens[lens.length-1],dir:1,speed});}
+makeWagon([[-150,1.3],[260,1.3],[400,3.5],[520,5]],4.2,{hay:true});
+makeWagon([[1.3,-150],[1.3,100],[1.3,150],[5,200],[11,260],[15,330],[17,425]],3.4,{dark:true});
+makeWagon([[-205,-51.5],[258,-51.5]],3.8,{});
+makeWagon([[-262,-104.3],[-340,-116.7],[-440,-138.7],[-560,-163]],3.6,{hay:true,dark:true});
+function updateWagons(dt){for(const w of wagons){w.s+=w.dir*w.speed*dt;if(w.s>w.total){w.s=w.total;w.dir=-1;}if(w.s<0){w.s=0;w.dir=1;}
+  let i=1;while(i<w.lens.length-1&&w.lens[i]<w.s)i++;const t=(w.s-w.lens[i-1])/((w.lens[i]-w.lens[i-1])||1);const a=w.pts[i-1],b=w.pts[i];const x=a[0]+(b[0]-a[0])*t,z=a[1]+(b[1]-a[1])*t;
+  const off=w.dir>0?0.9:-0.9;const dx=(b[0]-a[0])*w.dir,dz=(b[1]-a[1])*w.dir;const l=Math.hypot(dx,dz)||1;const nx=-dz/l,nz=dx/l;const px=x+nx*off*0,pz=z+nz*off*0;
+  w.m.position.set(px,heightAt(px,pz)+0.14,pz);w.m.rotation.y=Math.atan2(dx,dz);}}
+
+/* ============ HTML landmark labels ============ */
+const labelsEl=$('#labels');const HL=[];
+function hlabel(x,z,dy,title,small,cls,layer){const el=document.createElement('div');el.className='lbl '+(cls||'');el.innerHTML=`<span class="t">${title}${small?`<small>${small}</small>`:''}</span>`;labelsEl.appendChild(el);HL.push({el,v:new THREE.Vector3(x,heightAt(x,z)+dy,z),layer:layer||'lm'});}
+hlabel(...LANDMARK_POS.meeting,6.4,'Meetinghouse &amp; Academy','Public Block · Stake Academy 1889');
+hlabel(...LANDMARK_POS.school,5,'Schoolhouse','marked on 1880 plat');
+hlabel(...LANDMARK_POS.court,3.2,'Courthouse lot','brick courthouse built 1892');
+hlabel(...LANDMARK_POS.seeley,5,'J. W. Seeley II house','brick over adobe · 1889');
+hlabel(LANDMARK_POS.b19[0]+10,LANDMARK_POS.b19[1]+8,5,'Block 19','plat notes N.H. · C.R.M. · K.H.');
+hlabel(...LANDMARK_POS.dug,3,'Settlers’ dugouts','winters of 1877–79');
+hlabel(...LANDMARK_POS.cem,3,'Cemetery','on the bench');
+hlabel(...LANDMARK_POS.bridge,3,'Log bridge','road to Ferron');
+hlabel(-60,93,3,'Cottonwood Creek',null,'water');hlabel(250,373,3,'Cottonwood Creek',null,'water');
+hlabel(-330,ze(-330)-95,3,'Mammoth Canal','begun c. 1884','water');
+hlabel(-220,zb(-220),3,'Blue Cut Canal','route approximate','water');
+hlabel(165,-240,4,'Dry wash','drains the bench','water');
+hlabel(-430,-205,9,'Bench &amp; Mancos shale bluffs');
+hlabel(-548,-161,4,'To Orangeville ↖',null,'road');hlabel(16,425,4,'To Ferron ↓',null,'road');hlabel(505,6,4,'To Wilsonville &amp; Huntington →',null,'road');hlabel(-6,-420,4,'Bench road ↑',null,'road');
+const tv=new THREE.Vector3();
+function updateLabels(){const W=labelsEl.clientWidth,H=labelsEl.clientHeight;const showLm=$('#lyLandmarks').checked;
+  for(const l of HL){if(!showLm){l.el.hidden=true;continue;}tv.copy(l.v).project(camera);if(tv.z>1||tv.z<-1||tv.x<-1.2||tv.x>1.2||tv.y<-1.2||tv.y>1.2){l.el.hidden=true;continue;}l.el.hidden=false;
+    l.el.style.transform=`translate(${((tv.x+1)/2*W).toFixed(1)}px,${((1-tv.y)/2*H).toFixed(1)}px)`;const dist=camera.position.distanceTo(l.v);l.el.style.opacity=dist>1300?0.55:1;}}
+
+/* ============ selection & info ============ */
+const infoEl=$('#info');
+const marker=new THREE.Mesh(new THREE.OctahedronGeometry(1.3),new THREE.MeshLambertMaterial({color:0xf2c14e,emissive:0x5a3f00}));marker.scale.set(1,1.5,1);marker.visible=false;scene.add(marker);let markerBase=null;
+const TAGTXT={doc:'Documented',rep:'Representative',est:'Approximate'};
+function showInfo(o){infoEl.innerHTML=`<div class="kind">${o.kind}</div><h3>${o.title}</h3>${o.where?`<div class="where">${o.where}</div>`:''}<p>${o.text}</p>${o.tag?`<span class="tag ${o.tag}">${TAGTXT[o.tag]}</span>`:''}`;}
+function selectAt(v,top){markerBase=v.clone();markerBase.y+=(top||2)+2.2;marker.visible=true;}
+function zoneInfo(x,z){const c=classify(x,z);const ba=blockAt(x,z);
+  const blockTxt=b=>`1880 plat Block ${b.num} (A-${b.num} on the 1986–87 survey), bounded by ${ewName(b.k)}, ${ewName(b.k+1)}, ${nsName(b.c)} and ${nsName(b.c+1)}.`;
+  switch(c.zone){
+    case 'street':return{kind:'Street',title:c.st.name,where:`Today: ${c.st.ax==='x'?ewModern(c.st.k):nsModern(c.st.c)}`,text:'Streets in the Mormon grid were laid out six rods (99 feet) wide, wide enough to turn an ox team. The Sanborn map confirms First North at 99 feet. Only a dirt track in the middle was used; the sides held irrigation ditches and rows of poplars.',tag:'doc'};
+    case 'lot':return{kind:'Town lot',title:`Block ${ba.b.num}, ${QN[ba.q]} quarter`,where:ba?lotDesc(ba.b,ba.q):'',text:blockTxt(ba.b)+' Each block was divided into four lots of a little over an acre.',tag:'doc'};
+    case 'creek':case 'flood':return{kind:'Waterway',title:'Cottonwood Creek bottoms',where:'Course traced from the 1986–87 survey map',text:'Cottonwood Creek comes down from the Wasatch Plateau past Orangeville and curves around the south side of the townsite. Its bottomland of cottonwoods, willows and meadow grass was used for pasture.',tag:'doc'};
+    case 'scarp':return{kind:'Landform',title:'Bench bluffs of Mancos shale',where:'North edge of town, from the USGS topographic map',text:'Gray Mancos shale badlands rise about 100 feet from the town terrace to the bench. The bluffs are why Blocks 42 and 43 were platted only as half blocks.',tag:'doc'};
+    case 'wash':return{kind:'Waterway',title:'Dry wash',where:'Crosses Block 17 on the 1880 plat',text:'An ephemeral wash drains the bench and runs down into the east side of town. The plat draws its meanders across Block 17. It runs only after storms.',tag:'doc'};
+    case 'field':{const f=fieldAt(x,z);const canal=c.fz==='south'?'Blue Cut Canal':c.fz==='bench'?'Mammoth Canal':'town ditches';return{kind:'Farm field',title:f.crop.n,where:`Irrigated from the ${canal}`,text:f.crop.t+' Castle Dale families lived in town and farmed fields outside it, as in other Mormon villages.',tag:'rep'};}
+    case 'commons':return{kind:'Open ground',title:ba?`Block ${ba.b.num}, ${QN[ba.q]} quarter (not platted)`:'Town commons',where:ba?blockTxt(ba.b):'',text:'Open ground within the townsite, used for grazing, woodlots and hay. Some of it was platted later.',tag:'rep'};
+    case 'bench':return{kind:'Landform',title:'The bench',where:'Above the bluffs north of town',text:'A broad terrace of sagebrush and scattered juniper. The Mammoth Canal, begun about 1884, brought water to the benchlands north of town.',tag:'doc'};
+    default:return{kind:'Native ground',title:'Sagebrush flat',where:'Unirrigated land',text:'Big sagebrush, rabbitbrush and grasses on land the canals did not reach. About 8 inches of rain fall here in a year, so nothing grew without irrigation.',tag:'doc'};
+  }}
+const ray=new THREE.Raycaster();const mv=new THREE.Vector2();
+function pick(cx,cy){const r=renderer.domElement.getBoundingClientRect();mv.set((cx-r.left)/r.width*2-1,-(cy-r.top)/r.height*2+1);ray.setFromCamera(mv,camera);
+  const targets=[bmesh,waterMesh,terrain];if(plantGroup.visible)targets.push(...IMESH);const hits=ray.intersectObjects(targets,false);if(!hits.length)return;const h=hits[0];
+  if(h.object===bmesh){const vi=h.faceIndex*3;let lo=0,hi=RECS.length-1,f=null;while(lo<=hi){const mid=(lo+hi)>>1;const rr=RECS[mid];if(vi<rr.start)hi=mid-1;else if(vi>=rr.end)lo=mid+1;else{f=rr;break;}}
+    if(f){showInfo(f);selectAt(h.point,f.top);return;}const zi=zoneInfo(h.point.x,h.point.z);showInfo({...zi,kind:'Outbuilding & livestock',title:'Farm outbuilding',text:'Sheds, haystacks and animals belonging to the farms of Castle Dale.',tag:'rep'});selectAt(h.point,1);return;}
+  if(h.object.isInstancedMesh){const k=h.object.userData.kind;showInfo(PLANT_INFO[k]);selectAt(h.point,1);return;}
+  if(h.object===waterMesh){const dc=distDense(h.point.x,h.point.z);let o;if(dc<3)o=zoneInfo(h.point.x,h.point.z);
+    else if(distPoly(MAMMOTH,h.point.x,h.point.z)<3)o={kind:'Waterway',title:'Mammoth Canal',where:'Along the bench north of town',text:'Begun about 1884, the Mammoth Canal carried Cottonwood Creek water along the bench to supply the Castle Dale townsite and the benchlands to the north.',tag:'est'};
+    else if(distPoly(BLUE,h.point.x,h.point.z)<3)o={kind:'Waterway',title:'Blue Cut Canal',where:'Route approximate',text:'The Blue Cut Canal took water from Cottonwood Creek a short distance above Orangeville and irrigated several hundred acres west and south of Castle Dale.',tag:'est'};
+    else o={kind:'Waterway',title:'Street ditch',where:'Along the town streets',text:'Irrigation water ran in open ditches beside each street. Families took turns diverting it into their lots for gardens, orchards and livestock, and drew household water from it too.',tag:'rep'};
+    showInfo(o);selectAt(h.point,0.5);return;}
+  showInfo(zoneInfo(h.point.x,h.point.z));selectAt(h.point,0.2);}
+let down=null;renderer.domElement.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];});
+renderer.domElement.addEventListener('pointerup',e=>{if(down&&Math.hypot(e.clientX-down[0],e.clientY-down[1])<6)pick(e.clientX,e.clientY);down=null;});
+
+/* ============ camera views & controls ============ */
+const views={
+  bird:{t:[12,14,20],az:0.55,pol:0.98,d:470},
+  plan:{t:[-10,14,20],az:0,pol:0.02,d:900},
+  street:{t:[-40,14.5,0],az:-1.35,pol:1.47,d:34}
+};
+let tween=null;
+function sph(){const off=new THREE.Vector3().subVectors(camera.position,controls.target);const s=new THREE.Spherical().setFromVector3(off);return s;}
+function goTo(tgt,az,pol,d,ms=900){const s0=sph();const t0=controls.target.clone();const t1=new THREE.Vector3(...tgt);let da=az-s0.theta;while(da>Math.PI)da-=2*Math.PI;while(da<-Math.PI)da+=2*Math.PI;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;tween={t0,t1,a0:s0.theta,da,p0:s0.phi,p1:pol,d0:s0.radius,d1:d,start:performance.now(),ms:reduce?1:ms};}
+function nudge(daz,dpol,dz){const s=sph();goTo(controls.target.toArray(),s.theta+daz,Math.min(Math.PI-0.02,Math.max(0.02,s.phi+dpol)),Math.min(1700,Math.max(18,s.radius*dz)),350);}
+function stepTween(now){if(!tween)return;let t=(now-tween.start)/tween.ms;if(t>=1)t=1;const e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  controls.target.lerpVectors(tween.t0,tween.t1,e);const s=new THREE.Spherical(tween.d0+(tween.d1-tween.d0)*e,tween.p0+(tween.p1-tween.p0)*e,tween.a0+tween.da*e);camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(s));if(t>=1)tween=null;}
+const setView=v=>{const o=views[v];goTo(o.t,o.az,o.pol,o.d);};
+$('#bRotL').onclick=()=>nudge(-Math.PI/8,0,1);$('#bRotR').onclick=()=>nudge(Math.PI/8,0,1);
+$('#bTiltU').onclick=()=>nudge(0,-0.18,1);$('#bTiltD').onclick=()=>nudge(0,0.18,1);
+$('#bZoomI').onclick=()=>nudge(0,0,0.72);$('#bZoomO').onclick=()=>nudge(0,0,1.38);
+$('#vBird').onclick=()=>setView('bird');$('#vPlan').onclick=()=>setView('plan');$('#vStreet').onclick=()=>setView('street');
+$('#vTour').onclick=e=>{controls.autoRotate=!controls.autoRotate;$('#vTour').setAttribute('aria-pressed',controls.autoRotate);};
+$('#compass').onclick=()=>{const s=sph();goTo(controls.target.toArray(),0,s.phi,s.radius,600);};
+controls.addEventListener('start',()=>{tween=null;});
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;const k=e.key;if(k==='ArrowLeft')nudge(-Math.PI/12,0,1);else if(k==='ArrowRight')nudge(Math.PI/12,0,1);else if(k==='ArrowUp')nudge(0,-0.12,1);else if(k==='ArrowDown')nudge(0,0.12,1);else if(k==='+'||k==='=')nudge(0,0,0.8);else if(k==='-'||k==='_')nudge(0,0,1.25);else if(k==='Escape')$('#about').hidden=true;else return;e.preventDefault();});
+
+// layers
+$('#lyStreets').onchange=e=>streetLabels.visible=e.target.checked;
+$('#lyBlocks').onchange=e=>blockLabels.visible=e.target.checked;
+$('#lyPlants').onchange=e=>plantGroup.visible=e.target.checked;
+$('#lyWater').onchange=e=>{const on=e.target.checked;waterMat.emissive.setHex(on?0x1f9fd0:0x0c2f3d);waterMesh.position.y=on?0.25:0;HL.forEach(l=>{if(l.el.classList.contains('water'))l.el.style.zIndex=on?5:'';});};
+$('#lyWagons').onchange=e=>wagons.forEach(w=>w.m.visible=e.target.checked);
+$('#lyShadows').onchange=e=>{sun.castShadow=e.target.checked;};
+$('#panelToggle').onclick=()=>{const p=$('#panel');p.classList.toggle('collapsed');$('#panelToggle').setAttribute('aria-expanded',!p.classList.contains('collapsed'));};
+if(innerWidth>760)$('#panel').classList.remove('collapsed');
+$('#aboutBtn').onclick=()=>{$('#about').hidden=false;$('#aboutClose').focus();};
+$('#aboutClose').onclick=()=>{$('#about').hidden=true;};
+$('#about').addEventListener('click',e=>{if(e.target.id==='about')$('#about').hidden=true;});
+
+// initial state
+{const o=views.bird;controls.target.set(...o.t);camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(new THREE.Spherical(o.d,o.pol,o.az)));controls.update();}
+{const r=RECS.find(r=>r.title.startsWith('Meetinghouse'));showInfo(r);const p=LANDMARK_POS.meeting;selectAt(new THREE.Vector3(p[0],heightAt(p[0],p[1]),p[1]),r.top);}
+
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+addEventListener('resize',resize);resize();
+loadEl.hidden=true;
+const compassSvg=$('#compass svg');
+let last=performance.now();
+function frame(now){const dt=Math.min(0.1,(now-last)/1000);last=now;stepTween(now);controls.update();flipLabels();
+  if($('#lyWagons').checked)updateWagons(dt);
+  if(marker.visible&&markerBase){marker.position.set(markerBase.x,markerBase.y+Math.sin(now/300)*0.5,markerBase.z);marker.rotation.y=now/600;const d=camera.position.distanceTo(marker.position);const s=Math.max(1,d/180);marker.scale.set(s,s*1.5,s);}
+  const s=sph();compassSvg.style.transform=`rotate(${s.theta}rad)`;
+  renderer.render(scene,camera);updateLabels();requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+window.__ready=true;
+})().catch(err=>{console.error(err);const l=document.getElementById('loading');if(l){l.hidden=false;l.textContent='The map could not load: '+err.message;}});
+</script>

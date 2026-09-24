@@ -30,6 +30,20 @@ export interface OnePlaceStudy {
   color: string;
   /** Optional hero/banner image path under /public. */
   image?: string;
+  /** Optional featured non-article pages (maps, datasets) shown atop the hub. */
+  features?: StudyFeature[];
+}
+
+export interface StudyFeature {
+  href: string;
+  /** Small uppercase label, e.g. "Interactive maps". */
+  kicker: string;
+  title: string;
+  description: string;
+  /** Thumbnail path under /public. */
+  image?: string;
+  /** Call-to-action text. */
+  cta: string;
 }
 
 export const STUDIES: OnePlaceStudy[] = [
@@ -44,6 +58,17 @@ export const STUDIES: OnePlaceStudy[] = [
     intro:
       "A One Place Study takes a single community and follows it closely over time — the people, the households, the records that survive. The Castle Dale One Place Study collects articles that reconstruct the town from its primary sources: federal census schedules, land and water records, church and county minutes, and the families who carried it from a one-year-old settlement of fifty houses into the seat of Emery County. New pieces are published here as they are written.",
     color: '#C85A54', // mesa-red — shared with the articles accent
+    features: [
+      {
+        href: '/studies/castle-dale/1890/',
+        kicker: 'Interactive maps · 4 plates',
+        title: 'Castle Dale, 1890: Four Reconstructions',
+        description:
+          'Walk the townsite as it may have looked ten years after it was surveyed — four rotatable 3-D models, two photographic and two simulation-style, built from the 1880 plat, the 1917 Sanborn map, and later surveys.',
+        image: '/images/studies/castle-dale-1890/photo-claude.webp',
+        cta: 'View the four plates',
+      },
+    ],
   },
 ];
 
