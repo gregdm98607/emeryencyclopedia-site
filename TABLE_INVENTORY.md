@@ -9,9 +9,11 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 > rebuilt from scratch, five chapters per run (Ch01–05 on 09-04; Ch06–10 on 09-07; Ch11–15 on
 > 09-09; Ch16–20 on 09-11; Ch23–27 on 09-16 — Ch21–22 skipped as already fully stamped
 > `tables:` complete from a prior run, confirmed against frontmatter; Ch28–32 on 09-18, Ch29
-> confirmed no-section; Ch33–37 on 09-22, Ch35/36/37 confirmed no-section post-BUG-007 repair).
+> confirmed no-section; Ch33–37 on 09-22, Ch35/36/37 confirmed no-section post-BUG-007 repair;
+> Ch38–42 on 09-23, Ch41/42 confirmed no-section — Further Reading and Glossary are reference
+> apparatus with no proposed-tables backlog).
 > Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log)
-> is being re-derived from the vault drafts, not restored from memory. Ch38–43 still to
+> is being re-derived from the vault drafts, not restored from memory. Ch43 still to
 > re-inventory.
 
 ## Status vocabulary
@@ -41,6 +43,8 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch35 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — dropped by the 2026-08-31 BUG-007 file repair, per the TD-011 log entry of 09-02. Body ships 2 inline tables (meteor-shower calendar; dark-sky sites by Bortle class/access). The pre-loss record listed a Ch35-T1 as fulfilled-in-chapter; not restored from memory per the rebuild rule. Flagged for Greg: restore the section to the draft if the pre-repair proposals should be tracked. | 2026-09-22 |
 | ch36 | No `## Proposed Tables` section — same BUG-007 repair loss as ch35. Body ships no inline tables. The pre-loss record (09-02) listed Ch36-T1..T3 as `todo`; their subjects are not recoverable from the current draft and are not restored from memory. Flagged for Greg as above. | 2026-09-22 |
 | ch37 | No `## Proposed Tables` section — same BUG-007 repair loss as ch35/36. Body ships 1 inline table (Emery County Library branches: address/phone). Pre-loss record listed a Ch37-T1 `todo`; not restored from memory. Flagged for Greg as above. | 2026-09-22 |
+| ch41 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — Ch41 is the chapter-length "Further Reading" reference apparatus (3,645 lines of per-chapter citation lists), not narrative content with its own visuals backlog. Confirmed by content search: the only hits for "Proposed" in the file are incidental prose ("proposed" lowercase, describing pending field-survey items for other chapters) and citation cross-references, not a proposed-tables heading. | 2026-09-23 |
+| ch42 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — Ch42 is the volume Glossary (recovered hyperlink-pass term lists from Ch09–Ch25, 748 lines), not narrative content with its own visuals backlog. Confirmed by content search: the only hits for "Proposed" are the lowercase word inside glossary section dividers, not a heading. | 2026-09-23 |
 
 ## Full inventory
 
@@ -126,6 +130,15 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch34 | ch34-T3 | Table 34-C — Watching Distances and Ethics | already-covered | Table 34-C "Recommended Minimum Watching Distances" already in chapter (§34.12), sourced to Utah DWR viewing ethics. |
 | ch34 | ch34-T4 | Table 34-D — Federally Protected & Recovered Wildlife | already-covered | Table 34-D already in chapter (§34.12), sourced to USFWS listing records / Utah DWR. |
 | ch34 | ch34-T5 | Table 34-E — Reservoir Fisheries Summary | already-covered | Table 34-E already in chapter (§34.8), sourced to Utah DWR Fish Utah / Blue Ribbon fisheries. Ch34 stamped `tables: 2026-09-22` — all five proposals resolved in-chapter, zero todo/needs-data rows. |
+| ch38 | ch38-T1 | Complete inventory of Emery County's 22 NRHP listings: name, NRIS reference number, date listed, community, type, address status | in-review | Rendered 2026-09-23 as Pattern 2 (Table 38.1) from §38.2–§38.9's own NRHP roster, dated and cross-checked against `Ch38_sources.md` #18–39 (individual NRIS nomination-form citations, each with a listed year) — no engagement-feature table in the chapter (the §38.2 "WHAT'S ON THE LIST?" box) substantively covers this; that box tallies by theme only, with no per-property NRIS numbers or dates. See render block below. |
+| ch38 | ch38-T2 | Federal designation summary: NRHP (22), NHL (1), NNL (1), National Historic Trail crossings (1), National Monument (1 — Jurassic) | in-review | Rendered 2026-09-23 as Pattern 2 (Table 38.2) from §38.2 (NRHP), §38.8 (Desolation Canyon NHL, Nov. 24 1968), §38.9 (Cleveland-Lloyd NNL, Oct. 1965; Jurassic National Monument, 2019), and §38.10 (Old Spanish NHT, Dec. 4 2002), cross-checked against `Ch38_sources.md` #6–7, #10–11, #39–41. See render block below. |
+| ch38 | ch38-T3 | *(truncated in source — see note)* | needs-data | The proposal's own description text is cut off mid-word in `Ch38_draft.md` line 273 ("— **Table 38.3** — Nomin") and identically in `ch38.mdx` line 314 — a genuine content defect, not a read artifact (verified against both files this run). Already logged as BL-033 (2026-09-02): "BUG-007: the `.mdx` mirrors carry the identical cut, so no fuller copy exists — the missing data is the proposal text itself, and it clears only when the file is restored." Not re-attempted; carried forward unchanged. |
+| ch39 | ch39-T1 | Master directory of Emery County mapping resources (URL, format, license, primary use case) | todo | ~80 candidate resources are individually cited in `Ch39_sources.md`, but a "license" column can't be populated for most of them without fabricating a term the chapter/sources never state (most entries give only agency + URL + one-line description, not a stated public-domain/CC/proprietary license). Needs either a license-status pass added to `Ch39_sources.md` first, or the proposal descoped to drop that column — flagged for Greg. Not attempted as a build this run. |
+| ch39 | ch39-T2 | NAIP coverage years for Utah (2003–2024) with resolution per year | needs-data | Already logged as BL-033 (2026-09-02): §39.10 area cites the coverage-year range and "0.6m imagery since 2018" but not a year-by-year resolution series for 2003–2017; needs a USDA/UGRC NAIP metadata citation added to `Ch39_sources.md` before a full per-year table can be built without estimating intervening resolutions. Not re-attempted. |
+| ch39 | ch39-T3 | Recommended mobile mapping apps comparison (Avenza, Gaia, OnX, CalTopo) — price, offline support, key strengths | needs-data | `Ch39_sources.md` #60–64 name and describe all four apps (and their publishers) but none give a subscription price — populating a "price" column would mean fabricating a dollar figure the chapter doesn't cite. Needs current pricing pulled from each vendor's own site and added to `Ch39_sources.md` first. New this run — logged to `_Planning/BACKLOG.md` (BL-039). Do not re-attempt before 2026-09-30 per the once-per-week guardrail. |
+| ch39 | ch39-T4 | *(truncated in source — see note)* | needs-data | The proposal's own description text is cut off mid-word in `Ch39_draft.md` line 247 ("— **Table 4:** Authoritative ver") and identically in `ch39.mdx` line 283 — same BUG-007 shape as ch38-T3, already logged as BL-033 (2026-09-02). Not re-attempted; carried forward unchanged. |
+| ch40 | ch40-T1 | Table 40.1 (inline in 40.12): Program comparison matrix | already-covered | The chapter's own proposal note points to itself ("see 40.12 inline") and §40.12 does ship a ten-row "Program / Platform / Time Commitment / Data Type / Emery County Relevance" table covering every program the chapter describes (iNaturalist, eBird, Globe at Night, CoCoRaHS, Utah Water Watch, SKYWARN, AMS Fireball/Visual, FamilySearch Indexing, BLM Site Steward) — confirmed present and matching the proposed subject. |
+| ch40 | ch40-T2 | Table 40.2 (standalone): Emery County Waterways Suitable for Utah Water Watch Monitoring (stream name, HUC8 watershed, approximate access point, notes) | needs-data | Chapter's own proposal text flags this explicitly — "would require UWW program coordinator consultation" — and no stream-by-stream monitoring-site list appears anywhere in `Ch40_draft.md` or its sources. New this run — logged to `_Planning/BACKLOG.md` (BL-039). Do not re-attempt before 2026-09-30. |
 
 ---
 
@@ -396,3 +409,73 @@ which rows have no cited contact details.
 Note for Greg: the chapter cites addresses and phone numbers only for the two BLM offices; every
 other row carries a URL or nothing. If placement is approved, the "—" cells should be filled from
 the agencies' own pages and the new details added to `Ch33_sources.md` first.
+
+### ch38-T1 — Table 38.1. Complete inventory of Emery County's 22 NRHP listings
+
+Proposed placement: Ch38 §38.2, immediately after the "WHAT'S ON THE LIST?" engagement-feature
+box (which tallies the same 22 listings by theme, not individually). Pattern 2 because it carries
+a table number and needs a source note. Every name, NRIS number, community, and listing year is
+drawn from `Ch38_sources.md` entries #18–39 (individual NRHP/NHL nomination-form citations);
+none is estimated from the NRIS reference-number convention.
+
+```mdx
+<DataTable
+  caption="Table 38.1 — Complete inventory of Emery County's 22 NRHP listings"
+  note="NRIS numbers and listing years per Ch38_sources.md #18–39 (individual National Register/National Historic Landmark nomination-form citations) and #63 (Wikipedia listings page, current through Jan. 17, 2025). Type reflects each property's primary theme as grouped in §38.2–§38.9; the chapter's own theme groupings are not mutually exclusive (e.g., two of the Castle Dale houses are counted under both the 'Castle Dale built environment' and 'pioneer residences' themes), so this column should not be read as an exhaustive cross-tabulation. Rock-art addresses are restricted to community level per National Register Bulletin 29 policy (§38.3; source #61); Desolation Canyon has no discrete street address as a canyon-spanning district."
+>
+
+| Name | NRIS # | Listed | Community | Type | Address status |
+|---|---|---|---|---|---|
+| Buckhorn Wash Pictograph Panel | 80003898 | 1980 | Castle Dale vicinity | Rock art | Restricted (community-level only) |
+| Black Dragon Canyon Pictograph Panel | 80003905 | 1980 | Green River vicinity | Rock art | Restricted (community-level only) |
+| Ferron Box Pictograph Panel | 80003904 | 1980 | Ferron | Rock art | Restricted (community-level only) |
+| Rochester Panel (Muddy Creek) | 75001803 | 1975 | Emery | Rock art | Restricted (community-level only) |
+| Temple Mountain Wash Pictograph Panel | 76001814 | 1976 | Hanksville vicinity | Rock art | Restricted (community-level only) |
+| Castle Dale School | 78002657 | 1978 | Castle Dale | Civic (now City Hall + Pioneer Museum) | Public |
+| Castle Dale High School Shop | 85000804 | 1985 | Castle Dale | Educational / industrial arts | Public |
+| Christensen House | 80003899 | 1980 | Castle Dale | Residential | Public |
+| Johansen House | 80003900 | 1980 | Castle Dale | Residential | Public |
+| Seeley House II | 79002493 | 1979 | Castle Dale | Residential | Public |
+| Castle Dale Bridge | 100004394 | 2019 | Castle Dale | Infrastructure (bridge) | Public |
+| Emery LDS Church (Emery Ward Chapel) | 80003903 | 1980 | Emery | Religious | Public |
+| Huntington Tithing Office and Granary | 85000261 | 1985 | Huntington | Religious / agricultural | Public |
+| Ferron Presbyterian Church and Cottage | 78002658 | 1978 | Ferron | Religious | Public |
+| Green River Presbyterian Church | 88002998 | 1988 | Green River | Religious | Public |
+| Denver & Rio Grande Western Lime Kiln | 80003901 | 1980 | Cleveland vicinity | Industrial | Public |
+| Huntington Roller Mill and Miller's House | 79002495 | 1979 | Huntington | Industrial / residential | Public |
+| San Rafael Bridge (Swinging Bridge) | 96000617 | 1996 | San Rafael River, ~23 mi S of Castle Dale | Infrastructure (bridge) | Public |
+| Larson House (Lars Peter Larson House) | 80003902 | 1980 | Cleveland | Residential | Public |
+| Lemmon House (Leander Lemmon House) | 02001040 | 2002 | Huntington | Residential | Public |
+| Singleton House (Samuel Singleton House) | 79002494 | 1979 | Ferron vicinity | Residential | Public |
+| Desolation Canyon | 68000057 | 1968 (also NHL, designated Nov. 24, 1968) | Emery / Grand / Carbon / Uintah counties | Archaeological district; National Historic Landmark | N/A — canyon-spanning district |
+
+</DataTable>
+```
+
+Note for Greg: 22 rows, matching the chapter's stated total exactly. Listing years come from the
+sources file's per-property nomination-form citations, not from decoding the NRIS number itself.
+
+### ch38-T2 — Table 38.2. Federal historic and natural designations in Emery County
+
+Proposed placement: Ch38 §38.2 or §38.9, summarizing the designations discussed across
+§38.2/§38.8/§38.9/§38.10. Pattern 2 for the table number and source note.
+
+```mdx
+<DataTable
+  caption="Table 38.2 — Federal historic and natural designations in Emery County"
+  note="Compiled from §38.2 (NRHP), §38.8 (Desolation Canyon NHL, designated Nov. 24, 1968), §38.9 (Cleveland-Lloyd Dinosaur Quarry NNL, designated Oct. 1965; Jurassic National Monument, proclaimed 2019), and §38.10 (Old Spanish National Historic Trail, designated Dec. 4, 2002). Sources: Ch38_sources.md #6–7 (36 CFR Parts 60/65), #10 (NHL listings), #11 (NNL program), #39–41 (individual designation records)."
+>
+
+| Designation | Program | Count in Emery County | Example | Administering agency |
+|---|---|---|---|---|
+| National Register of Historic Places (NRHP) | NPS National Register | 22 | Buckhorn Wash Rock Art Sites; Castle Dale School | National Park Service |
+| National Historic Landmark (NHL) | NPS National Historic Landmarks | 1 | Desolation Canyon (designated Nov. 24, 1968) | National Park Service |
+| National Natural Landmark (NNL) | NPS National Natural Landmarks | 1 | Cleveland-Lloyd Dinosaur Quarry (designated Oct. 1965) | National Park Service |
+| National Historic Trail crossing | National Trails System | 1 | Old Spanish National Historic Trail (designated Dec. 4, 2002) | National Park Service / BLM (joint administration) |
+| National Monument | BLM National Conservation Lands | 1 | Jurassic National Monument (proclaimed 2019; encompasses the Cleveland-Lloyd NNL) | Bureau of Land Management |
+
+</DataTable>
+```
+
+Note for Greg: this is a designation-type summary, not a duplicate of Table 38.1 — each row counts
+a federal program rather than an individual property, per the proposal's own framing.
