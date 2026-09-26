@@ -11,10 +11,12 @@ this file exists because that one explicitly excludes "Proposed Tables"). Mirror
 > `tables:` complete from a prior run, confirmed against frontmatter; Ch28–32 on 09-18, Ch29
 > confirmed no-section; Ch33–37 on 09-22, Ch35/36/37 confirmed no-section post-BUG-007 repair;
 > Ch38–42 on 09-23, Ch41/42 confirmed no-section — Further Reading and Glossary are reference
-> apparatus with no proposed-tables backlog).
+> apparatus with no proposed-tables backlog; Ch43 confirmed no-section on 09-25 — the Systematic
+> Index is likewise reference apparatus with no proposed-tables backlog).
 > Prior coverage through Ch40 (see `_Planning/TECH_DEBT.md` TD-011 log)
-> is being re-derived from the vault drafts, not restored from memory. Ch43 still to
-> re-inventory.
+> is being re-derived from the vault drafts, not restored from memory. **Full 1–43 rebuild
+> complete as of 09-25** — ongoing work is now maintenance: new needs-data checks and todo
+> candidate builds per the guardrails below.
 
 ## Status vocabulary
 
@@ -45,6 +47,7 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch37 | No `## Proposed Tables` section — same BUG-007 repair loss as ch35/36. Body ships 1 inline table (Emery County Library branches: address/phone). Pre-loss record listed a Ch37-T1 `todo`; not restored from memory. Flagged for Greg as above. | 2026-09-22 |
 | ch41 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — Ch41 is the chapter-length "Further Reading" reference apparatus (3,645 lines of per-chapter citation lists), not narrative content with its own visuals backlog. Confirmed by content search: the only hits for "Proposed" in the file are incidental prose ("proposed" lowercase, describing pending field-survey items for other chapters) and citation cross-references, not a proposed-tables heading. | 2026-09-23 |
 | ch42 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — Ch42 is the volume Glossary (recovered hyperlink-pass term lists from Ch09–Ch25, 748 lines), not narrative content with its own visuals backlog. Confirmed by content search: the only hits for "Proposed" are the lowercase word inside glossary section dividers, not a heading. | 2026-09-23 |
+| ch43 | No `## Proposed Tables` (or `## Proposed Maps and Figures`) section — Ch43 is the volume Systematic Index (alphabetical topic → chapter/section cross-reference list, 1,117 lines, built incrementally as each chapter drafts), not narrative content with its own visuals backlog. Confirmed by content search: the only hits for "proposed" (lowercase) are recovery-batch status labels inside dated "From ChNN" entry blocks, not a heading. | 2026-09-25 |
 
 ## Full inventory
 
@@ -107,9 +110,9 @@ the `tables:` frontmatter flag scope (BL-013/BL-015/BL-018 ruling pending).
 | ch25 | ch25-T3 | Comparison: Emery County LDS share of religious adherents vs. statewide Utah, 1990 / 2000 / 2010 / 2020 | needs-data | Draft and `Ch25_sources.md` only carry two data points — Emery County 91.5% (2020, of adherents) / 61.5% (2020, of total population) and statewide ~60.7% (Pew 2014, not 2020) — not a four-decade time series for either geography. Needs 1990/2000/2010 ARDA county and state religion-census figures added to sources before rendering. Checked 2026-09-16. BL-036. |
 | ch27 | ch27-T1 | Emery County festival calendar — name, location, founding year, season, programming | needs-data | Draft describes festivals (Pioneer Day per-town programming, Peach Days, per §27.2–27.3) but the founding-year column is contested even for the one date-flagged event: "the county tourism office dates [Peach Days] to 1901 and other local histories to 1906." A calendar with unresolved founding years for its flagship entry risks presenting a disputed number as fact. Needs the per-festival founding-year column reconciled (or explicitly flagged as disputed per-row) before rendering. Checked 2026-09-16. BL-036. |
 | ch27 | ch27-T2 | Pioneer Day programming by town (Castle Dale / Huntington / Emery / Orangeville / Ferron) | needs-data | §27.2 describes Emery and Orangeville and Ferron's programming in prose but Castle Dale's and Huntington's Pioneer Day programming is not described in the excerpted draft sections read this run — needs a full per-town pass before a five-row table can be built without gaps. Checked 2026-09-16. BL-036. |
-| ch27 | ch27-T3 | Foodways layers — pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
-| ch27 | ch27-T4 | Folk arts traditions — cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
-| ch27 | ch27-T5 | Castle Valley Pageant chronology — selected editions, themes, notable years | todo | Not yet checked against draft body this run — inventoried only; carried to next run's candidate pool. |
+| ch27 | ch27-T3 | Foodways layers — pioneer Mormon, coal-camp ethnic, ranching/hunting, modern; signature dishes | in-review | Rendered 2026-09-25 as Pattern 1 (plain table) from §27.7–§27.9 (pioneer Mormon: scones, funeral potatoes, home-canned Lemon-variety peaches/apricots, Dutch-oven breads/roasts; coal-camp ethnic: Welsh cawl/bara brith, Cornish pasties, Greek lamb roasts/phyllo, Italian sausage/bread, Slavic cabbage rolls; ranching/hunting: ranch breakfasts, Dutch-oven stews, smoked mutton, jerky, venison sausage, elk roasts, dove pie; modern table: Green River melons, US-6/I-70 fast food, persisting home canning), cited to `Ch27_sources.md` (Cheney *Plain but Wholesome*; Edison/Eliason/McNeill *This Is the Plate*; Davies 1981 *UHQ* Welsh-in-Utah; *UHQ* 74:3 Carbon County multi-ethnicity). See render block below. |
+| ch27 | ch27-T4 | Folk arts traditions — cowboy poetry, fiddling/dance, choral, quilting, storytelling; principal venues | in-review | Rendered 2026-09-25 as Pattern 1 (plain table) from §27.10's four named strands (cowboy poetry; folk music & dance; quilting; storytelling) with their stated principal venues/vehicles, cited to `Ch27_sources.md` (USU Utah History Encyclopedia "Folklore"; Western Folklife Center; McElprang *Castle Valley*; Geary *Goodbye to Poplarhaven* and *A History of Emery County*). See render block below. |
+| ch27 | ch27-T5 | Castle Valley Pageant chronology — selected editions, themes, notable years | needs-data | Re-confirms BL-028 (2026-08-26), which first flagged this row needs-data; the row had reverted to `todo` by the 09-16 rebuild pass without a table ever having been rendered (same "reported/lost" pattern flagged in BL-037). §27.6 and `Ch27_sources.md` give only isolated milestones (1978 founding; Seely's 2008 death; continuous run through 2019; disrupted since 2020; 36th iteration in 2023) — no per-edition themes anywhere. The sources file's own Phase 4 action item is still open: "Pageant hiatus status... document any year(s) the Castle Valley Pageant did not perform... update the 'biennial since [year]' framing to reflect actual cadence." Building an editions/themes chronology now would mean inventing content the chapter doesn't cite. Not re-attempted before 2026-10-02 per the once-per-week guardrail. |
 | ch28 | ch28-T1 | Emery Stake presidents 1880–present (cross-ref Ch25) | needs-data | Draft names only Orange Seely (first counselor, 1880–1899, §28.1 Did You Know) — no complete presidents roster appears in `Ch28_draft.md` or `Ch28_sources.md`. Needs the full stake-presidency succession pulled from Ch25/FamilySearch/LDS Church records before rendering. Logged as needs-data in `_Planning/BACKLOG.md` BL-028 (2026-08-26); not previously written as an inventory row. Checked 2026-09-18. BL-036. |
 | ch28 | ch28-T2 | Emery County Commissioners by decade (skeleton; needs archival fill) | needs-data | Chapter's own proposal text calls this a "skeleton; needs archival fill" — §28.6 names individual county builders in prose but no decade-by-decade commissioner roster exists in the draft or sources file. Needs county-clerk/archival commissioner records added to `Ch28_sources.md` first. Logged in BL-028; not previously written as an inventory row. Checked 2026-09-18. BL-036. |
 | ch28 | ch28-T3 | Major fatal mining incidents in Emery County, with dates and counts | in-review | Rendered 2026-09-18 as Pattern 1 (plain table) from §28.5 — Wilberg Mine fire (19 Dec 1984, 27 killed) and Crandall Canyon Mine collapse (6 Aug 2007, 6 trapped + 3 rescuers killed 16 Aug 2007), both cited to KSL News, Deseret News, Salt Lake Tribune, Mining Connection (cross-ref Ch17 §17.7, which already carries the same two incidents in Table 17-B). Only these two incidents are dated with casualty counts in the draft — the broader "major fatal mining incidents" framing in the proposal is not fulfilled by earlier coal-camp deaths, which the chapter itself says "live now in coal-camp cemeteries and family recollection rather than published biography" (§28.5) and are not enumerable without fabrication. See render block below. |
@@ -479,3 +482,48 @@ Proposed placement: Ch38 §38.2 or §38.9, summarizing the designations discusse
 
 Note for Greg: this is a designation-type summary, not a duplicate of Table 38.1 — each row counts
 a federal program rather than an individual property, per the proposal's own framing.
+
+
+### ch27-T3 — Foodways layers of Emery County
+
+Proposed placement: Ch27 §27.9, after the modern-table paragraph closing the foodways arc
+(§27.7–§27.9). Pattern 1 (plain table) — no table number requested by the chapter's own proposal
+text and no source note is needed beyond the inline attribution already in prose.
+
+```markdown
+| Layer | Origin / Era | Signature Dishes | Notes |
+|---|---|---|---|
+| Pioneer Mormon | Arrived with the 1877 settlement; shaped by the Word of Wisdom (1833 revelation) | Scones (fried dough with honey/jam); funeral potatoes; home-canned Lemon-variety Ferron peaches and apricots; Dutch-oven breads, cakes, roasts, stews; dryfarmed-wheat bread; alfalfa-fed beef and mutton | Dutch oven remains the defining kitchen implement; modern Dutch-oven cookoffs are a Pioneer Day fixture at the Fairgrounds and rodeo grounds |
+| Coal-camp ethnic | 1880s–1920s immigrant miners (Welsh, Cornish, Greek, Italian, Slavic, plus smaller Japanese and Chinese populations) | Welsh cawl (lamb-and-leek stew) and bara brith; Cornish pasties; Greek lamb roasts and phyllo pastries; Italian sausage curing and bread baking; Slavic cabbage rolls and pickled vegetables; the coal-camp-standard open-faced roast-beef sandwich with brown gravy | Thinner in Emery County than in Carbon County; most visible in Cleveland's Welsh contingent and via Mohrland/Hiawatha spillover of Greek and Italian influence; has thinned considerably since the coal economy's 1980s contraction |
+| Ranching and hunting | Late 19th century–present | Ranch breakfasts (eggs, biscuits, gravy, fried potatoes, ham); Dutch-oven beef stews; smoked mutton; jerky; venison sausage; elk roasts; dove pie | The October mule-deer rifle-season opener is the county's largest community ritual outside Pioneer Day; school districts have scheduled fall break around it |
+| Modern table | 20th century–present | Green River cantaloupe and watermelon; fast-food and chain-restaurant fare along the US-6/I-70 corridors; home-canned and garden produce | Green River melons shifted from a regional shipping crop (1920s) to a local table marker as shipping consolidated to California; family canning and food storage persist, reinforced by the LDS emphasis on food storage (see Chapter 25) and distance from full-scale grocery infrastructure |
+```
+
+Note for Greg: every dish and origin claim above is drawn directly from §27.7 (pioneer Mormon),
+§27.8 (coal-camp ethnic), and §27.9 (ranching/hunting and modern), cited in `Ch27_sources.md` to
+Cheney's *Plain but Wholesome*, Edison/Eliason/McNeill's *This Is the Plate*, Davies's 1981 *Utah
+Historical Quarterly* piece on the Welsh in Utah, and *UHQ* 74:3 on Carbon County multi-ethnicity
+(used as the coal-camp comparator the chapter itself invokes). No dish or date is invented beyond
+what the chapter states.
+
+### ch27-T4 — Folk arts traditions of Emery County
+
+Proposed placement: Ch27 §27.10, alongside the four-strand prose discussion (cowboy poetry; folk
+music and dance; quilting; storytelling). Pattern 1 (plain table) — no table number requested by
+the chapter's own proposal text.
+
+```markdown
+| Tradition | Description | Principal Venues / Vehicles |
+|---|---|---|
+| Cowboy poetry | Catalyzed nationally by the Western Folklife Center's first National Cowboy Poetry Gathering (Elko, Nevada, 1985); shaped southeastern Utah's ranching communities through the late 20th and early 21st centuries | San Rafael Folk Art Festival; smaller community programs year-round; Heber Valley Western Music and Cowboy Poetry Gathering (founded 1994) |
+| Folk music and dance | Pioneer fiddling, square dancing, and Mormon hymn-singing form the deepest substrate; Welsh choral singing arrived with the coal-camp inheritance; cowboy ballads and country-western forms layered on in the 20th century | Folk-dance programs at the Folk Art Festival and in Emery High extracurriculars; church and community-pageant choirs feeding into the Castle Valley Pageant |
+| Quilting | Pieced, embroidered, and signature quilts gifted on milestone occasions; among the most active material-culture traditions after Dutch-oven cookery | Huntington Emery Piecemakers guild (regular meetings, community quilt shows); Utah Folk Arts Collection, Chase Home Museum of Utah Folk Art (holds Emery County quilts and oral histories) |
+| Storytelling | Family-history narration; ghost-town legends (Sego, Woodside, Mohrland); trail and canyon yarns from the San Rafael Swell and Book Cliffs; Mormon settlement stories handed down five to six generations | Family reunions and Sunday dinners; preserved on the page in Stella McElprang's *Castle Valley* (1949) and Edward Geary's *Goodbye to Poplarhaven* (1985) and *A History of Emery County* (1996) |
+```
+
+Note for Greg: the chapter's own text (§27.10) explicitly flags that "a comprehensive directory
+of Emery County poets active in the National Cowboy Poetry Gathering era has not been published"
+— this table covers the tradition and its venues, not a poet-by-poet roster, so that named gap is
+not addressed here. Sourced to `Ch27_sources.md`'s USU Utah History Encyclopedia "Folklore" entry,
+the Western Folklife Center institutional reference, and the McElprang/Geary citations already
+used elsewhere in the chapter.
