@@ -99,6 +99,16 @@ const kindLabel: Record<string, string> = {
         })}
       </div>
     )}
+
+    {study.contribute && (
+      <aside class="study-contribute" aria-labelledby="study-contribute-h">
+        <h2 id="study-contribute-h">{study.contribute.heading}</h2>
+        <p>{study.contribute.body}</p>
+        <a href="/contact/" class="study-contribute__cta">
+          {study.contribute.cta} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </aside>
+    )}
   </div>
 </BaseLayout>
 
@@ -267,6 +277,30 @@ const kindLabel: Record<string, string> = {
     font-size: 0.8125rem;
     color: var(--color-text-muted, #777);
   }
+  .study-contribute {
+    margin-top: 2.5rem;
+    padding: 1.75rem 2rem;
+    background: var(--sky-wash);
+    border-left: 4px solid var(--study-color, var(--mesa-red));
+    border-radius: 4px;
+  }
+  .study-contribute h2 {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+  .study-contribute p {
+    margin: 0 0 1rem;
+    line-height: 1.65;
+    max-width: 68ch;
+  }
+  .study-contribute__cta {
+    font-weight: 600;
+    color: var(--study-color, var(--mesa-red));
+    text-decoration: none;
+  }
+  .study-contribute__cta:hover { text-decoration: underline; }
   @media (max-width: 640px) {
     .study { padding: 1.5rem 1rem 2rem; }
     .study-feature { grid-template-columns: 1fr; }

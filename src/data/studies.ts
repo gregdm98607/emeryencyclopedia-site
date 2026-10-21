@@ -32,6 +32,16 @@ export interface OnePlaceStudy {
   image?: string;
   /** Optional featured non-article pages (maps, datasets) shown atop the hub. */
   features?: StudyFeature[];
+  /** Optional reader-contribution invitation shown below the articles. Links to /contact/. */
+  contribute?: StudyContribute;
+}
+
+export interface StudyContribute {
+  heading: string;
+  /** Plain prose; rendered as a paragraph. */
+  body: string;
+  /** Call-to-action text for the /contact/ link. */
+  cta: string;
 }
 
 export interface StudyFeature {
@@ -69,6 +79,12 @@ export const STUDIES: OnePlaceStudy[] = [
         cta: 'View the four plates',
       },
     ],
+    contribute: {
+      heading: 'Do you have Castle Dale roots?',
+      body:
+        "This study grows from what families kept. If your people lived in Castle Dale, whether on the 1880 census or in any year since, you may hold something the public record doesn't: a photograph of a house or lot, a letter, a journal, a ward record, or a story about who lived where. Write and tell us what you have and which family it belongs to.",
+      cta: 'Share what you have',
+    },
   },
 ];
 
