@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       `https://api.convertkit.com/v3/tags/${TAG_ID}/subscribe`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip' },
         body: JSON.stringify({ api_secret: API_SECRET, email }),
       }
     );
