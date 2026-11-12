@@ -270,10 +270,22 @@ window.CDLAND=(function(){
   /* fill a card element built from the given tag names; no innerHTML with data */
   function fillCard(root,f,extra){root.textContent='';const add=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;root.appendChild(e);return e;};
     const x=facts(f);add('div','kind','Federal land patent · register no. '+x.no);add('h3','',x.title);add('div','where',x.date+' · '+x.authority+(x.acres?' · '+x.acres:''));
-    add('p','',x.legal);if(extra)add('p','grade',extra);
+    add('p','',x.legal);if(extra){if(typeof extra==='string')add('p','grade',extra);else add('span',extra.cls,extra.text);}
     if(x.url){const p=add('p','');const a=document.createElement('a');a.href=x.url;a.target='_blank';a.rel='noopener';a.textContent='Open this patent at BLM GLO Records';p.appendChild(a);}
     add('p','fine','The date is when title passed from the United States. Later sales are not shown.');}
-  return {D,P,YEARS,state,cum,all,vis,hit,draw,setMax,select,bind,facts,fillCard,rgba,on:f=>subs.push(f)};
+  /* small 2-D map of every patent, for plates whose scene covers only the townsite. rect = [e0,n0,e1,n1] of the scene. */
+  function inset(cv,col,rect){const m=250,e0=all[0]-m,e1=all[2]+m,n0=all[1]-m,n1=all[3]+m;const s=cv.width/(e1-e0);cv.height=Math.round((n1-n0)*s);const ctx=cv.getContext('2d');
+    const tf=(e,n)=>[(e-e0)*s,(n1-n)*s];
+    function paint(){ctx.clearRect(0,0,cv.width,cv.height);ctx.fillStyle='rgba(20,24,22,.55)';ctx.fillRect(0,0,cv.width,cv.height);
+      ctx.lineWidth=1;ctx.strokeStyle='rgba(255,255,255,.16)';ctx.fillStyle='rgba(255,255,255,.3)';ctx.font='10px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      for(const q of D.sections){ctx.beginPath();let cx=0,cy=0,k=0;for(let i=0;i<q.g.length;i+=2){const t=tf(q.g[i],q.g[i+1]);if(i)ctx.lineTo(t[0],t[1]);else ctx.moveTo(t[0],t[1]);cx+=t[0];cy+=t[1];k++;}ctx.closePath();ctx.stroke();ctx.fillText(q.s,cx/k,cy/k);}
+      draw(ctx,tf,col,{lw:1,fillStrong:0.8,fillMuted:0.42});
+      if(rect){const a=tf(rect[0],rect[3]),b=tf(rect[2],rect[1]);ctx.setLineDash([5,4]);ctx.lineWidth=1.6;ctx.strokeStyle='#ffffff';ctx.strokeRect(a[0],a[1],b[0]-a[0],b[1]-a[1]);ctx.setLineDash([]);}
+      const o=tf(0,0);ctx.fillStyle='#ffffff';ctx.beginPath();ctx.arc(o[0],o[1],2.5,0,6.283);ctx.fill();}
+    cv.addEventListener('click',ev=>{const r=cv.getBoundingClientRect();const px=(ev.clientX-r.left)*cv.width/r.width,py=(ev.clientY-r.top)*cv.height/r.height;select(hit(px/s+e0,n1-py/s));});
+    subs.push(paint);paint();
+    return {beyond:()=>P.filter(f=>vis(f)&&(f.bb[2]<rect[0]||f.bb[0]>rect[2]||f.bb[3]<rect[1]||f.bb[1]>rect[3])).length};}
+  return {D,P,YEARS,state,cum,all,vis,hit,draw,setMax,select,bind,facts,fillCard,rgba,inset,on:f=>subs.push(f)};
 })();
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
