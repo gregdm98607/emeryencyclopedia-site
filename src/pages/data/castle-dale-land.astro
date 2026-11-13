@@ -1,0 +1,412 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/land/castle-dale-land.json';
+
+const { counts, source, rows } = data;
+const pageTitle = 'Castle Dale Land Patents, 1883–1920';
+const description = `All ${counts.patents} federal land patents issued in and around Castle Dale, Utah, from 1883 to 1920: patentee, date, kind of entry, acres and legal description, each linked to its record at the Bureau of Land Management. Sortable and filterable.`;
+const authorities = Array.from(new Set(rows.map((r: any) => r.authority))).sort();
+const areas = Array.from(new Set(rows.map((r: any) => r.area))).sort();
+const fmt = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="dataset-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/articles/castle-dale-land-1883-1920/">Castle Dale Land Patents</a>
+      <span>/</span>
+      <span>Dataset</span>
+    </nav>
+
+    <header class="dataset-header">
+      <p class="kicker">Dataset · Castle Dale One Place Study</p>
+      <h1>{pageTitle}</h1>
+      <p class="lede">{description}</p>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-num">{counts.patents}</span><span class="stat-label">Patents</span></div>
+        <div class="stat"><span class="stat-num">{counts.acres.toLocaleString('en-US')}</span><span class="stat-label">Acres</span></div>
+        <div class="stat"><span class="stat-num">{counts.firstYear}–{counts.lastYear}</span><span class="stat-label">Years</span></div>
+      </div>
+
+      <div class="actions">
+        <a href="/data/castle-dale-land/land_register.csv" class="btn btn-primary" download>↓ Download the table (.csv)</a>
+        <a href="/data/castle-dale-land/land_layers.geojson" class="btn btn-secondary" download>↓ Parcel shapes (.geojson)</a>
+        <a href="/articles/castle-dale-land-1883-1920/" class="btn btn-secondary">← Read the article</a>
+      </div>
+    </header>
+
+    <details class="source-citation">
+      <summary>Source citation &amp; provenance</summary>
+      <dl>
+        <dt>Patents</dt><dd>{source.patents}</dd>
+        <dt>Parcel shapes</dt><dd>{source.geometry}</dd>
+        <dt>What a patent shows</dt><dd>{source.scope}</dd>
+        <dt>Reading</dt><dd>{source.reading}</dd>
+        <dt>Full citation</dt><dd class="full-citation">{source.citationFull}</dd>
+      </dl>
+    </details>
+
+    <section class="filters">
+      <h2>Patents <span class="count" id="land-count">({counts.patents})</span></h2>
+      <div class="filter-grid">
+        <label class="filter">
+          <span>Search</span>
+          <input type="search" id="filter-q" placeholder="name, section, year…" />
+        </label>
+        <label class="filter">
+          <span>Kind of entry</span>
+          <select id="filter-authority">
+            <option value="">All</option>
+            {authorities.map((a: any) => <option value={a}>{a}</option>)}
+          </select>
+        </label>
+        <label class="filter">
+          <span>Patented by</span>
+          <select id="filter-layer">
+            <option value="">Any year</option>
+            <option value="1890">1890</option>
+            <option value="1900">1900</option>
+            <option value="1910">1910</option>
+            <option value="1920">1920</option>
+          </select>
+        </label>
+        <label class="filter">
+          <span>Area</span>
+          <select id="filter-area">
+            <option value="">All</option>
+            {areas.map((a: any) => <option value={a}>{a}</option>)}
+          </select>
+        </label>
+        <button id="filter-clear" class="btn btn-ghost">Clear filters</button>
+      </div>
+    </section>
+
+    <div class="table-wrap">
+      <table class="data-table" id="land-table">
+        <thead>
+          <tr>
+            <th data-sort="no" data-type="number">No.</th>
+            <th data-sort="date">Patent date</th>
+            <th data-sort="patentees">Patentee(s), as indexed</th>
+            <th data-sort="authority">Kind of entry</th>
+            <th data-sort="acres" data-type="number">Acres</th>
+            <th data-sort="legal">Legal description</th>
+            <th data-sort="area">Area</th>
+            <th>Record</th>
+          </tr>
+        </thead>
+        <tbody id="land-body">
+          {rows.map((r: any) => (
+            <tr
+              data-no={r.no}
+              data-date={r.date}
+              data-patentees={r.patentees}
+              data-authority={r.authority}
+              data-acres={r.acres}
+              data-legal={r.legal}
+              data-area={r.area}
+              data-layer={r.layer}
+              data-search={`${r.patentees} ${r.authority} ${r.legal} ${r.area} ${r.date} ${r.accession}`.toLowerCase()}
+            >
+              <td>{r.no}</td>
+              <td style="white-space:nowrap">{fmt(r.date)}</td>
+              <td>{r.patentees}</td>
+              <td>{r.authority}</td>
+              <td>{r.acres}</td>
+              <td>{r.legal}{r.legalSource !== 'BLM GLO index' && <span class="muted"> ({r.legalSource})</span>}</td>
+              <td>{r.area}</td>
+              <td><a href={r.url} rel="external noopener" target="_blank" aria-label={`BLM record for ${r.patentees}, ${r.date}`}>{r.accession}</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="dataset-footnote">
+      Data last built: <time datetime={data.lastBuilt}>{new Date(data.lastBuilt + 'T12:00:00Z').toLocaleString('en-US', { dateStyle: 'medium', timeZone: 'UTC' })}</time>.
+      Names are given as the Bureau of Land Management index spells them. A patent records the day title passed from the United States to the first private owner. It does not show later sales. The platted town lies on land patented to individuals; how town lots then passed to householders is recorded in county deed books, not here.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  // Filter + sort + URL-param state for the land table.
+  const tbody = document.getElementById('land-body') as HTMLTableSectionElement | null;
+  const countEl = document.getElementById('land-count');
+  const filters = {
+    q: document.getElementById('filter-q') as HTMLInputElement | null,
+    authority: document.getElementById('filter-authority') as HTMLSelectElement | null,
+    layer: document.getElementById('filter-layer') as HTMLSelectElement | null,
+    area: document.getElementById('filter-area') as HTMLSelectElement | null,
+  };
+  const clearBtn = document.getElementById('filter-clear');
+  if (!tbody) throw new Error('land-body missing');
+  const allRows = Array.from(tbody.querySelectorAll('tr'));
+  const keys = ['q', 'authority', 'layer', 'area'] as const;
+
+  const params = new URLSearchParams(window.location.search);
+  for (const k of keys) { const f = filters[k]; if (f && params.get(k)) f.value = params.get(k) || ''; }
+
+  function applyFilters() {
+    const q = (filters.q?.value || '').trim().toLowerCase();
+    const au = filters.authority?.value || '';
+    const ly = filters.layer?.value || '';
+    const ar = filters.area?.value || '';
+    let visible = 0;
+    for (const tr of allRows) {
+      const ds = tr.dataset;
+      const matches =
+        (!q || (ds.search || '').includes(q)) &&
+        (!au || ds.authority === au) &&
+        (!ly || Number(ds.layer) <= Number(ly)) &&
+        (!ar || ds.area === ar);
+      tr.style.display = matches ? '' : 'none';
+      if (matches) visible++;
+    }
+    if (countEl) countEl.textContent = `(${visible}${visible !== allRows.length ? ` of ${allRows.length}` : ''})`;
+    const url = new URL(window.location.href);
+    for (const k of keys) { url.searchParams.delete(k); const v = filters[k]?.value || ''; if (v) url.searchParams.set(k, v); }
+    window.history.replaceState({}, '', url.toString());
+  }
+  for (const f of Object.values(filters)) { if (f) f.addEventListener('input', applyFilters); }
+  if (clearBtn) clearBtn.addEventListener('click', () => {
+    for (const f of Object.values(filters)) { if (f) (f as HTMLInputElement | HTMLSelectElement).value = ''; }
+    applyFilters();
+  });
+  applyFilters();
+
+  const headers = document.querySelectorAll('#land-table th[data-sort]');
+  let sortState: { key: string; dir: 1 | -1 } | null = null;
+  headers.forEach(th => {
+    th.addEventListener('click', () => {
+      const key = (th as HTMLElement).dataset.sort!;
+      const type = (th as HTMLElement).dataset.type || 'string';
+      const dir: 1 | -1 = sortState && sortState.key === key && sortState.dir === 1 ? -1 : 1;
+      sortState = { key, dir };
+      const sorted = [...allRows].sort((a, b) => {
+        const av = a.dataset[key] || '';
+        const bv = b.dataset[key] || '';
+        if (type === 'number') return (Number(av) - Number(bv)) * dir;
+        return av.localeCompare(bv) * dir;
+      });
+      for (const tr of sorted) tbody.appendChild(tr);
+      headers.forEach(h => h.removeAttribute('aria-sort'));
+      th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+    });
+  });
+</script>
+
+<style>
+  .dataset-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--color-text, #1A1A2E);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--color-accent-primary, #C85A54); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { color: var(--color-text-muted, #777); }
+
+  .dataset-header {
+    border-bottom: 1px solid var(--color-border-light, #e5e5e5);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  .kicker {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #777);
+    margin: 0 0 0.5rem;
+  }
+  .dataset-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .lede {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted, #555);
+    max-width: 70ch;
+    line-height: 1.6;
+  }
+
+  .stats {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent-primary, #C85A54);
+    font-family: 'Libre Baskerville', serif;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #777);
+  }
+
+  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 0.625rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--color-accent-primary, #C85A54); color: #fff; }
+  .btn-primary:hover { background: #a64a44; }
+  .btn-secondary { border-color: var(--color-accent-primary, #C85A54); color: var(--color-accent-primary, #C85A54); background: transparent; }
+  .btn-secondary:hover { background: rgba(200,90,84,0.05); }
+  .btn-ghost { border-color: var(--color-border-light, #ccc); background: transparent; color: var(--color-text-muted, #555); }
+
+  .source-citation {
+    background: #f9f7f3;
+    border-left: 3px solid #D4A574;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .source-citation summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .source-citation dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1rem;
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
+  }
+  .source-citation dt {
+    font-weight: 600;
+    color: var(--color-text-muted, #555);
+  }
+  .source-citation dd { margin: 0; }
+  .source-citation .full-citation { font-style: italic; line-height: 1.6; }
+
+  .filters h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+  }
+  .filters .count {
+    color: var(--color-text-muted, #777);
+    font-weight: normal;
+    font-size: 1rem;
+  }
+  .filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem 1rem;
+    align-items: end;
+    margin-bottom: 1.5rem;
+  }
+  .filter { display: flex; flex-direction: column; gap: 0.25rem; }
+  .filter span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #777);
+  }
+  .filter input, .filter select {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.9375rem;
+    border: 1px solid var(--color-border-light, #ccc);
+    border-radius: 4px;
+    background: #fff;
+    font-family: inherit;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border-light, #e5e5e5);
+    border-radius: 6px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .data-table th, .data-table td {
+    padding: 0.625rem 0.875rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light, #f0f0f0);
+  }
+  .data-table th {
+    background: #f9f7f3;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted, #555);
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  .data-table th[data-sort]:after {
+    content: ' ⇅';
+    opacity: 0.3;
+    font-size: 0.75rem;
+  }
+  .data-table th[data-sorted="asc"]:after { content: ' ↑'; opacity: 1; }
+  .data-table th[data-sorted="desc"]:after { content: ' ↓'; opacity: 1; }
+  .data-table tbody tr:hover { background: #fafafa; }
+  .data-table .muted { color: #aaa; }
+  .data-table .famid {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8125rem;
+    background: #f0ede7;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .pill-provisional { background: #fff4e0; color: #8b5a00; }
+  .pill-verified { background: #e0f5e8; color: #1d6e3a; }
+
+  .dataset-footnote {
+    margin-top: 2rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted, #777);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .dataset-page { padding: 1rem; }
+    .dataset-header h1 { font-size: 1.75rem; }
+    .stats { gap: 1rem; }
+    .stat-num { font-size: 1.5rem; }
+    .data-table { font-size: 0.8125rem; }
+    .data-table th, .data-table td { padding: 0.5rem 0.625rem; }
+  }
+</style>
