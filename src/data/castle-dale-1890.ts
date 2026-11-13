@@ -43,8 +43,9 @@ export const RECONSTRUCTIONS: Reconstruction[] = [
       'Drag the light slider through an afternoon of 20 September 1890',
       'Jump to preset views — Public Square, the bench, the Wasatch Plateau',
       'Overlay the 1880 plat’s blocks and lots',
+      'Switch on land patents by decade, 1883–1920, and click a parcel',
     ],
-    weight: '1.2 MB',
+    weight: '1.3 MB',
   },
   {
     slug: 'photo-chatgpt',
@@ -58,8 +59,9 @@ export const RECONSTRUCTIONS: Reconstruction[] = [
       'Click a landmark to read its evidence and grade',
       'Switch between bird’s-eye, plan, and street-level views',
       'Watch wagons move along the roads',
+      'Switch on land patents by decade, 1883–1920, and click a parcel',
     ],
-    weight: '90 KB',
+    weight: '200 KB',
   },
   {
     slug: 'sim-claude',
@@ -73,8 +75,9 @@ export const RECONSTRUCTIONS: Reconstruction[] = [
       'Toggle the 1880 plat block numbers',
       'Highlight the creek and irrigation ditches',
       'Set the camera to orbit the town',
+      'Switch on land patents by decade, 1883–1920, and click a parcel',
     ],
-    weight: '85 KB',
+    weight: '200 KB',
   },
   {
     slug: 'sim-chatgpt',
@@ -88,8 +91,9 @@ export const RECONSTRUCTIONS: Reconstruction[] = [
       'Turn, tilt, and zoom with the camera sliders',
       'Show 1917 Sanborn footprints as dashed “later clues”',
       'Click a building, street, or waterway to inspect it',
+      'Switch on land patents by decade, 1883–1920, and click a parcel',
     ],
-    weight: '26 KB',
+    weight: '140 KB',
   },
 ];
 
