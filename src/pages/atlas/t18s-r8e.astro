@@ -1,0 +1,295 @@
+---
+/**
+ * Settler atlas sample page: T18S R8E (Castle Dale townsite and the Orangeville side).
+ * W-CCO-206 / BID-R-011. Data: src/data/land/t18s-r8e-atlas-sample.json, built by
+ * scripts/build-atlas-sample.py from the published land register and the BLM survey shapes.
+ * Price and mention copy: ruling chair-desk-cco206-atlas-b-19-preorder-20261109.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/land/t18s-r8e-atlas-sample.json';
+
+const { counts, rows, zones } = data;
+const map = data.map;
+const pageTitle = 'Who Owned the Land: Castle Dale and Orangeville, 1883–1920';
+const description = `A sample page from a planned settler land atlas of Emery County, Utah: the ${counts.patents} federal land patents that touch Township 18 South, Range 8 East, mapped and listed by patentee, with the families we can name so far.`;
+
+const zoneOrder = ['castle-dale-townsite', 'castle-dale-fields', 'orangeville-side', 'other-in-township'];
+const byNo = new Map(rows.map((r: any) => [r.no, r]));
+const fmt = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+const first = rows[0];
+const linked = rows.filter((r: any) => r.link !== 'unlinked');
+const a = counts.authority as Record<string, number>;
+const lede = `In ${first.year} the first patent in this township went to ${first.patentees}. By ${counts.lastYear} the register shows ${counts.patents} patents touching the township: ${a['Homestead Entry']} homesteads, ${a['Desert Land Entry']} desert-land entries, ${a['Cash Sale Entry']} cash sales and ${a['Timber Culture Entry']} timber-culture entry. This sample page shows how a full township atlas would work, using the township that holds the Castle Dale townsite.`;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="atlas-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/articles/castle-dale-land-1883-1920/">Castle Dale Land Patents</a>
+      <span>/</span>
+      <span>Atlas sample page</span>
+    </nav>
+
+    <header class="atlas-header">
+      <p class="kicker">Sample page · Settler land atlas · Castle Dale One Place Study</p>
+      <h1>{pageTitle}</h1>
+      <p class="lede">
+        {lede}
+      </p>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">{counts.patents}</span><span class="stat-label">Patents</span></div>
+        <div class="stat"><span class="stat-num">{counts.firstYear}–{counts.lastYear}</span><span class="stat-label">Years</span></div>
+        <div class="stat"><span class="stat-num">{linked.length}</span><span class="stat-label">Linked to a family</span></div>
+      </div>
+      <div class="actions">
+        <a href="#reserve" class="btn btn-primary">Reserve a township atlas</a>
+        <a href="/data/castle-dale-land/" class="btn btn-secondary">See the full land register</a>
+      </div>
+    </header>
+
+    <section aria-labelledby="where">
+      <h2 id="where">Where this township is</h2>
+      <p>
+        {data.township}, is a six-mile square of 36 sections in Emery County, Utah. The Castle Dale townsite sits in
+        sections 33 and 34 at its south edge. The west side, sections 19, 20 and 29 to 32, runs toward Orangeville.
+        Each colored shape below is the land of one federal patent, drawn from the Bureau of Land Management survey
+        grid. Hover or tap a shape for the patentee and year.
+      </p>
+      <figure class="plat">
+        <svg viewBox={`-6 -6 ${map.width + 12} ${map.height + 12}`} role="img" aria-labelledby="plat-title plat-desc">
+          <title id="plat-title">Land patents in Township 18 South, Range 8 East, 1883 to 1920</title>
+          <desc id="plat-desc">A township grid of 36 numbered sections with {counts.patents} patented parcels, colored by area: Castle Dale townsite sections, Castle Dale fields, the Orangeville side, and elsewhere in the township. The table below lists every parcel.</desc>
+          <clipPath id="twp-clip"><rect x="0" y="0" width={map.width} height={map.height} /></clipPath>
+          <rect x="0" y="0" width={map.width} height={map.height} class="plat-bg" />
+          <g clip-path="url(#twp-clip)">
+            {map.parcels.map((p: any) => {
+              const r: any = byNo.get(p.no);
+              return (
+                <path d={p.d} class={`parcel zone-${r.zone} ${r.link !== 'unlinked' ? 'is-linked' : ''}`}>
+                  <title>{`No. ${r.no}: ${r.patentees}, ${r.year} (${r.authority}, sec. ${r.sections})`}</title>
+                </path>
+              );
+            })}
+          </g>
+          {map.sections.map((s: any) => <path d={s.d} class="section-line" />)}
+          {map.sections.map((s: any) => <text x={s.c[0]} y={s.c[1]} class="section-num">{s.sec}</text>)}
+        </svg>
+        <figcaption>
+          <ul class="legend">
+            {zoneOrder.map((z) => <li><span class={`swatch zone-${z}`}></span>{(zones as any)[z]} ({(counts.zone as any)[z]})</li>)}
+            <li><span class="swatch swatch-linked"></span>Heavy outline: linked to a family</li>
+          </ul>
+          Section lines and parcel shapes: BLM National Public Land Survey System (CadNSDI). No parcel was drawn by
+          hand. A patent that crosses into Township 19 South is shown only as far as the township line. A patent
+          that falls in two areas is colored by the first.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="owners">
+      <h2 id="owners">Who got each patent, by area</h2>
+      <p>
+        A patent records the day title first passed from the United States to a private owner. It does not show
+        later sales. Names are spelled as the Bureau of Land Management index spells them. Each record number
+        opens the patent at the BLM.
+      </p>
+      {zoneOrder.map((z) => {
+        const zr = rows.filter((r: any) => r.zone === z);
+        return (
+          <details class="zone-block" open={z === 'castle-dale-townsite'}>
+            <summary><span class={`swatch zone-${z}`}></span>{(zones as any)[z]} <span class="count">({zr.length} patents)</span></summary>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>No.</th><th>Patent date</th><th>Patentee(s), as indexed</th><th>Kind of entry</th><th>Acres</th><th>Sec.</th><th>Family link</th><th>Record</th></tr>
+                </thead>
+                <tbody>
+                  {zr.map((r: any) => (
+                    <tr>
+                      <td>{r.no}</td>
+                      <td style="white-space:nowrap">{fmt(r.date)}</td>
+                      <td>{r.patentees}</td>
+                      <td>{r.authority}</td>
+                      <td>{r.acres}</td>
+                      <td>{r.sections}</td>
+                      <td>{r.link === 'matched' ? 'Matched' : r.link === 'likely' ? 'Likely' : <span class="muted">Not yet</span>}</td>
+                      <td><a href={r.url} rel="external noopener" target="_blank" aria-label={`BLM record for ${r.patentees}, ${r.date}`}>{r.accession}</a></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        );
+      })}
+    </section>
+
+    <aside class="family-box" aria-labelledby="families">
+      <h2 id="families">Families we can name so far</h2>
+      <p>
+        {counts.matched} patentees are matched to a person in the Castle Dale One Place Study and {counts.likely} more
+        are likely matches. <strong>{counts.unlinked} of {counts.patents} patents are not yet linked to a family.</strong>
+        That is what the full atlas work is for.
+      </p>
+      <ul class="family-list">
+        {linked.map((r: any) => (
+          <li>
+            <strong>{r.patentees}</strong>, {r.year}, sec. {r.sections}
+            <span class={`tag tag-${r.link}`}>{r.link === 'matched' ? 'matched' : 'likely match'}</span>
+          </li>
+        ))}
+      </ul>
+    </aside>
+
+    <section class="sources" aria-labelledby="sources">
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li>U.S. Bureau of Land Management, General Land Office Records (glorecords.blm.gov), land patents for Township 18 South, Range 8 East, Salt Lake Meridian, 1883 to 1920. Every patent that has an image was read from the image.</li>
+        <li>BLM National Public Land Survey System (CadNSDI), PLSS Intersected layer, for section lines and parcel shapes.</li>
+        <li>The <a href="/data/castle-dale-land/">Castle Dale land register</a>: all {counts.registerTotal} patents in Townships 18 and 19 South, Range 8 East. This page shows the {counts.patents} that touch Township 18 South. A patent can touch both townships.</li>
+        <li>Family links: the Castle Dale One Place Study. “Likely” means the name, place and dates fit one person but the match is not yet proven.</li>
+      </ul>
+    </section>
+
+    <section class="reserve" id="reserve" aria-labelledby="reserve-h">
+      <h2 id="reserve-h">Want a page like this for your family's township?</h2>
+      <p>
+        We have not built the full atlas yet. If enough readers want one, we will build it township by township:
+        every patent mapped, every patentee listed, and the families traced as far as the records allow. Tell us
+        which township you want next. That is the only question.
+      </p>
+      <p class="price-line">
+        Pre-order price for the Castle Dale and Orangeville township atlas: <strong>$19</strong>, rising to $29 at
+        release. No payment is taken now. This form only holds your place.
+      </p>
+      <form id="atlas-reserve-form" class="reserve-form">
+        <label><span>Your name</span><input type="text" name="name" autocomplete="name" required /></label>
+        <label><span>Email</span><input type="email" name="email" autocomplete="email" required /></label>
+        <label class="wide"><span>Which township, town or family's land do you want next?</span><input type="text" name="township" placeholder="e.g. Ferron, Huntington, T19S R8E, the Jensen farm…" required /></label>
+        <label class="check wide"><input type="checkbox" name="preorder" value="yes" /> <span>Hold a copy of the Castle Dale and Orangeville atlas for me at the $19 pre-order price.</span></label>
+        <button type="submit" class="btn btn-primary">Reserve</button>
+        <p class="reserve-status" id="atlas-reserve-status" role="status"></p>
+        <p class="fineprint">We use your email only to tell you about the atlas. See the <a href="/privacy-policy/">privacy policy</a>.</p>
+      </form>
+    </section>
+
+    <p class="dataset-footnote">
+      Sample page built <time datetime={data.built}>{fmt(data.built)}</time> from the land register of {fmt(data.registerBuilt)}.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('atlas-reserve-form') as HTMLFormElement | null;
+  const status = document.getElementById('atlas-reserve-status');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const fd = new FormData(form);
+    const preorder = fd.get('preorder') === 'yes';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    if (status) { status.textContent = ''; status.className = 'reserve-status'; }
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'atlas',
+          email: String(fd.get('email') || '').trim(),
+          name: String(fd.get('name') || '').trim(),
+          township: String(fd.get('township') || '').trim(),
+          preorder,
+        }),
+      });
+      if (res.ok) {
+        if (status) { status.textContent = 'Thank you. Your place is held, and we will write when there is news.'; status.classList.add('success'); }
+        (window as any).gtag?.('event', 'atlas_reserve', { township_sample: 'T18S R8E', preorder_19: preorder ? 'yes' : 'no' });
+        form.reset();
+      } else {
+        const d = await res.json().catch(() => ({}));
+        if (status) { status.textContent = d.error || 'Something went wrong. Please try again.'; status.classList.add('error'); }
+      }
+    } catch {
+      if (status) { status.textContent = 'Something went wrong. Please try again.'; status.classList.add('error'); }
+    }
+    btn.disabled = false;
+    btn.textContent = 'Reserve';
+  });
+</script>
+
+<style>
+  .atlas-page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .breadcrumb { font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--color-link); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { margin: 0 0.5rem; }
+  .kicker { font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent-primary); font-weight: 600; margin: 0 0 0.5rem; }
+  .atlas-header { margin-bottom: 2.5rem; }
+  .atlas-header h1 { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 1rem; line-height: 1.2; }
+  .lede { font-size: var(--text-base); line-height: 1.6; max-width: 75ch; margin: 0 0 1.5rem; }
+  .stats { display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; line-height: 1; }
+  .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.625rem 1rem; border-radius: 6px; font-size: 0.9375rem; text-decoration: none; font-weight: 600; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+  .btn-primary { background: var(--color-accent-primary); color: var(--sky-wash); }
+  .btn-primary:hover { background: var(--mesa-red-deep); }
+  .btn-secondary { border-color: var(--color-accent-primary); color: var(--color-accent-primary); background: transparent; }
+  section, aside { margin-bottom: 2.5rem; }
+  h2 { font-family: var(--font-display); font-size: 1.5rem; margin: 0 0 0.75rem; }
+  section > p, aside > p { max-width: 75ch; line-height: 1.6; }
+
+  .plat { margin: 1.25rem 0 0; }
+  .plat svg { width: 100%; max-width: 760px; height: auto; display: block; }
+  .plat-bg { fill: var(--sky-wash); stroke: var(--canyon-shadow); stroke-width: 3; }
+  .parcel { stroke: var(--canyon-shadow); stroke-width: 0.6; fill-opacity: 0.6; }
+  .parcel:hover { fill-opacity: 0.95; }
+  .parcel.is-linked { stroke-width: 2.4; }
+  .section-line { fill: none; stroke: var(--canyon-bronze); stroke-width: 0.8; stroke-dasharray: 5 4; pointer-events: none; }
+  .section-num { font-family: var(--font-body); font-size: 26px; font-weight: 600; fill: var(--canyon-shadow); fill-opacity: 0.55; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+  .zone-castle-dale-townsite { fill: var(--mesa-red); background: var(--mesa-red); }
+  .zone-castle-dale-fields { fill: var(--sage-green); background: var(--sage-green); }
+  .zone-orangeville-side { fill: var(--deep-sky); background: var(--deep-sky); }
+  .zone-other-in-township { fill: var(--sandstone); background: var(--sandstone); }
+  figcaption { font-size: var(--text-xs); color: var(--color-text-muted); max-width: 760px; margin-top: 0.75rem; line-height: 1.5; }
+  .legend { list-style: none; padding: 0; margin: 0 0 0.5rem; display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; color: var(--color-text); }
+  .swatch { display: inline-block; width: 0.9em; height: 0.9em; border: 1px solid var(--canyon-shadow); margin-right: 0.4em; vertical-align: -0.1em; opacity: 0.8; }
+  .swatch-linked { background: transparent; border-width: 3px; }
+
+  .zone-block { border: 1px solid var(--color-border-light); border-radius: 6px; margin-bottom: 0.75rem; background: var(--color-bg); }
+  .zone-block summary { cursor: pointer; padding: 0.75rem 1rem; font-weight: 600; }
+  .zone-block .count { color: var(--color-text-muted); font-weight: normal; }
+  .table-wrap { overflow-x: auto; border-top: 1px solid var(--color-border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--alkali-flat); text-align: left; padding: 0.5rem 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+  .data-table td { padding: 0.45rem 0.75rem; border-top: 1px solid var(--color-border-light); vertical-align: top; }
+  .data-table a { color: var(--color-link); }
+  .muted { color: var(--color-text-muted); }
+
+  .family-box { background: var(--alkali-flat); border-left: 4px solid var(--sandstone); padding: 1.25rem 1.5rem; border-radius: 0 6px 6px 0; }
+  .family-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.4rem 1.5rem; font-size: 0.9375rem; }
+  .tag { display: inline-block; margin-left: 0.4rem; padding: 0 0.45rem; border-radius: 999px; font-size: 0.75rem; border: 1px solid var(--canyon-bronze); color: var(--canyon-shadow); white-space: nowrap; }
+  .tag-matched { background: var(--sage-green); border-color: var(--forest-green); color: var(--sky-wash); }
+
+  .sources ul { max-width: 80ch; line-height: 1.6; font-size: 0.9375rem; padding-left: 1.25rem; }
+  .sources li { margin-bottom: 0.4rem; }
+
+  .reserve { border: 2px solid var(--color-accent-primary); border-radius: 8px; padding: 1.5rem; background: var(--color-bg); }
+  .price-line { font-size: var(--text-base); }
+  .reserve-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1rem; max-width: 720px; margin-top: 1rem; }
+  .reserve-form label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.875rem; font-weight: 600; }
+  .reserve-form .wide { grid-column: 1 / -1; }
+  .reserve-form .check { flex-direction: row; align-items: flex-start; gap: 0.5rem; font-weight: normal; font-size: 0.9375rem; }
+  .reserve-form input[type='text'], .reserve-form input[type='email'] { padding: 0.55rem 0.7rem; border: 1px solid var(--color-border); border-radius: 6px; font: inherit; font-weight: normal; background: var(--sky-wash); }
+  .reserve-form button { justify-self: start; }
+  .reserve-status { grid-column: 1 / -1; margin: 0; font-size: 0.9375rem; min-height: 1.2em; }
+  .reserve-status.success { color: var(--forest-green); font-weight: 600; }
+  .reserve-status.error { color: var(--mesa-red-deep); font-weight: 600; }
+  .fineprint { grid-column: 1 / -1; margin: 0; font-size: var(--text-xs); color: var(--color-text-muted); }
+  .dataset-footnote { font-size: var(--text-xs); color: var(--color-text-muted); }
+  @media (max-width: 600px) { .reserve-form { grid-template-columns: 1fr; } }
+</style>
