@@ -38,3 +38,6 @@ image-curation/
 # Mirrors image-curation/. Only copies incorporated into
 # public/images/chapters/ are tracked and deployed.
 figure-curation/
+# build/preview logs (W-CTO-890)
+*.log
+.*.log
