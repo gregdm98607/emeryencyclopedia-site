@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import pop from '../../../data/castle-dale/population.json';
+import hh from '../../../data/castle-dale/households_1880_to_1900.json';
+import lp from '../../../data/castle-dale/land_patents.json';
+
+const pageTitle = 'Castle Dale by the Numbers';
+const description = 'Census counts for Castle Dale in 1880 and 1900, what became of the households of 1880, and the federal land patents issued 1883-1920, each with an as-of date.';
+const years = ['1880', '1900'] as const;
+const fmtAsOf = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const fmtNum = (n: number) => n.toLocaleString('en-US');
+const fiveYears = Object.entries(lp.by_five_years);
+const maxFive = Math.max(...fiveYears.map(([, v]) => v as number));
+const authorities = Object.entries(lp.by_authority);
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="cd-data">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>/</span><a href="/studies/">One Place Studies</a><span>/</span><a href="/studies/castle-dale/">Castle Dale</a><span>/</span><span>Data</span>
+    </nav>
+    <h1>{pageTitle}</h1>
+    <p class="lede">Figures from the Castle Dale One Place Study, rebuilt from the original records. Each section shows the date its numbers were last generated.</p>
+
+    <section aria-labelledby="pop-h">
+      <h2 id="pop-h">Population by census</h2>
+      <p class="asof">As of {fmtAsOf(pop.as_of)}. {pop.note}</p>
+      <table class="cd-table">
+        <caption>Castle Dale precinct, U.S. census</caption>
+        <thead><tr><th scope="col">Census</th><th scope="col">Persons</th><th scope="col">Male</th><th scope="col">Female</th><th scope="col">Dwellings</th></tr></thead>
+        <tbody>
+          {years.map((y) => (
+            <tr><th scope="row">{y}</th><td>{fmtNum(pop.years[y].persons)}</td><td>{fmtNum(pop.years[y].male)}</td><td>{fmtNum(pop.years[y].female)}</td><td>{fmtNum(pop.years[y].dwellings)}</td></tr>
+          ))}
+          <tr><th scope="row">1890</th><td colspan="4">The 1890 census schedules were destroyed in the 1921 Commerce Department fire; no count survives.</td></tr>
+        </tbody>
+      </table>
+      <p class="small">1900 includes {pop.years['1900'].not_charted} persons not assigned to an age band in the pyramid.</p>
+      <div class="pyramids">
+        <figure><img src="/images/studies/castle-dale/data/castle-dale-pyramid-1880.png" alt="Population pyramid of Castle Dale in 1880, males and females by ten-year age band" loading="lazy" decoding="async" /><figcaption>1880: {pop.years['1880'].persons} persons</figcaption></figure>
+        <figure><img src="/images/studies/castle-dale/data/castle-dale-pyramid-1900.png" alt="Population pyramid of Castle Dale in 1900, males and females by ten-year age band" loading="lazy" decoding="async" /><figcaption>1900: {pop.years['1900'].persons} persons</figcaption></figure>
+      </div>
+      <details>
+        <summary>Sources and method</summary>
+        {years.map((y) => <p class="small"><strong>{y}.</strong> {pop.years[y].source}</p>)}
+      </details>
+    </section>
+
+    <section aria-labelledby="hh-h">
+      <h2 id="hh-h">The {hh.total} households of 1880, twenty years on</h2>
+      <p class="asof">As of {fmtAsOf(hh.as_of)}.</p>
+      <ul class="hh">
+        <li><strong>{hh.counts.castle_dale}</strong> still had a member in Castle Dale in 1900</li>
+        <li><strong>{hh.counts.orangeville}</strong> had a member in Orangeville</li>
+        <li><strong>{hh.counts.not_found}</strong> not found in either place</li>
+      </ul>
+      <p class="small">{hh.note}</p>
+    </section>
+
+    <section aria-labelledby="lp-h">
+      <h2 id="lp-h">Land patents, 1883 to 1920</h2>
+      <p class="asof">As of {fmtAsOf(lp.as_of)}. {lp.note}</p>
+      <p><strong>{lp.patents}</strong> patents covering <strong>{fmtNum(Math.round(lp.acres))}</strong> acres, first issued {lp.first} and last {lp.last}. <a href="/data/castle-dale-land/">Browse every patent</a>.</p>
+      <table class="cd-table">
+        <caption>Patents by five-year period</caption>
+        <thead><tr><th scope="col">Years</th><th scope="col">Patents</th><th scope="col"><span class="sr">Share</span></th></tr></thead>
+        <tbody>
+          {fiveYears.map(([k, v]) => (
+            <tr><th scope="row">{k}</th><td>{v}</td><td><span class="bar" style={`width:${Math.round(((v as number) / maxFive) * 100)}%`}></span></td></tr>
+          ))}
+        </tbody>
+      </table>
+      <table class="cd-table">
+        <caption>Patents by law</caption>
+        <thead><tr><th scope="col">Kind of entry</th><th scope="col">Patents</th></tr></thead>
+        <tbody>{authorities.map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="more-h">
+      <h2 id="more-h">More data</h2>
+      <ul>
+        <li><a href="/data/castle-dale-1880/">The 1880 census, household by household</a></li>
+        <li><a href="/studies/castle-dale/1890/">Castle Dale, 1890: four reconstructions</a> (the 1890 census itself is lost)</li>
+        <li><a href="/studies/castle-dale/news/">Castle Dale in the News</a></li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .cd-data { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+  .breadcrumb { font-size: 0.875rem; color: var(--color-text-muted, #777); margin-bottom: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--color-accent-primary, #C85A54); text-decoration: none; }
+  h1 { font-family: var(--font-display, serif); font-size: 2.25rem; line-height: 1.2; margin: 0 0 0.75rem; }
+  h2 { font-family: var(--font-display, serif); font-size: 1.5rem; margin: 2.5rem 0 0.5rem; }
+  .lede { max-width: 68ch; line-height: 1.7; color: var(--color-text-muted, #444); }
+  .asof, .small { font-size: 0.875rem; color: var(--color-text-muted, #555); line-height: 1.55; max-width: 72ch; }
+  .cd-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9375rem; }
+  .cd-table caption { text-align: left; font-weight: 600; padding-bottom: 0.4rem; }
+  .cd-table th, .cd-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--color-border-light, #e5e5e5); }
+  .bar { display: block; height: 0.7rem; background: var(--mesa-red, #C85A54); border-radius: 2px; }
+  .sr { position: absolute; left: -9999px; }
+  .pyramids { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  .pyramids img { width: 100%; height: auto; display: block; }
+  .pyramids figcaption { font-size: 0.8125rem; color: var(--color-text-muted, #555); text-align: center; }
+  .hh { line-height: 1.8; }
+  @media (max-width: 640px) { .cd-data { padding: 1.5rem 1rem 2rem; } .pyramids { grid-template-columns: 1fr; } }
+</style>

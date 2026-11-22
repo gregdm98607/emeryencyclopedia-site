@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import news from '../../../data/castle-dale/news.json';
+
+const pageTitle = 'Castle Dale in the News';
+const description = 'Early newspaper notices about Castle Dale, Utah, each with paper, date and a link to the page at Utah Digital Newspapers.';
+// Only items whose paper, date and link are all verified are shown (hub v2 publish rule, D-048).
+const items = news.items
+  .filter((i: any) => i.publishable === true && i.url)
+  .sort((a: any, b: any) => String(a.date).localeCompare(String(b.date)));
+const fmtAsOf = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const fmtDate = (d: string) => /^\d{4}-\d{2}-\d{2}$/.test(d)
+  ? new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+  : d;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="cd-news">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>/</span><a href="/studies/">One Place Studies</a><span>/</span><a href="/studies/castle-dale/">Castle Dale</a><span>/</span><span>News</span>
+    </nav>
+    <h1>{pageTitle}</h1>
+    <p class="lede">Newspaper notices about the town in its first years, each linked to the page image at Utah Digital Newspapers. Items appear here once the paper, the date and the link have all been checked. List as of {fmtAsOf(news.as_of)}.</p>
+    <ul class="news-list">
+      {items.map((i: any) => (
+        <li>
+          <div class="news-date">{fmtDate(i.date)} &middot; {i.publication}</div>
+          <p>{i.blurb}</p>
+          <a href={i.url} rel="noopener" target="_blank">View the page at Utah Digital Newspapers <span aria-hidden="true">&rarr;</span></a>
+        </li>
+      ))}
+    </ul>
+    <p class="small">More notices will be added as their links are found.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .cd-news { max-width: 820px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+  .breadcrumb { font-size: 0.875rem; color: var(--color-text-muted, #777); margin-bottom: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--color-accent-primary, #C85A54); text-decoration: none; }
+  h1 { font-family: var(--font-display, serif); font-size: 2.25rem; line-height: 1.2; margin: 0 0 0.75rem; }
+  .lede { max-width: 68ch; line-height: 1.7; color: var(--color-text-muted, #444); }
+  .news-list { list-style: none; padding: 0; margin: 2rem 0; display: flex; flex-direction: column; gap: 1rem; }
+  .news-list li { padding: 1.25rem 1.5rem; background: #fff; border: 1px solid var(--color-border-light, #e5e5e5); border-radius: 8px; }
+  .news-date { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-accent-primary, #C85A54); font-weight: 600; margin-bottom: 0.5rem; }
+  .news-list p { margin: 0 0 0.75rem; line-height: 1.6; }
+  .news-list a { font-weight: 600; color: var(--color-accent-primary, #C85A54); text-decoration: none; }
+  .small { font-size: 0.875rem; color: var(--color-text-muted, #555); }
+  @media (max-width: 640px) { .cd-news { padding: 1.5rem 1rem 2rem; } }
+</style>

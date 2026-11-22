@@ -15,20 +15,23 @@ const { study } = Astro.props;
 
 // All articles in this study, ordered by seriesOrder then publish date.
 const allArticles = await getCollection('articles');
-const studyArticles = allArticles
-  .filter((a) => a.data.series === study.slug)
-  .sort((a, b) => {
-    const oa = a.data.seriesOrder ?? Infinity;
-    const ob = b.data.seriesOrder ?? Infinity;
-    if (oa !== ob) return oa - ob;
-    return (a.data.publishDate || '').localeCompare(b.data.publishDate || '');
-  });
+// Newest first by publishDate; seriesOrder is only a tie-break (hub v2, D-048).
+const inStudy = allArticles.filter((a) => a.data.series === study.slug);
+const byNewest = (a: any, b: any) => {
+  const d = (b.data.publishDate || '').localeCompare(a.data.publishDate || '');
+  if (d !== 0) return d;
+  return (a.data.seriesOrder ?? Infinity) - (b.data.seriesOrder ?? Infinity);
+};
+const studyArticles = inStudy.filter((a) => a.data.kind !== 'field-note').sort(byNewest);
+const fieldNotesAll = inStudy.filter((a) => a.data.kind === 'field-note').sort(byNewest);
+const fieldNotes = fieldNotesAll.slice(0, 2);
 
 const kindLabel: Record<string, string> = {
   vignette: 'Vignette',
   teaser: 'Teaser',
   companion: 'Companion Article',
   essay: 'Essay',
+  'field-note': 'Latest Research',
 };
 ---
 
@@ -65,6 +68,27 @@ const kindLabel: Record<string, string> = {
             </span>
           </a>
         ))}
+      </section>
+    )}
+
+    {fieldNotes.length > 0 && (
+      <section class="study-latest" aria-labelledby="study-latest-h">
+        <h2 class="study-section-h" id="study-latest-h">Latest Research</h2>
+        <p class="study-latest__note">Provisional notes on what the study found recently. They come from original records but have not been through the full fact-check that articles receive.</p>
+        <div class="study-articles">
+          {fieldNotes.map((article) => (
+            <a href={`/articles/${article.id}/`} class="study-article-card study-article-card--note">
+              <div class="study-article-card__kind">Latest Research &middot; Work in progress</div>
+              <h3 class="study-article-card__title">{article.data.title}</h3>
+              <p class="study-article-card__description">{article.data.description}</p>
+              <div class="study-article-card__meta">
+                {article.data.readingTime}
+                {article.data.publishDate && ` · ${article.data.publishDate}`}
+              </div>
+            </a>
+          ))}
+        </div>
+        {fieldNotesAll.length > fieldNotes.length && <p class="study-latest__more">{fieldNotesAll.length - fieldNotes.length} earlier note(s) are available from the article index.</p>}
       </section>
     )}
 
@@ -225,6 +249,11 @@ const kindLabel: Record<string, string> = {
     color: var(--color-text-muted);
     margin: 0 0 1rem;
   }
+
+  .study-latest { margin-bottom: 2.5rem; }
+  .study-latest__note, .study-latest__more { margin: 0 0 1rem; font-size: 0.9375rem; color: var(--color-text-muted, #555); max-width: 68ch; }
+  .study-article-card--note { border-style: dashed; }
+  .study-article-card--note .study-article-card__title { font-size: 1.25rem; }
 
   .empty {
     padding: 2rem 0;

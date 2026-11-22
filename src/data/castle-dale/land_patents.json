@@ -1,0 +1,25 @@
+{
+ "as_of": "2026-11-21",
+ "note": "BLM General Land Office patents, T18S and T19S R8E SLM, 1870-1920, reviewed and approved rows of the CD-OPS land register.",
+ "patents": 171,
+ "acres": 21414.3,
+ "first": "1883-03-10",
+ "last": "1920-08-04",
+ "by_five_years": {
+  "1880-1884": 3,
+  "1885-1889": 25,
+  "1890-1894": 23,
+  "1895-1899": 33,
+  "1900-1904": 39,
+  "1905-1909": 8,
+  "1910-1914": 23,
+  "1915-1919": 14,
+  "1920-1924": 3
+ },
+ "by_authority": {
+  "Homestead Entry": 105,
+  "Sale-Cash Entry": 52,
+  "Desert Land Act": 10,
+  "Timber Culture": 4
+ }
+}

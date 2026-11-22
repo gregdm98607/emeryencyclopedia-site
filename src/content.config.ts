@@ -26,7 +26,7 @@ const articles = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    kind: z.enum(['vignette', 'teaser', 'companion', 'essay']).default('vignette'),
+    kind: z.enum(['vignette', 'teaser', 'companion', 'essay', 'field-note']).default('vignette'),
     // Pairing metadata — how this article relates to the encyclopedia proper
     companionToChapter: z.number().optional(),
     companionToSection: z.string().optional(),
