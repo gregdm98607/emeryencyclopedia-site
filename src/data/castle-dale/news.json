@@ -1,0 +1,56 @@
+{
+ "as_of": "2026-11-21",
+ "note": "Blurbs are written by hand in news_blurbs.json (public voice); items without a URL link to Utah Digital Newspapers search.",
+ "items": [
+  {
+   "id": "SRC-den-1881-01-narrow-escape",
+   "date": "c. 1881-01-06",
+   "publication": "Deseret Evening News (reprinted from the Salt Lake Enquirer)",
+   "type": "letter",
+   "title": "Deseret Evening News, 'Narrow Escape' reprint from Salt Lake Enquirer, c. January 6, 1881",
+   "url": null,
+   "blurb": "A Castle Dale letter dated 18 December 1880 tells of a near-fatal wagon accident on the winter road over the Wasatch Plateau, the settlement's lifeline to Salina.",
+   "publishable": false
+  },
+  {
+   "id": "SRC-den-1881-06-castle-valley-indian-fight",
+   "date": "1881-06-29",
+   "publication": "Deseret Evening News",
+   "type": "editorial",
+   "title": "Deseret Evening News, 'The Indian Fight in Castle Valley,' 29 June 1881",
+   "url": null,
+   "blurb": "The evening paper's editorial on a deadly June 1881 fight with Native people that the telegraph placed in 'Castle Valley.' The weekly reprint and the Moab letter it answers show the fight was far to the east, in the La Sal Mountains.",
+   "publishable": false
+  },
+  {
+   "id": "SRC-dn-1881-07-06-indian-fight-castle-valley",
+   "date": "1881-07-06",
+   "publication": "Deseret News (weekly)",
+   "type": "editorial",
+   "title": "Deseret News (weekly), 'The Indian Fight in Castle Valley,' 6 July 1881, p. 8",
+   "url": "https://newspapers.lib.utah.edu/ark:/87278/s6jh4fph/2636804",
+   "blurb": "The weekly Deseret News prints the 'Indian Fight in Castle Valley' editorial in full. Read with the Moab letter in the same issue, it places the fight in the La Sal Mountains, then part of Emery County.",
+   "publishable": true
+  },
+  {
+   "id": "SRC-dn-1881-07-06-moab-letter",
+   "date": "1881-07-06",
+   "publication": "Deseret News (weekly)",
+   "type": "letter",
+   "title": "Deseret News (weekly), 'Correspondence,' letter from Moab, Emery Co., June 1881, printed 6 July 1881, p. 1",
+   "url": "https://newspapers.lib.utah.edu/ark:/87278/s6jh4fph/2636787",
+   "blurb": "Settlers at Moab, then in Emery County, write to the editor in June 1881 about the fight in the La Sal Mountains, the letter the 'Castle Valley' editorial answers.",
+   "publishable": true
+  },
+  {
+   "id": "SRC-den-1881-07-castle-dale",
+   "date": "c. 1881-07-21",
+   "publication": "Deseret Evening News",
+   "type": "news",
+   "title": "Deseret Evening News, Castle Dale Article, c. July 21–22, 1881",
+   "url": null,
+   "blurb": "One of the earliest descriptions of Castle Dale as a working settlement, from an interview with postmaster John K. Reid on a visit to Salt Lake City.",
+   "publishable": false
+  }
+ ]
+}

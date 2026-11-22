@@ -78,6 +78,22 @@ export const STUDIES: OnePlaceStudy[] = [
         image: '/images/studies/castle-dale-1890/photo-claude.webp',
         cta: 'View the four plates',
       },
+      {
+        href: '/studies/castle-dale/data/',
+        kicker: 'Data',
+        title: 'Castle Dale by the Numbers',
+        description:
+          'Census counts for 1880 and 1900 with population pyramids, what became of the 49 households of 1880, and the 171 federal land patents of 1883-1920, each with an as-of date.',
+        cta: 'Open the data page',
+      },
+      {
+        href: '/studies/castle-dale/news/',
+        kicker: 'Newspapers',
+        title: 'Castle Dale in the News',
+        description:
+          'Early newspaper notices about Castle Dale, each with paper, date and a link to the page at Utah Digital Newspapers. New items are added as their links are verified.',
+        cta: 'Read the notices',
+      },
     ],
     contribute: {
       heading: 'Do you have Castle Dale roots?',

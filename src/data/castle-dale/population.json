@@ -1,0 +1,106 @@
+{
+ "as_of": "2026-11-21",
+ "note": "U.S. census population schedules, Castle Dale precinct. 1890 schedule destroyed (1921 fire). 1880: ED 18 pp. 4-9; 1900: ED 195 sheets 1A-8B, Castle Dale precinct only (Orangeville precinct excluded).",
+ "years": {
+  "1880": {
+   "persons": 264,
+   "male": 146,
+   "female": 118,
+   "not_charted": 0,
+   "source": "1880 U.S. census, Emery Co., Utah Terr., ED 18, Castle Dale, pop. sched. pp. 4-9 (enum. L. D. Ensign, 11-17 June 1880); NARA T9, roll 1336; SRC-1880-census-emery-county; ages from the image sweep sweep_logs/SWP-1880-US-census-Castle-Dale_transcription.csv (D-046). Coverage 100% (page 9 line 18 'Here Ends Castle Dale'). Sex taken from the OPS record for 1 person(s) written otherwise.",
+   "bands": [
+    {
+     "age": "0-9",
+     "male": 60,
+     "female": 49
+    },
+    {
+     "age": "10-19",
+     "male": 24,
+     "female": 23
+    },
+    {
+     "age": "20-29",
+     "male": 31,
+     "female": 30
+    },
+    {
+     "age": "30-39",
+     "male": 17,
+     "female": 10
+    },
+    {
+     "age": "40-49",
+     "male": 8,
+     "female": 3
+    },
+    {
+     "age": "50-59",
+     "male": 4,
+     "female": 2
+    },
+    {
+     "age": "60-69",
+     "male": 2,
+     "female": 1
+    },
+    {
+     "age": "70 and over",
+     "male": 0,
+     "female": 0
+    }
+   ],
+   "dwellings": 49
+  },
+  "1900": {
+   "persons": 718,
+   "male": 355,
+   "female": 352,
+   "not_charted": 11,
+   "source": "1900 U.S. census, Emery Co., Utah, Castle Dale Precinct (town and outlying farms), ED 195, sheets 1A-8B (dw. 1-128); NARA T623, roll 1683; SRC-1900-census-emery-county; transcription sweep_logs/SWP-1900-US-census-Castle-Dale_transcription.csv (D-043). Coverage 100% of the precinct (sheet 8B 'Here ends the enumeration of Castle Dale Precinct'). The Orangeville precinct of the same ED (sheets 9A+) is not included. Sex taken from the OPS record for 93 persons; age worked out from the birth date for 18.",
+   "bands": [
+    {
+     "age": "0-9",
+     "male": 122,
+     "female": 123
+    },
+    {
+     "age": "10-19",
+     "male": 81,
+     "female": 97
+    },
+    {
+     "age": "20-29",
+     "male": 53,
+     "female": 48
+    },
+    {
+     "age": "30-39",
+     "male": 39,
+     "female": 42
+    },
+    {
+     "age": "40-49",
+     "male": 28,
+     "female": 20
+    },
+    {
+     "age": "50-59",
+     "male": 16,
+     "female": 12
+    },
+    {
+     "age": "60-69",
+     "male": 9,
+     "female": 8
+    },
+    {
+     "age": "70 and over",
+     "male": 7,
+     "female": 2
+    }
+   ],
+   "dwellings": 128
+  }
+ }
+}

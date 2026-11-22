@@ -1,0 +1,10 @@
+{
+ "as_of": "2026-11-21",
+ "note": "Where the 49 dwellings of 1880 had at least one member in 1900, by surname search of ED 195 (Castle Dale sheet transcription plus the Orangeville index survey). Married daughters under new surnames are not traced; \"not found\" is not \"gone\".",
+ "counts": {
+  "not_found": 34,
+  "castle_dale": 8,
+  "orangeville": 7
+ },
+ "total": 49
+}
